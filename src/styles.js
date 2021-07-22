@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import cecilieBold from "./fonts/Cecilie-Bold.otf";
 import cecilieBook from "./fonts/Cecilie-Book.otf";
 
@@ -22,5 +22,8 @@ export const GlobalStyle = createGlobalStyle`
     color: #1E1E1E;
     font-family: 'Cecilie Sans', sans-serif;
     font-weight: 400;
+    margin: 0;
+    padding: 0;
+    text-rendering: optimizeLegibility;
   }
 `;

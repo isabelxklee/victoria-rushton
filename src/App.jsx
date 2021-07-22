@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { GlobalStyle } from "./styles";
+import { Switch, Route } from "react-router-dom";
+import About from "./pages/Home";
+import Type from "./pages/Type";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -22,15 +27,25 @@ const App = () => {
   console.log(data);
 
   return (
-    <div className="App">
+    <>
       <GlobalStyle />
-      <header className="App-header">
-        <p>Victoria Rushton</p>
-        <form action="/create-checkout-session" method="POST">
-          <button type="submit">Checkout</button>
-        </form>
-      </header>
-    </div>
+      <p>Victoria Rushton</p>
+      {/* <form action="/create-checkout-session" method="POST">
+        <button type="submit">Checkout</button>
+      </form> */}
+      <Footer />
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/type">
+          <Type />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </>
   );
 };
 
