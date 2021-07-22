@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { GlobalStyle } from "./styles";
 
-function App() {
+const App = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("/express-backend");
+      const body = await response.json();
+
+      if (!response.ok) {
+        console.log(body.message);
+      }
+
+      setData(body.express);
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(data);
+
   return (
     <div className="App">
+      <GlobalStyle />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Victoria Rushton</p>
+        <form action="/create-checkout-session" method="POST">
+          <button type="submit">Checkout</button>
+        </form>
       </header>
     </div>
   );
-}
+};
 
 export default App;
