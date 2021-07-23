@@ -1,6 +1,7 @@
-import styled, { createGlobalStyle } from "styled-components";
-import cecilieBold from "./fonts/Cecilie-Bold.otf";
-import cecilieBook from "./fonts/Cecilie-Book.otf";
+import styled, {createGlobalStyle} from 'styled-components'
+import {Link} from 'react-router-dom'
+import cecilieBold from './fonts/Cecilie-Bold.otf'
+import cecilieBook from './fonts/Cecilie-Book.otf'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -26,10 +27,17 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     text-rendering: optimizeLegibility;
   }
-`;
+`
 
 export const TextLink = styled.a`
   font-weight: 700;
   color: #f4f4f4;
   text-decoration: none;
-`;
+`
+
+export const InternalLink = styled(Link)`
+  font-weight: 700;
+  color: #1e1e1e;
+  text-decoration: none;
+  margin: 0 20px;
+`
