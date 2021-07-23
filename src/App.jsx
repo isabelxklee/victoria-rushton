@@ -9,6 +9,7 @@ import Header from './components/Header'
 
 const App = () => {
   const [data, setData] = useState(null)
+  const [fonts, setFonts] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,12 +21,14 @@ const App = () => {
       }
 
       setData(body.express)
+
+      const responseFonts = await fetch('/db.json')
+      const bodyFonts = await responseFonts.json()
+      setFonts(bodyFonts.fonts)
     }
 
     fetchData()
   }, [])
-
-  console.log(data)
 
   return (
     <>

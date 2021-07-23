@@ -4,9 +4,9 @@ import {InternalLink} from '../../styles'
 
 const Header = () => (
   <HeaderContainer>
-    <InternalLink>Victoria Rushton</InternalLink>
-    <InternalLink>Type</InternalLink>
-    <InternalLink>About</InternalLink>
+    <InternalLink to="/">Victoria Rushton</InternalLink>
+    <InternalLink to="/type">Type</InternalLink>
+    <InternalLink to="/about">About</InternalLink>
   </HeaderContainer>
 )
 
