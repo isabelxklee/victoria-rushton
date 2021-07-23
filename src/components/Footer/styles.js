@@ -6,5 +6,5 @@ export const FooterContainer = styled.div`
   padding: 32px 80px;
   position: absolute;
   bottom: 0;
-  width: 100vw;
+  width: calc(100vw - 160px);
 `;

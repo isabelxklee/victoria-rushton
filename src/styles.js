@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import cecilieBold from "./fonts/Cecilie-Bold.otf";
 import cecilieBook from "./fonts/Cecilie-Book.otf";
 
@@ -26,4 +26,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     text-rendering: optimizeLegibility;
   }
+`;
+
+export const TextLink = styled.a`
+  font-weight: 700;
+  color: #f4f4f4;
+  text-decoration: none;
 `;

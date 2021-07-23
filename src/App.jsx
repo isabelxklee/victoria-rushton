@@ -29,10 +29,9 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <p>Victoria Rushton</p>
-      {/* <form action="/create-checkout-session" method="POST">
+      <form action="/create-checkout-session" method="POST">
         <button type="submit">Checkout</button>
-      </form> */}
+      </form>
       <Footer />
       <Switch>
         <Route path="/about">
