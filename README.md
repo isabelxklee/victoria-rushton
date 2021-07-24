@@ -1,11 +1,5 @@
 # Victoria Rushton's typography portfolio 🖋
 
-### Table of contents
-* [Getting started](#getting-started)
-* [Tools](#tools)
-
-<a name="getting-started"/>
-
 ### Getting started
 1. Install [Node.js](https://www.npmjs.com/get-npm).
 
@@ -21,8 +15,6 @@
     ```$ yarn start```
     
 5. Open your browser and navigate to `http://localhost:3000/`.
-
-<a name="tools"/>
 
 ### Tools
 * React.js
