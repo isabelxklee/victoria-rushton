@@ -37,7 +37,6 @@ const App = () => {
         <button type="submit">Checkout</button>
       </form> */}
       <Header />
-      <Footer />
       <Switch>
         {/* <Route path="/about">
           <About />
@@ -49,6 +48,7 @@ const App = () => {
           <Home fonts={fonts} />
         </Route>
       </Switch>
+      <Footer />
     </>
   )
 }

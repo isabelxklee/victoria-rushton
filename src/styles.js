@@ -39,5 +39,5 @@ export const InternalLink = styled(Link)`
   font-weight: 700;
   color: #1e1e1e;
   text-decoration: none;
-  margin: 0 20px;
+  margin-right: 20px;
 `
