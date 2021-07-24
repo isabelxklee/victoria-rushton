@@ -8,19 +8,14 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 
 const App = () => {
-  const [data, setData] = useState(null)
+  // const [data, setData] = useState(null)
   const [fonts, setFonts] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('/express-backend')
-      const body = await response.json()
-
-      if (!response.ok) {
-        console.log(body.message)
-      }
-
-      setData(body.express)
+      // const response = await fetch('https://victoria-rushton-express.herokuapp.com/express-backend')
+      // const body = await response.json()
+      // setData(body.express)
 
       const responseFonts = await fetch('https://victoria-rushton-db.herokuapp.com/fonts')
       const bodyFonts = await responseFonts.json()
@@ -29,8 +24,6 @@ const App = () => {
 
     fetchData()
   }, [])
-
-  console.log(data)
 
   return (
     <>
