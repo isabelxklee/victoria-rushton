@@ -5,7 +5,7 @@
 
     ```$ brew install node```
 
-2. Clone this repo and cd into the directory.
+2. Clone this repo and `cd` into the directory.
 3. Install all dependencies.
 
     ```$ yarn install```
