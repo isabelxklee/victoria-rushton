@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 export const FontHeroContainer = styled.div`
-  padding: 32px 0;
   position: relative;
-  margin: 80px;
+  margin: 0 80px;
+`
+
+export const Content = styled.div`
+  padding: 80px 0;
 `

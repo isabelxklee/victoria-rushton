@@ -41,3 +41,8 @@ export const InternalLink = styled(Link)`
   text-decoration: none;
   margin-right: 20px;
 `
+
+export const Divider = styled.div`
+  width: 100%;
+  border: 1px solid #1e1e1e;
+`
