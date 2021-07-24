@@ -22,13 +22,15 @@ const App = () => {
 
       setData(body.express)
 
-      const responseFonts = await fetch('/db.json')
+      const responseFonts = await fetch('https://victoria-rushton-db.herokuapp.com/fonts')
       const bodyFonts = await responseFonts.json()
-      setFonts(bodyFonts.fonts)
+      setFonts(bodyFonts)
     }
 
     fetchData()
   }, [])
+
+  console.log(fonts, data)
 
   return (
     <>
