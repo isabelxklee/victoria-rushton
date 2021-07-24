@@ -13,5 +13,5 @@ export const HeroPreview = styled.h2`
   font-size: 90px;
   font-weight: 400;
   line-height: 0.9;
-  margin: 80px 0;
+  margin: 120px 0;
 `

@@ -46,3 +46,9 @@ export const Divider = styled.div`
   width: 100%;
   border: 1px solid #1e1e1e;
 `
+
+export const P = styled.p`
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+`

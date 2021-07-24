@@ -1,5 +1,5 @@
 import React from 'react'
-import {InternalLink, Divider} from '../../styles'
+import {InternalLink, Divider, P} from '../../styles'
 import {FontHeroContainer, Content, HeroPreview} from './styles'
 
 const FontHero = ({font}) => (
@@ -7,7 +7,7 @@ const FontHero = ({font}) => (
     <Divider />
     <Content>
       <InternalLink to={`/type/${font.name.toLowerCase().replace(/\s+/g, '-')}`}>
-        <p>{font.name}</p>
+        <P>{font.name}</P>
         <HeroPreview>{font.preview}</HeroPreview>
         View this font
       </InternalLink>
