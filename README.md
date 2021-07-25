@@ -1,4 +1,4 @@
-# Victoria Rushton's typography portfolio 🖋
+# Victoria Rushton's typography portfolio 🖋✨
 
 ### Getting started
 1. Install [Node.js](https://www.npmjs.com/get-npm).
