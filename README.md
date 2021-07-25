@@ -20,5 +20,6 @@
 * React.js
 * Express.js
 * HTML/CSS
+* [styled components](https://styled-components.com/)
 * [Stripe API](https://stripe.com/docs/payments/accept-a-payment?platform=web&ui=checkout): accept payments using Stripe
 * [Netlify](https://www.netlify.com): front-end hosting service 
