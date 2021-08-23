@@ -1,6 +1,6 @@
-# Victoria Rushton's typography portfolio 🖋
+# Victoria Rushton's typography portfolio 🖋✨
 
-### Getting started
+## Getting started
 1. Install [Node.js](https://www.npmjs.com/get-npm).
 
     ```$ brew install node```
@@ -16,8 +16,10 @@
     
 5. Open your browser and navigate to `http://localhost:3000/`.
 
-### Tools
+## Tools
 * React.js
+* Express.js
 * HTML/CSS
+* [styled components](https://styled-components.com/)
 * [Stripe API](https://stripe.com/docs/payments/accept-a-payment?platform=web&ui=checkout): accept payments using Stripe
 * [Netlify](https://www.netlify.com): front-end hosting service 
