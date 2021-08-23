@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Slider = ({title, value}) => {
+const Slider = ({title, values}) => {
   return (
     <>
-      <p>{title}</p>
-      <p>{value}</p>
+      <div>
+        <p>{title}</p>
+        <p>{values[0]}</p>
+      </div>
       <progress id={title} max="100" value="70">
         70%
       </progress>
