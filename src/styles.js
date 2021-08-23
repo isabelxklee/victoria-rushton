@@ -52,3 +52,8 @@ export const P = styled.p`
   font-size: 16px;
   font-weight: 400;
 `
+
+export const Wrapper = styled.div`
+  margin: 80px;
+  padding: 0;
+`

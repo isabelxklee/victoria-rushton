@@ -3,7 +3,6 @@ import {P} from '../../styles'
 
 export const FontHeroContainer = styled.div`
   position: relative;
-  margin: 0 80px;
 `
 
 export const Content = styled.div`

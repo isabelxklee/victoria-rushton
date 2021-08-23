@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {GlobalStyle} from './styles'
+import {GlobalStyle, Wrapper} from './styles'
 import {Switch, Route} from 'react-router-dom'
 // import About from './pages/Home'
 // import Type from './pages/Type'
@@ -29,26 +29,28 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      {/* <form action="/create-checkout-session" method="POST">
+      <Wrapper>
+        {/* <form action="/create-checkout-session" method="POST">
         <button type="submit">Checkout</button>
       </form> */}
-      <Header />
-      <Switch>
-        {/* <Route path="/about">
+        <Header />
+        <Switch>
+          {/* <Route path="/about">
           <About />
         </Route>
         <Route path="/type">
           <Type />
         </Route> */}
-        <Route exact path="/">
-          <Home fonts={fonts} />
-        </Route>
-        {fonts.map((font) => (
-          <Route key={font.id} path={`/type/${font.name.toLowerCase().replace(/\s+/g, '-')}`}>
-            <FontProfile font={font} key={font.id} />
+          <Route exact path="/">
+            <Home fonts={fonts} />
           </Route>
-        ))}
-      </Switch>
+          {fonts.map((font) => (
+            <Route key={font.id} path={`/type/${font.name.toLowerCase().replace(/\s+/g, '-')}`}>
+              <FontProfile font={font} key={font.id} />
+            </Route>
+          ))}
+        </Switch>
+      </Wrapper>
       <Footer />
     </>
   )
