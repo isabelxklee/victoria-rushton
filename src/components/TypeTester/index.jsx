@@ -1,19 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Select from 'react-select'
 // import Slider from '../Slider'
 
+const options = [
+  {value: 'thing', label: 'Thin'},
+  {value: 'light', label: 'Light'},
+  {value: 'regular', label: 'Regular'},
+  {value: 'bold', label: 'Bold'},
+]
+
 const TypeTester = () => {
+  const [weight, setWeight] = useState(null)
+
   return (
     <div>
       <div>
         <label>
           weight
-          <select>
-            {['thin', 'light', 'regular', 'bold'].map((weight) => (
-              <option value={weight} key={weight}>
-                {weight}
-              </option>
-            ))}
-          </select>
+          <Select
+            defaultValue={weight}
+            onChange={setWeight}
+            options={options}
+            placeholder={'Select a font weight'}
+          />
         </label>
         {/* <Slider title="weight" values={['thin', 'light', 'regular', 'bold']} /> */}
       </div>
