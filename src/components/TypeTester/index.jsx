@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Select from 'react-select'
+import {OutputText} from './styles'
 // import Slider from '../Slider'
 
 const options = [
@@ -27,7 +28,7 @@ const TypeTester = () => {
         {/* <Slider title="weight" values={['thin', 'light', 'regular', 'bold']} /> */}
       </div>
       <div>
-        <p>Type something in here...</p>
+        <OutputText $weight={weight}>Type something in here...</OutputText>
       </div>
     </div>
   )
