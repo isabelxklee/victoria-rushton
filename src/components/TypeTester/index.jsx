@@ -4,14 +4,18 @@ import {OutputText} from './styles'
 // import Slider from '../Slider'
 
 const options = [
-  {value: 'thing', label: 'Thin'},
-  {value: 'light', label: 'Light'},
-  {value: 'regular', label: 'Regular'},
-  {value: 'bold', label: 'Bold'},
+  {value: 200, label: 'Light'},
+  {value: 300, label: 'Book'},
+  {value: 400, label: 'Regular'},
+  {value: 500, label: 'Medium'},
+  {value: 700, label: 'Bold'},
+  {value: 900, label: 'Black'},
 ]
 
 const TypeTester = () => {
-  const [weight, setWeight] = useState(null)
+  const [weight, setWeight] = useState(400)
+
+  console.log(weight)
 
   return (
     <div>
@@ -28,7 +32,7 @@ const TypeTester = () => {
         {/* <Slider title="weight" values={['thin', 'light', 'regular', 'bold']} /> */}
       </div>
       <div>
-        <OutputText $weight={weight}>Type something in here...</OutputText>
+        <OutputText $weight={weight.value}>Type something in here...</OutputText>
       </div>
     </div>
   )

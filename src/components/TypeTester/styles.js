@@ -6,4 +6,6 @@ export const OutputText = styled.p.attrs(({$weight}) => ({
   },
 }))`
   display: flex;
+  font-family: 'Embury Text';
+  font-size: 42px;
 `
