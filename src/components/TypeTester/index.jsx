@@ -1,7 +1,9 @@
 import React from 'react'
-import {Container, ReactSelect} from './styles'
+import Selector from '../Selector'
+import SliderInput from '../Slider'
+import {Container} from './styles'
 
-const options = [
+const weightOptions = [
   {value: 200, label: 'Light'},
   {value: 300, label: 'Book'},
   {value: 400, label: 'Regular'},
@@ -10,12 +12,19 @@ const options = [
   {value: 900, label: 'Black'},
 ]
 
-const TypeTester = ({weight, setWeight}) => {
+const TypeTester = ({weight, setWeight, size, setSize}) => {
   return (
     <Container>
-      <div>
+      <Selector
+        title="Weight"
+        options={weightOptions}
+        defaultValue={weight}
+        handleChange={setWeight}
+      />
+      <SliderInput title="Size" defaultValue={size} handleChange={setSize} />
+      {/* <div>
         <label>
-          weight
+          Weight
           <ReactSelect
             defaultValue={weight}
             onChange={setWeight}
@@ -23,7 +32,7 @@ const TypeTester = ({weight, setWeight}) => {
             placeholder={'Select a font weight'}
           />
         </label>
-      </div>
+      </div> */}
     </Container>
   )
 }

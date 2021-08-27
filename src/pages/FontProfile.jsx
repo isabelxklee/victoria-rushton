@@ -4,14 +4,13 @@ import {OutputText, TypeTesterContainer, OutputTextContainer} from '../component
 
 const FontProfile = ({font}) => {
   const [weight, setWeight] = useState(400)
-
-  console.log(weight, setWeight)
+  const [size, setSize] = useState(24)
 
   return (
     <div>
       <h1>{font.name}</h1>
       <TypeTesterContainer>
-        <TypeTester weight={weight} setWeight={setWeight} />
+        <TypeTester weight={weight} setWeight={setWeight} size={size} setSize={setSize} />
         <OutputTextContainer>
           <OutputText $weight={weight.value}>Type something in here...</OutputText>
         </OutputTextContainer>

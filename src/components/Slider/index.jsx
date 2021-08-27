@@ -1,17 +1,15 @@
 import React from 'react'
+import Slider from '@material-ui/core/Slider'
 
-const Slider = ({title, values}) => {
+const SliderInput = ({title, handleChange, size}) => {
   return (
     <>
-      <div>
-        <p>{title}</p>
-        <p>{values[0]}</p>
-      </div>
-      <progress id={title} max="100" value="70">
-        70%
-      </progress>
+      <label>
+        {title}
+        <Slider value={size} onChange={handleChange} aria-labelledby="continuous-slider" />
+      </label>
     </>
   )
 }
 
-export default Slider
+export default SliderInput
