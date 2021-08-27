@@ -2,6 +2,9 @@ import styled, {createGlobalStyle} from 'styled-components'
 import {Link} from 'react-router-dom'
 import cecilieBold from './fonts/Cecilie-Bold.otf'
 import cecilieBook from './fonts/Cecilie-Book.otf'
+import emburyBold from './fonts/Embury_Text-Bold.otf'
+import emburyRegular from './fonts/Embury_Text-Regular.otf'
+import emburyLight from './fonts/Embury_Text-Light.otf'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -16,6 +19,27 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: 400;
     src: url(${cecilieBook});
+  }
+
+  @font-face {
+    font-family: 'Embury Text';
+    font-style: normal;
+    font-weight: 200;
+    src: url(${emburyLight});
+  }
+
+  @font-face {
+    font-family: 'Embury Text';
+    font-style: normal;
+    font-weight: 400;
+    src: url(${emburyRegular});
+  }
+
+  @font-face {
+    font-family: 'Embury Text';
+    font-style: normal;
+    font-weight: 700;
+    src: url(${emburyBold});
   }
 
   body {

@@ -1,26 +1,28 @@
 import React from 'react'
-// import Slider from '../Slider'
+import Selector from '../Selector'
+import SliderInput from '../Slider'
+import {Container} from './styles'
 
-const TypeTester = () => {
+const weightOptions = [
+  {value: 200, label: 'Light'},
+  {value: 300, label: 'Book'},
+  {value: 400, label: 'Regular'},
+  {value: 500, label: 'Medium'},
+  {value: 700, label: 'Bold'},
+  {value: 900, label: 'Black'},
+]
+
+const TypeTester = ({weight, setWeight, size, handleSizeChange}) => {
   return (
-    <div>
-      <div>
-        <label>
-          weight
-          <select>
-            {['thin', 'light', 'regular', 'bold'].map((weight) => (
-              <option value={weight} key={weight}>
-                {weight}
-              </option>
-            ))}
-          </select>
-        </label>
-        {/* <Slider title="weight" values={['thin', 'light', 'regular', 'bold']} /> */}
-      </div>
-      <div>
-        <p>Type something in here...</p>
-      </div>
-    </div>
+    <Container>
+      <Selector
+        title="Weight"
+        options={weightOptions}
+        defaultValue={weight}
+        handleChange={setWeight}
+      />
+      <SliderInput title="Size" size={size} handleSizeChange={handleSizeChange} />
+    </Container>
   )
 }
 
