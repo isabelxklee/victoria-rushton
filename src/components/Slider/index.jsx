@@ -6,7 +6,22 @@ const SliderInput = ({title, handleChange, size}) => {
     <>
       <label>
         {title}
-        <Slider value={size} onChange={handleChange} aria-labelledby="continuous-slider" />
+        {/* <Slider
+          defaultValue={size}
+          // getAriaValueText={`${size}px`}
+          aria-labelledby="discrete-slider"
+          valueLabelDisplay="auto"
+          step={8}
+          marks
+          min={8}
+          max={200}
+        /> */}
+        <p>{size}</p>
+        <Slider
+          value={size}
+          onChange={(newValue) => handleChange(newValue)}
+          aria-labelledby="continuous-slider"
+        />
       </label>
     </>
   )

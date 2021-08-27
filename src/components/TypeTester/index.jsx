@@ -21,7 +21,7 @@ const TypeTester = ({weight, setWeight, size, setSize}) => {
         defaultValue={weight}
         handleChange={setWeight}
       />
-      <SliderInput title="Size" defaultValue={size} handleChange={setSize} />
+      <SliderInput title="Size" size={size} handleChange={setSize} />
       {/* <div>
         <label>
           Weight
