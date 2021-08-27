@@ -12,7 +12,7 @@ const weightOptions = [
   {value: 900, label: 'Black'},
 ]
 
-const TypeTester = ({weight, setWeight, size, setSize}) => {
+const TypeTester = ({weight, setWeight, size, handleSizeChange}) => {
   return (
     <Container>
       <Selector
@@ -21,18 +21,7 @@ const TypeTester = ({weight, setWeight, size, setSize}) => {
         defaultValue={weight}
         handleChange={setWeight}
       />
-      <SliderInput title="Size" size={size} handleChange={setSize} />
-      {/* <div>
-        <label>
-          Weight
-          <ReactSelect
-            defaultValue={weight}
-            onChange={setWeight}
-            options={options}
-            placeholder={'Select a font weight'}
-          />
-        </label>
-      </div> */}
+      <SliderInput title="Size" size={size} handleSizeChange={handleSizeChange} />
     </Container>
   )
 }
