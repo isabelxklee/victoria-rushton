@@ -1,6 +1,5 @@
 import React from 'react'
-import Select from 'react-select'
-import {Container} from './styles'
+import {Container, ReactSelect} from './styles'
 
 const options = [
   {value: 200, label: 'Light'},
@@ -17,7 +16,7 @@ const TypeTester = ({weight, setWeight}) => {
       <div>
         <label>
           weight
-          <Select
+          <ReactSelect
             defaultValue={weight}
             onChange={setWeight}
             options={options}

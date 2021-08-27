@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Select from 'react-select'
 
 export const OutputText = styled.p.attrs(({$weight}) => ({
   style: {
@@ -11,15 +12,20 @@ export const OutputText = styled.p.attrs(({$weight}) => ({
   flex-grow: 1;
 `
 
+export const ReactSelect = styled(Select)`
+  width: 250px;
+  color: #1f1e1d;
+`
+
+export const TypeTesterContainer = styled.div`
+  display: flex;
+`
+
 export const Container = styled.div`
   background-color: #1f1e1d;
   color: #f4f4f4;
   padding: 80px;
   flex-grow: 1;
-`
-
-export const TypeTesterContainer = styled.div`
-  display: flex;
 `
 
 export const OutputTextContainer = styled.div`
