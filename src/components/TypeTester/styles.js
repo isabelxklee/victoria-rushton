@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
-export const OutputText = styled.p.attrs(({$weight}) => ({
+export const OutputText = styled.p.attrs(({$weight, $size}) => ({
   style: {
     fontWeight: `${$weight}`,
+    fontSize: `${$size}px`,
   },
 }))`
   display: flex;
@@ -19,11 +20,9 @@ export const Container = styled.div`
   background-color: #1f1e1d;
   color: #f4f4f4;
   padding: 80px;
-  /* flex-grow: 1; */
   width: 300px;
 `
 
 export const OutputTextContainer = styled.div`
-  flex-grow: 1;
   padding: 40px;
 `

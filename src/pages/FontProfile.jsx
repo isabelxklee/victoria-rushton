@@ -21,7 +21,9 @@ const FontProfile = ({font}) => {
           handleSizeChange={handleSizeChange}
         />
         <OutputTextContainer>
-          <OutputText $weight={weight.value}>Type something in here...</OutputText>
+          <OutputText $weight={weight.value} $size={size}>
+            Type something in here...
+          </OutputText>
         </OutputTextContainer>
       </TypeTesterContainer>
     </div>

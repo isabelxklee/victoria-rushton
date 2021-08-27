@@ -7,7 +7,13 @@ const SliderInput = ({title, handleSizeChange, size}) => {
       <label>
         {title}
         <p>{size}</p>
-        <Slider value={size} onChange={handleSizeChange} aria-labelledby="continuous-slider" />
+        <Slider
+          value={size}
+          onChange={handleSizeChange}
+          min={8}
+          max={200}
+          aria-labelledby="continuous-slider"
+        />
       </label>
     </>
   )
