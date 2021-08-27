@@ -1,5 +1,6 @@
 import React from 'react'
 import Select from 'react-select'
+import {Container} from './styles'
 
 const options = [
   {value: 200, label: 'Light'},
@@ -12,7 +13,7 @@ const options = [
 
 const TypeTester = ({weight, setWeight}) => {
   return (
-    <div>
+    <Container>
       <div>
         <label>
           weight
@@ -24,7 +25,7 @@ const TypeTester = ({weight, setWeight}) => {
           />
         </label>
       </div>
-    </div>
+    </Container>
   )
 }
 
