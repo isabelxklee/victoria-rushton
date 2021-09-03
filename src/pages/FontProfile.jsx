@@ -13,6 +13,7 @@ const FontProfile = ({font}) => {
     <div>
       <h1>{font.name}</h1>
       <TypeTester
+        font={font}
         weight={weight}
         setWeight={setWeight}
         size={size}

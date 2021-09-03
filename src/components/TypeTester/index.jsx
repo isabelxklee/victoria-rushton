@@ -26,10 +26,15 @@ const Panel = ({weight, setWeight, size, handleSizeChange}) => {
   )
 }
 
-const TypeTester = (weight, size) => {
+const TypeTester = ({font, weight, setWeight, size, handleSizeChange}) => {
   return (
     <TypeTesterContainer>
-      <Panel />
+      <Panel
+        weight={weight}
+        setWeight={setWeight}
+        size={size}
+        handleSizeChange={handleSizeChange}
+      />
       <OutputTextContainer>
         <InputField
           type="textarea"
@@ -37,6 +42,7 @@ const TypeTester = (weight, size) => {
           placeholder="Type something..."
           $weight={weight.value}
           $size={size}
+          $fontFamily={font.name}
         />
       </OutputTextContainer>
     </TypeTesterContainer>

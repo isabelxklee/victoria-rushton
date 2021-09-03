@@ -36,4 +36,5 @@ export const InputField = styled.input.attrs(({$weight, $size}) => ({
   border: none;
   background-color: #f4f4f4;
   color: #1f1e1d;
+  font-family: ${({$fontFamily}) => $fontFamily};
 `
