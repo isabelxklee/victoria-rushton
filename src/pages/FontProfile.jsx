@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import TypeTester from '../components/TypeTester'
-import {OutputText, TypeTesterContainer, OutputTextContainer} from '../components/TypeTester/styles'
 
 const FontProfile = ({font}) => {
   const [weight, setWeight] = useState(400)
@@ -13,19 +12,12 @@ const FontProfile = ({font}) => {
   return (
     <div>
       <h1>{font.name}</h1>
-      <TypeTesterContainer>
-        <TypeTester
-          weight={weight}
-          setWeight={setWeight}
-          size={size}
-          handleSizeChange={handleSizeChange}
-        />
-        <OutputTextContainer>
-          <OutputText $weight={weight.value} $size={size}>
-            Type something in here...
-          </OutputText>
-        </OutputTextContainer>
-      </TypeTesterContainer>
+      <TypeTester
+        weight={weight}
+        setWeight={setWeight}
+        size={size}
+        handleSizeChange={handleSizeChange}
+      />
     </div>
   )
 }
