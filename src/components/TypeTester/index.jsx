@@ -1,7 +1,7 @@
 import React from 'react'
 import Selector from '../Selector'
 import SliderInput from '../Slider'
-import {Container} from './styles'
+import {TypeTesterContainer, OutputTextContainer, PanelContainer, InputField} from './styles'
 
 const weightOptions = [
   {value: 200, label: 'Light'},
@@ -12,9 +12,9 @@ const weightOptions = [
   {value: 900, label: 'Black'},
 ]
 
-const TypeTester = ({weight, setWeight, size, handleSizeChange}) => {
+const Panel = ({weight, setWeight, size, handleSizeChange}) => {
   return (
-    <Container>
+    <PanelContainer>
       <Selector
         title="Weight"
         options={weightOptions}
@@ -22,7 +22,29 @@ const TypeTester = ({weight, setWeight, size, handleSizeChange}) => {
         handleChange={setWeight}
       />
       <SliderInput title="Size" size={size} handleSizeChange={handleSizeChange} />
-    </Container>
+    </PanelContainer>
+  )
+}
+
+const TypeTester = ({font, weight, setWeight, size, handleSizeChange}) => {
+  return (
+    <TypeTesterContainer>
+      <Panel
+        weight={weight}
+        setWeight={setWeight}
+        size={size}
+        handleSizeChange={handleSizeChange}
+      />
+      <OutputTextContainer>
+        <InputField
+          name="input"
+          placeholder="Type something..."
+          $weight={weight.value}
+          $size={size}
+          $fontFamily={font.name}
+        />
+      </OutputTextContainer>
+    </TypeTesterContainer>
   )
 }
 
