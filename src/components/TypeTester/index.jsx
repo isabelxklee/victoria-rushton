@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Selector from '../Selector'
 import SliderInput from '../Slider'
 import {TypeTesterContainer, OutputTextContainer, PanelContainer, InputField} from './styles'
@@ -12,7 +12,18 @@ const weightOptions = [
   {value: 900, label: 'Black'},
 ]
 
-const Panel = ({weight, setWeight, size, handleSizeChange}) => {
+const Panel = ({weight, setWeight, size, handleSizeChange, darkMode, setDarkMode}) => {
+  const colorModes = [
+    {
+      value: 0,
+      label: 'Light mode',
+    },
+    {
+      value: 100,
+      label: 'Dark mode',
+    },
+  ]
+
   return (
     <PanelContainer>
       <Selector
@@ -21,12 +32,35 @@ const Panel = ({weight, setWeight, size, handleSizeChange}) => {
         defaultValue={weight}
         handleChange={setWeight}
       />
-      <SliderInput title="Size" size={size} handleSizeChange={handleSizeChange} />
+      <SliderInput
+        title="Size"
+        value={size}
+        handleChange={handleSizeChange}
+        min={8}
+        max={200}
+        ariaLabel="continuous-slider"
+      />
+      <SliderInput
+        title="Color"
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        ariaLabel="discrete-slider-restrict"
+        step={null}
+        marks={colorModes}
+      />
     </PanelContainer>
   )
 }
 
-const TypeTester = ({font, weight, setWeight, size, handleSizeChange}) => {
+const TypeTester = ({font}) => {
+  const [weight, setWeight] = useState(400)
+  const [size, setSize] = useState(24)
+  const [darkMode, setDarkMode] = useState(false)
+
+  const handleSizeChange = (event, newValue) => {
+    setSize(newValue)
+  }
+
   return (
     <TypeTesterContainer>
       <Panel
@@ -34,6 +68,8 @@ const TypeTester = ({font, weight, setWeight, size, handleSizeChange}) => {
         setWeight={setWeight}
         size={size}
         handleSizeChange={handleSizeChange}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
       />
       <OutputTextContainer>
         <InputField
