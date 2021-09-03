@@ -12,10 +12,10 @@ export const PanelContainer = styled.div`
 `
 
 export const OutputTextContainer = styled.div`
-  padding: 40px;
+  padding: 0 40px;
 `
 
-export const InputField = styled.input.attrs(({$weight, $size}) => ({
+export const InputField = styled.textarea.attrs(({$weight, $size}) => ({
   style: {
     fontWeight: `${$weight}`,
     fontSize: `${$size}px`,
@@ -25,6 +25,8 @@ export const InputField = styled.input.attrs(({$weight, $size}) => ({
   background-color: #f4f4f4;
   color: #1f1e1d;
   font-family: ${({$fontFamily}) => $fontFamily};
+  width: 100%;
+  height: 100%;
 
   ::placeholder {
     color: #1f1e1d;

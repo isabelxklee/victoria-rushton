@@ -37,7 +37,6 @@ const TypeTester = ({font, weight, setWeight, size, handleSizeChange}) => {
       />
       <OutputTextContainer>
         <InputField
-          type="textarea"
           name="input"
           placeholder="Type something..."
           $weight={weight.value}
