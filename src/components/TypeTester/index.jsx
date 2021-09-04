@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Selector from '../Selector'
 import SliderInput from '../Slider'
-import {TypeTesterContainer, OutputTextContainer, PanelContainer, InputField} from './styles'
+import {TypeTesterContainer, PanelContainer, InputField} from './styles'
 
 const weightOptions = [
   {value: 200, label: 'Light'},
@@ -76,17 +76,15 @@ const TypeTester = ({font}) => {
         darkMode={darkMode}
         handleColorModeChange={handleColorModeChange}
       />
-      <OutputTextContainer>
-        <InputField
-          name="input"
-          placeholder="Type something..."
-          $weight={weight.value}
-          $size={size}
-          $fontFamily={font.name}
-          $darkMode={darkMode ? '#1f1e1d' : '#f4f4f4'}
-          $lightMode={darkMode ? '#f4f4f4' : '#1f1e1d'}
-        />
-      </OutputTextContainer>
+      <InputField
+        name="input"
+        placeholder="Type something..."
+        $weight={weight.value}
+        $size={size}
+        $fontFamily={font.name}
+        $darkMode={darkMode ? '#1f1e1d' : '#f4f4f4'}
+        $lightMode={darkMode ? '#f4f4f4' : '#1f1e1d'}
+      />
     </TypeTesterContainer>
   )
 }

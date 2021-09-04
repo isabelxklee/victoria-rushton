@@ -11,10 +11,6 @@ export const PanelContainer = styled.div`
   width: 300px;
 `
 
-export const OutputTextContainer = styled.div`
-  padding: 0 40px;
-`
-
 export const InputField = styled.textarea.attrs(({$weight, $size, $darkMode, $lightMode}) => ({
   style: {
     fontWeight: `${$weight}`,
@@ -26,7 +22,7 @@ export const InputField = styled.textarea.attrs(({$weight, $size, $darkMode, $li
   border: none;
   font-family: ${({$fontFamily}) => $fontFamily};
   width: 100%;
-  height: 100%;
+  padding: 40px;
 
   ::placeholder {
     color: ${({$lightMode}) => $lightMode};
