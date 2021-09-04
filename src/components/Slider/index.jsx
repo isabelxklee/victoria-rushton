@@ -1,18 +1,20 @@
 import React from 'react'
 import Slider from '@material-ui/core/Slider'
 
-const SliderInput = ({title, handleSizeChange, size}) => {
+const SliderInput = ({title, handleChange, value, min, max, ariaLabel, marks, step}) => {
   return (
     <>
       <label>
         {title}
-        <p>{size}</p>
+        <p>{value}</p>
         <Slider
-          value={size}
-          onChange={handleSizeChange}
-          min={8}
-          max={200}
-          aria-labelledby="continuous-slider"
+          value={value}
+          onChange={handleChange}
+          min={min}
+          max={max}
+          aria-labelledby={ariaLabel}
+          marks={marks}
+          step={step}
         />
       </label>
     </>

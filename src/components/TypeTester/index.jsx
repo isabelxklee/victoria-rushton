@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Selector from '../Selector'
 import SliderInput from '../Slider'
-import {TypeTesterContainer, OutputTextContainer, PanelContainer, InputField} from './styles'
+import {TypeTesterContainer, PanelContainer, InputField} from './styles'
 
 const weightOptions = [
   {value: 200, label: 'Light'},
@@ -12,7 +12,18 @@ const weightOptions = [
   {value: 900, label: 'Black'},
 ]
 
-const Panel = ({weight, setWeight, size, handleSizeChange}) => {
+const Panel = ({weight, setWeight, size, handleSizeChange, handleColorModeChange}) => {
+  // const colorModes = [
+  //   {
+  //     value: 0,
+  //     label: 'Light',
+  //   },
+  //   {
+  //     value: 100,
+  //     label: 'Dark',
+  //   },
+  // ]
+
   return (
     <PanelContainer>
       <Selector
@@ -21,12 +32,40 @@ const Panel = ({weight, setWeight, size, handleSizeChange}) => {
         defaultValue={weight}
         handleChange={setWeight}
       />
-      <SliderInput title="Size" size={size} handleSizeChange={handleSizeChange} />
+      <SliderInput
+        title="Size"
+        value={size}
+        handleChange={handleSizeChange}
+        min={8}
+        max={200}
+        ariaLabel="continuous-slider"
+      />
+      {/* <SliderInput
+        title="Color"
+        darkMode={darkMode}
+        handleChange={handleColorModeChange}
+        ariaLabel="discrete-slider-restrict"
+        step={null}
+        marks={colorModes}
+      /> */}
+      <button onClick={handleColorModeChange}>Color change</button>
     </PanelContainer>
   )
 }
 
-const TypeTester = ({font, weight, setWeight, size, handleSizeChange}) => {
+const TypeTester = ({font}) => {
+  const [weight, setWeight] = useState(400)
+  const [size, setSize] = useState(24)
+  const [darkMode, setDarkMode] = useState(false)
+
+  const handleSizeChange = (event, newValue) => {
+    setSize(newValue)
+  }
+
+  const handleColorModeChange = () => {
+    setDarkMode((darkMode) => !darkMode)
+  }
+
   return (
     <TypeTesterContainer>
       <Panel
@@ -34,16 +73,18 @@ const TypeTester = ({font, weight, setWeight, size, handleSizeChange}) => {
         setWeight={setWeight}
         size={size}
         handleSizeChange={handleSizeChange}
+        darkMode={darkMode}
+        handleColorModeChange={handleColorModeChange}
       />
-      <OutputTextContainer>
-        <InputField
-          name="input"
-          placeholder="Type something..."
-          $weight={weight.value}
-          $size={size}
-          $fontFamily={font.name}
-        />
-      </OutputTextContainer>
+      <InputField
+        name="input"
+        placeholder="Type something..."
+        $weight={weight.value}
+        $size={size}
+        $fontFamily={font.name}
+        $darkMode={darkMode ? '#1f1e1d' : '#f4f4f4'}
+        $lightMode={darkMode ? '#f4f4f4' : '#1f1e1d'}
+      />
     </TypeTesterContainer>
   )
 }

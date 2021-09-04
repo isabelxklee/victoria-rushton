@@ -11,24 +11,20 @@ export const PanelContainer = styled.div`
   width: 300px;
 `
 
-export const OutputTextContainer = styled.div`
-  padding: 0 40px;
-`
-
-export const InputField = styled.textarea.attrs(({$weight, $size}) => ({
+export const InputField = styled.textarea.attrs(({$weight, $size, $darkMode, $lightMode}) => ({
   style: {
     fontWeight: `${$weight}`,
     fontSize: `${$size}px`,
+    backgroundColor: `${$darkMode}`,
+    color: `${$lightMode}`,
   },
 }))`
   border: none;
-  background-color: #f4f4f4;
-  color: #1f1e1d;
   font-family: ${({$fontFamily}) => $fontFamily};
   width: 100%;
-  height: 100%;
+  padding: 40px;
 
   ::placeholder {
-    color: #1f1e1d;
+    color: ${({$lightMode}) => $lightMode};
   }
 `
