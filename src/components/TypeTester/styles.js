@@ -15,20 +15,20 @@ export const OutputTextContainer = styled.div`
   padding: 0 40px;
 `
 
-export const InputField = styled.textarea.attrs(({$weight, $size}) => ({
+export const InputField = styled.textarea.attrs(({$weight, $size, $darkMode, $lightMode}) => ({
   style: {
     fontWeight: `${$weight}`,
     fontSize: `${$size}px`,
+    backgroundColor: `${$darkMode}`,
+    color: `${$lightMode}`,
   },
 }))`
   border: none;
-  background-color: ${({$darkMode}) => ($darkMode ? '#1f1e1d' : '#f4f4f4')};
-  color: ${({$darkMode}) => ($darkMode ? '#f4f4f4' : '#1f1e1d')};
   font-family: ${({$fontFamily}) => $fontFamily};
   width: 100%;
   height: 100%;
 
   ::placeholder {
-    color: ${({$darkMode}) => ($darkMode ? '#f4f4f4' : '#1f1e1d')};
+    color: ${({$lightMode}) => $lightMode};
   }
 `

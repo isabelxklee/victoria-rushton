@@ -13,16 +13,16 @@ const weightOptions = [
 ]
 
 const Panel = ({weight, setWeight, size, handleSizeChange, handleColorModeChange}) => {
-  const colorModes = [
-    {
-      value: 0,
-      label: 'Light',
-    },
-    {
-      value: 100,
-      label: 'Dark',
-    },
-  ]
+  // const colorModes = [
+  //   {
+  //     value: 0,
+  //     label: 'Light',
+  //   },
+  //   {
+  //     value: 100,
+  //     label: 'Dark',
+  //   },
+  // ]
 
   return (
     <PanelContainer>
@@ -83,7 +83,8 @@ const TypeTester = ({font}) => {
           $weight={weight.value}
           $size={size}
           $fontFamily={font.name}
-          $darkMode={darkMode}
+          $darkMode={darkMode ? '#1f1e1d' : '#f4f4f4'}
+          $lightMode={darkMode ? '#f4f4f4' : '#1f1e1d'}
         />
       </OutputTextContainer>
     </TypeTesterContainer>
