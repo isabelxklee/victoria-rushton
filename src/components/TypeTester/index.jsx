@@ -12,7 +12,7 @@ const weightOptions = [
   {value: 900, label: 'Black'},
 ]
 
-const Panel = ({weight, setWeight, size, handleSizeChange, darkMode, setDarkMode}) => {
+const Panel = ({weight, setWeight, size, handleSizeChange, darkMode, handleColorModeChange}) => {
   const colorModes = [
     {
       value: 0,
@@ -43,7 +43,7 @@ const Panel = ({weight, setWeight, size, handleSizeChange, darkMode, setDarkMode
       <SliderInput
         title="Color"
         darkMode={darkMode}
-        setDarkMode={setDarkMode}
+        handleChange={handleColorModeChange}
         ariaLabel="discrete-slider-restrict"
         step={null}
         marks={colorModes}
@@ -61,6 +61,10 @@ const TypeTester = ({font}) => {
     setSize(newValue)
   }
 
+  const handleColorModeChange = () => {
+    setDarkMode((darkMode) => !darkMode)
+  }
+
   return (
     <TypeTesterContainer>
       <Panel
@@ -69,7 +73,7 @@ const TypeTester = ({font}) => {
         size={size}
         handleSizeChange={handleSizeChange}
         darkMode={darkMode}
-        setDarkMode={setDarkMode}
+        handleColorModeChange={handleColorModeChange}
       />
       <OutputTextContainer>
         <InputField
