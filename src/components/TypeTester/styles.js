@@ -22,13 +22,13 @@ export const InputField = styled.textarea.attrs(({$weight, $size}) => ({
   },
 }))`
   border: none;
-  background-color: #f4f4f4;
-  color: #1f1e1d;
+  background-color: ${({$darkMode}) => ($darkMode ? '#1f1e1d' : '#f4f4f4')};
+  color: ${({$darkMode}) => ($darkMode ? '#f4f4f4' : '#1f1e1d')};
   font-family: ${({$fontFamily}) => $fontFamily};
   width: 100%;
   height: 100%;
 
   ::placeholder {
-    color: #1f1e1d;
+    color: ${({$darkMode}) => ($darkMode ? '#f4f4f4' : '#1f1e1d')};
   }
 `
