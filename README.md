@@ -28,3 +28,4 @@
 * [Netlify](https://www.netlify.com): front-end hosting service 
 * [React Select](https://react-select.com/home)
 * [Material UI](https://material-ui.com/components/slider/#continuous-sliders)
+* [Sanity.io](https://www.sanity.io/)
