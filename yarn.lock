@@ -1694,6 +1694,11 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@sanity/cli@^2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-2.18.0.tgz#ed01951b6d3945e98738477e97cd1f3fe4e61ff2"
+  integrity sha512-IgHpL8xCFpRbmFUTQDHbpZnlK0nTqoabz6RMnbXo6osFbhDeKZQZMZLlQiE4DFnbFJlDtZgfhQhXi0fcXf78Jw==
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.2"
   resolved "https://registry.npmjs.org/@sinonjs/commons/-/commons-1.8.2.tgz"
