@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-// import FontHero from '../components/FontHero'
+import FontHero from '../components/FontHero'
 import sanityClient from '../client.js'
 
 const Home = () => {
@@ -32,15 +32,7 @@ const Home = () => {
       .catch(console.error)
   }, [])
 
-  return (
-    <>
-      {fonts &&
-        fonts.map((font) => (
-          // <FontHero font={font} key={font._id} />
-          <h2>{font.title}</h2>
-        ))}
-    </>
-  )
+  return <>{fonts && fonts.map((font) => <FontHero font={font} key={font._id} />)}</>
 }
 
 export default Home
