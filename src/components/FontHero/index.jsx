@@ -1,5 +1,5 @@
 import React from 'react'
-import {Divider} from '../../styles'
+import {Divider, InternalLink} from '../../styles'
 import {FontHeroContainer, Content, HeroPreview, FontHeroP, FontHeroPRight} from './styles'
 import BlockContent from '@sanity/block-content-to-react'
 import sanityClient from '../../client.js'
@@ -13,18 +13,18 @@ const FontHero = ({font}) => {
     <FontHeroContainer>
       <Divider />
       <Content>
-        {/* <InternalLink to={`/type/${font.name.toLowerCase().replace(/\s+/g, '-')}`}> */}
-        <FontHeroP>{font.title}</FontHeroP>
-        <FontHeroPRight>{calculateStyles()} available styles</FontHeroPRight>
-        <HeroPreview>
-          <BlockContent
-            blocks={font.preview1}
-            projectId={sanityClient.clientConfig.projectId}
-            dataset={sanityClient.clientConfig.dataset}
-          />
-        </HeroPreview>
-        View this font
-        {/* </InternalLink> */}
+        <InternalLink to={'/' + font.slug} key={font._id}>
+          <FontHeroP>{font.title}</FontHeroP>
+          <FontHeroPRight>{calculateStyles()} available styles</FontHeroPRight>
+          <HeroPreview>
+            <BlockContent
+              blocks={font.preview1}
+              projectId={sanityClient.clientConfig.projectId}
+              dataset={sanityClient.clientConfig.dataset}
+            />
+          </HeroPreview>
+          View this font
+        </InternalLink>
       </Content>
     </FontHeroContainer>
   )

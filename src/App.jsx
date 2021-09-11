@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {GlobalStyle, Wrapper} from './styles'
 import {Switch, Route} from 'react-router-dom'
 // import About from './pages/Home'
@@ -10,17 +10,12 @@ import FontProfile from './pages/FontProfile'
 
 const App = () => {
   // const [data, setData] = useState(null)
-  const [fonts, setFonts] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       // const response = await fetch('https://victoria-rushton-express.herokuapp.com/express-backend')
       // const body = await response.json()
       // setData(body.express)
-
-      const responseFonts = await fetch('https://victoria-rushton-db.herokuapp.com/fonts')
-      const bodyFonts = await responseFonts.json()
-      setFonts(bodyFonts)
     }
 
     fetchData()
@@ -41,14 +36,8 @@ const App = () => {
         <Route path="/type">
           <Type />
         </Route> */}
-          <Route exact path="/">
-            <Home fonts={fonts} />
-          </Route>
-          {fonts.map((font) => (
-            <Route key={font.id} path={`/type/${font.name.toLowerCase().replace(/\s+/g, '-')}`}>
-              <FontProfile font={font} key={font.id} />
-            </Route>
-          ))}
+          <Route component={Home} exact path="/" />
+          <Route component={FontProfile} path="/:slug" />
         </Switch>
       </Wrapper>
       <Footer />
