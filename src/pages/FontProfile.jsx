@@ -2,16 +2,9 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import sanityClient from '../client.js'
 import BlockContent from '@sanity/block-content-to-react'
-import imageUrlBuilder from '@sanity/image-url'
 import TypeTester from '../components/TypeTester'
 
 const FontProfile = () => {
-  const builder = imageUrlBuilder(sanityClient)
-
-  const urlFor = (source) => {
-    return builder.image(source)
-  }
-
   const [data, setData] = useState(null)
   const {slug} = useParams()
 
@@ -43,15 +36,18 @@ const FontProfile = () => {
       .catch(console.error)
   }, [slug])
 
-  if (!data) return <div>Loading...</div>
-
   return (
     <>
       {data && (
-        <>
+        <div>
           <h1>{data.title}</h1>
-          <TypeTester font={data} />
-        </>
+          <BlockContent
+            blocks={data.preview1}
+            projectId={sanityClient.clientConfig.projectId}
+            dataset={sanityClient.clientConfig.dataset}
+          />
+          {/* <TypeTester font={data} /> */}
+        </div>
       )}
     </>
   )
