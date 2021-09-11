@@ -4,25 +4,30 @@ import {FontHeroContainer, Content, HeroPreview, FontHeroP, FontHeroPRight} from
 import BlockContent from '@sanity/block-content-to-react'
 import sanityClient from '../../client.js'
 
-const FontHero = ({font}) => (
-  <FontHeroContainer>
-    <Divider />
-    <Content>
-      {/* <InternalLink to={`/type/${font.name.toLowerCase().replace(/\s+/g, '-')}`}> */}
-      <FontHeroP>{font.title}</FontHeroP>
-      <FontHeroPRight>{font.styles} available styles</FontHeroPRight>
-      <HeroPreview>
-        <BlockContent
-          blocks={font.preview1}
-          projectId={sanityClient.clientConfig.projectId}
-          dataset={sanityClient.clientConfig.dataset}
-        />
-      </HeroPreview>
-      {/* <HeroPreview>{font.preview}</HeroPreview> */}
-      View this font
-      {/* </InternalLink> */}
-    </Content>
-  </FontHeroContainer>
-)
+const FontHero = ({font}) => {
+  const calculateStyles = () => {
+    return font.weights.length * font.slants.length
+  }
+
+  return (
+    <FontHeroContainer>
+      <Divider />
+      <Content>
+        {/* <InternalLink to={`/type/${font.name.toLowerCase().replace(/\s+/g, '-')}`}> */}
+        <FontHeroP>{font.title}</FontHeroP>
+        <FontHeroPRight>{calculateStyles()} available styles</FontHeroPRight>
+        <HeroPreview>
+          <BlockContent
+            blocks={font.preview1}
+            projectId={sanityClient.clientConfig.projectId}
+            dataset={sanityClient.clientConfig.dataset}
+          />
+        </HeroPreview>
+        View this font
+        {/* </InternalLink> */}
+      </Content>
+    </FontHeroContainer>
+  )
+}
 
 export default FontHero
