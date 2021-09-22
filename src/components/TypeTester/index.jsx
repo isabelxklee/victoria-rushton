@@ -71,6 +71,8 @@ const TypeTester = ({font}) => {
     setDarkMode((darkMode) => !darkMode)
   }
 
+  console.log(weightOptions(), weight)
+
   return (
     <TypeTesterContainer>
       <Panel
