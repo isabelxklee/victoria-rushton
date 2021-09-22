@@ -57,7 +57,10 @@ const TypeTester = ({font}) => {
   const [darkMode, setDarkMode] = useState(false)
 
   const weightOptions = () => {
-    return font.weights.map((weight) => weight.number)
+    const arr = []
+    font.weights.map((weight) => arr.push({value: weight.number, label: weight.title}))
+
+    return arr
   }
 
   const handleSizeChange = (event, newValue) => {
@@ -83,7 +86,7 @@ const TypeTester = ({font}) => {
       <InputField
         name="input"
         placeholder="Type something..."
-        $weight={weight}
+        $weight={weight.value}
         $size={size}
         $fontFamily={font.title}
         $darkMode={darkMode ? '#1f1e1d' : '#f4f4f4'}
