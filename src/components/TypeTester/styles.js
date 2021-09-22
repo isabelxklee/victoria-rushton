@@ -11,14 +11,17 @@ export const PanelContainer = styled.div`
   width: 300px;
 `
 
-export const InputField = styled.textarea.attrs(({$weight, $size, $darkMode, $lightMode}) => ({
-  style: {
-    fontWeight: `${$weight}`,
-    fontSize: `${$size}px`,
-    backgroundColor: `${$darkMode}`,
-    color: `${$lightMode}`,
-  },
-}))`
+export const InputField = styled.textarea.attrs(
+  ({$weight, $size, $darkMode, $lightMode, $slant}) => ({
+    style: {
+      fontWeight: `${$weight}`,
+      fontSize: `${$size}px`,
+      backgroundColor: `${$darkMode}`,
+      color: `${$lightMode}`,
+      fontStyle: `${$slant}`,
+    },
+  })
+)`
   border: none;
   font-family: ${({$fontFamily}) => $fontFamily};
   width: 100%;

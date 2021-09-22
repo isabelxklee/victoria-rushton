@@ -10,6 +10,9 @@ const Panel = ({
   size,
   handleSizeChange,
   handleColorModeChange,
+  slant,
+  setSlant,
+  slantOptions,
 }) => {
   // const colorModes = [
   //   {
@@ -30,6 +33,7 @@ const Panel = ({
         defaultValue={weight}
         handleChange={setWeight}
       />
+      <Selector title="Slant" options={slantOptions} defaultValue={slant} handleChange={setSlant} />
       <SliderInput
         title="Size"
         value={size}
@@ -54,11 +58,19 @@ const Panel = ({
 const TypeTester = ({font}) => {
   const [weight, setWeight] = useState(400)
   const [size, setSize] = useState(24)
+  const [slant, setSlant] = useState('Roman')
   const [darkMode, setDarkMode] = useState(false)
 
   const weightOptions = () => {
     const arr = []
     font.weights.map((weight) => arr.push({value: weight.number, label: weight.title}))
+
+    return arr
+  }
+
+  const slantOptions = () => {
+    const arr = []
+    font.slants.map((slant) => arr.push({value: slant, label: slant}))
 
     return arr
   }
@@ -71,8 +83,6 @@ const TypeTester = ({font}) => {
     setDarkMode((darkMode) => !darkMode)
   }
 
-  console.log(weightOptions(), weight)
-
   return (
     <TypeTesterContainer>
       <Panel
@@ -84,6 +94,9 @@ const TypeTester = ({font}) => {
         handleSizeChange={handleSizeChange}
         darkMode={darkMode}
         handleColorModeChange={handleColorModeChange}
+        slant={slant}
+        setSlant={setSlant}
+        slantOptions={slantOptions()}
       />
       <InputField
         name="input"
@@ -91,6 +104,7 @@ const TypeTester = ({font}) => {
         $weight={weight.value}
         $size={size}
         $fontFamily={font.title}
+        $slant={slant.value}
         $darkMode={darkMode ? '#1f1e1d' : '#f4f4f4'}
         $lightMode={darkMode ? '#f4f4f4' : '#1f1e1d'}
       />

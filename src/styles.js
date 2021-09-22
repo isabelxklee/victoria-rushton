@@ -8,7 +8,6 @@ import emburyRegular from './fonts/embury-text/Embury_Text-Regular.woff'
 import emburyItalic from './fonts/embury-text/Embury_Text-Italic.woff'
 import emburyBook from './fonts/embury-text/Embury_Text-Book.woff'
 import emburyBookItalic from './fonts/embury-text/Embury_Text-Book_Italic.woff'
-// import emburyLight from './fonts/Embury_Text-Light.otf'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -24,19 +23,13 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     src: url(${cecilieBook});
   }
-/* 
-  @font-face {
-    font-family: 'Embury Text';
-    font-style: normal;
-    font-weight: 200;
-    src: url(${emburyLight});
-  } */
 
   @font-face {
     font-family: 'Embury Text';
     font-style: normal;
     font-weight: 300;
-    src: url(${emburyBook});
+    src: url(${emburyBook}) format("woff2"),
+    url("./fonts/embury-text/Embury_Text-Book.woff") format("woff");
   }
 
   @font-face {
