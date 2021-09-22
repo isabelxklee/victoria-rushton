@@ -1,7 +1,7 @@
 import React from 'react'
 import {ReactSelect} from './styles'
 
-const Selector = ({title, options, defaultValue, handleChange}) => {
+const Selector = ({title, options, defaultValue, handleChange, isDisabled}) => {
   return (
     <>
       <label>
@@ -11,6 +11,7 @@ const Selector = ({title, options, defaultValue, handleChange}) => {
           onChange={handleChange}
           options={options}
           placeholder={`Select a ${title}`}
+          isDisabled={isDisabled}
         />
       </label>
     </>

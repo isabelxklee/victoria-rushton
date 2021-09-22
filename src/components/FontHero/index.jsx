@@ -18,7 +18,7 @@ const FontHero = ({font}) => {
           <FontHeroPRight>{calculateStyles()} available styles</FontHeroPRight>
           <HeroPreview>
             <BlockContent
-              blocks={font.preview1}
+              blocks={font.preview1text}
               projectId={sanityClient.clientConfig.projectId}
               dataset={sanityClient.clientConfig.dataset}
             />

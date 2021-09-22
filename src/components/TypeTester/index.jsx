@@ -3,16 +3,17 @@ import Selector from '../Selector'
 import SliderInput from '../Slider'
 import {TypeTesterContainer, PanelContainer, InputField} from './styles'
 
-const weightOptions = [
-  {value: 200, label: 'Light'},
-  {value: 300, label: 'Book'},
-  {value: 400, label: 'Regular'},
-  {value: 500, label: 'Medium'},
-  {value: 700, label: 'Bold'},
-  {value: 900, label: 'Black'},
-]
-
-const Panel = ({weight, setWeight, size, handleSizeChange, handleColorModeChange}) => {
+const Panel = ({
+  weight,
+  setWeight,
+  weightOptions,
+  size,
+  handleSizeChange,
+  handleColorModeChange,
+  slant,
+  setSlant,
+  slantOptions,
+}) => {
   // const colorModes = [
   //   {
   //     value: 0,
@@ -31,6 +32,13 @@ const Panel = ({weight, setWeight, size, handleSizeChange, handleColorModeChange
         options={weightOptions}
         defaultValue={weight}
         handleChange={setWeight}
+      />
+      <Selector
+        title="Slant"
+        options={slantOptions}
+        defaultValue={slant}
+        handleChange={setSlant}
+        isDisabled={slantOptions.length < 2}
       />
       <SliderInput
         title="Size"
@@ -54,9 +62,24 @@ const Panel = ({weight, setWeight, size, handleSizeChange, handleColorModeChange
 }
 
 const TypeTester = ({font}) => {
-  const [weight, setWeight] = useState(400)
-  const [size, setSize] = useState(24)
+  const [weight, setWeight] = useState({value: 400, label: 'Regular'})
+  const [size, setSize] = useState(48)
+  const [slant, setSlant] = useState({value: 'Roman', label: 'Roman'})
   const [darkMode, setDarkMode] = useState(false)
+
+  const weightOptions = () => {
+    const arr = []
+    font.weights.map((weight) => arr.push({value: weight.number, label: weight.title}))
+
+    return arr
+  }
+
+  const slantOptions = () => {
+    const arr = []
+    font.slants.map((slant) => arr.push({value: slant, label: slant}))
+
+    return arr
+  }
 
   const handleSizeChange = (event, newValue) => {
     setSize(newValue)
@@ -66,22 +89,30 @@ const TypeTester = ({font}) => {
     setDarkMode((darkMode) => !darkMode)
   }
 
+  console.log(weight)
+
   return (
     <TypeTesterContainer>
       <Panel
+        font={font}
         weight={weight}
         setWeight={setWeight}
+        weightOptions={weightOptions()}
         size={size}
         handleSizeChange={handleSizeChange}
         darkMode={darkMode}
         handleColorModeChange={handleColorModeChange}
+        slant={slant}
+        setSlant={setSlant}
+        slantOptions={slantOptions()}
       />
       <InputField
         name="input"
         placeholder="Type something..."
         $weight={weight.value}
         $size={size}
-        $fontFamily={font.name}
+        $fontFamily={font.title}
+        $slant={slant.value}
         $darkMode={darkMode ? '#1f1e1d' : '#f4f4f4'}
         $lightMode={darkMode ? '#f4f4f4' : '#1f1e1d'}
       />

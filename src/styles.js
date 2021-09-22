@@ -2,9 +2,12 @@ import styled, {createGlobalStyle} from 'styled-components'
 import {Link} from 'react-router-dom'
 import cecilieBold from './fonts/Cecilie-Bold.otf'
 import cecilieBook from './fonts/Cecilie-Book.otf'
-import emburyBold from './fonts/Embury_Text-Bold.otf'
-import emburyRegular from './fonts/Embury_Text-Regular.otf'
-import emburyLight from './fonts/Embury_Text-Light.otf'
+import emburyBold from './fonts/embury-text/Embury_Text-Bold.woff'
+import emburyBoldItalic from './fonts/embury-text/Embury_Text-Bold_Italic.woff'
+import emburyRegular from './fonts/embury-text/Embury_Text-Regular.woff'
+import emburyItalic from './fonts/embury-text/Embury_Text-Italic.woff'
+import emburyBook from './fonts/embury-text/Embury_Text-Book.woff'
+import emburyBookItalic from './fonts/embury-text/Embury_Text-Book_Italic.woff'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -24,8 +27,16 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Embury Text';
     font-style: normal;
-    font-weight: 200;
-    src: url(${emburyLight});
+    font-weight: 300;
+    src: url(${emburyBook}) format("woff2"),
+    url("./fonts/embury-text/Embury_Text-Book.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: 'Embury Text';
+    font-style: italic;
+    font-weight: 300;
+    src: url(${emburyBookItalic});
   }
 
   @font-face {
@@ -37,9 +48,23 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Embury Text';
+    font-style: italic;
+    font-weight: 400;
+    src: url(${emburyItalic});
+  }
+
+  @font-face {
+    font-family: 'Embury Text';
     font-style: normal;
     font-weight: 700;
     src: url(${emburyBold});
+  }
+
+  @font-face {
+    font-family: 'Embury Text';
+    font-style: italic;
+    font-weight: 700;
+    src: url(${emburyBoldItalic});
   }
 
   body {
