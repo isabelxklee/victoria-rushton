@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import sanityClient from '../../client.js'
-// import TypeTester from '../../components/TypeTester'
+import TypeTester from '../../components/TypeTester'
 import {StyledBlock} from './styles'
 
 const FontProfile = () => {
-  const [data, setData] = useState(null)
+  const [font, setFont] = useState(null)
   const {slug} = useParams()
 
   useEffect(() => {
@@ -15,46 +15,45 @@ const FontProfile = () => {
             _id,
             title,
             "slug": slug.current,
-            "weights": weights[]->title,
+            "weights": weights[]->,
             "slants": slants[]->title,
-            preview1,
-            preview1Size,
-            "preview1weight": preview1Weight[]->title,
-            "preview1slant": preview1Slant[]->title,
-            preview2,
-            preview2Size,
-            "preview2weight": preview2Weight[]->title,
-            "preview2slant": preview2Slant[]->title,
-            preview3,
-            preview3Size,
-            "preview3weight": preview3Weight[]->title,
-            "preview3slant": preview3Slant[]->title,
+            preview1text,
+            preview1size,
+            "preview1weight": preview1weight[]->,
+            "preview1slant": preview1slant[]->title,
+            preview2text,
+            preview2size,
+            "preview2weight": preview2weight[]->,
+            "preview2slant": preview2slant[]->title,
+            preview3text,
+            preview3size,
+            "preview3weight": preview3weight[]->,
+            "preview3slant": preview3slant[]->title,
         }`,
         {slug}
       )
-      .then((data) => setData(data[0]))
+      .then((font) => setFont(font[0]))
       .catch(console.error)
   }, [slug])
 
-  if (!data) return <div>Loading...</div>
-
-  console.log(data)
+  if (!font) return <div>Loading...</div>
 
   return (
     <>
-      {data && (
+      {font && (
         <div>
-          <h1>{data.title}</h1>
+          <h1>{font.title}</h1>
           <p>
-            {data.title} {data.preview1weight}
+            {font.title} {font.preview1weight[0].title}
           </p>
           <StyledBlock
-            blocks={data.preview1}
+            blocks={font.preview1text}
             projectId={sanityClient.clientConfig.projectId}
             dataset={sanityClient.clientConfig.dataset}
-            $fontSize={data.preview1Size}
+            $fontSize={font.preview1size}
+            $fontWeight={font.preview1weight[0].number}
           />
-          {/* <TypeTester font={data} /> */}
+          <TypeTester font={font} />
         </div>
       )}
     </>

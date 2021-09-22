@@ -3,16 +3,14 @@ import Selector from '../Selector'
 import SliderInput from '../Slider'
 import {TypeTesterContainer, PanelContainer, InputField} from './styles'
 
-const weightOptions = [
-  {value: 200, label: 'Light'},
-  {value: 300, label: 'Book'},
-  {value: 400, label: 'Regular'},
-  {value: 500, label: 'Medium'},
-  {value: 700, label: 'Bold'},
-  {value: 900, label: 'Black'},
-]
-
-const Panel = ({weight, setWeight, size, handleSizeChange, handleColorModeChange}) => {
+const Panel = ({
+  weight,
+  setWeight,
+  weightOptions,
+  size,
+  handleSizeChange,
+  handleColorModeChange,
+}) => {
   // const colorModes = [
   //   {
   //     value: 0,
@@ -58,6 +56,10 @@ const TypeTester = ({font}) => {
   const [size, setSize] = useState(24)
   const [darkMode, setDarkMode] = useState(false)
 
+  const weightOptions = () => {
+    return font.weights.map((weight) => weight.number)
+  }
+
   const handleSizeChange = (event, newValue) => {
     setSize(newValue)
   }
@@ -69,8 +71,10 @@ const TypeTester = ({font}) => {
   return (
     <TypeTesterContainer>
       <Panel
+        font={font}
         weight={weight}
         setWeight={setWeight}
+        weightOptions={weightOptions()}
         size={size}
         handleSizeChange={handleSizeChange}
         darkMode={darkMode}
@@ -79,9 +83,9 @@ const TypeTester = ({font}) => {
       <InputField
         name="input"
         placeholder="Type something..."
-        $weight={weight.value}
+        $weight={weight}
         $size={size}
-        $fontFamily={font.name}
+        $fontFamily={font.title}
         $darkMode={darkMode ? '#1f1e1d' : '#f4f4f4'}
         $lightMode={darkMode ? '#f4f4f4' : '#1f1e1d'}
       />
