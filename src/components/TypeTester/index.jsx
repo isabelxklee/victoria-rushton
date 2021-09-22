@@ -25,15 +25,23 @@ const Panel = ({
   //   },
   // ]
 
+  console.log(slantOptions)
+
   return (
     <PanelContainer>
       <Selector
         title="Weight"
         options={weightOptions}
-        defaultValue={weight}
+        defaultValue={weightOptions[0]}
         handleChange={setWeight}
       />
-      <Selector title="Slant" options={slantOptions} defaultValue={slant} handleChange={setSlant} />
+      <Selector
+        title="Slant"
+        options={slantOptions}
+        defaultValue={slantOptions[0]}
+        handleChange={setSlant}
+        isDisabled={slantOptions.length < 2}
+      />
       <SliderInput
         title="Size"
         value={size}
@@ -57,7 +65,7 @@ const Panel = ({
 
 const TypeTester = ({font}) => {
   const [weight, setWeight] = useState(400)
-  const [size, setSize] = useState(24)
+  const [size, setSize] = useState(48)
   const [slant, setSlant] = useState('Roman')
   const [darkMode, setDarkMode] = useState(false)
 
