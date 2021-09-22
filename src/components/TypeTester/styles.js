@@ -18,7 +18,7 @@ export const InputField = styled.textarea.attrs(
       fontSize: `${$size}px`,
       backgroundColor: `${$darkMode}`,
       color: `${$lightMode}`,
-      fontStyle: `${$slant}`,
+      fontStyle: `${$slant === 'Roman' ? 'normal' : 'italic'}`,
     },
   })
 )`
