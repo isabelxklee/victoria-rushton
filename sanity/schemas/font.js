@@ -11,10 +11,35 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'homePageText',
-      title: 'Home Page Text',
+      name: 'homeText',
+      title: 'Home Text',
       type: 'text',
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'homeTextSize',
+      title: 'Home Text - Size',
+      type: 'number',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'homeTextWeight',
+      title: 'Home Text - Weight',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'weight'}}],
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'homeTextSlant',
+      title: 'Home Text - Slant',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'slant'}}],
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'homeTextLineHeight',
+      title: 'Home Text - Line Height',
+      type: 'number',
     },
     {
       name: 'description',
