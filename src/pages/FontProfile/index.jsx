@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
+import FontHero from '../../components/FontHero'
 import {StyledBlock} from './styles'
+import {Divider} from '../../styles'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -42,6 +44,8 @@ const FontProfile = () => {
     <>
       {font && (
         <div>
+          <FontHero font={font} isProfile={true} />
+          <Divider />
           <h1>{font.title}</h1>
           <p>
             {font.title} {font.preview1weight[0].title}
