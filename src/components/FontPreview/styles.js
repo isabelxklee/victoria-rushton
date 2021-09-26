@@ -6,4 +6,5 @@ export const PreviewText = styled.p`
   font-style: ${({$slant}) => ($slant === 'Roman' ? 'normal' : 'italic')};
   font-family: ${({$font}) => $font};
   line-height: ${({$lineHeight}) => $lineHeight};
+  margin: ${({$margin}) => $margin};
 `

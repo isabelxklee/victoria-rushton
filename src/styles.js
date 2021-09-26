@@ -118,6 +118,10 @@ export const Wrapper = styled.div`
   padding: 0;
 `
 
+export const Content = styled.div`
+  padding: ${({$padding}) => $padding};
+`
+
 export const Button = styled.button`
   border: none;
   border-radius: 40px;

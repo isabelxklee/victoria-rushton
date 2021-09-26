@@ -36,6 +36,11 @@ export default {
       title: 'Size',
       type: 'number',
     },
+    {
+      name: 'lineHeight',
+      title: 'Line Height',
+      type: 'number',
+    },
   ],
 
   preview: {

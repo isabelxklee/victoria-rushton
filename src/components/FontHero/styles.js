@@ -5,10 +5,6 @@ export const FontHeroContainer = styled.div`
   position: relative;
 `
 
-export const Content = styled.div`
-  padding: ${({$isProfile}) => ($isProfile ? '140px 0' : '20px 0')};
-`
-
 export const HeroPreview = styled.h2`
   font-size: 90px;
   font-weight: 400;

@@ -3,8 +3,8 @@ import {useParams} from 'react-router-dom'
 import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
 import FontPreview from '../../components/FontPreview'
-import {HeroPreview, Content} from '../../components/FontHero/styles'
-import {Divider, Description, Button} from '../../styles'
+import {HeroPreview} from '../../components/FontHero/styles'
+import {Divider, Description, Button, Content} from '../../styles'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -36,7 +36,7 @@ const FontProfile = () => {
       {font && (
         <>
           <Divider />
-          <Content $isProfile={true}>
+          <Content $padding="120px 0px">
             <HeroPreview $isProfile={true}>{font.title}</HeroPreview>
             <Description>{font.description}</Description>
             <Button>License this font</Button>
@@ -51,18 +51,3 @@ const FontProfile = () => {
 }
 
 export default FontProfile
-
-// queries
-// "previews": *[_type == "previewText" && references(^._id)],
-// preview1text,
-// preview1size,
-// "preview1weight": preview1weight[]->,
-// "preview1slant": preview1slant[]->title,
-// preview2text,
-// preview2size,
-// "preview2weight": preview2weight[]->,
-// "preview2slant": preview2slant[]->title,
-// preview3text,
-// preview3size,
-// "preview3weight": preview3weight[]->,
-// "preview3slant": preview3slant[]->title,
