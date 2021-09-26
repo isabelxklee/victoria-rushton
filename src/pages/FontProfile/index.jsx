@@ -29,7 +29,7 @@ const FontProfile = () => {
 
   if (!font) return <div>Loading...</div>
 
-  console.log(font.previews)
+  console.log(font)
 
   return (
     <>
@@ -42,7 +42,7 @@ const FontProfile = () => {
             <Button>License this font</Button>
           </Content>
           <Divider />
-          <FontPreview font={font} />
+          <FontPreview font={font.title} />
           <TypeTester font={font} />
         </>
       )}

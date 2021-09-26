@@ -13,7 +13,7 @@ const FontPreview = ({font}) => {
             _id,
             text,
             size,
-            "font": *[_type == 'font' && title == 'Embury Text'],
+            "font": font[0]->title,
             "weightTitle": weight[0]->title,
             "weightNumber": weight[0]->number,
             "slant": slant[0]->title,
@@ -21,25 +21,23 @@ const FontPreview = ({font}) => {
       )
       .then((data) => setPreviews(data))
       .catch(console.error)
-  }, [])
-
-  console.log(previews)
+  }, [font])
 
   return (
     <>
       {previews &&
         previews.map((preview) => (
           <div key={preview._id}>
-            {preview.font[0].title === font.title && (
+            {preview.font === font && (
               <>
                 <PSpace>
-                  {font.title} {preview.weightTitle}
+                  {font} {preview.weightTitle}
                 </PSpace>
                 <PreviewText
                   $size={preview.size}
                   $weight={preview.weightNumber}
                   $slant={preview.slant}
-                  $font={font.title}
+                  $font={font}
                 >
                   {preview.text}
                 </PreviewText>
