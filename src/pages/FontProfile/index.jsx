@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
-import {StyledBlock} from './styles'
+import FontPreview from '../../components/FontPreview'
+import {HeroPreview} from '../../components/FontHero/styles'
+import {Divider, Description, Button, Content} from '../../styles'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -14,21 +16,10 @@ const FontProfile = () => {
         `*[slug.current == $slug]{
             _id,
             title,
+            description,
             "slug": slug.current,
             "weights": weights[]->,
             "slants": slants[]->title,
-            preview1text,
-            preview1size,
-            "preview1weight": preview1weight[]->,
-            "preview1slant": preview1slant[]->title,
-            preview2text,
-            preview2size,
-            "preview2weight": preview2weight[]->,
-            "preview2slant": preview2slant[]->title,
-            preview3text,
-            preview3size,
-            "preview3weight": preview3weight[]->,
-            "preview3slant": preview3slant[]->title,
         }`,
         {slug}
       )
@@ -38,23 +29,22 @@ const FontProfile = () => {
 
   if (!font) return <div>Loading...</div>
 
+  console.log(font)
+
   return (
     <>
       {font && (
-        <div>
-          <h1>{font.title}</h1>
-          <p>
-            {font.title} {font.preview1weight[0].title}
-          </p>
-          <StyledBlock
-            blocks={font.preview1text}
-            projectId={sanityClient.clientConfig.projectId}
-            dataset={sanityClient.clientConfig.dataset}
-            $fontSize={font.preview1size}
-            $fontWeight={font.preview1weight[0].number}
-          />
+        <>
+          <Divider />
+          <Content $padding="120px 0px">
+            <HeroPreview $isProfile={true}>{font.title}</HeroPreview>
+            <Description>{font.description}</Description>
+            <Button>License this font</Button>
+          </Content>
+          <Divider />
+          <FontPreview font={font.title} />
           <TypeTester font={font} />
-        </div>
+        </>
       )}
     </>
   )

@@ -11,26 +11,21 @@ const Home = () => {
         `*[_type == "font"]{
             _id,
             title,
+            homeText,
+            homeTextSize,
+            "homeTextSlant": homeTextSlant[0]->title,
+            "homeTextWeight": homeTextWeight[0]->number,
+            homeTextLineHeight,
             "slug": slug.current,
             "weights": weights[]->title,
-            "slants": slants[]->title,
-            preview1text,
-            preview1size,
-            "preview1weight": preview1Weight[]->title,
-            "preview1slant": preview1Slant[]->title,
-            preview2text,
-            preview2size,
-            "preview2weight": preview2Weight[]->title,
-            "preview2slant": preview2Slant[]->title,
-            preview3text,
-            preview3size,
-            "preview3weight": preview3Weight[]->title,
-            "preview3slant": preview3Slant[]->title,
+            "slants": slants[]->title
         }`
       )
       .then((data) => setFonts(data))
       .catch(console.error)
   }, [])
+
+  console.log(fonts)
 
   return <>{fonts && fonts.map((font) => <FontHero font={font} key={font._id} />)}</>
 }

@@ -1,8 +1,7 @@
 import React from 'react'
-import {Divider, InternalLink} from '../../styles'
-import {FontHeroContainer, Content, HeroPreview, FontHeroP, FontHeroPRight} from './styles'
-import BlockContent from '@sanity/block-content-to-react'
-import sanityClient from '../../client.js'
+import {Divider, InternalLink, Content} from '../../styles'
+import {FontHeroContainer, FontHeroP, FontHeroPRight} from './styles'
+import {PreviewText} from '../FontPreview/styles'
 
 const FontHero = ({font}) => {
   const calculateStyles = () => {
@@ -12,17 +11,20 @@ const FontHero = ({font}) => {
   return (
     <FontHeroContainer>
       <Divider />
-      <Content>
+      <Content $padding="20px 0px">
         <InternalLink to={'/' + font.slug} key={font._id}>
           <FontHeroP>{font.title}</FontHeroP>
           <FontHeroPRight>{calculateStyles()} available styles</FontHeroPRight>
-          <HeroPreview>
-            <BlockContent
-              blocks={font.preview1text}
-              projectId={sanityClient.clientConfig.projectId}
-              dataset={sanityClient.clientConfig.dataset}
-            />
-          </HeroPreview>
+          <PreviewText
+            $font={font.title}
+            $size={font.homeTextSize}
+            $weight={font.homeTextWeight}
+            $slant={font.homeTextSlant}
+            $lineHeight={font.homeTextLineHeight}
+            $margin="100px 0"
+          >
+            {font.homeText}
+          </PreviewText>
           View this font
         </InternalLink>
       </Content>
