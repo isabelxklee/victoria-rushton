@@ -5,4 +5,5 @@ export const PreviewText = styled.p`
   font-weight: ${({$weight}) => $weight};
   font-style: ${({$slant}) => ($slant === 'Roman' ? 'normal' : 'italic')};
   font-family: ${({$font}) => $font};
+  line-height: ${({$lineHeight}) => $lineHeight};
 `

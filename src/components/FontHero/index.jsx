@@ -15,8 +15,14 @@ const FontHero = ({font}) => {
         <InternalLink to={'/' + font.slug} key={font._id}>
           <FontHeroP>{font.title}</FontHeroP>
           <FontHeroPRight>{calculateStyles()} available styles</FontHeroPRight>
-          <PreviewText $font={font.title} $size={font.homeSize}>
-            {font.homePageText}
+          <PreviewText
+            $font={font.title}
+            $size={font.homeTextSize}
+            $weight={font.homeTextWeight}
+            $slant={font.homeTextSlant}
+            $lineHeight={font.homeTextLineHeight}
+          >
+            {font.homeText}
           </PreviewText>
           View this font
         </InternalLink>
