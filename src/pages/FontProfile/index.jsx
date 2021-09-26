@@ -20,18 +20,6 @@ const FontProfile = () => {
             "slug": slug.current,
             "weights": weights[]->,
             "slants": slants[]->title,
-            preview1text,
-            preview1size,
-            "preview1weight": preview1weight[]->,
-            "preview1slant": preview1slant[]->title,
-            preview2text,
-            preview2size,
-            "preview2weight": preview2weight[]->,
-            "preview2slant": preview2slant[]->title,
-            preview3text,
-            preview3size,
-            "preview3weight": preview3weight[]->,
-            "preview3slant": preview3slant[]->title,
         }`,
         {slug}
       )
@@ -40,6 +28,8 @@ const FontProfile = () => {
   }, [slug])
 
   if (!font) return <div>Loading...</div>
+
+  console.log(font.previews)
 
   return (
     <>
@@ -53,17 +43,7 @@ const FontProfile = () => {
           </Content>
           <Divider />
           <FontPreview font={font} />
-          {/* <p>
-            {font.title} {font.preview1weight[0].title}
-          </p>
-          <StyledBlock
-            blocks={font.preview1text}
-            projectId={sanityClient.clientConfig.projectId}
-            dataset={sanityClient.clientConfig.dataset}
-            $fontSize={font.preview1size}
-            $fontWeight={font.preview1weight[0].number}
-          />
-          <TypeTester font={font} /> */}
+          <TypeTester font={font} />
         </>
       )}
     </>
@@ -71,3 +51,18 @@ const FontProfile = () => {
 }
 
 export default FontProfile
+
+// queries
+// "previews": *[_type == "previewText" && references(^._id)],
+// preview1text,
+// preview1size,
+// "preview1weight": preview1weight[]->,
+// "preview1slant": preview1slant[]->title,
+// preview2text,
+// preview2size,
+// "preview2weight": preview2weight[]->,
+// "preview2slant": preview2slant[]->title,
+// preview3text,
+// preview3size,
+// "preview3weight": preview3weight[]->,
+// "preview3slant": preview3slant[]->title,

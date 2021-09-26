@@ -98,8 +98,12 @@ export const Divider = styled.div`
 
 export const P = styled.p`
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
+`
+
+export const PSpace = styled(P)`
+  margin: 16px 0;
 `
 
 export const Description = styled(P)`
