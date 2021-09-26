@@ -39,6 +39,7 @@ const FontPreview = ({font}) => {
                   $size={preview.size}
                   $weight={preview.weightNumber}
                   $slant={preview.slant}
+                  $font={font.title}
                 >
                   {preview.text}
                 </PreviewText>

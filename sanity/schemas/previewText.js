@@ -41,6 +41,13 @@ export default {
   preview: {
     select: {
       title: 'text',
+      font: 'font.0.title',
+    },
+    prepare: ({title, font}) => {
+      return {
+        title: title,
+        font: `Font: ${font}`,
+      }
     },
   },
 }
