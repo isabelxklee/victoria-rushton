@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
+import FontPreview from '../../components/FontPreview'
+import {HeroPreview, Content} from '../../components/FontHero/styles'
 import {StyledBlock} from './styles'
 import {Divider, Description, Button} from '../../styles'
-import {HeroPreview, Content} from '../../components/FontHero/styles'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -52,7 +53,8 @@ const FontProfile = () => {
             <Button>License this font</Button>
           </Content>
           <Divider />
-          <p>
+          <FontPreview font={font} />
+          {/* <p>
             {font.title} {font.preview1weight[0].title}
           </p>
           <StyledBlock
@@ -62,7 +64,7 @@ const FontProfile = () => {
             $fontSize={font.preview1size}
             $fontWeight={font.preview1weight[0].number}
           />
-          <TypeTester font={font} />
+          <TypeTester font={font} /> */}
         </>
       )}
     </>
