@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
-import FontHero from '../../components/FontHero'
 import {StyledBlock} from './styles'
-import {Divider} from '../../styles'
+import {Divider, P, Button} from '../../styles'
+import {HeroPreview, Content} from '../../components/FontHero/styles'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -44,7 +44,12 @@ const FontProfile = () => {
     <>
       {font && (
         <div>
-          <FontHero font={font} isProfile={true} />
+          <Divider />
+          <Content $isProfile={true}>
+            <HeroPreview $isProfile={true}>{font.title}</HeroPreview>
+            <P>{font.description}</P>
+            <Button>License this font</Button>
+          </Content>
           <Divider />
           <h1>{font.title}</h1>
           <p>

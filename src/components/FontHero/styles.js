@@ -6,14 +6,14 @@ export const FontHeroContainer = styled.div`
 `
 
 export const Content = styled.div`
-  padding: 20px 0;
+  padding: ${({$isProfile}) => ($isProfile ? '140px 0' : '20px 0')};
 `
 
 export const HeroPreview = styled.h2`
   font-size: 90px;
   font-weight: 400;
   line-height: 0.9;
-  margin: 120px 0;
+  margin: ${({$isProfile}) => ($isProfile ? '20px 0' : '120px 0')};
 `
 
 export const FontHeroP = styled(P)`
