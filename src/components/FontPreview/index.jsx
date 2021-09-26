@@ -14,8 +14,9 @@ const FontPreview = ({font}) => {
             text,
             size,
             "font": *[_type == 'font' && title == 'Embury Text'],
-            "weightTitle": weight[]->title,
-            "weightNumber": weight[]->number
+            "weightTitle": weight[0]->title,
+            "weightNumber": weight[0]->number,
+            "slant": slant[0]->title,
         }`
       )
       .then((data) => setPreviews(data))
@@ -34,7 +35,13 @@ const FontPreview = ({font}) => {
                 <PSpace>
                   {font.title} {preview.weightTitle}
                 </PSpace>
-                <PreviewText>{preview.text}</PreviewText>
+                <PreviewText
+                  $size={preview.size}
+                  $weight={preview.weightNumber}
+                  $slant={preview.slant}
+                >
+                  {preview.text}
+                </PreviewText>
               </>
             )}
           </div>

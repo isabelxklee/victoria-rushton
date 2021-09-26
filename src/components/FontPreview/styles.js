@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const PreviewText = styled.p`
-  font-size: 24px;
-  font-weight: 400;
-  font-style: italic;
+  font-size: ${({$size}) => $size}px;
+  font-weight: ${({$weight}) => $weight};
+  font-style: ${({$slant}) => ($slant === 'Roman' ? 'normal' : 'italic')};
 `
