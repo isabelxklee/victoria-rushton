@@ -21,6 +21,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+    },
+    {
       name: 'weights',
       title: 'Weights',
       type: 'array',

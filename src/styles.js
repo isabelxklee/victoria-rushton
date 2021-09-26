@@ -102,6 +102,13 @@ export const P = styled.p`
   font-weight: 400;
 `
 
+export const Description = styled(P)`
+  font-size: 18px;
+  margin: 24px 0;
+  line-height: 1.4;
+  width: 75%;
+`
+
 export const Wrapper = styled.div`
   margin: 80px;
   padding: 0;

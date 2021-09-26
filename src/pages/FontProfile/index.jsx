@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
 import {StyledBlock} from './styles'
-import {Divider, P, Button} from '../../styles'
+import {Divider, Description, Button} from '../../styles'
 import {HeroPreview, Content} from '../../components/FontHero/styles'
 
 const FontProfile = () => {
@@ -16,6 +16,7 @@ const FontProfile = () => {
         `*[slug.current == $slug]{
             _id,
             title,
+            description,
             "slug": slug.current,
             "weights": weights[]->,
             "slants": slants[]->title,
@@ -43,15 +44,14 @@ const FontProfile = () => {
   return (
     <>
       {font && (
-        <div>
+        <>
           <Divider />
           <Content $isProfile={true}>
             <HeroPreview $isProfile={true}>{font.title}</HeroPreview>
-            <P>{font.description}</P>
+            <Description>{font.description}</Description>
             <Button>License this font</Button>
           </Content>
           <Divider />
-          <h1>{font.title}</h1>
           <p>
             {font.title} {font.preview1weight[0].title}
           </p>
@@ -63,7 +63,7 @@ const FontProfile = () => {
             $fontWeight={font.preview1weight[0].number}
           />
           <TypeTester font={font} />
-        </div>
+        </>
       )}
     </>
   )
