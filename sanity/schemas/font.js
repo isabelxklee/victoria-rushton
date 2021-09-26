@@ -11,6 +11,17 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'homePageText',
+      title: 'Home Page Text',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -19,11 +30,6 @@ export default {
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'description',
-      title: 'Description',
-      type: 'text',
     },
     {
       name: 'weights',
