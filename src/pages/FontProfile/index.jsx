@@ -4,7 +4,6 @@ import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
 import FontPreview from '../../components/FontPreview'
 import {HeroPreview, Content} from '../../components/FontHero/styles'
-import {StyledBlock} from './styles'
 import {Divider, Description, Button} from '../../styles'
 
 const FontProfile = () => {
