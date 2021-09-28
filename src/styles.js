@@ -22,7 +22,7 @@ export const Divider = styled.div`
 export const P = styled.p`
   margin: 0;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 300;
 `
 
 export const PSpace = styled(P)`
@@ -34,6 +34,7 @@ export const Description = styled(P)`
   margin: 24px 0;
   line-height: 1.4;
   width: 75%;
+  font-weight: 300;
 `
 
 export const Wrapper = styled.div`
@@ -51,7 +52,7 @@ export const Button = styled.button`
   background: #1e1e1e;
   color: #f4f4f4;
   font-family: 'Cecilie Sans', 'sans-serif';
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   padding: 14px 20px 10px 20px;
 `
