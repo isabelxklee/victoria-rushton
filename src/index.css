@@ -1,5 +1,23 @@
 span.MuiSlider-markLabel {
-  color: #fff;
+  color: #f4f4f4;
   font-family: 'Cecilie Sans', 'sans-serif';
   font-size: 16px;
+}
+
+span.MuiSlider-rail,
+span.MuiSlider-track {
+  height: 4px;
+  border-radius: 2px;
+}
+
+span.MuiSlider-colorPrimary {
+  color: #f4f4f4;
+}
+
+span.MuiSlider-thumb.MuiSlider-thumbColorPrimary {
+  width: 30px;
+  height: 30px;
+  margin-top: -14px;
+  color: #1e1e1e;
+  border: 4px solid #f4f4f4;
 }
