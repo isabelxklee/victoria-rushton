@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const TypeTesterContainer = styled.div`
   display: flex;
   margin-top: 100px;
+  width: calc(100% + 80px);
+  margin-left: -8%;
 `
 
 export const PanelContainer = styled.div`

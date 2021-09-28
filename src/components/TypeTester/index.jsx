@@ -14,17 +14,6 @@ const Panel = ({
   setSlant,
   slantOptions,
 }) => {
-  // const colorModes = [
-  //   {
-  //     value: 0,
-  //     label: 'Light',
-  //   },
-  //   {
-  //     value: 100,
-  //     label: 'Dark',
-  //   },
-  // ]
-
   return (
     <PanelContainer>
       <Selector
@@ -48,14 +37,6 @@ const Panel = ({
         max={200}
         ariaLabel="continuous-slider"
       />
-      {/* <SliderInput
-        title="Color"
-        darkMode={darkMode}
-        handleChange={handleColorModeChange}
-        ariaLabel="discrete-slider-restrict"
-        step={null}
-        marks={colorModes}
-      /> */}
       <button onClick={handleColorModeChange}>Color change</button>
     </PanelContainer>
   )

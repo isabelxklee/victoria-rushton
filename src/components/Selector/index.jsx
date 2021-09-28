@@ -1,10 +1,11 @@
 import React from 'react'
 import {ReactSelect} from './styles'
+import {Label, Padding} from '../../styles'
 
 const Selector = ({title, options, defaultValue, handleChange, isDisabled}) => {
   return (
-    <>
-      <label>
+    <Padding $padding="10px 0">
+      <Label>
         {title}
         <ReactSelect
           defaultValue={defaultValue}
@@ -13,8 +14,8 @@ const Selector = ({title, options, defaultValue, handleChange, isDisabled}) => {
           placeholder={`Select a ${title}`}
           isDisabled={isDisabled}
         />
-      </label>
-    </>
+      </Label>
+    </Padding>
   )
 }
 
