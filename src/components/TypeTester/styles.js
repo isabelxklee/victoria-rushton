@@ -11,7 +11,7 @@ export const PanelContainer = styled.div`
   background-color: #1f1e1d;
   color: #f4f4f4;
   padding: 80px;
-  width: 300px;
+  width: 500px;
 `
 
 export const InputField = styled.textarea.attrs(

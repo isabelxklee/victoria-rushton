@@ -46,6 +46,10 @@ export const Padding = styled.div`
   padding: ${({$padding}) => $padding};
 `
 
+export const Margin = styled.div`
+  margin: ${({$margin}) => $margin};
+`
+
 export const Button = styled.button`
   border: none;
   border-radius: 40px;

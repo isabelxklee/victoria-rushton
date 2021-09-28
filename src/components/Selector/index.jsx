@@ -1,10 +1,10 @@
 import React from 'react'
 import {ReactSelect} from './styles'
-import {Label, Padding} from '../../styles'
+import {Label, Margin} from '../../styles'
 
 const Selector = ({title, options, defaultValue, handleChange, isDisabled}) => {
   return (
-    <Padding $padding="10px 0">
+    <Margin $margin="0 0 24px 0">
       <Label>
         {title}
         <ReactSelect
@@ -15,7 +15,7 @@ const Selector = ({title, options, defaultValue, handleChange, isDisabled}) => {
           isDisabled={isDisabled}
         />
       </Label>
-    </Padding>
+    </Margin>
   )
 }
 
