@@ -1,7 +1,14 @@
 import React, {useState} from 'react'
 import Selector from '../Selector'
 import SliderInput from '../Slider'
-import {TypeTesterContainer, PanelContainer, InputField} from './styles'
+import {
+  TypeTesterContainer,
+  PanelContainer,
+  InputField,
+  IconButton,
+  IconSun,
+  IconMoon,
+} from './styles'
 
 const Panel = ({
   weight,
@@ -13,6 +20,7 @@ const Panel = ({
   slant,
   setSlant,
   slantOptions,
+  darkMode,
 }) => {
   return (
     <PanelContainer>
@@ -37,7 +45,19 @@ const Panel = ({
         max={200}
         ariaLabel="continuous-slider"
       />
-      <button onClick={handleColorModeChange}>Color change</button>
+      <IconButton onClick={handleColorModeChange}>
+        {darkMode ? (
+          <>
+            Light
+            <IconSun />
+          </>
+        ) : (
+          <>
+            Dark
+            <IconMoon />
+          </>
+        )}
+      </IconButton>
     </PanelContainer>
   )
 }

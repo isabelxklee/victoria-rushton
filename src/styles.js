@@ -59,6 +59,7 @@ export const Button = styled.button`
   font-weight: 300;
   font-size: 16px;
   padding: 14px 20px 10px 20px;
+  cursor: pointer;
 `
 
 export const Label = styled.label`
