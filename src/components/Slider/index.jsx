@@ -4,7 +4,7 @@ import {LabelContainer, ReactSlider} from './styles'
 
 const SliderInput = ({title, handleChange, value, min, max, ariaLabel, marks, step}) => {
   return (
-    <>
+    <div>
       <LabelContainer>
         <Label>{title} </Label>
         <P>{value}px</P>
@@ -18,7 +18,7 @@ const SliderInput = ({title, handleChange, value, min, max, ariaLabel, marks, st
         marks={marks}
         step={step}
       />
-    </>
+    </div>
   )
 }
 

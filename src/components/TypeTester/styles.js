@@ -12,6 +12,9 @@ export const PanelContainer = styled.div`
   color: #f4f4f4;
   padding: 80px;
   width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 `
 
 export const InputField = styled.textarea.attrs(
@@ -42,7 +45,6 @@ export const IconButton = styled(Button)`
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  margin-top: 32px;
 `
 
 export const IconSun = styled(Sun)`
