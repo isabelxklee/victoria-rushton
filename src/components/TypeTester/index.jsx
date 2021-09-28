@@ -1,7 +1,14 @@
 import React, {useState} from 'react'
 import Selector from '../Selector'
 import SliderInput from '../Slider'
-import {TypeTesterContainer, PanelContainer, InputField} from './styles'
+import {
+  TypeTesterContainer,
+  PanelContainer,
+  InputField,
+  IconButton,
+  IconSun,
+  IconMoon,
+} from './styles'
 
 const Panel = ({
   weight,
@@ -13,18 +20,8 @@ const Panel = ({
   slant,
   setSlant,
   slantOptions,
+  darkMode,
 }) => {
-  // const colorModes = [
-  //   {
-  //     value: 0,
-  //     label: 'Light',
-  //   },
-  //   {
-  //     value: 100,
-  //     label: 'Dark',
-  //   },
-  // ]
-
   return (
     <PanelContainer>
       <Selector
@@ -45,25 +42,29 @@ const Panel = ({
         value={size}
         handleChange={handleSizeChange}
         min={8}
-        max={200}
+        max={160}
         ariaLabel="continuous-slider"
       />
-      {/* <SliderInput
-        title="Color"
-        darkMode={darkMode}
-        handleChange={handleColorModeChange}
-        ariaLabel="discrete-slider-restrict"
-        step={null}
-        marks={colorModes}
-      /> */}
-      <button onClick={handleColorModeChange}>Color change</button>
+      <IconButton onClick={handleColorModeChange} $darkMode={darkMode}>
+        {darkMode ? (
+          <>
+            Light
+            <IconSun />
+          </>
+        ) : (
+          <>
+            Dark
+            <IconMoon />
+          </>
+        )}
+      </IconButton>
     </PanelContainer>
   )
 }
 
 const TypeTester = ({font}) => {
-  const [weight, setWeight] = useState({value: 400, label: 'Regular'})
-  const [size, setSize] = useState(48)
+  const [weight, setWeight] = useState(null)
+  const [size, setSize] = useState(100)
   const [slant, setSlant] = useState({value: 'Roman', label: 'Roman'})
   const [darkMode, setDarkMode] = useState(false)
 
@@ -107,7 +108,7 @@ const TypeTester = ({font}) => {
       <InputField
         name="input"
         placeholder="Type something..."
-        $weight={weight.value}
+        $weight={weight ? weight.value : weightOptions[0]}
         $size={size}
         $fontFamily={font.title}
         $slant={slant.value}

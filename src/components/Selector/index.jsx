@@ -1,10 +1,11 @@
 import React from 'react'
 import {ReactSelect} from './styles'
+import {Label} from '../../styles'
 
 const Selector = ({title, options, defaultValue, handleChange, isDisabled}) => {
   return (
     <>
-      <label>
+      <Label>
         {title}
         <ReactSelect
           defaultValue={defaultValue}
@@ -13,7 +14,7 @@ const Selector = ({title, options, defaultValue, handleChange, isDisabled}) => {
           placeholder={`Select a ${title}`}
           isDisabled={isDisabled}
         />
-      </label>
+      </Label>
     </>
   )
 }

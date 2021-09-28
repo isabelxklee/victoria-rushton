@@ -42,8 +42,12 @@ export const Wrapper = styled.div`
   padding: 0;
 `
 
-export const Content = styled.div`
+export const Padding = styled.div`
   padding: ${({$padding}) => $padding};
+`
+
+export const Margin = styled.div`
+  margin: ${({$margin}) => $margin};
 `
 
 export const Button = styled.button`
@@ -55,4 +59,10 @@ export const Button = styled.button`
   font-weight: 300;
   font-size: 16px;
   padding: 14px 20px 10px 20px;
+  cursor: pointer;
+`
+
+export const Label = styled.label`
+  font-weight: 300;
+  font-size: 18px;
 `

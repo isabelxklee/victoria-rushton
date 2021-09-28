@@ -1,23 +1,24 @@
 import React from 'react'
-import Slider from '@material-ui/core/Slider'
+import {Label, P} from '../../styles'
+import {LabelContainer, ReactSlider} from './styles'
 
 const SliderInput = ({title, handleChange, value, min, max, ariaLabel, marks, step}) => {
   return (
-    <>
-      <label>
-        {title}
-        <p>{value}</p>
-        <Slider
-          value={value}
-          onChange={handleChange}
-          min={min}
-          max={max}
-          aria-labelledby={ariaLabel}
-          marks={marks}
-          step={step}
-        />
-      </label>
-    </>
+    <div>
+      <LabelContainer>
+        <Label>{title} </Label>
+        <P>{value}px</P>
+      </LabelContainer>
+      <ReactSlider
+        value={value}
+        onChange={handleChange}
+        min={min}
+        max={max}
+        aria-labelledby={ariaLabel}
+        marks={marks}
+        step={step}
+      />
+    </div>
   )
 }
 
