@@ -1,4 +1,5 @@
 import {createGlobalStyle} from 'styled-components'
+// cecilie sans
 // 800
 import cecilie8001 from './fonts/cecilie-sans/800-cecilie-black.woff'
 import cecilie8002 from './fonts/cecilie-sans/800-cecilie-black.woff2'
@@ -25,138 +26,154 @@ import cecilie2002 from './fonts/cecilie-sans/200-cecilie-light.woff2'
 import cecilieItalic2001 from './fonts/cecilie-sans/200-cecilie-light-italic.woff'
 import cecilieItalic2002 from './fonts/cecilie-sans/200-cecilie-light-italic.woff2'
 
+// embury text
+// 700
+import emburyText7001 from './fonts/embury-text/700-embury-text-bold.woff'
+import emburyText7002 from './fonts/embury-text/700-embury-text-bold.woff2'
+import emburyTextItalic7001 from './fonts/embury-text/700-embury-text-bold-italic.woff'
+import emburyTextItalic7002 from './fonts/embury-text/700-embury-text-bold-italic.woff2'
+// 400
+import emburyText4001 from './fonts/embury-text/400-embury-text-regular.woff'
+import emburyText4002 from './fonts/embury-text/400-embury-text-regular.woff2'
+import emburyTextItalic4001 from './fonts/embury-text/400-embury-text-italic.woff'
+import emburyTextItalic4002 from './fonts/embury-text/400-embury-text-italic.woff2'
+// 300
+import emburyText3001 from './fonts/embury-text/300-embury-text-book.woff'
+import emburyText3002 from './fonts/embury-text/300-embury-text-book.woff2'
+import emburyTextItalic3001 from './fonts/embury-text/300-embury-text-book-italic.woff'
+import emburyTextItalic3002 from './fonts/embury-text/300-embury-text-book-italic.woff2'
+
 export const GlobalStyle = createGlobalStyle`
-@font-face {
-  font-family: 'Cecilie Sans';
-  font-style: normal;
-  font-weight: 800;
-  src: url(${cecilie8001}) format('woff'),
-      url(${cecilie8002}) format('woff2');
-}
-
-@font-face {
-  font-family: 'Cecilie Sans';
-  font-style: italic;
-  font-weight: 800;
-  src: url(${cecilieItalic8001}) format('woff'),
-      url(${cecilieItalic8002}) format('woff2');
-}
-
-@font-face {
-  font-family: 'Cecilie Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: url(${cecilie7001}) format('woff'),
-      url(${cecilie7002}) format('woff2');
-}
-
-@font-face {
-  font-family: 'Cecilie Sans';
-  font-style: italic;
-  font-weight: 700;
-  src: url(${cecilieItalic7001}) format('woff'),
-      url(${cecilieItalic7002}) format('woff2');
-}
-
-
-@font-face {
+  @font-face {
     font-family: 'Cecilie Sans';
     font-style: normal;
-    font-weight: 400;
-    src: url(${cecilie4001}) format('woff'),
-      url(${cecilie4002}) format('woff2');
-}
+    font-weight: 800;
+    src: url(${cecilie8001}) format('woff'),
+        url(${cecilie8002}) format('woff2');
+  }
 
-@font-face {
+  @font-face {
     font-family: 'Cecilie Sans';
     font-style: italic;
-    font-weight: 400;
-    src: url(${cecilieItalic4001}) format('woff'),
-      url(${cecilieItalic4002}) format('woff2');
-}
+    font-weight: 800;
+    src: url(${cecilieItalic8001}) format('woff'),
+        url(${cecilieItalic8002}) format('woff2');
+  }
 
-@font-face {
-  font-family: 'Cecilie Sans';
-  font-style: normal;
-  font-weight: 300;
-  src: url(${cecilie3001}) format('woff'),
-      url(${cecilie3002}) format('woff2');
-}
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url(${cecilie7001}) format('woff'),
+        url(${cecilie7002}) format('woff2');
+  }
 
-@font-face {
-  font-family: 'Cecilie Sans';
-  font-style: italic;
-  font-weight: 300;
-  src: url(${cecilieItalic3001}) format('woff'),
-      url(${cecilieItalic3002}) format('woff2');
-}
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: url(${cecilieItalic7001}) format('woff'),
+        url(${cecilieItalic7002}) format('woff2');
+  }
 
-@font-face {
-  font-family: 'Cecilie Sans';
-  font-style: normal;
-  font-weight: 200;
-  src: url(${cecilie2001}) format('woff'),
-      url(${cecilie2002}) format('woff2');
-}
 
-@font-face {
-  font-family: 'Cecilie Sans';
-  font-style: italic;
-  font-weight: 200;
-  src: url(${cecilieItalic2001}) format('woff'),
-      url(${cecilieItalic2002}) format('woff2');
-}
+  @font-face {
+      font-family: 'Cecilie Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: url(${cecilie4001}) format('woff'),
+        url(${cecilie4002}) format('woff2');
+  }
 
-/* embury text */
+  @font-face {
+      font-family: 'Cecilie Sans';
+      font-style: italic;
+      font-weight: 400;
+      src: url(${cecilieItalic4001}) format('woff'),
+        url(${cecilieItalic4002}) format('woff2');
+  }
 
-@font-face {
-  font-family: 'Embury Text';
-  font-style: normal;
-  font-weight: 700;
-  src: url('./fonts/embury-text/700-embury-text-bold.woff') format('woff'),
-    url('./fonts/embury-text/700-embury-text-bold.woff2') format('woff2');
-}
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url(${cecilie3001}) format('woff'),
+        url(${cecilie3002}) format('woff2');
+  }
 
-@font-face {
-  font-family: 'Embury Text';
-  font-style: italic;
-  font-weight: 700;
-  src: url('./fonts/embury-text/700-embury-text-bold-italic.woff') format('woff'),
-    url('./fonts/embury-text/700-embury-text-bold-italic.woff2') format('woff2');
-}
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: italic;
+    font-weight: 300;
+    src: url(${cecilieItalic3001}) format('woff'),
+        url(${cecilieItalic3002}) format('woff2');
+  }
 
-@font-face {
-  font-family: 'Embury Text';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./fonts/embury-text/700-embury-text-regular.woff') format('woff'),
-    url('./fonts/embury-text/700-embury-text-regular.woff2') format('woff2');
-}
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: normal;
+    font-weight: 200;
+    src: url(${cecilie2001}) format('woff'),
+        url(${cecilie2002}) format('woff2');
+  }
 
-@font-face {
-  font-family: 'Embury Text';
-  font-style: italic;
-  font-weight: 400;
-  src: url('./fonts/embury-text/700-embury-text-italic.woff') format('woff'),
-    url('./fonts/embury-text/700-embury-text-italic.woff2') format('woff2');
-}
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: italic;
+    font-weight: 200;
+    src: url(${cecilieItalic2001}) format('woff'),
+        url(${cecilieItalic2002}) format('woff2');
+  }
 
-@font-face {
-  font-family: 'Embury Text';
-  font-style: normal;
-  font-weight: 300;
-  src: url('./fonts/embury-text/700-embury-text-book.woff') format('woff'),
-    url('./fonts/embury-text/700-embury-text-book.woff2') format('woff2');
-}
+  /* embury text */
 
-@font-face {
-  font-family: 'Embury Text';
-  font-style: italic;
-  font-weight: 300;
-  src: url('./fonts/embury-text/700-embury-text-light-italic.woff') format('woff'),
-    url('./fonts/embury-text/700-embury-text-light-italic.woff2') format('woff2');
-}
+  @font-face {
+      font-family: 'Embury Text';
+      font-style: normal;
+      font-weight: 700;
+      src: url(${emburyText7001}) format('woff'),
+        url(${emburyText7002}) format('woff2');
+  }
 
+  @font-face {
+      font-family: 'Embury Text';
+      font-style: italic;
+      font-weight: 700;
+      src: url(${emburyTextItalic7001}) format('woff'),
+        url(${emburyTextItalic7002}) format('woff2');
+  }
+
+  @font-face {
+      font-family: 'Embury Text';
+      font-style: normal;
+      font-weight: 400;
+      src: url(${emburyText4001}) format('woff'),
+        url(${emburyText4002}) format('woff2');
+  }
+
+  @font-face {
+      font-family: 'Embury Text';
+      font-style: italic;
+      font-weight: 400;
+      src: url(${emburyTextItalic4001}) format('woff'),
+        url(${emburyTextItalic4002}) format('woff2');
+  }
+
+  @font-face {
+      font-family: 'Embury Text';
+      font-style: normal;
+      font-weight: 300;
+      src: url(${emburyText3001}) format('woff'),
+        url(${emburyText3002}) format('woff2');
+  }
+
+  @font-face {
+      font-family: 'Embury Text';
+      font-style: italic;
+      font-weight: 300;
+      src: url(${emburyTextItalic3001}) format('woff'),
+        url(${emburyTextItalic3002}) format('woff2');
+  }
 
   body {
     background: #F4F4F4;
