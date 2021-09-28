@@ -42,10 +42,10 @@ const Panel = ({
         value={size}
         handleChange={handleSizeChange}
         min={8}
-        max={200}
+        max={160}
         ariaLabel="continuous-slider"
       />
-      <IconButton onClick={handleColorModeChange}>
+      <IconButton onClick={handleColorModeChange} $darkMode={darkMode}>
         {darkMode ? (
           <>
             Light
@@ -63,8 +63,8 @@ const Panel = ({
 }
 
 const TypeTester = ({font}) => {
-  const [weight, setWeight] = useState({value: 400, label: 'Regular'})
-  const [size, setSize] = useState(48)
+  const [weight, setWeight] = useState(null)
+  const [size, setSize] = useState(100)
   const [slant, setSlant] = useState({value: 'Roman', label: 'Roman'})
   const [darkMode, setDarkMode] = useState(false)
 
@@ -108,7 +108,7 @@ const TypeTester = ({font}) => {
       <InputField
         name="input"
         placeholder="Type something..."
-        $weight={weight.value}
+        $weight={weight ? weight.value : weightOptions[0]}
         $size={size}
         $fontFamily={font.title}
         $slant={slant.value}

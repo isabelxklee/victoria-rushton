@@ -39,7 +39,9 @@ export const InputField = styled.textarea.attrs(
 `
 
 export const IconButton = styled(Button)`
-  border: 2px solid #f4f4f4;
+  border: 2px solid ${({$darkMode}) => ($darkMode ? '#1f1f1f' : '#f4f4f4')};
+  background: ${({$darkMode}) => ($darkMode ? '#f4f4f4' : '#1f1f1f')};
+  color: ${({$darkMode}) => ($darkMode ? '#1f1f1f' : '#f4f4f4')};
   cursor: pointer;
   align-items: center;
   display: flex;
@@ -50,11 +52,11 @@ export const IconButton = styled(Button)`
 export const IconSun = styled(Sun)`
   width: 24px;
   height: 24px;
-  fill: white;
+  fill: #1f1f1f;
 `
 
 export const IconMoon = styled(Moon)`
   width: 20px;
   height: 24px;
-  fill: white;
+  fill: #f4f4f4;
 `
