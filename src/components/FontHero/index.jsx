@@ -25,7 +25,7 @@ const FontHero = ({font}) => {
           >
             {font.homeText}
           </PreviewText>
-          View this font
+          <FontHeroP>View this font</FontHeroP>
         </InternalLink>
       </Content>
     </FontHeroContainer>
