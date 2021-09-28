@@ -43,6 +43,17 @@ import emburyText3002 from './fonts/embury-text/300-embury-text-book.woff2'
 import emburyTextItalic3001 from './fonts/embury-text/300-embury-text-book-italic.woff'
 import emburyTextItalic3002 from './fonts/embury-text/300-embury-text-book-italic.woff2'
 
+//gautreaux
+// 700
+import gautreaux7001 from './fonts/gautreaux/700-gautreaux-bold.woff'
+import gautreaux7002 from './fonts/gautreaux/700-gautreaux-bold.woff2'
+// 500
+import gautreaux5001 from './fonts/gautreaux/500-gautreaux-medium.woff'
+import gautreaux5002 from './fonts/gautreaux/500-gautreaux-medium.woff2'
+// 200
+import gautreaux2001 from './fonts/gautreaux/200-gautreaux-light.woff'
+import gautreaux2002 from './fonts/gautreaux/200-gautreaux-light.woff2'
+
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Cecilie Sans';
@@ -173,6 +184,32 @@ export const GlobalStyle = createGlobalStyle`
       font-weight: 300;
       src: url(${emburyTextItalic3001}) format('woff'),
         url(${emburyTextItalic3002}) format('woff2');
+  }
+
+  /* gautreaux */
+
+  @font-face {
+    font-family: 'Gautreaux';
+    font-style: normal;
+    font-weight: 200;
+    src: url(${gautreaux2001}) format('woff'),
+      url(${gautreaux2002}) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Gautreaux';
+    font-style: normal;
+    font-weight: 500;
+    src: url(${gautreaux5001}) format('woff'),
+      url(${gautreaux5002}) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Gautreaux';
+    font-style: normal;
+    font-weight: 700;
+    src: url(${gautreaux7001}) format('woff'),
+      url(${gautreaux7002}) format('woff2');
   }
 
   body {
