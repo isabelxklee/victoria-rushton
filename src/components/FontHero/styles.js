@@ -14,6 +14,7 @@ export const HeroPreview = styled.h2`
 
 export const FontHeroP = styled(P)`
   position: absolute;
+  font-weight: 300;
 `
 
 export const FontHeroPRight = styled(FontHeroP)`

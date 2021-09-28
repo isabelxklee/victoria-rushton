@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
-import {GlobalStyle, Wrapper} from './styles'
+import {Wrapper} from './styles'
+import {GlobalStyle} from './globalStyle'
 import {Switch, Route} from 'react-router-dom'
 // import About from './pages/Home'
 // import Type from './pages/Type'
