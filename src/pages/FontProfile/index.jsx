@@ -5,6 +5,7 @@ import TypeTester from '../../components/TypeTester'
 import FontPreview from '../../components/FontPreview'
 import {HeroPreview} from '../../components/FontHero/styles'
 import {Divider, Description, Button, Padding} from '../../styles'
+import {TypeTesterBackground} from './styles'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -43,7 +44,9 @@ const FontProfile = () => {
           </Padding>
           <Divider />
           <FontPreview font={font.title} />
-          <TypeTester font={font} />
+          <TypeTesterBackground>
+            <TypeTester font={font} />
+          </TypeTesterBackground>
         </>
       )}
     </>

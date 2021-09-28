@@ -1,7 +1,6 @@
 import React from 'react'
-import Slider from '@material-ui/core/Slider'
 import {Label, P} from '../../styles'
-import {LabelContainer} from './styles'
+import {LabelContainer, ReactSlider} from './styles'
 
 const SliderInput = ({title, handleChange, value, min, max, ariaLabel, marks, step}) => {
   return (
@@ -10,7 +9,7 @@ const SliderInput = ({title, handleChange, value, min, max, ariaLabel, marks, st
         <Label>{title} </Label>
         <P>{value}px</P>
       </LabelContainer>
-      <Slider
+      <ReactSlider
         value={value}
         onChange={handleChange}
         min={min}
