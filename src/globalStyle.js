@@ -54,6 +54,19 @@ import gautreaux5002 from './fonts/gautreaux/500-gautreaux-medium.woff2'
 import gautreaux2001 from './fonts/gautreaux/200-gautreaux-light.woff'
 import gautreaux2002 from './fonts/gautreaux/200-gautreaux-light.woff2'
 
+// marcia
+// 700
+import marcia7001 from './fonts/marcia/700-marcia-bold.woff'
+// import marcia7002 from './fonts/marcia/700-marcia-bold.woff2'
+import marciaItalic7001 from './fonts/marcia/700-marcia-bold-italic.woff'
+// import marciaItalic7002 from './fonts/marcia/700-marcia-bold-italic.woff2'
+
+// 400
+import marcia4001 from './fonts/marcia/400-marcia-regular.woff'
+// import marcia4002 from './fonts/marcia/400-marcia-regular.woff2'
+import marciaItalic4001 from './fonts/marcia/400-marcia-regular-italic.woff'
+// import marciaItalic4002 from './fonts/marcia/400-marcia-regular-italic.woff2'
+
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Cecilie Sans';
@@ -210,6 +223,36 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 700;
     src: url(${gautreaux7001}) format('woff'),
       url(${gautreaux7002}) format('woff2');
+  }
+
+  /* marcia */
+
+  @font-face {
+      font-family: 'Marcia';
+      font-style: normal;
+      font-weight: 700;
+      src: url(${marcia7001}) format('woff')
+  }
+
+  @font-face {
+      font-family: 'Marcia';
+      font-style: italic;
+      font-weight: 700;
+      src: url(${marciaItalic7001}) format('woff')
+  }
+
+  @font-face {
+      font-family: 'Marcia';
+      font-style: normal;
+      font-weight: 400;
+      src: url(${marcia4001}) format('woff')
+  }
+
+  @font-face {
+      font-family: 'Marcia';
+      font-style: italic;
+      font-weight: 400;
+      src: url(${marciaItalic4001}) format('woff')
   }
 
   body {
