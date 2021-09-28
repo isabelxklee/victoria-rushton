@@ -1,8 +1,12 @@
 import {createGlobalStyle} from 'styled-components'
 import cecilie4001 from './fonts/cecilie-sans/400-cecilie-regular.woff'
 import cecilie4002 from './fonts/cecilie-sans/400-cecilie-regular.woff2'
-import cecilieItalic4001 from './fonts/cecilie-sans/400-cecilie-regular.woff'
-import cecilieItalic4002 from './fonts/cecilie-sans/400-cecilie-regular.woff2'
+import cecilieItalic4001 from './fonts/cecilie-sans/400-cecilie-italic.woff'
+import cecilieItalic4002 from './fonts/cecilie-sans/400-cecilie-italic.woff2'
+import cecilie3001 from './fonts/cecilie-sans/300-cecilie-book.woff'
+import cecilie3002 from './fonts/cecilie-sans/300-cecilie-book.woff2'
+import cecilieItalic3001 from './fonts/cecilie-sans/300-cecilie-book-italic.woff'
+import cecilieItalic3002 from './fonts/cecilie-sans/300-cecilie-book-italic.woff2'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -57,17 +61,18 @@ export const GlobalStyle = createGlobalStyle`
   font-family: 'Cecilie Sans';
   font-style: normal;
   font-weight: 300;
-  src: url('./fonts/cecilie-sans/400-cecilie-book.woff') format('woff'),
-    url('./fonts/cecilie-sans/400-cecilie-book.woff2') format('woff2');
+  src: url(${cecilie3001}) format('woff'),
+      url(${cecilie3002}) format('woff2');
 }
 
 @font-face {
   font-family: 'Cecilie Sans';
   font-style: italic;
   font-weight: 300;
-  src: url('./fonts/cecilie-sans/400-cecilie-book-italic.woff') format('woff'),
-    url('./fonts/cecilie-sans/400-cecilie-book-italic.woff2') format('woff2');
+  src: url(${cecilieItalic3001}) format('woff'),
+      url(${cecilieItalic3002}) format('woff2');
 }
+
 
 @font-face {
   font-family: 'Cecilie Sans';
