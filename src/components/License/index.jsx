@@ -7,6 +7,7 @@ const License = ({font}) => {
   const [data, setData] = useState(null)
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
+  const [selectedFonts, setSelectedFonts] = useState(null)
 
   useEffect(() => {
     sanityClient
@@ -35,7 +36,19 @@ const License = ({font}) => {
   //   fetchData()
   // }, [])
 
-  console.log(licenses, selectedLicense)
+  const handleChangeSingle = (weight) => {
+    const weightObject = {weight: weight.title}
+    setSelectedFonts(weightObject)
+  }
+
+  const handleChangeAll = () => {
+    const allRegularWeights = []
+    font.weights.map((weight) => allRegularWeights.push({weight: weight.title}))
+
+    setSelectedFonts(allRegularWeights)
+  }
+
+  console.log(licenses, selectedLicense, selectedFonts)
 
   return (
     // <form action="/create-checkout-session" method="POST">
@@ -46,8 +59,15 @@ const License = ({font}) => {
       <h3>Select weight</h3>
       <ButtonContainer>
         <div>
-          {font && font.weights.map((weight) => <button key={weight._id}>{weight.title}</button>)}
-          <button>{font.slants.length === 1 ? 'Select all' : 'Select all Roman'}</button>
+          {font &&
+            font.weights.map((weight) => (
+              <Button key={weight._id} onClick={() => handleChangeSingle(weight)}>
+                {weight.title}
+              </Button>
+            ))}
+          <Button onClick={handleChangeAll}>
+            {font.slants.length === 1 ? 'Select all' : 'Select all Roman'}
+          </Button>
         </div>
         <div>
           {font.slants.includes('Italic') &&
