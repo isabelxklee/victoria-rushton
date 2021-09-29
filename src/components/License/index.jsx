@@ -20,8 +20,10 @@ const License = ({font}) => {
   const [licensePrice, setLicensePrice] = useState(0)
   const [currency, setCurrency] = useState('USD')
   const [selectAllRoman, setSelectAllRoman] = useState(false)
-  const [selectAllItalic, setSelectAllItalic] = useState(false)
+  // const [selectAllItalic, setSelectAllItalic] = useState(false)
   // const buttonEl = useRef(false)
+
+  console.log(setCurrency)
 
   useEffect(() => {
     sanityClient
