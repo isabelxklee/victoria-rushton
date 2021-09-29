@@ -27,10 +27,12 @@ const License = ({font}) => {
       <ButtonContainer>
         <div>
           {font && font.weights.map((weight) => <button key={weight._id}>{weight.title}</button>)}
+          <button>{font.slants.length === 1 ? 'Select all' : 'Select all Roman'}</button>
         </div>
         <div>
           {font.slants.includes('Italic') &&
             font.weights.map((weight) => <button key={weight._id}>{weight.title} Italic</button>)}
+          <button>Select all Italic</button>
         </div>
       </ButtonContainer>
       <h3>Select license</h3>
