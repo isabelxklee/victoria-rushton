@@ -1,8 +1,27 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {ButtonContainer} from './styles'
+import sanityClient from '../../client.js'
+import {Button} from '../../styles'
 
 const License = ({font}) => {
   const [data, setData] = useState(null)
+  const [licenses, setLicenses] = useState(null)
+  const [selectedLicense, setSelectedLicense] = useState(null)
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "license"]{
+            _id,
+            title,
+            desktopWorkstations,
+            webVisitors,
+            ebooks
+        }`
+      )
+      .then((data) => setLicenses(data))
+      .catch(console.error)
+  }, [])
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -15,7 +34,7 @@ const License = ({font}) => {
   //   fetchData()
   // }, [])
 
-  // console.log(data)
+  console.log(licenses, selectedLicense)
 
   return (
     // <form action="/create-checkout-session" method="POST">
@@ -36,6 +55,20 @@ const License = ({font}) => {
         </div>
       </ButtonContainer>
       <h3>Select license</h3>
+      {licenses &&
+        licenses.map((license) => (
+          <Button key={license._id} onClick={() => setSelectedLicense(license)}>
+            {license.title}
+          </Button>
+        ))}
+      <h3>For uses, not exceeding:</h3>
+      {selectedLicense && (
+        <>
+          <p>{selectedLicense.desktopWorkstations} desktop workstations</p>
+          <p>{selectedLicense.webVisitors} web visitors</p>
+          <p>{selectedLicense.ebooks} e-book(s)</p>
+        </>
+      )}
     </>
   )
 }
