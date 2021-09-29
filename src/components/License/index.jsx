@@ -11,8 +11,9 @@ const License = ({font}) => {
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "license"]{
+        `*[_type == "license"] | order(order){
             _id,
+            order,
             title,
             desktopWorkstations,
             webVisitors,
