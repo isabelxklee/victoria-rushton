@@ -16,6 +16,8 @@ const License = ({font}) => {
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
   const [selectedFonts, setSelectedFonts] = useState([])
+  const [fontPrice, setFontPrice] = useState(0)
+  const [licensePrice, setLicensePrice] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
   const [currency, setCurrency] = useState('USD')
   const [selectAllRoman, setSelectAllRoman] = useState(false)
@@ -51,8 +53,10 @@ const License = ({font}) => {
   // }, [])
 
   const handleLicenseChange = (license) => {
-    setSelectedLicense(license)
-    setTotalPrice((totalPrice) => (totalPrice += license.price))
+    setSelectedLicense(() => (selectedLicense === license ? null : license))
+    setLicensePrice((licensePrice) =>
+      selectedLicense ? (licensePrice -= license.price) : (licensePrice += license.price)
+    )
   }
 
   const handleChangeSingle = (weight) => {
@@ -64,8 +68,8 @@ const License = ({font}) => {
         : [...selectedFonts, fontWeight]
     )
 
-    setTotalPrice((totalPrice) =>
-      selectedFonts.includes(fontWeight) ? (totalPrice -= 100) : (totalPrice += 100)
+    setFontPrice((fontPrice) =>
+      selectedFonts.includes(fontWeight) ? (fontPrice -= 100) : (fontPrice += 100)
     )
   }
 
@@ -73,8 +77,8 @@ const License = ({font}) => {
     const allRoman = font.weights.map((weight) => weight.title)
 
     setSelectAllRoman((selectAllRoman) => !selectAllRoman)
-    setSelectedFonts((selectAllRoman) => (selectAllRoman ? [...allRoman] : []))
-    setTotalPrice((totalPrice) => (selectAllRoman ? (totalPrice -= 450) : (totalPrice += 450)))
+    setSelectedFonts(selectAllRoman ? [] : [...allRoman])
+    setFontPrice((fontPrice) => (selectAllRoman ? (fontPrice -= 450) : (fontPrice += 450)))
   }
 
   return (
@@ -137,7 +141,7 @@ const License = ({font}) => {
           <PriceBreakdown
             selectedLicense={selectedLicense}
             selectedFonts={selectedFonts}
-            totalPrice={totalPrice}
+            totalPrice={fontPrice + licensePrice}
             font={font}
             currency={currency}
           />
