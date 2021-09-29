@@ -19,6 +19,7 @@ const License = ({font}) => {
             _id,
             order,
             title,
+            price,
             desktopWorkstations,
             webVisitors,
             ebooks
@@ -39,6 +40,11 @@ const License = ({font}) => {
   //   fetchData()
   // }, [])
 
+  const handleLicenseChange = (license) => {
+    setSelectedLicense(license)
+    setTotalPrice((totalPrice) => (totalPrice += license.price))
+  }
+
   const handleChangeSingle = (weight) => {
     const weightObject = {weight: weight.title}
     setSelectedFonts(weightObject)
@@ -58,8 +64,6 @@ const License = ({font}) => {
         : (totalPrice += 450)
     )
   }
-
-  console.log(totalPrice, selectedFonts, licenses)
 
   return (
     // <form action="/create-checkout-session" method="POST">
@@ -89,7 +93,7 @@ const License = ({font}) => {
       <h3>Select license</h3>
       {licenses &&
         licenses.map((license) => (
-          <Button key={license._id} onClick={() => setSelectedLicense(license)}>
+          <Button key={license._id} onClick={() => handleLicenseChange(license)}>
             {license.title}
           </Button>
         ))}

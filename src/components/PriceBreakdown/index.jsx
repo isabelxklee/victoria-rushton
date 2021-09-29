@@ -10,7 +10,12 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
             {font.title} {weight.weight}
           </p>
         ))}
-      {selectedLicense && <p>{selectedLicense.title} license</p>}
+      <p>$ {selectedLicense ? totalPrice - selectedLicense.price : totalPrice}</p>
+      {selectedLicense && (
+        <p>
+          {selectedLicense.title} license: $ {selectedLicense.price}
+        </p>
+      )}
       <p>Subtotal: $ {totalPrice}</p>
     </>
   )
