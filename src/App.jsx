@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Wrapper} from './styles'
 import {GlobalStyle} from './globalStyle'
 import {Switch, Route} from 'react-router-dom'
@@ -10,25 +10,10 @@ import Header from './components/Header'
 import FontProfile from './pages/FontProfile'
 
 const App = () => {
-  // const [data, setData] = useState(null)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      // const response = await fetch('https://victoria-rushton-express.herokuapp.com/express-backend')
-      // const body = await response.json()
-      // setData(body.express)
-    }
-
-    fetchData()
-  }, [])
-
   return (
     <>
       <GlobalStyle />
       <Wrapper>
-        {/* <form action="/create-checkout-session" method="POST">
-        <button type="submit">Checkout</button>
-      </form> */}
         <Header />
         <Switch>
           {/* <Route path="/about">

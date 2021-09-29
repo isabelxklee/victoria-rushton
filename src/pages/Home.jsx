@@ -25,8 +25,6 @@ const Home = () => {
       .catch(console.error)
   }, [])
 
-  console.log(fonts)
-
   return <>{fonts && fonts.map((font) => <FontHero font={font} key={font._id} />)}</>
 }
 
