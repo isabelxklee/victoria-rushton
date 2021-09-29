@@ -18,7 +18,6 @@ const License = ({font}) => {
   const [selectedFonts, setSelectedFonts] = useState([])
   const [fontPrice, setFontPrice] = useState(0)
   const [licensePrice, setLicensePrice] = useState(0)
-  const [totalPrice, setTotalPrice] = useState(0)
   const [currency, setCurrency] = useState('USD')
   const [selectAllRoman, setSelectAllRoman] = useState(false)
   const [selectAllItalic, setSelectAllItalic] = useState(false)
@@ -54,12 +53,10 @@ const License = ({font}) => {
 
   const handleLicenseChange = (license) => {
     setSelectedLicense(() => (selectedLicense === license ? null : license))
-    setLicensePrice((licensePrice) =>
-      selectedLicense ? (licensePrice -= license.price) : (licensePrice += license.price)
-    )
+    setLicensePrice(selectedLicense === license ? 0 : license.price)
   }
 
-  const handleChangeSingle = (weight) => {
+  const handleChangeSingleFont = (weight) => {
     const fontWeight = weight.title
 
     setSelectedFonts((selectedFonts) =>
@@ -78,7 +75,7 @@ const License = ({font}) => {
 
     setSelectAllRoman((selectAllRoman) => !selectAllRoman)
     setSelectedFonts(selectAllRoman ? [] : [...allRoman])
-    setFontPrice((fontPrice) => (selectAllRoman ? (fontPrice -= 450) : (fontPrice += 450)))
+    setFontPrice((fontPrice) => (selectAllRoman ? 0 : (fontPrice += 450)))
   }
 
   return (
@@ -95,7 +92,10 @@ const License = ({font}) => {
               <Options>
                 {font &&
                   font.weights.map((weight) => (
-                    <SecondaryButton key={weight._id} onClick={() => handleChangeSingle(weight)}>
+                    <SecondaryButton
+                      key={weight._id}
+                      onClick={() => handleChangeSingleFont(weight)}
+                    >
                       {weight.title}
                     </SecondaryButton>
                   ))}
