@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
+const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice, currency}) => {
   return (
     <>
       <h3>Price breakdown</h3>
@@ -10,13 +10,20 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
             {font.title} {weight.weight}
           </p>
         ))}
-      <p>$ {selectedLicense ? totalPrice - selectedLicense.price : totalPrice}</p>
+      {totalPrice > 0 && (
+        <p>
+          $ {selectedLicense ? totalPrice - selectedLicense.price : totalPrice} {currency}
+        </p>
+      )}
+
       {selectedLicense && (
         <p>
           {selectedLicense.title} license: $ {selectedLicense.price}
         </p>
       )}
-      <p>Subtotal: $ {totalPrice}</p>
+      <p>
+        Subtotal: $ {totalPrice} {currency}
+      </p>
     </>
   )
 }

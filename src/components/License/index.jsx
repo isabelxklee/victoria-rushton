@@ -10,6 +10,7 @@ const License = ({font}) => {
   const [selectedLicense, setSelectedLicense] = useState(null)
   const [selectedFonts, setSelectedFonts] = useState(null)
   const [totalPrice, setTotalPrice] = useState(0)
+  const [currency, setCurrency] = useState('USD')
   // const buttonEl = useRef(false)
 
   useEffect(() => {
@@ -110,6 +111,7 @@ const License = ({font}) => {
         selectedFonts={selectedFonts}
         totalPrice={totalPrice}
         font={font}
+        currency={currency}
       />
     </>
   )
