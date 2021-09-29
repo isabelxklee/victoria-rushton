@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react'
-import {ButtonContainer} from './styles'
+import React, {useState, useEffect} from 'react'
+import {FlexContainer, ParentContainer, LicenseContainer, Options} from './styles'
 import sanityClient from '../../client.js'
-import {Button} from '../../styles'
+import {Button, Margin} from '../../styles'
 import PriceBreakdown from '../PriceBreakdown'
 
 const License = ({font}) => {
@@ -70,50 +70,69 @@ const License = ({font}) => {
     // <form action="/create-checkout-session" method="POST">
     //   <button type="submit">Checkout</button>
     // </form>
-    <>
+    <Margin $margin="100px 0">
       <h2>License this font</h2>
-      <h3>Select weight</h3>
-      <ButtonContainer>
+      <ParentContainer>
         <div>
-          {font &&
-            font.weights.map((weight) => (
-              <Button key={weight._id} onClick={() => handleChangeSingle(weight)}>
-                {weight.title}
-              </Button>
-            ))}
-          <Button onClick={handleChangeAll}>
-            {font.slants.length === 1 ? 'Select all' : 'Select all Roman'}
-          </Button>
+          <Margin $margin="60px 0">
+            <h3>Select weight</h3>
+            <FlexContainer>
+              <Options>
+                {font &&
+                  font.weights.map((weight) => (
+                    <Button key={weight._id} onClick={() => handleChangeSingle(weight)}>
+                      {weight.title}
+                    </Button>
+                  ))}
+                <Button onClick={handleChangeAll}>
+                  {font.slants.length === 1 ? 'Select all' : 'Select all Roman'}
+                </Button>
+              </Options>
+              <Options>
+                {font.slants.includes('Italic') && (
+                  <>
+                    {font.weights.map((weight) => (
+                      <Button key={weight._id}>{weight.title} Italic</Button>
+                    ))}
+                    <Button>Select all Italic</Button>
+                  </>
+                )}
+              </Options>
+            </FlexContainer>
+          </Margin>
+          <LicenseContainer>
+            <Options>
+              <h3>Select license</h3>
+              {licenses &&
+                licenses.map((license) => (
+                  <Button key={license._id} onClick={() => handleLicenseChange(license)}>
+                    {license.title}
+                  </Button>
+                ))}
+            </Options>
+            <div>
+              <h3>For uses, not exceeding:</h3>
+              {selectedLicense && (
+                <>
+                  <p>{selectedLicense.desktopWorkstations} desktop workstations</p>
+                  <p>{selectedLicense.webVisitors} web visitors</p>
+                  <p>{selectedLicense.ebooks} e-book(s)</p>
+                </>
+              )}
+            </div>
+          </LicenseContainer>
         </div>
-        <div>
-          {font.slants.includes('Italic') &&
-            font.weights.map((weight) => <button key={weight._id}>{weight.title} Italic</button>)}
-          <button>Select all Italic</button>
-        </div>
-      </ButtonContainer>
-      <h3>Select license</h3>
-      {licenses &&
-        licenses.map((license) => (
-          <Button key={license._id} onClick={() => handleLicenseChange(license)}>
-            {license.title}
-          </Button>
-        ))}
-      <h3>For uses, not exceeding:</h3>
-      {selectedLicense && (
-        <>
-          <p>{selectedLicense.desktopWorkstations} desktop workstations</p>
-          <p>{selectedLicense.webVisitors} web visitors</p>
-          <p>{selectedLicense.ebooks} e-book(s)</p>
-        </>
-      )}
-      <PriceBreakdown
-        selectedLicense={selectedLicense}
-        selectedFonts={selectedFonts}
-        totalPrice={totalPrice}
-        font={font}
-        currency={currency}
-      />
-    </>
+        <Margin $margin="60px 0">
+          <PriceBreakdown
+            selectedLicense={selectedLicense}
+            selectedFonts={selectedFonts}
+            totalPrice={totalPrice}
+            font={font}
+            currency={currency}
+          />
+        </Margin>
+      </ParentContainer>
+    </Margin>
   )
 }
 
