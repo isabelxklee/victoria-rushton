@@ -1,7 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import {FlexContainer, ParentContainer, LicenseContainer, Options} from './styles'
+import {
+  FlexContainer,
+  ParentContainer,
+  LicenseContainer,
+  Options,
+  SelectionContainer,
+} from './styles'
 import sanityClient from '../../client.js'
 import {Button, Margin} from '../../styles'
+import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 
 const License = ({font}) => {
@@ -74,7 +81,7 @@ const License = ({font}) => {
       <h2>License this font</h2>
       <ParentContainer>
         <div>
-          <Margin $margin="60px 0">
+          <SelectionContainer>
             <h3>Select weight</h3>
             <FlexContainer>
               <Options>
@@ -99,7 +106,7 @@ const License = ({font}) => {
                 )}
               </Options>
             </FlexContainer>
-          </Margin>
+          </SelectionContainer>
           <LicenseContainer>
             <Options>
               <h3>Select license</h3>
@@ -110,7 +117,7 @@ const License = ({font}) => {
                   </Button>
                 ))}
             </Options>
-            <div>
+            <div style={{width: '100%'}}>
               <h3>For uses, not exceeding:</h3>
               {selectedLicense && (
                 <>
@@ -122,7 +129,7 @@ const License = ({font}) => {
             </div>
           </LicenseContainer>
         </div>
-        <Margin $margin="60px 0">
+        <PriceContainer>
           <PriceBreakdown
             selectedLicense={selectedLicense}
             selectedFonts={selectedFonts}
@@ -130,7 +137,7 @@ const License = ({font}) => {
             font={font}
             currency={currency}
           />
-        </Margin>
+        </PriceContainer>
       </ParentContainer>
     </Margin>
   )

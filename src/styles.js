@@ -19,6 +19,10 @@ export const Divider = styled.div`
   border: 1px solid #1e1e1e;
 `
 
+export const VerticalDivider = styled(Divider)`
+  transform: rotate(90deg);
+`
+
 export const P = styled.p`
   margin: 0;
   font-size: 18px;
