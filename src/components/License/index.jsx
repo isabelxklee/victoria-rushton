@@ -18,7 +18,6 @@ const License = ({font}) => {
   const [selectedFonts, setSelectedFonts] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [currency, setCurrency] = useState('USD')
-  const [selected, setSelected] = useState(false)
   // const buttonEl = useRef(false)
 
   useEffect(() => {
@@ -49,25 +48,19 @@ const License = ({font}) => {
   //   fetchData()
   // }, [])
 
-  console.log(selectedFonts)
-
   const handleLicenseChange = (license) => {
     setSelectedLicense(license)
     setTotalPrice((totalPrice) => (totalPrice += license.price))
   }
 
   const handleChangeSingle = (weight) => {
-    const weightObject = {weight: weight.title}
+    const fontWeight = weight.title
 
-    console.log(selectedFonts.includes(weightObject))
-
-    selectedFonts.includes(weightObject)
-      ? setSelectedFonts((selectedFonts) =>
-          selectedFonts.filter((weight) => weight !== weightObject)
-        )
-      : setSelectedFonts((selectedFonts) => [...selectedFonts, weightObject])
-
-    setSelected((selected) => !selected)
+    setSelectedFonts((selectedFonts) =>
+      selectedFonts.includes(fontWeight)
+        ? selectedFonts.filter((weight) => weight !== fontWeight)
+        : [...selectedFonts, fontWeight]
+    )
   }
 
   const handleChangeAll = () => {

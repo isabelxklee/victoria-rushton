@@ -6,8 +6,8 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice, curre
       <h3>Price breakdown</h3>
       {selectedFonts &&
         selectedFonts.map((weight) => (
-          <p key={weight.weight}>
-            {font.title} {weight.weight}
+          <p key={weight}>
+            {font.title} {weight}
           </p>
         ))}
       {totalPrice > 0 && (
