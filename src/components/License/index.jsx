@@ -1,13 +1,29 @@
 import React, {useState, useEffect} from 'react'
-import {ButtonContainer} from './styles'
+import {
+  FlexContainer,
+  ParentContainer,
+  LicenseContainer,
+  Options,
+  SelectionContainer,
+} from './styles'
 import sanityClient from '../../client.js'
-import {Button} from '../../styles'
+import {Button, SecondaryButton, Margin} from '../../styles'
+import {PriceContainer} from '../PriceBreakdown/styles'
+import PriceBreakdown from '../PriceBreakdown'
 
 const License = ({font}) => {
   // const [data, setData] = useState(null)
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
-  const [selectedFonts, setSelectedFonts] = useState(null)
+  const [selectedFonts, setSelectedFonts] = useState([])
+  const [fontPrice, setFontPrice] = useState(0)
+  const [licensePrice, setLicensePrice] = useState(0)
+  const [currency, setCurrency] = useState('USD')
+  const [selectAllRoman, setSelectAllRoman] = useState(false)
+  // const [selectAllItalic, setSelectAllItalic] = useState(false)
+  // const buttonEl = useRef(false)
+
+  console.log(setCurrency)
 
   useEffect(() => {
     sanityClient
@@ -16,6 +32,7 @@ const License = ({font}) => {
             _id,
             order,
             title,
+            price,
             desktopWorkstations,
             webVisitors,
             ebooks
@@ -36,61 +53,103 @@ const License = ({font}) => {
   //   fetchData()
   // }, [])
 
-  const handleChangeSingle = (weight) => {
-    const weightObject = {weight: weight.title}
-    setSelectedFonts(weightObject)
+  const handleLicenseChange = (license) => {
+    setSelectedLicense(() => (selectedLicense === license ? null : license))
+    setLicensePrice(selectedLicense === license ? 0 : license.price)
   }
 
-  const handleChangeAll = () => {
-    const allRegularWeights = []
-    font.weights.map((weight) => allRegularWeights.push({weight: weight.title}))
+  const handleChangeSingleFont = (weight) => {
+    const fontWeight = weight.title
 
-    setSelectedFonts(allRegularWeights)
+    setSelectedFonts((selectedFonts) =>
+      selectedFonts.includes(fontWeight)
+        ? selectedFonts.filter((weight) => weight !== fontWeight)
+        : [...selectedFonts, fontWeight]
+    )
+
+    setFontPrice((fontPrice) =>
+      selectedFonts.includes(fontWeight) ? (fontPrice -= 100) : (fontPrice += 100)
+    )
   }
 
-  console.log(licenses, selectedLicense, selectedFonts)
+  const handleChangeAllRoman = () => {
+    const allRoman = font.weights.map((weight) => weight.title)
+
+    setSelectAllRoman((selectAllRoman) => !selectAllRoman)
+    setSelectedFonts(selectAllRoman ? [] : [...allRoman])
+    setFontPrice((fontPrice) => (selectAllRoman ? 0 : (fontPrice += 450)))
+  }
 
   return (
     // <form action="/create-checkout-session" method="POST">
     //   <button type="submit">Checkout</button>
     // </form>
-    <>
+    <Margin $margin="100px 0">
       <h2>License this font</h2>
-      <h3>Select weight</h3>
-      <ButtonContainer>
+      <ParentContainer>
         <div>
-          {font &&
-            font.weights.map((weight) => (
-              <Button key={weight._id} onClick={() => handleChangeSingle(weight)}>
-                {weight.title}
-              </Button>
-            ))}
-          <Button onClick={handleChangeAll}>
-            {font.slants.length === 1 ? 'Select all' : 'Select all Roman'}
-          </Button>
+          <SelectionContainer>
+            <h3>Select weight</h3>
+            <FlexContainer>
+              <Options>
+                {font &&
+                  font.weights.map((weight) => (
+                    <SecondaryButton
+                      key={weight._id}
+                      onClick={() => handleChangeSingleFont(weight)}
+                    >
+                      {weight.title}
+                    </SecondaryButton>
+                  ))}
+                <Button onClick={handleChangeAllRoman}>
+                  {font.slants.length === 1 ? 'Select all' : 'Select all Roman'}
+                </Button>
+              </Options>
+              <Options>
+                {font.slants.includes('Italic') && (
+                  <>
+                    {font.weights.map((weight) => (
+                      <SecondaryButton key={weight._id}>{weight.title} Italic</SecondaryButton>
+                    ))}
+                    <Button>Select all Italic</Button>
+                  </>
+                )}
+              </Options>
+            </FlexContainer>
+          </SelectionContainer>
+          <LicenseContainer>
+            <Options>
+              <h3>Select license</h3>
+              {licenses &&
+                licenses.map((license) => (
+                  <SecondaryButton key={license._id} onClick={() => handleLicenseChange(license)}>
+                    {license.title}
+                  </SecondaryButton>
+                ))}
+            </Options>
+            <div style={{width: '100%'}}>
+              <h3>For uses, not exceeding:</h3>
+              {selectedLicense && (
+                <>
+                  <p>{selectedLicense.desktopWorkstations} desktop workstations</p>
+                  <p>{selectedLicense.webVisitors} web visitors</p>
+                  <p>{selectedLicense.ebooks} e-book(s)</p>
+                </>
+              )}
+            </div>
+          </LicenseContainer>
         </div>
-        <div>
-          {font.slants.includes('Italic') &&
-            font.weights.map((weight) => <button key={weight._id}>{weight.title} Italic</button>)}
-          <button>Select all Italic</button>
-        </div>
-      </ButtonContainer>
-      <h3>Select license</h3>
-      {licenses &&
-        licenses.map((license) => (
-          <Button key={license._id} onClick={() => setSelectedLicense(license)}>
-            {license.title}
-          </Button>
-        ))}
-      <h3>For uses, not exceeding:</h3>
-      {selectedLicense && (
-        <>
-          <p>{selectedLicense.desktopWorkstations} desktop workstations</p>
-          <p>{selectedLicense.webVisitors} web visitors</p>
-          <p>{selectedLicense.ebooks} e-book(s)</p>
-        </>
-      )}
-    </>
+        <PriceContainer>
+          <PriceBreakdown
+            selectedLicense={selectedLicense}
+            selectedFonts={selectedFonts}
+            totalPrice={fontPrice + licensePrice}
+            font={font}
+            currency={currency}
+          />
+        </PriceContainer>
+      </ParentContainer>
+    </Margin>
   )
 }
 
