@@ -18,6 +18,8 @@ const License = ({font}) => {
   const [selectedFonts, setSelectedFonts] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [currency, setCurrency] = useState('USD')
+  const [selectAllRoman, setSelectAllRoman] = useState(false)
+  const [selectAllItalic, setSelectAllItalic] = useState(false)
   // const buttonEl = useRef(false)
 
   useEffect(() => {
@@ -67,19 +69,12 @@ const License = ({font}) => {
     )
   }
 
-  const handleChangeAll = () => {
-    const allRegularWeights = []
-    font.weights.map((weight) => allRegularWeights.push({weight: weight.title}))
+  const handleChangeAllRoman = () => {
+    const allRoman = font.weights.map((weight) => weight.title)
 
-    setSelectedFonts(
-      selectedFonts && selectedFonts.length === font.weights.length ? null : allRegularWeights
-    )
-
-    setTotalPrice((totalPrice) =>
-      selectedFonts && selectedFonts.length === font.weights.length
-        ? (totalPrice -= 450)
-        : (totalPrice += 450)
-    )
+    setSelectAllRoman((selectAllRoman) => !selectAllRoman)
+    setSelectedFonts((selectAllRoman) => (selectAllRoman ? [...allRoman] : []))
+    setTotalPrice((totalPrice) => (selectAllRoman ? (totalPrice -= 450) : (totalPrice += 450)))
   }
 
   return (
@@ -100,7 +95,7 @@ const License = ({font}) => {
                       {weight.title}
                     </SecondaryButton>
                   ))}
-                <Button onClick={handleChangeAll}>
+                <Button onClick={handleChangeAllRoman}>
                   {font.slants.length === 1 ? 'Select all' : 'Select all Roman'}
                 </Button>
               </Options>
