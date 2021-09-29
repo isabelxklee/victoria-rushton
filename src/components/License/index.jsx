@@ -7,7 +7,7 @@ import {
   SelectionContainer,
 } from './styles'
 import sanityClient from '../../client.js'
-import {Button, Margin} from '../../styles'
+import {Button, SecondaryButton, Margin} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 
@@ -15,9 +15,10 @@ const License = ({font}) => {
   // const [data, setData] = useState(null)
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
-  const [selectedFonts, setSelectedFonts] = useState(null)
+  const [selectedFonts, setSelectedFonts] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [currency, setCurrency] = useState('USD')
+  const [selected, setSelected] = useState(false)
   // const buttonEl = useRef(false)
 
   useEffect(() => {
@@ -48,6 +49,8 @@ const License = ({font}) => {
   //   fetchData()
   // }, [])
 
+  console.log(selectedFonts)
+
   const handleLicenseChange = (license) => {
     setSelectedLicense(license)
     setTotalPrice((totalPrice) => (totalPrice += license.price))
@@ -55,7 +58,16 @@ const License = ({font}) => {
 
   const handleChangeSingle = (weight) => {
     const weightObject = {weight: weight.title}
-    setSelectedFonts(weightObject)
+
+    console.log(selectedFonts.includes(weightObject))
+
+    selectedFonts.includes(weightObject)
+      ? setSelectedFonts((selectedFonts) =>
+          selectedFonts.filter((weight) => weight !== weightObject)
+        )
+      : setSelectedFonts((selectedFonts) => [...selectedFonts, weightObject])
+
+    setSelected((selected) => !selected)
   }
 
   const handleChangeAll = () => {
@@ -87,9 +99,9 @@ const License = ({font}) => {
               <Options>
                 {font &&
                   font.weights.map((weight) => (
-                    <Button key={weight._id} onClick={() => handleChangeSingle(weight)}>
+                    <SecondaryButton key={weight._id} onClick={() => handleChangeSingle(weight)}>
                       {weight.title}
-                    </Button>
+                    </SecondaryButton>
                   ))}
                 <Button onClick={handleChangeAll}>
                   {font.slants.length === 1 ? 'Select all' : 'Select all Roman'}
@@ -99,7 +111,7 @@ const License = ({font}) => {
                 {font.slants.includes('Italic') && (
                   <>
                     {font.weights.map((weight) => (
-                      <Button key={weight._id}>{weight.title} Italic</Button>
+                      <SecondaryButton key={weight._id}>{weight.title} Italic</SecondaryButton>
                     ))}
                     <Button>Select all Italic</Button>
                   </>
@@ -112,9 +124,9 @@ const License = ({font}) => {
               <h3>Select license</h3>
               {licenses &&
                 licenses.map((license) => (
-                  <Button key={license._id} onClick={() => handleLicenseChange(license)}>
+                  <SecondaryButton key={license._id} onClick={() => handleLicenseChange(license)}>
                     {license.title}
-                  </Button>
+                  </SecondaryButton>
                 ))}
             </Options>
             <div style={{width: '100%'}}>

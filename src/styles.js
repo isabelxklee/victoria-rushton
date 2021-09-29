@@ -59,11 +59,18 @@ export const Button = styled.button`
   border-radius: 40px;
   background: #1e1e1e;
   color: #f4f4f4;
+  border: 1px solid #f4f4f4;
   font-family: 'Cecilie Sans', 'sans-serif';
   font-weight: 300;
   font-size: 16px;
   padding: 14px 20px 10px 20px;
   cursor: pointer;
+`
+
+export const SecondaryButton = styled(Button)`
+  background: #f4f4f4;
+  color: #1e1e1e;
+  border: 2px solid #1e1e1e;
 `
 
 export const Label = styled.label`
