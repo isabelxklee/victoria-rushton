@@ -11,7 +11,7 @@ const Selector = ({title, options, defaultValue, handleChange, isDisabled}) => {
           defaultValue={defaultValue}
           onChange={handleChange}
           options={options}
-          placeholder={`Select a ${title}`}
+          placeholder={`Select ${title.toLowerCase()}`}
           isDisabled={isDisabled}
         />
       </Label>

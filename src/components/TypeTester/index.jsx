@@ -117,6 +117,7 @@ const TypeTester = ({font}) => {
         $slant={slant.value}
         $darkMode={darkMode ? '#1f1e1d' : '#f4f4f4'}
         $lightMode={darkMode ? '#f4f4f4' : '#1f1e1d'}
+        spellCheck="false"
       />
     </TypeTesterContainer>
   )

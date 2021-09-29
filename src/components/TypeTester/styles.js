@@ -32,6 +32,7 @@ export const InputField = styled.textarea.attrs(
   font-family: ${({$fontFamily}) => $fontFamily};
   width: 100%;
   padding: 40px;
+  resize: none;
 
   ::placeholder {
     color: ${({$lightMode}) => $lightMode};
