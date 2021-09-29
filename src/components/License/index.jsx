@@ -1,13 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import {ButtonContainer} from './styles'
 import sanityClient from '../../client.js'
 import {Button} from '../../styles'
+import PriceBreakdown from '../PriceBreakdown'
 
 const License = ({font}) => {
   // const [data, setData] = useState(null)
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
   const [selectedFonts, setSelectedFonts] = useState(null)
+  // const buttonEl = useRef(false)
 
   useEffect(() => {
     sanityClient
@@ -45,10 +47,10 @@ const License = ({font}) => {
     const allRegularWeights = []
     font.weights.map((weight) => allRegularWeights.push({weight: weight.title}))
 
-    setSelectedFonts(allRegularWeights)
+    setSelectedFonts(
+      selectedFonts && selectedFonts.length === font.weights.length ? null : allRegularWeights
+    )
   }
-
-  console.log(licenses, selectedLicense, selectedFonts)
 
   return (
     // <form action="/create-checkout-session" method="POST">
@@ -90,6 +92,7 @@ const License = ({font}) => {
           <p>{selectedLicense.ebooks} e-book(s)</p>
         </>
       )}
+      <PriceBreakdown selectedLicense={selectedLicense} selectedFonts={selectedFonts} font={font} />
     </>
   )
 }
