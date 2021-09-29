@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "@sanity/base": "^2.18.0",
+    "@sanity/cli": "^2.20.0",
     "@sanity/components": "^2.14.0",
     "@sanity/core": "^2.18.0",
     "@sanity/default-layout": "^2.18.0",
@@ -25,7 +26,6 @@
     "react": "^17.0",
     "react-dom": "^17.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/isabelxklee/victoria-rushton.git"

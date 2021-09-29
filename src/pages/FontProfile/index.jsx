@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
 import FontPreview from '../../components/FontPreview'
+import License from '../../components/License'
 import {HeroPreview} from '../../components/FontHero/styles'
 import {Divider, Description, Button, Padding} from '../../styles'
 import {TypeTesterBackground} from './styles'
@@ -30,8 +31,6 @@ const FontProfile = () => {
 
   if (!font) return <div>Loading...</div>
 
-  console.log(font)
-
   return (
     <>
       {font && (
@@ -47,6 +46,7 @@ const FontProfile = () => {
           <TypeTesterBackground>
             <TypeTester font={font} />
           </TypeTesterBackground>
+          <License font={font} />
         </>
       )}
     </>

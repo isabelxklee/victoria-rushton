@@ -9,6 +9,7 @@ import font from './font'
 import weight from './weight'
 import slant from './slant'
 import previewText from './previewText'
+import license from './license'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,5 +24,6 @@ export default createSchema({
     weight,
     slant,
     previewText,
+    license,
   ]),
 })
