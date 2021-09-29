@@ -61,6 +61,10 @@ const License = ({font}) => {
         ? selectedFonts.filter((weight) => weight !== fontWeight)
         : [...selectedFonts, fontWeight]
     )
+
+    setTotalPrice((totalPrice) =>
+      selectedFonts.includes(fontWeight) ? (totalPrice -= 100) : (totalPrice += 100)
+    )
   }
 
   const handleChangeAll = () => {
