@@ -4,7 +4,7 @@ import sanityClient from '../../client.js'
 import {Button} from '../../styles'
 
 const License = ({font}) => {
-  const [data, setData] = useState(null)
+  // const [data, setData] = useState(null)
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
   const [selectedFonts, setSelectedFonts] = useState(null)
