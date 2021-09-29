@@ -1,19 +1,17 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-const PriceBreakdown = ({font, selectedLicense, selectedFonts}) => {
-  const [total, setTotal] = useState(0)
-
-  console.log(selectedLicense, selectedFonts)
-
-  // if (selectedFonts && font.weights.length === selectedFonts.length) {
-  //   setTotal((total) => total * 0.4)
-  // }
-
+const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
   return (
     <>
       <h3>Price breakdown</h3>
+      {selectedFonts &&
+        selectedFonts.map((weight) => (
+          <p key={weight.weight}>
+            {font.title} {weight.weight}
+          </p>
+        ))}
       {selectedLicense && <p>{selectedLicense.title} license</p>}
-      <p>Subtotal: {total}</p>
+      <p>Subtotal: $ {totalPrice}</p>
     </>
   )
 }

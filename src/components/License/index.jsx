@@ -9,6 +9,7 @@ const License = ({font}) => {
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
   const [selectedFonts, setSelectedFonts] = useState(null)
+  const [totalPrice, setTotalPrice] = useState(0)
   // const buttonEl = useRef(false)
 
   useEffect(() => {
@@ -50,7 +51,15 @@ const License = ({font}) => {
     setSelectedFonts(
       selectedFonts && selectedFonts.length === font.weights.length ? null : allRegularWeights
     )
+
+    setTotalPrice((totalPrice) =>
+      selectedFonts && selectedFonts.length === font.weights.length
+        ? (totalPrice -= 450)
+        : (totalPrice += 450)
+    )
   }
+
+  console.log(totalPrice, selectedFonts, licenses)
 
   return (
     // <form action="/create-checkout-session" method="POST">
@@ -92,7 +101,12 @@ const License = ({font}) => {
           <p>{selectedLicense.ebooks} e-book(s)</p>
         </>
       )}
-      <PriceBreakdown selectedLicense={selectedLicense} selectedFonts={selectedFonts} font={font} />
+      <PriceBreakdown
+        selectedLicense={selectedLicense}
+        selectedFonts={selectedFonts}
+        totalPrice={totalPrice}
+        font={font}
+      />
     </>
   )
 }
