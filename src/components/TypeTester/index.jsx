@@ -30,13 +30,16 @@ const Panel = ({
         defaultValue={weight}
         handleChange={setWeight}
       />
-      <Selector
-        title="Slant"
-        options={slantOptions}
-        defaultValue={slant}
-        handleChange={setSlant}
-        isDisabled={slantOptions.length < 2}
-      />
+      {slantOptions.length > 1 && (
+        <Selector
+          title="Slant"
+          options={slantOptions}
+          defaultValue={slant}
+          handleChange={setSlant}
+          isDisabled={slantOptions.length < 2}
+        />
+      )}
+
       <SliderInput
         title="Size"
         value={size}
