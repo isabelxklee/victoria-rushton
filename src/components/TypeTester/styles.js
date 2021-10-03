@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Button} from '../../styles'
+import {Button, Colors} from '../../styles'
 import {ReactComponent as Sun} from '../../icons/icon-sun.svg'
 import {ReactComponent as Moon} from '../../icons/icon-moon.svg'
 
@@ -7,14 +7,14 @@ export const TypeTesterContainer = styled.div`
   display: flex;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  border: 2px solid #1e1e1e;
+  border: 2px solid ${Colors.black};
   margin-top: 100px;
   margin-bottom: 100px;
 `
 
 export const PanelContainer = styled.div`
-  background: #1e1e1e;
-  color: #f4f4f4;
+  background: ${Colors.black};
+  color: ${Colors.white};
   padding: 80px;
   width: 500px;
   display: flex;
@@ -45,9 +45,9 @@ export const InputField = styled.textarea.attrs(
 `
 
 export const IconButton = styled(Button)`
-  border: 2px solid ${({$darkMode}) => ($darkMode ? '#1f1f1f' : '#f4f4f4')};
-  background: ${({$darkMode}) => ($darkMode ? '#f4f4f4' : '#1f1f1f')};
-  color: ${({$darkMode}) => ($darkMode ? '#1f1f1f' : '#f4f4f4')};
+  border: 2px solid ${({$darkMode}) => ($darkMode ? Colors.black : Colors.white)};
+  background: ${({$darkMode}) => ($darkMode ? Colors.white : Colors.black)};
+  color: ${({$darkMode}) => ($darkMode ? Colors.black : Colors.white)};
   cursor: pointer;
   align-items: center;
   display: flex;
@@ -64,5 +64,5 @@ export const IconSun = styled(Sun)`
 export const IconMoon = styled(Moon)`
   width: 20px;
   height: 24px;
-  fill: #f4f4f4;
+  fill: ${Colors.white};
 `

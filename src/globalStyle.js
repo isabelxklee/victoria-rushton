@@ -1,4 +1,5 @@
 import {createGlobalStyle} from 'styled-components'
+import {Colors} from './styles'
 // cecilie sans
 // 800
 import cecilie8001 from './fonts/cecilie-sans/800-cecilie-black.woff'
@@ -256,8 +257,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #F4F4F4;
-    color: #1E1E1E;
+    background: ${Colors.white};
+    color: ${Colors.black};
     font-family: 'Cecilie Sans', sans-serif;
     font-weight: 400;
     margin: 0;
