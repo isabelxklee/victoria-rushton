@@ -7,6 +7,7 @@ export const HeaderContainer = styled.div`
   position: relative;
   top: 0;
   width: calc(100vw - 160px);
+  border-bottom: 2px solid #1e1e1e;
 `
 
 export const HeaderLink = styled(NavLink)`

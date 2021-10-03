@@ -5,8 +5,8 @@ import TypeTester from '../../components/TypeTester'
 import FontPreview from '../../components/FontPreview'
 import License from '../../components/License'
 import {HeroPreview} from '../../components/FontHero/styles'
-import {Divider, Description, Button, Padding} from '../../styles'
-import {TypeTesterBackground} from './styles'
+import {Divider, Description, Button} from '../../styles'
+import {TypeTesterBackground, HeroContainer} from './styles'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -35,13 +35,11 @@ const FontProfile = () => {
     <>
       {font && (
         <>
-          <Divider />
-          <Padding $padding="120px 0px">
+          <HeroContainer>
             <HeroPreview $isProfile={true}>{font.title}</HeroPreview>
             <Description>{font.description}</Description>
             <Button>License this font</Button>
-          </Padding>
-          <Divider />
+          </HeroContainer>
           <FontPreview font={font.title} />
           <TypeTesterBackground>
             <TypeTester font={font} />
