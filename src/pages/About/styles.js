@@ -12,4 +12,13 @@ export const ProfilePic = styled.img`
 
 export const IntroContainer = styled(HeroContainer)`
   display: flex;
+  border-bottom: none;
+`
+
+export const PressContainer = styled.div`
+  background: #1e1e1e;
+  color: #f4f4f4;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 80px;
 `

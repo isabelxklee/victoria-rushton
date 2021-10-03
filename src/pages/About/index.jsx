@@ -1,6 +1,6 @@
 import React from 'react'
 import {PSpace, Button, TextLink, H2} from '../../styles'
-import {ProfilePic, IntroContainer} from './styles'
+import {ProfilePic, IntroContainer, PressContainer} from './styles'
 
 const About = () => {
   return (
@@ -30,9 +30,9 @@ const About = () => {
           alt="A black and white portrait of a woman wearing glasses."
         />
       </IntroContainer>
-      <div>
+      <PressContainer>
         <H2>Speaking and Writing</H2>
-      </div>
+      </PressContainer>
     </>
   )
 }
