@@ -1,6 +1,6 @@
 import React from 'react'
 import {HeroContainer} from '../FontProfile/styles'
-import {P} from '../../styles'
+import {PSpace, Button, TextLink} from '../../styles'
 import {ProfilePic} from './styles'
 
 const About = () => {
@@ -8,7 +8,7 @@ const About = () => {
     <>
       <HeroContainer>
         <h2>Hello! I'm Victoria.</h2>
-        <P>
+        <PSpace>
           The great people at Font Bureau trained me to design and develop fonts, and along with
           them I became a founding type foundry partner at Type Network. I make custom typefaces for
           clients big and small, and retail typefaces for everyone, which you can also find there,
@@ -17,13 +17,17 @@ const About = () => {
           designers, especially those from underrepresented communities in tech and design, I’d love
           to give you free trial licenses for my typefaces. Check out my student licenses, or get in
           touch! We should work together and/or be friends.
-        </P>
+        </PSpace>
         <ProfilePic
           src="https://cdn.theatlantic.com/media/mt/science/cat_caviar.jpg"
           rel="no_link referrer"
           alt=""
         />
-        <button>Email me</button>
+        <Button>
+          <TextLink href="mailto:hello@victoriarushton.com" inputWeight="300">
+            Email me
+          </TextLink>
+        </Button>
       </HeroContainer>
       <div>
         <h2>Speaking and Writing</h2>

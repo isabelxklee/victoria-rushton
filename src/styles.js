@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 export const TextLink = styled.a`
-  font-weight: 700;
+  font-weight: ${(props) => props.inputWeight || 700};
   color: #f4f4f4;
   text-decoration: none;
 `
