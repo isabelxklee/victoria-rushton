@@ -10,6 +10,7 @@ import weight from './weight'
 import slant from './slant'
 import previewText from './previewText'
 import license from './license'
+import about from './about'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,5 +26,6 @@ export default createSchema({
     slant,
     previewText,
     license,
+    about,
   ]),
 })
