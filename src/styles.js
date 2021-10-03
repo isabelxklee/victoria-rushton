@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
+export const Colors = {
+  white: '#f4f4f4',
+  black: '#1E1E1E',
+}
+
 export const TextLink = styled.a`
   font-weight: ${(props) => props.inputWeight || 700};
   color: #f4f4f4;
