@@ -6,7 +6,7 @@ import FontPreview from '../../components/FontPreview'
 import License from '../../components/License'
 import {HeroPreview} from '../../components/FontHero/styles'
 import {Description, Button} from '../../styles'
-import {TypeTesterBackground, HeroContainer} from './styles'
+import {HeroContainer} from './styles'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -41,9 +41,7 @@ const FontProfile = () => {
             <Button>License this font</Button>
           </HeroContainer>
           <FontPreview font={font.title} />
-          <TypeTesterBackground>
-            <TypeTester font={font} />
-          </TypeTesterBackground>
+          <TypeTester font={font} />
           <License font={font} />
         </>
       )}
