@@ -3,6 +3,11 @@ import {P} from '../../styles'
 
 export const FontHeroContainer = styled.div`
   position: relative;
+  border-bottom: 2px solid #1e1e1e;
+
+  &:last-child {
+    border-bottom: none;
+  }
 `
 
 export const HeroPreview = styled.h2`

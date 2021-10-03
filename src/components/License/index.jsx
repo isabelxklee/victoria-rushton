@@ -7,7 +7,7 @@ import {
   SelectionContainer,
 } from './styles'
 import sanityClient from '../../client.js'
-import {Button, SecondaryButton, Margin} from '../../styles'
+import {Button, SecondaryButton} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 
@@ -84,7 +84,7 @@ const License = ({font}) => {
     // <form action="/create-checkout-session" method="POST">
     //   <button type="submit">Checkout</button>
     // </form>
-    <Margin $margin="100px 0">
+    <>
       <h2>License this font</h2>
       <ParentContainer>
         <div>
@@ -149,7 +149,7 @@ const License = ({font}) => {
           />
         </PriceContainer>
       </ParentContainer>
-    </Margin>
+    </>
   )
 }
 

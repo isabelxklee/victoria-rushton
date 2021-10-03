@@ -1,5 +1,5 @@
 import React from 'react'
-import {Divider, InternalLink, Padding} from '../../styles'
+import {InternalLink, Padding} from '../../styles'
 import {FontHeroContainer, FontHeroP, FontHeroPRight} from './styles'
 import {PreviewText} from '../FontPreview/styles'
 
@@ -10,7 +10,6 @@ const FontHero = ({font}) => {
 
   return (
     <FontHeroContainer>
-      <Divider />
       <Padding $padding="20px 0px">
         <InternalLink to={'/' + font.slug} key={font._id}>
           <FontHeroP>{font.title}</FontHeroP>

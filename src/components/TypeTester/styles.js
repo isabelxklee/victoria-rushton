@@ -5,10 +5,15 @@ import {ReactComponent as Moon} from '../../icons/icon-moon.svg'
 
 export const TypeTesterContainer = styled.div`
   display: flex;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border: 2px solid #1e1e1e;
+  margin-top: 100px;
+  margin-bottom: 100px;
 `
 
 export const PanelContainer = styled.div`
-  background-color: #1f1e1d;
+  background: #1e1e1e;
   color: #f4f4f4;
   padding: 80px;
   width: 500px;
