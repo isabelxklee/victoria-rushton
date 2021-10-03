@@ -25,9 +25,9 @@ const About = () => {
           </Button>
         </div>
         <ProfilePic
-          src="https://cdn.theatlantic.com/media/mt/science/cat_caviar.jpg"
+          src="https://res.cloudinary.com/extrapickles/image/upload/c_scale,w_1000/v1633237161/victoria_profile_pic_ds7twb.png"
           rel="no_link referrer"
-          alt=""
+          alt="A black and white portrait of a woman wearing glasses."
         />
       </IntroContainer>
       <div>
