@@ -2,7 +2,7 @@ import React from 'react'
 import {Wrapper} from './styles'
 import {GlobalStyle} from './globalStyle'
 import {Switch, Route} from 'react-router-dom'
-// import About from './pages/Home'
+import About from './pages/About'
 // import Type from './pages/Type'
 import Home from './pages/Home'
 import Footer from './components/Footer'
@@ -16,12 +16,12 @@ const App = () => {
       <Wrapper>
         <Header />
         <Switch>
-          {/* <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/type">
-          <Type />
-        </Route> */}
+          <Route component={About} path="/about">
+            <About />
+          </Route>
+          {/* <Route path="/type">
+            <Type />
+          </Route> */}
           <Route component={Home} exact path="/" />
           <Route component={FontProfile} path="/:slug" />
         </Switch>
