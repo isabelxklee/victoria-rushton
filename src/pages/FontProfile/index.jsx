@@ -5,7 +5,7 @@ import TypeTester from '../../components/TypeTester'
 import FontPreview from '../../components/FontPreview'
 import License from '../../components/License'
 import {HeroPreview} from '../../components/FontHero/styles'
-import {Divider, Description, Button} from '../../styles'
+import {Description, Button} from '../../styles'
 import {TypeTesterBackground, HeroContainer} from './styles'
 
 const FontProfile = () => {
