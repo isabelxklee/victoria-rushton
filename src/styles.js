@@ -30,7 +30,7 @@ export const P = styled.p`
 `
 
 export const PSpace = styled(P)`
-  margin: 16px 0;
+  margin: ${(props) => props.inputMargin || '16px 0'};
 `
 
 export const Description = styled(P)`
@@ -76,4 +76,9 @@ export const SecondaryButton = styled(Button)`
 export const Label = styled.label`
   font-weight: 300;
   font-size: 18px;
+`
+
+export const H2 = styled.h2`
+  font-size: 32px;
+  font-weight: 700;
 `
