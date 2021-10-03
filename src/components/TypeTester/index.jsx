@@ -9,6 +9,7 @@ import {
   IconSun,
   IconMoon,
 } from './styles'
+import {Colors} from '../../styles'
 
 const Panel = ({
   weight,
@@ -115,8 +116,8 @@ const TypeTester = ({font}) => {
         $size={size}
         $fontFamily={font.title}
         $slant={slant.value}
-        $darkMode={darkMode ? '#1f1e1d' : '#f4f4f4'}
-        $lightMode={darkMode ? '#f4f4f4' : '#1f1e1d'}
+        $darkMode={darkMode ? Colors.black : Colors.white}
+        $lightMode={darkMode ? Colors.white : Colors.black}
         spellCheck="false"
       />
     </TypeTesterContainer>

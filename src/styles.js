@@ -8,7 +8,7 @@ export const Colors = {
 
 export const TextLink = styled.a`
   font-weight: ${(props) => props.inputWeight || 700};
-  color: #f4f4f4;
+  color: ${Colors.white};
   text-decoration: none;
 `
 
@@ -63,8 +63,8 @@ export const Button = styled.button`
   border: none;
   border-radius: 40px;
   background: #1e1e1e;
-  color: #f4f4f4;
-  border: 1px solid #f4f4f4;
+  color: ${Colors.white};
+  border: 1px solid ${Colors.white};
   font-family: 'Cecilie Sans', 'sans-serif';
   font-weight: 300;
   font-size: 16px;
@@ -73,7 +73,7 @@ export const Button = styled.button`
 `
 
 export const SecondaryButton = styled(Button)`
-  background: #f4f4f4;
+  background: ${Colors.white};
   color: #1e1e1e;
   border: 2px solid #1e1e1e;
 `

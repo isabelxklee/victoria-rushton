@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {HeroContainer} from '../FontProfile/styles'
+import {Colors} from '../../styles'
 
 export const ProfilePic = styled.img`
   border-radius: 100%;
@@ -16,8 +17,8 @@ export const IntroContainer = styled(HeroContainer)`
 `
 
 export const PressContainer = styled.div`
-  background: #1e1e1e;
-  color: #f4f4f4;
+  background: ${Colors.black};
+  color: ${Colors.white};
   width: 100vw;
   margin-left: calc(50% - 50vw);
   padding: 80px;
