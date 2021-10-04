@@ -8,12 +8,24 @@ export const ProfilePic = styled.img`
   height: 280px;
   object-fit: cover;
   border: 2px solid #1e1e1e;
-  margin: 70px 100px;
+  margin: 40px 80px 20px 0;
+
+  @media (max-width: 900px) {
+    margin: 0;
+    width: 200px;
+    height: 200px;
+  }
 `
 
 export const IntroContainer = styled(HeroContainer)`
   display: flex;
   border-bottom: none;
+
+  @media (max-width: 900px) {
+    display: block;
+    padding: 60px 0;
+    text-align: center;
+  }
 `
 
 export const PressContainer = styled.div`

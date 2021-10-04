@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
   width: calc(100vw - 160px);
   border-bottom: 2px solid #1e1e1e;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     width: 100%;
     padding: 40px 0;
   }
