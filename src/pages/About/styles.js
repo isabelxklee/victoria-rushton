@@ -23,3 +23,15 @@ export const PressContainer = styled.div`
   margin-left: calc(50% - 50vw);
   padding: 80px;
 `
+
+export const PressArticleTitle = styled.a`
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  color: ${Colors.white};
+`
+
+export const PressArticleContainer = styled.div`
+  margin: 48px 0;
+`

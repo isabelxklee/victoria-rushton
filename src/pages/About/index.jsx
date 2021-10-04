@@ -1,6 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import {PSpace, Button, TextLink, H2} from '../../styles'
-import {ProfilePic, IntroContainer, PressContainer} from './styles'
+import {
+  ProfilePic,
+  IntroContainer,
+  PressContainer,
+  PressArticleTitle,
+  PressArticleContainer,
+} from './styles'
 import sanityClient from '../../client.js'
 
 const About = () => {
@@ -29,6 +35,8 @@ const About = () => {
   const about = data && data.filter((object) => object._type === 'about')[0]
   const press = data && data.filter((object) => object._type === 'press')
 
+  console.log(press)
+
   return (
     <>
       {data && (
@@ -54,10 +62,18 @@ const About = () => {
         <H2>Speaking and Writing</H2>
         {press &&
           press.map((object) => (
-            <div key={object._id}>
-              <p>{object.title}</p>
-              {/* <p>{object.description}</p> */}
-            </div>
+            <PressArticleContainer key={object._id}>
+              <PressArticleTitle
+                href={object.link}
+                target="_blank"
+                rel="no_referrer"
+                $linkStyle={object.link && 'on'}
+              >
+                {object.link && '🔗 '}
+                {object.title}
+              </PressArticleTitle>
+              <PSpace>{object.description}</PSpace>
+            </PressArticleContainer>
           ))}
       </PressContainer>
     </>
