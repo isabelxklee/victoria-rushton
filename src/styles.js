@@ -44,14 +44,6 @@ export const PSpace = styled(P)`
   margin: ${(props) => props.inputMargin || '16px 0'};
 `
 
-export const Description = styled(P)`
-  font-size: 18px;
-  margin: 24px 0;
-  line-height: 1.4;
-  width: 75%;
-  font-weight: 300;
-`
-
 export const Wrapper = styled.div`
   margin: 80px;
   padding: 0;
@@ -106,6 +98,6 @@ export const H1 = styled.h1`
   font-family: ${({$font}) => $font};
 
   @media (max-width: 900px) {
-    font-size: 44px;
+    font-size: 60px;
   }
 `
