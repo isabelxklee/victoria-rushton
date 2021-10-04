@@ -99,7 +99,7 @@ export const H2 = styled.h2`
 `
 
 export const H1 = styled.h1`
-  font-size: 90px;
+  font-size: 100px;
   font-weight: 400;
   line-height: 0.9;
   margin: ${({$margin}) => $margin};

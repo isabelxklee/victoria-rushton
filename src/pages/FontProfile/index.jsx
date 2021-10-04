@@ -35,7 +35,9 @@ const FontProfile = () => {
       {font && (
         <>
           <HeroContainer>
-            <H1>{font.title}</H1>
+            <H1 $font={font.title} $margin="40px 0">
+              {font.title}
+            </H1>
             <Description>{font.description}</Description>
             <Button>License this font</Button>
           </HeroContainer>
