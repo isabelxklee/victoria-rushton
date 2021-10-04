@@ -4,27 +4,33 @@ import {ProfilePic, IntroContainer, PressContainer} from './styles'
 import sanityClient from '../../client.js'
 
 const About = () => {
-  const [about, setAbout] = useState(null)
+  const [data, setData] = useState(null)
 
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "about"]{
-            greeting,
-            aboutText,
-            buttonText,
-            buttonLink
-        }`
+        `*[_type in ["about", "press"]] | order(_type) {
+        _id,
+        _type,
+        greeting,
+        aboutText,
+        buttonText,
+        buttonLink,
+        title,
+        description,
+        date,
+        link
+      }`
       )
-      .then((data) => setAbout(data[0]))
+      .then((data) => setData(data))
       .catch(console.error)
   }, [])
 
-  console.log(about)
+  const about = data && data.filter((object) => object._type === 'about')[0]
 
   return (
     <>
-      {about && (
+      {data && (
         <IntroContainer>
           <div>
             <H2>{about.greeting}</H2>
