@@ -42,6 +42,11 @@ const About = () => {
     <>
       {data && (
         <IntroContainer>
+          <ProfilePic
+            src="https://res.cloudinary.com/extrapickles/image/upload/c_scale,w_1000/v1633237161/victoria_profile_pic_ds7twb.png"
+            rel="no_link referrer"
+            alt="A black and white portrait of a woman wearing glasses."
+          />
           <div>
             <H2>{about.greeting}</H2>
             <PSpace inputMargin="40px 0">{about.aboutText}</PSpace>
@@ -51,11 +56,6 @@ const About = () => {
               </TextLink>
             </Button>
           </div>
-          <ProfilePic
-            src="https://res.cloudinary.com/extrapickles/image/upload/c_scale,w_1000/v1633237161/victoria_profile_pic_ds7twb.png"
-            rel="no_link referrer"
-            alt="A black and white portrait of a woman wearing glasses."
-          />
         </IntroContainer>
       )}
 

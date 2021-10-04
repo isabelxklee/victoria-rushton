@@ -8,6 +8,11 @@ export const HeaderContainer = styled.div`
   top: 0;
   width: calc(100vw - 160px);
   border-bottom: 2px solid #1e1e1e;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    padding: 40px 0;
+  }
 `
 
 export const HeaderLink = styled(NavLink)`

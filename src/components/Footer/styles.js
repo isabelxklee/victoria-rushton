@@ -8,4 +8,9 @@ export const FooterContainer = styled.div`
   position: relative;
   bottom: 0;
   width: calc(100vw - 160px);
+
+  @media (max-width: 900px) {
+    padding: 20px;
+    width: calc(100% - 40px);
+  }
 `
