@@ -11,11 +11,11 @@
 2. Clone this repo and `cd` into the directory.
 3. Install all dependencies.
 
-   `$ yarn install`
+   `$ npm install`
 
 4. Start the development mode.
 
-   `$ yarn start`
+   `$ npm start`
 
 5. Open your browser and navigate to `http://localhost:3000/`.
 
