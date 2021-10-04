@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import {PSpace, Button, TextLink, H2, Padding} from '../../styles'
+import {PSpace, P, Button, TextLink, H2} from '../../styles'
 import {
   ProfilePic,
   IntroContainer,
   PressContainer,
   PressArticleTitle,
   PressArticleContainer,
+  Container,
 } from './styles'
 import sanityClient from '../../client.js'
 
@@ -59,7 +60,7 @@ const About = () => {
       )}
 
       <PressContainer>
-        <Padding $padding="80px">
+        <Container>
           <H2>Speaking and Writing</H2>
           {press &&
             press.map((object) => (
@@ -73,10 +74,10 @@ const About = () => {
                   {object.link && '🔗 '}
                   {object.title}
                 </PressArticleTitle>
-                <PSpace>{object.description}</PSpace>
+                <P>{object.description}</P>
               </PressArticleContainer>
             ))}
-        </Padding>
+        </Container>
       </PressContainer>
     </>
   )

@@ -21,16 +21,22 @@ export const PressContainer = styled.div`
   color: ${Colors.white};
   width: 100vw;
   margin-left: calc(50% - 50vw);
+  padding: 80px;
 `
 
 export const PressArticleTitle = styled.a`
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: none;
   color: ${Colors.white};
 `
 
 export const PressArticleContainer = styled.div`
   margin: 48px 0;
+`
+
+export const Container = styled.div`
+  border-left: 1px solid ${Colors.white};
+  padding-left: 50px;
 `
