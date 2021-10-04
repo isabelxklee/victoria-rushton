@@ -12,3 +12,11 @@ export const PreviewText = styled.p`
     font-size: ${({$size}) => $size * 0.5}px;
   }
 `
+
+export const PreviewTextContainer = styled.div`
+  padding: 40px 0;
+
+  @media (max-width: 900px) {
+    padding: 30px 0;
+  }
+`
