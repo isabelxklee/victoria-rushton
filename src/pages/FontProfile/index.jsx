@@ -4,8 +4,7 @@ import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
 import FontPreview from '../../components/FontPreview'
 import License from '../../components/License'
-import {HeroPreview} from '../../components/FontHero/styles'
-import {Description, Button} from '../../styles'
+import {Description, Button, H1} from '../../styles'
 import {HeroContainer} from './styles'
 
 const FontProfile = () => {
@@ -36,7 +35,7 @@ const FontProfile = () => {
       {font && (
         <>
           <HeroContainer>
-            <HeroPreview $isProfile={true}>{font.title}</HeroPreview>
+            <H1>{font.title}</H1>
             <Description>{font.description}</Description>
             <Button>License this font</Button>
           </HeroContainer>

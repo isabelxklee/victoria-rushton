@@ -97,3 +97,15 @@ export const H2 = styled.h2`
   font-size: 32px;
   font-weight: 700;
 `
+
+export const H1 = styled.h1`
+  font-size: 90px;
+  font-weight: 400;
+  line-height: 0.9;
+  margin: ${({$margin}) => $margin};
+  font-family: ${({$font}) => $font};
+
+  @media (max-width: 900px) {
+    font-size: 44px;
+  }
+`

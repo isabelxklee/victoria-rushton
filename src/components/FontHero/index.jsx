@@ -20,7 +20,6 @@ const FontHero = ({font}) => {
             $weight={font.homeTextWeight}
             $slant={font.homeTextSlant}
             $lineHeight={font.homeTextLineHeight}
-            $margin="100px 0"
           >
             {font.homeText}
           </PreviewText>

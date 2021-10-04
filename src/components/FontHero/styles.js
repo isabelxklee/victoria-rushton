@@ -10,13 +10,6 @@ export const FontHeroContainer = styled.div`
   }
 `
 
-export const HeroPreview = styled.h2`
-  font-size: 90px;
-  font-weight: 400;
-  line-height: 0.9;
-  margin: ${({$isProfile}) => ($isProfile ? '20px 0' : '120px 0')};
-`
-
 export const FontHeroP = styled(P)`
   position: absolute;
   font-weight: 300;
