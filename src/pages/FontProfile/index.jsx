@@ -43,7 +43,7 @@ const FontProfile = () => {
           </HeroContainer>
           <FontPreview font={font.title} />
           <TypeTester font={font} />
-          <License font={font} />
+          {/* <License font={font} /> */}
         </>
       )}
     </>

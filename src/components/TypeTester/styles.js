@@ -7,9 +7,13 @@ export const TypeTesterContainer = styled.div`
   display: flex;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  border: 2px solid ${Colors.black};
   margin-top: 100px;
   margin-bottom: 100px;
+
+  @media (max-width: 900px) {
+    display: block;
+    margin-top: 30px;
+  }
 `
 
 export const PanelContainer = styled.div`
@@ -20,6 +24,11 @@ export const PanelContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @media (max-width: 900px) {
+    width: calc(100% - 80px);
+    padding: 40px;
+  }
 `
 
 export const InputField = styled.textarea.attrs(
@@ -38,6 +47,8 @@ export const InputField = styled.textarea.attrs(
   width: 100%;
   padding: 40px;
   resize: none;
+  border: 2px solid ${Colors.black};
+  box-sizing: border-box;
 
   ::placeholder {
     color: ${({$lightMode}) => $lightMode};

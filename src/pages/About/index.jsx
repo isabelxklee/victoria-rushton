@@ -36,8 +36,6 @@ const About = () => {
   const about = data && data.filter((object) => object._type === 'about')[0]
   const press = data && data.filter((object) => object._type === 'press')
 
-  console.log(press)
-
   return (
     <>
       {data && (

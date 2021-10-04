@@ -23,8 +23,6 @@ const License = ({font}) => {
   // const [selectAllItalic, setSelectAllItalic] = useState(false)
   // const buttonEl = useRef(false)
 
-  console.log(setCurrency)
-
   useEffect(() => {
     sanityClient
       .fetch(
