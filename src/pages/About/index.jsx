@@ -27,6 +27,7 @@ const About = () => {
   }, [])
 
   const about = data && data.filter((object) => object._type === 'about')[0]
+  const press = data && data.filter((object) => object._type === 'press')
 
   return (
     <>
@@ -51,6 +52,13 @@ const About = () => {
 
       <PressContainer>
         <H2>Speaking and Writing</H2>
+        {press &&
+          press.map((object) => (
+            <div key={object._id}>
+              <p>{object.title}</p>
+              {/* <p>{object.description}</p> */}
+            </div>
+          ))}
       </PressContainer>
     </>
   )
