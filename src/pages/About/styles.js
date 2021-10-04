@@ -21,7 +21,6 @@ export const PressContainer = styled.div`
   color: ${Colors.white};
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  padding: 80px;
 `
 
 export const PressArticleTitle = styled.a`

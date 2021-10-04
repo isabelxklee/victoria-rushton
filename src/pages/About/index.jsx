@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {PSpace, Button, TextLink, H2} from '../../styles'
+import {PSpace, Button, TextLink, H2, Padding} from '../../styles'
 import {
   ProfilePic,
   IntroContainer,
@@ -59,22 +59,24 @@ const About = () => {
       )}
 
       <PressContainer>
-        <H2>Speaking and Writing</H2>
-        {press &&
-          press.map((object) => (
-            <PressArticleContainer key={object._id}>
-              <PressArticleTitle
-                href={object.link}
-                target="_blank"
-                rel="no_referrer"
-                $linkStyle={object.link && 'on'}
-              >
-                {object.link && '🔗 '}
-                {object.title}
-              </PressArticleTitle>
-              <PSpace>{object.description}</PSpace>
-            </PressArticleContainer>
-          ))}
+        <Padding $padding="80px">
+          <H2>Speaking and Writing</H2>
+          {press &&
+            press.map((object) => (
+              <PressArticleContainer key={object._id}>
+                <PressArticleTitle
+                  href={object.link}
+                  target="_blank"
+                  rel="no_referrer"
+                  $linkStyle={object.link && 'on'}
+                >
+                  {object.link && '🔗 '}
+                  {object.title}
+                </PressArticleTitle>
+                <PSpace>{object.description}</PSpace>
+              </PressArticleContainer>
+            ))}
+        </Padding>
       </PressContainer>
     </>
   )
