@@ -19,6 +19,22 @@
 
 5. Open your browser and navigate to `http://localhost:3000/`.
 
+## Sanity Studio
+
+1. `cd` into the `sanity` folder from the root directory.
+
+   `$ cd sanity`
+
+2. Start the local Sanity server.
+
+   `$ npx sanity start`
+
+3. Open your browser and navigate to `http://localhost:3333/`.
+
+4. Deploy any changes to Sanity.
+
+   `$ npx sanity deploy`
+
 ## Tools
 
 - React.js

@@ -32,6 +32,7 @@ export const P = styled.p`
   margin: 0;
   font-size: 18px;
   font-weight: 300;
+  line-height: 1.4;
 `
 
 export const PSpace = styled(P)`

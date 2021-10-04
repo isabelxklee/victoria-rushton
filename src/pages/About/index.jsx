@@ -1,30 +1,46 @@
 import React, {useState, useEffect} from 'react'
-import {PSpace, Button, TextLink, H2} from '../../styles'
-import {ProfilePic, IntroContainer, PressContainer} from './styles'
+import {PSpace, P, Button, TextLink, H2} from '../../styles'
+import {
+  ProfilePic,
+  IntroContainer,
+  PressContainer,
+  PressArticleTitle,
+  PressArticleContainer,
+  Container,
+} from './styles'
 import sanityClient from '../../client.js'
 
 const About = () => {
-  const [about, setAbout] = useState(null)
+  const [data, setData] = useState(null)
 
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "about"]{
-            greeting,
-            aboutText,
-            buttonText,
-            buttonLink
-        }`
+        `*[_type in ["about", "press"]] | order(_type) {
+        _id,
+        _type,
+        greeting,
+        aboutText,
+        buttonText,
+        buttonLink,
+        title,
+        description,
+        date,
+        link
+      }`
       )
-      .then((data) => setAbout(data[0]))
+      .then((data) => setData(data))
       .catch(console.error)
   }, [])
 
-  console.log(about)
+  const about = data && data.filter((object) => object._type === 'about')[0]
+  const press = data && data.filter((object) => object._type === 'press')
+
+  console.log(press)
 
   return (
     <>
-      {about && (
+      {data && (
         <IntroContainer>
           <div>
             <H2>{about.greeting}</H2>
@@ -44,7 +60,24 @@ const About = () => {
       )}
 
       <PressContainer>
-        <H2>Speaking and Writing</H2>
+        <Container>
+          <H2>Speaking and Writing</H2>
+          {press &&
+            press.map((object) => (
+              <PressArticleContainer key={object._id}>
+                <PressArticleTitle
+                  href={object.link}
+                  target="_blank"
+                  rel="no_referrer"
+                  $linkStyle={object.link && 'on'}
+                >
+                  {object.link && '🔗 '}
+                  {object.title}
+                </PressArticleTitle>
+                <P>{object.description}</P>
+              </PressArticleContainer>
+            ))}
+        </Container>
       </PressContainer>
     </>
   )

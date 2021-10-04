@@ -11,6 +11,7 @@ import slant from './slant'
 import previewText from './previewText'
 import license from './license'
 import about from './about'
+import press from './press'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -27,5 +28,6 @@ export default createSchema({
     previewText,
     license,
     about,
+    press,
   ]),
 })
