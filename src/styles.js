@@ -50,6 +50,10 @@ export const Description = styled(P)`
 export const Wrapper = styled.div`
   margin: 80px;
   padding: 0;
+
+  @media (max-width: 800px) {
+    margin: 20px;
+  }
 `
 
 export const Padding = styled.div`
