@@ -68,7 +68,7 @@ const Panel = ({
 
 const TypeTester = ({font}) => {
   const [weight, setWeight] = useState(null)
-  const [size, setSize] = useState(100)
+  const [size, setSize] = useState(80)
   const [slant, setSlant] = useState({value: 'Roman', label: 'Roman'})
   const [darkMode, setDarkMode] = useState(false)
 

@@ -49,9 +49,14 @@ export const InputField = styled.textarea.attrs(
   resize: none;
   border: 2px solid ${Colors.black};
   box-sizing: border-box;
+  line-height: 1;
 
   ::placeholder {
     color: ${({$lightMode}) => $lightMode};
+  }
+
+  @media (max-width: 900px) {
+    height: 300px;
   }
 `
 
