@@ -13,4 +13,8 @@ export const FooterContainer = styled.div`
     padding: 20px;
     width: calc(100% - 40px);
   }
+
+  > p {
+    font-size: 14px;
+  }
 `
