@@ -1,6 +1,6 @@
 import React from 'react'
-import {Formik, Form} from 'formik'
-import {Checkbox, ButtonLabel} from './styles'
+import {Formik, Field, Form} from 'formik'
+import {Button} from '../../styles'
 
 const SelectionForm = () => {
   return (
@@ -16,23 +16,31 @@ const SelectionForm = () => {
         {({values}) => (
           <Form>
             <div role="group" aria-labelledby="checkbox-group">
-              <ButtonLabel>
-                <Checkbox type="checkbox" name="checked" value="Light" hidden />
-                Light
-              </ButtonLabel>
-
-              <ButtonLabel>
-                <Checkbox type="checkbox" name="checked" value="Book" hidden />
-                Book
-              </ButtonLabel>
-
-              <ButtonLabel>
-                <Checkbox type="checkbox" name="checked" value="Bold" hidden />
-                Bold
-              </ButtonLabel>
+              <Button type="submit">
+                <label>
+                  <Field type="checkbox" name="checked" value="Light" hidden />
+                  Light
+                </label>
+              </Button>
+              <Button type="submit">
+                <label>
+                  <Field type="checkbox" name="checked" value="Book" hidden />
+                  Book
+                </label>
+              </Button>
+              <Button type="submit">
+                <label>
+                  <Field type="checkbox" name="checked" value="Regular" hidden />
+                  Regular
+                </label>
+              </Button>
+              <Button type="submit">
+                <label>
+                  <Field type="checkbox" name="checked" value="Bold" hidden />
+                  Bold
+                </label>
+              </Button>
             </div>
-
-            <button type="submit">Submit</button>
           </Form>
         )}
       </Formik>
