@@ -7,7 +7,7 @@ import {
   SelectionContainer,
 } from './styles'
 import sanityClient from '../../client.js'
-import {Button, SecondaryButton} from '../../styles'
+import {Button, H2, SecondaryButton} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 
@@ -83,11 +83,11 @@ const License = ({font}) => {
     //   <button type="submit">Checkout</button>
     // </form>
     <>
-      <h2>License this font</h2>
+      <H2>License this font</H2>
       <ParentContainer>
         <div>
           <SelectionContainer>
-            <h3>Select weight</h3>
+            <h3>Select weights</h3>
             <FlexContainer>
               <Options>
                 {font &&
@@ -116,7 +116,7 @@ const License = ({font}) => {
             </FlexContainer>
           </SelectionContainer>
           <LicenseContainer>
-            <h3>Select license</h3>
+            <h3>Select a license</h3>
             <Options>
               {licenses &&
                 licenses.map((license) => (
@@ -144,6 +144,8 @@ const License = ({font}) => {
             totalPrice={fontPrice + licensePrice}
             font={font}
             currency={currency}
+            fontPrice={fontPrice}
+            licensePrice={licensePrice}
           />
         </PriceContainer>
       </ParentContainer>

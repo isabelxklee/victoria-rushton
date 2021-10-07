@@ -1,9 +1,18 @@
 import React from 'react'
 
-const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice, currency}) => {
+const PriceBreakdown = ({
+  font,
+  fontPrice,
+  licensePrice,
+  selectedLicense,
+  selectedFonts,
+  totalPrice,
+  currency,
+}) => {
   return (
     <>
-      <h3>Price breakdown</h3>
+      <h3>Cart</h3>
+      <p>Fonts: ${fontPrice}</p>
       {selectedFonts &&
         selectedFonts.map((weight) => (
           <p key={weight}>
@@ -16,6 +25,7 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice, curre
         </p>
       )}
 
+      <p>License: ${licensePrice}</p>
       {selectedLicense && (
         <p>
           {selectedLicense.title} license: $ {selectedLicense.price}
