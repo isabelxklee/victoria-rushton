@@ -14,18 +14,9 @@ export const TextLink = styled.a`
 
 export const InternalLink = styled(Link)`
   font-weight: 700;
-  color: #1e1e1e;
+  color: ${Colors.black};
   text-decoration: none;
   margin-right: 20px;
-`
-
-export const Divider = styled.div`
-  width: 100%;
-  border: 1px solid #1e1e1e;
-`
-
-export const VerticalDivider = styled(Divider)`
-  transform: rotate(90deg);
 `
 
 export const P = styled.p`
@@ -64,7 +55,7 @@ export const Margin = styled.div`
 export const Button = styled.button`
   border: none;
   border-radius: 40px;
-  background: #1e1e1e;
+  background: ${Colors.black};
   color: ${Colors.white};
   border: 1px solid ${Colors.white};
   font-family: 'Cecilie Sans', 'sans-serif';
@@ -76,8 +67,8 @@ export const Button = styled.button`
 
 export const SecondaryButton = styled(Button)`
   background: ${Colors.white};
-  color: #1e1e1e;
-  border: 2px solid #1e1e1e;
+  color: ${Colors.black};
+  border: 2px solid ${Colors.black};
 `
 
 export const Label = styled.label`
