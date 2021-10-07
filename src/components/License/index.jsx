@@ -5,7 +5,6 @@ import {Button, H2, SecondaryButton} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 import SelectionForm from '../SelectionForm'
-import {createPortal} from 'react-dom'
 
 const License = ({font}) => {
   // const [data, setData] = useState(null)

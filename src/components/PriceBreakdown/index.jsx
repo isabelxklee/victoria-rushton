@@ -4,7 +4,6 @@ import {SelectedFontsContainer} from './styles'
 const PriceBreakdown = ({
   font,
   fontPrice,
-  totalPrice,
   licensePrice,
   selectedLicense,
   selectedFonts,
