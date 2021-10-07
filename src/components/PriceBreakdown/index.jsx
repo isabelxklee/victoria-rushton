@@ -24,9 +24,13 @@ const PriceBreakdown = ({
             </div>
           ))}
       </SelectedFontsContainer>
-      {selectedLicense && <p>License: $${licensePrice}</p>}
+      {selectedLicense && (
+        <p>
+          {selectedLicense.title} license: ${licensePrice}
+        </p>
+      )}
       <p>
-        Subtotal: $ {totalPrice} {currency}
+        Subtotal: ${totalPrice} {currency}
       </p>
     </>
   )

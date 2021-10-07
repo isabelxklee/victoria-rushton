@@ -12,46 +12,6 @@ import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 import SelectionForm from '../SelectionForm'
 
-const FontSelection = ({font}) => {
-  return (
-    <>
-      <h3>Select weights</h3>
-      <FlexContainer>
-        <Options>
-          {font.weights.map((weight) => (
-            <label key={weight.title}>
-              {weight.title}
-              <input type="checkbox" name="font" />
-            </label>
-            // <SecondaryButton key={weight._id} onClick={() => handleChangeSingleFont(weight)}>
-            //   {weight.title}
-            // </SecondaryButton>
-          ))}
-          {/* {font &&
-            font.weights.map((weight) => (
-              <SecondaryButton key={weight._id} onClick={() => handleChangeSingleFont(weight)}>
-                {weight.title}
-              </SecondaryButton>
-            ))} */}
-          {/* <Button onClick={handleChangeAllRoman}>
-            {font.slants.length === 1 ? 'Select all' : 'Select all Roman'}
-          </Button> */}
-        </Options>
-        {/* <Options>
-          {font.slants.includes('Italic') && (
-            <>
-              {font.weights.map((weight) => (
-                <SecondaryButton key={weight._id}>{weight.title} Italic</SecondaryButton>
-              ))}
-              <Button>Select all Italic</Button>
-            </>
-          )}
-        </Options> */}
-      </FlexContainer>
-    </>
-  )
-}
-
 const License = ({font}) => {
   // const [data, setData] = useState(null)
   const [licenses, setLicenses] = useState(null)
@@ -93,21 +53,21 @@ const License = ({font}) => {
       setFontPrice(selectedFonts && selectedFonts.length * 100)
     }
 
+    const updateLicensePrice = () => {
+      setLicensePrice(selectedLicense && selectedLicense.price)
+    }
+
     updateFontPrice()
-  }, [selectedFonts])
+    updateLicensePrice()
+  }, [selectedFonts, selectedLicense])
 
-  const handleLicenseChange = (license) => {
-    setSelectedLicense(() => (selectedLicense === license ? null : license))
-    setLicensePrice(selectedLicense === license ? 0 : license.price)
-  }
+  // const handleChangeAllRoman = () => {
+  //   const allRoman = font.weights.map((weight) => weight.title)
 
-  const handleChangeAllRoman = () => {
-    const allRoman = font.weights.map((weight) => weight.title)
-
-    setSelectAllRoman((selectAllRoman) => !selectAllRoman)
-    setSelectedFonts(selectAllRoman ? [] : [...allRoman])
-    setFontPrice((fontPrice) => (selectAllRoman ? 0 : (fontPrice += 450)))
-  }
+  //   setSelectAllRoman((selectAllRoman) => !selectAllRoman)
+  //   setSelectedFonts(selectAllRoman ? [] : [...allRoman])
+  //   setFontPrice((fontPrice) => (selectAllRoman ? 0 : (fontPrice += 450)))
+  // }
 
   return (
     // <form action="/create-checkout-session" method="POST">
@@ -115,7 +75,12 @@ const License = ({font}) => {
     // </form>
     <>
       <H2>License this font</H2>
-      <SelectionForm selectedFonts={selectedFonts} setSelectedFonts={setSelectedFonts} />
+      <SelectionForm
+        setSelectedFonts={setSelectedFonts}
+        font={font}
+        setSelectedLicense={setSelectedLicense}
+        licenses={licenses}
+      />
       <ParentContainer>
         {/* <div>
           <SelectionContainer>
