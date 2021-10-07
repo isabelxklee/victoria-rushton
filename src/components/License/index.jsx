@@ -127,13 +127,11 @@ const License = ({font}) => {
             </Options>
             <div style={{width: '100%'}}>
               <h3>For uses, not exceeding:</h3>
-              {selectedLicense && (
-                <>
-                  <p>{selectedLicense.desktopWorkstations} desktop workstations</p>
-                  <p>{selectedLicense.webVisitors} web visitors</p>
-                  <p>{selectedLicense.ebooks} e-book(s)</p>
-                </>
-              )}
+              <p>
+                {selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations
+              </p>
+              <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
+              <p>{selectedLicense ? selectedLicense.ebooks : 0} e-book(s)</p>
             </div>
           </LicenseContainer>
         </div>
