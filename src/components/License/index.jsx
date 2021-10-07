@@ -10,6 +10,7 @@ import sanityClient from '../../client.js'
 import {Button, H2, SecondaryButton} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
+import SelectionForm from '../SelectionForm'
 
 const FontSelection = ({font}) => {
   return (
@@ -124,8 +125,9 @@ const License = ({font}) => {
     // </form>
     <>
       <H2>License this font</H2>
+      <SelectionForm />
       <ParentContainer>
-        <div>
+        {/* <div>
           <SelectionContainer>
             <FontSelection font={font} />
           </SelectionContainer>
@@ -148,7 +150,7 @@ const License = ({font}) => {
               <p>{selectedLicense ? selectedLicense.ebooks : 0} e-book(s)</p>
             </div>
           </LicenseContainer>
-        </div>
+        </div> */}
         <PriceContainer>
           <PriceBreakdown
             selectedLicense={selectedLicense}
