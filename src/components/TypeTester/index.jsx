@@ -26,6 +26,7 @@ const Panel = ({
   return (
     <PanelContainer>
       <Selector
+        displayTitle={true}
         title="Weight"
         options={weightOptions}
         defaultValue={weight}
@@ -33,6 +34,7 @@ const Panel = ({
       />
       {slantOptions.length > 1 && (
         <Selector
+          displayTitle={true}
           title="Slant"
           options={slantOptions}
           defaultValue={slant}

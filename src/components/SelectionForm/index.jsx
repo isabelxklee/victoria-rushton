@@ -58,6 +58,7 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense}) =
 
             <h3>Select license</h3>
             <Selector
+              displayTitle={false}
               title="License"
               options={licenseOptions()}
               defaultValue={'Small'}
