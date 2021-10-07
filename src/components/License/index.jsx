@@ -116,8 +116,8 @@ const License = ({font}) => {
             </FlexContainer>
           </SelectionContainer>
           <LicenseContainer>
+            <h3>Select license</h3>
             <Options>
-              <h3>Select license</h3>
               {licenses &&
                 licenses.map((license) => (
                   <SecondaryButton key={license._id} onClick={() => handleLicenseChange(license)}>
