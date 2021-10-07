@@ -4,11 +4,6 @@ import {Button} from '../../styles'
 import Selector from '../Selector'
 
 const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense}) => {
-  const findLicense = (pickedLicense) => {
-    let licenseValue = licenses && licenses.filter((license) => license.title === pickedLicense)
-    setSelectedLicense(licenseValue[0])
-  }
-
   const allRomanWeights = () => {
     return font.weights.map((weight) => weight.title)
   }
@@ -26,10 +21,8 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense}) =
         initialValues={{
           allRoman: false,
           fonts: [],
-          license: {},
         }}
         onSubmit={(values) => {
-          findLicense(values.license)
           setSelectedFonts(values.allRoman ? allRomanWeights : values.fonts)
         }}
       >
@@ -64,17 +57,6 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense}) =
               defaultValue={'Small'}
               handleChange={setSelectedLicense}
             />
-            {/* <div role="group" aria-labelledby="radio-group">
-              {licenses &&
-                licenses.map((license) => (
-                  <Button type="submit" key={license._id}>
-                    <label>
-                      <Field type="radio" name="license" value={license.title} hidden />
-                      {license.title}
-                    </label>
-                  </Button>
-                ))}
-            </div> */}
           </Form>
         )}
       </Formik>
