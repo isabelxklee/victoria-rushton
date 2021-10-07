@@ -56,7 +56,7 @@ const License = ({font}) => {
   // const [data, setData] = useState(null)
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
-  const [selectedFonts, setSelectedFonts] = useState([])
+  const [selectedFonts, setSelectedFonts] = useState(null)
   const [fontPrice, setFontPrice] = useState(0)
   const [licensePrice, setLicensePrice] = useState(0)
   const [currency, setCurrency] = useState('USD')
@@ -119,13 +119,15 @@ const License = ({font}) => {
     setFontPrice((fontPrice) => (selectAllRoman ? 0 : (fontPrice += 450)))
   }
 
+  console.log(selectedFonts)
+
   return (
     // <form action="/create-checkout-session" method="POST">
     //   <button type="submit">Checkout</button>
     // </form>
     <>
       <H2>License this font</H2>
-      <SelectionForm />
+      <SelectionForm selectedFonts={selectedFonts} setSelectedFonts={setSelectedFonts} />
       <ParentContainer>
         {/* <div>
           <SelectionContainer>

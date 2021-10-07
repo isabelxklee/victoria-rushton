@@ -2,7 +2,7 @@ import React from 'react'
 import {Formik, Field, Form} from 'formik'
 import {Button} from '../../styles'
 
-const SelectionForm = () => {
+const SelectionForm = ({setSelectedFonts}) => {
   return (
     <>
       <Formik
@@ -10,7 +10,7 @@ const SelectionForm = () => {
           checked: [],
         }}
         onSubmit={(values) => {
-          console.log(JSON.stringify(values))
+          setSelectedFonts(values.checked)
         }}
       >
         {({values}) => (
