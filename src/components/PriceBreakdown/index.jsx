@@ -4,10 +4,10 @@ import {SelectedFontsContainer} from './styles'
 const PriceBreakdown = ({
   font,
   fontPrice,
+  totalPrice,
   licensePrice,
   selectedLicense,
   selectedFonts,
-  totalPrice,
   currency,
 }) => {
   return (
@@ -30,7 +30,7 @@ const PriceBreakdown = ({
         </p>
       )}
       <p>
-        Subtotal: ${totalPrice} {currency}
+        Subtotal: ${licensePrice ? licensePrice + fontPrice : fontPrice} {currency}
       </p>
     </>
   )
