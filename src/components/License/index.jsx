@@ -11,6 +11,46 @@ import {Button, H2, SecondaryButton} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 
+const FontSelection = ({font}) => {
+  return (
+    <>
+      <h3>Select weights</h3>
+      <FlexContainer>
+        <Options>
+          {font.weights.map((weight) => (
+            <label key={weight.title}>
+              {weight.title}
+              <input type="checkbox" name="font" />
+            </label>
+            // <SecondaryButton key={weight._id} onClick={() => handleChangeSingleFont(weight)}>
+            //   {weight.title}
+            // </SecondaryButton>
+          ))}
+          {/* {font &&
+            font.weights.map((weight) => (
+              <SecondaryButton key={weight._id} onClick={() => handleChangeSingleFont(weight)}>
+                {weight.title}
+              </SecondaryButton>
+            ))} */}
+          {/* <Button onClick={handleChangeAllRoman}>
+            {font.slants.length === 1 ? 'Select all' : 'Select all Roman'}
+          </Button> */}
+        </Options>
+        {/* <Options>
+          {font.slants.includes('Italic') && (
+            <>
+              {font.weights.map((weight) => (
+                <SecondaryButton key={weight._id}>{weight.title} Italic</SecondaryButton>
+              ))}
+              <Button>Select all Italic</Button>
+            </>
+          )}
+        </Options> */}
+      </FlexContainer>
+    </>
+  )
+}
+
 const License = ({font}) => {
   // const [data, setData] = useState(null)
   const [licenses, setLicenses] = useState(null)
@@ -87,36 +127,10 @@ const License = ({font}) => {
       <ParentContainer>
         <div>
           <SelectionContainer>
-            <h3>Select weights</h3>
-            <FlexContainer>
-              <Options>
-                {font &&
-                  font.weights.map((weight) => (
-                    <SecondaryButton
-                      key={weight._id}
-                      onClick={() => handleChangeSingleFont(weight)}
-                    >
-                      {weight.title}
-                    </SecondaryButton>
-                  ))}
-                <Button onClick={handleChangeAllRoman}>
-                  {font.slants.length === 1 ? 'Select all' : 'Select all Roman'}
-                </Button>
-              </Options>
-              <Options>
-                {font.slants.includes('Italic') && (
-                  <>
-                    {font.weights.map((weight) => (
-                      <SecondaryButton key={weight._id}>{weight.title} Italic</SecondaryButton>
-                    ))}
-                    <Button>Select all Italic</Button>
-                  </>
-                )}
-              </Options>
-            </FlexContainer>
+            <FontSelection font={font} />
           </SelectionContainer>
+          <h3>Select a license</h3>
           <LicenseContainer>
-            <h3>Select a license</h3>
             <Options>
               {licenses &&
                 licenses.map((license) => (
