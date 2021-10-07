@@ -1,11 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {
-  FlexContainer,
-  ParentContainer,
-  LicenseContainer,
-  Options,
-  SelectionContainer,
-} from './styles'
+import {FlexContainer, ParentContainer, LicenseContainer, SelectionContainer} from './styles'
 import sanityClient from '../../client.js'
 import {Button, H2, SecondaryButton} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
@@ -22,7 +16,6 @@ const License = ({font}) => {
   const [currency, setCurrency] = useState('USD')
   const [selectAllRoman, setSelectAllRoman] = useState(false)
   // const [selectAllItalic, setSelectAllItalic] = useState(false)
-  // const buttonEl = useRef(false)
 
   useEffect(() => {
     sanityClient
@@ -61,14 +54,6 @@ const License = ({font}) => {
     updateLicensePrice()
   }, [selectedFonts, selectedLicense])
 
-  // const handleChangeAllRoman = () => {
-  //   const allRoman = font.weights.map((weight) => weight.title)
-
-  //   setSelectAllRoman((selectAllRoman) => !selectAllRoman)
-  //   setSelectedFonts(selectAllRoman ? [] : [...allRoman])
-  //   setFontPrice((fontPrice) => (selectAllRoman ? 0 : (fontPrice += 450)))
-  // }
-
   return (
     // <form action="/create-checkout-session" method="POST">
     //   <button type="submit">Checkout</button>
@@ -82,30 +67,14 @@ const License = ({font}) => {
         licenses={licenses}
       />
       <ParentContainer>
-        {/* <div>
-          <SelectionContainer>
-            <FontSelection font={font} />
-          </SelectionContainer>
-          <h3>Select a license</h3>
-          <LicenseContainer>
-            <Options>
-              {licenses &&
-                licenses.map((license) => (
-                  <SecondaryButton key={license._id} onClick={() => handleLicenseChange(license)}>
-                    {license.title}
-                  </SecondaryButton>
-                ))}
-            </Options>
-            <div style={{width: '100%'}}>
-              <h3>For uses, not exceeding:</h3>
-              <p>
-                {selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations
-              </p>
-              <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
-              <p>{selectedLicense ? selectedLicense.ebooks : 0} e-book(s)</p>
-            </div>
-          </LicenseContainer>
-        </div> */}
+        <LicenseContainer>
+          <div style={{width: '100%'}}>
+            <h3>For uses, not exceeding:</h3>
+            <p>{selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations</p>
+            <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
+            <p>{selectedLicense ? selectedLicense.ebooks : 0} e-book(s)</p>
+          </div>
+        </LicenseContainer>
         <PriceContainer>
           <PriceBreakdown
             selectedLicense={selectedLicense}
