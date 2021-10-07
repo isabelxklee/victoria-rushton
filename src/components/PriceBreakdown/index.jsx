@@ -12,25 +12,18 @@ const PriceBreakdown = ({
   return (
     <>
       <h3>Cart</h3>
-      <p>Fonts: ${fontPrice}</p>
+      <p>Fonts: ${selectedFonts ? fontPrice : 0}</p>
       {selectedFonts &&
         selectedFonts.map((weight) => (
           <p key={weight}>
             {font.title} {weight}
           </p>
         ))}
-      {totalPrice > 0 && (
-        <p>
-          $ {selectedLicense ? totalPrice - selectedLicense.price : totalPrice} {currency}
-        </p>
-      )}
-
-      <p>License: ${licensePrice}</p>
-      {selectedLicense && (
-        <p>
-          {selectedLicense.title} license: $ {selectedLicense.price}
-        </p>
-      )}
+      <p>
+        {selectedLicense
+          ? `${selectedLicense.title} license: $${licensePrice}`
+          : `License: $${licensePrice}`}
+      </p>
       <p>
         Subtotal: $ {totalPrice} {currency}
       </p>
