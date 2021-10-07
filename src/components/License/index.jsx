@@ -81,34 +81,24 @@ const License = ({font}) => {
       .catch(console.error)
   }, [])
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await fetch('https://victoria-rushton-express.herokuapp.com/express-backend')
-  //     // const response = await fetch('https://localhost:5000')
-  //     const body = await response.json()
-  //     setData(body.express)
-  //   }
+  useEffect(() => {
+    // const fetchData = async () => {
+    //   const response = await fetch('https://victoria-rushton-express.herokuapp.com/express-backend')
+    //   // const response = await fetch('https://localhost:5000')
+    //   const body = await response.json()
+    //   setData(body.express)
+    // }
+    // fetchData()
+    const updateFontPrice = () => {
+      setFontPrice(selectedFonts && selectedFonts.length * 100)
+    }
 
-  //   fetchData()
-  // }, [])
+    updateFontPrice()
+  }, [selectedFonts])
 
   const handleLicenseChange = (license) => {
     setSelectedLicense(() => (selectedLicense === license ? null : license))
     setLicensePrice(selectedLicense === license ? 0 : license.price)
-  }
-
-  const handleChangeSingleFont = (weight) => {
-    const fontWeight = weight.title
-
-    setSelectedFonts((selectedFonts) =>
-      selectedFonts.includes(fontWeight)
-        ? selectedFonts.filter((weight) => weight !== fontWeight)
-        : [...selectedFonts, fontWeight]
-    )
-
-    setFontPrice((fontPrice) =>
-      selectedFonts.includes(fontWeight) ? (fontPrice -= 100) : (fontPrice += 100)
-    )
   }
 
   const handleChangeAllRoman = () => {
@@ -118,8 +108,6 @@ const License = ({font}) => {
     setSelectedFonts(selectAllRoman ? [] : [...allRoman])
     setFontPrice((fontPrice) => (selectAllRoman ? 0 : (fontPrice += 450)))
   }
-
-  console.log(selectedFonts)
 
   return (
     // <form action="/create-checkout-session" method="POST">

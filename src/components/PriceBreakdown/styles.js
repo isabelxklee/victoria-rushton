@@ -11,3 +11,8 @@ export const PriceContainer = styled.div`
     padding: 40px 0;
   }
 `
+
+export const SelectedFontsContainer = styled.div`
+  background: black;
+  color: white;
+`

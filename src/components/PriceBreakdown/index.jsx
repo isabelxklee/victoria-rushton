@@ -1,4 +1,5 @@
 import React from 'react'
+import {SelectedFontsContainer} from './styles'
 
 const PriceBreakdown = ({
   font,
@@ -12,18 +13,18 @@ const PriceBreakdown = ({
   return (
     <>
       <h3>Cart</h3>
-      <p>Fonts: ${selectedFonts ? fontPrice : 0}</p>
-      {selectedFonts &&
-        selectedFonts.map((weight) => (
-          <p key={weight}>
-            {font.title} {weight}
-          </p>
-        ))}
-      <p>
-        {selectedLicense
-          ? `${selectedLicense.title} license: $${licensePrice}`
-          : `License: $${licensePrice}`}
-      </p>
+      <SelectedFontsContainer>
+        {selectedFonts &&
+          selectedFonts.map((weightTitle) => (
+            <div key={weightTitle}>
+              <p>
+                {font.title} {weightTitle}
+              </p>
+              <p>$100</p>
+            </div>
+          ))}
+      </SelectedFontsContainer>
+      {selectedLicense && <p>License: $${licensePrice}</p>}
       <p>
         Subtotal: $ {totalPrice} {currency}
       </p>
