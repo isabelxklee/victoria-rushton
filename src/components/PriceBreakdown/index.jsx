@@ -15,17 +15,15 @@ const PriceBreakdown = ({
       <H3>Cart</H3>
       {selectedFonts || selectedLicense ? (
         <>
-          <>
-            {selectedFonts &&
-              selectedFonts.map((weightTitle) => (
-                <SelectedItem key={weightTitle}>
-                  <P>
-                    {font.title} {weightTitle}
-                  </P>
-                  <P>$100</P>
-                </SelectedItem>
-              ))}
-          </>
+          {selectedFonts &&
+            selectedFonts.map((weightTitle) => (
+              <SelectedItem key={weightTitle}>
+                <P>
+                  {font.title} {weightTitle}
+                </P>
+                <P>$100</P>
+              </SelectedItem>
+            ))}
           {selectedLicense && (
             <SelectedItem>
               <P>{selectedLicense.title} License</P>
@@ -35,14 +33,12 @@ const PriceBreakdown = ({
           <SelectedItem>
             <TotalPrice>Subtotal</TotalPrice>
             <TotalPrice>
-              ${licensePrice ? licensePrice + fontPrice : fontPrice} {currency}
+              ${licensePrice + fontPrice} {currency}
             </TotalPrice>
           </SelectedItem>
         </>
       ) : (
-        <>
-          <PSpace>Add something to your cart.</PSpace>
-        </>
+        <PSpace>Add something to your cart.</PSpace>
       )}
       <Button $disabled={selectedLicense || selectedFonts ? false : true}>Checkout</Button>
     </>
