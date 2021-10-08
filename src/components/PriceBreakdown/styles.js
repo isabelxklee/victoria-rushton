@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {PSpace} from '../../styles'
 
 export const PriceContainer = styled.div`
   border-left: 2px solid #1e1e1e;
@@ -12,7 +13,12 @@ export const PriceContainer = styled.div`
   }
 `
 
-export const SelectedFontsContainer = styled.div`
-  background: black;
-  color: white;
+export const SelectedItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const TotalPrice = styled(PSpace)`
+  font-weight: 700;
 `
