@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {FlexContainer, ParentContainer, LicenseContainer, SelectionContainer} from './styles'
+import {ParentContainer} from './styles'
 import sanityClient from '../../client.js'
 import {Button, H2, SecondaryButton} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
@@ -58,9 +58,9 @@ const License = ({font}) => {
     // <form action="/create-checkout-session" method="POST">
     //   <button type="submit">Checkout</button>
     // </form>
-    <>
-      <H2>License this font</H2>
-      <FlexContainer>
+    <ParentContainer>
+      <div>
+        <H2>License this font</H2>
         <SelectionForm
           setSelectedFonts={setSelectedFonts}
           font={font}
@@ -68,8 +68,7 @@ const License = ({font}) => {
           licenses={licenses}
           selectedLicense={selectedLicense}
         />
-        {/* <ParentContainer> */}
-      </FlexContainer>
+      </div>
       <PriceContainer>
         <PriceBreakdown
           selectedLicense={selectedLicense}
@@ -80,8 +79,7 @@ const License = ({font}) => {
           licensePrice={licensePrice}
         />
       </PriceContainer>
-      {/* </ParentContainer> */}
-    </>
+    </ParentContainer>
   )
 }
 

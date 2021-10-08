@@ -1,7 +1,7 @@
 import React from 'react'
 import {Formik, Field, Form} from 'formik'
 import {Button} from '../../styles'
-import {LicenseContainer} from '../License/styles'
+import {LicenseContainer} from './styles'
 import Selector from '../Selector'
 
 const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, selectedLicense}) => {
@@ -50,25 +50,26 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, se
               </Button>
             )}
 
-            <h3>Select license</h3>
-            <LicenseContainer>
-              <Selector
-                displayTitle={false}
-                title="License"
-                options={licenseOptions()}
-                defaultValue={'Small'}
-                handleChange={setSelectedLicense}
-              />
-
-              <div style={{width: '100%'}}>
-                <h3>For uses, not exceeding:</h3>
-                <p>
-                  {selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations
-                </p>
-                <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
-                <p>{selectedLicense ? selectedLicense.ebooks : 0} e-book(s)</p>
-              </div>
-            </LicenseContainer>
+            <div style={{marginTop: '60px'}}>
+              <h3>Select license</h3>
+              <LicenseContainer>
+                <Selector
+                  displayTitle={false}
+                  title="License"
+                  options={licenseOptions()}
+                  defaultValue={'Small'}
+                  handleChange={setSelectedLicense}
+                />
+                <div style={{width: '100%'}}>
+                  <h3>For uses, not exceeding:</h3>
+                  <p>
+                    {selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations
+                  </p>
+                  <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
+                  <p>{selectedLicense ? selectedLicense.ebooks : 0} e-book(s)</p>
+                </div>
+              </LicenseContainer>
+            </div>
           </Form>
         )}
       </Formik>

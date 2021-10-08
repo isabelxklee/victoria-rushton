@@ -18,28 +18,7 @@ export const ParentContainer = styled.div`
   }
 `
 
-export const LicenseContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-  padding-right: 60px;
-
-  @media (max-width: 900px) {
-    display: block;
-    padding: 0;
-  }
-`
-
 export const Options = styled(FlexContainer)`
   flex-direction: column;
   width: 100%;
-`
-
-export const SelectionContainer = styled.div`
-  padding-right: 60px;
-  margin-bottom: 60px;
-
-  @media (max-width: 900px) {
-    padding: 0;
-  }
 `

@@ -5,7 +5,7 @@ import {Colors} from '../../styles'
 export const ReactSelect = styled(Select)`
   width: 100%;
   color: ${Colors.black};
-  margin-top: 10px;
+  margin-top: ${({$typeTester}) => ($typeTester ? '10px' : '0')};
 `
 
 export const Label = styled.label`

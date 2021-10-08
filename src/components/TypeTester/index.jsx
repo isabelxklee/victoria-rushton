@@ -31,6 +31,7 @@ const Panel = ({
         options={weightOptions}
         defaultValue={weight}
         handleChange={setWeight}
+        typeTester={true}
       />
       {slantOptions.length > 1 && (
         <Selector
@@ -40,6 +41,7 @@ const Panel = ({
           defaultValue={slant}
           handleChange={setSlant}
           isDisabled={slantOptions.length < 2}
+          typeTester={true}
         />
       )}
 

@@ -21,3 +21,15 @@ export const ButtonLabel = styled.label`
     color: ${Colors.white};
   }
 `
+
+export const LicenseContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding-right: 60px;
+
+  @media (max-width: 900px) {
+    display: block;
+    padding: 0;
+  }
+`
