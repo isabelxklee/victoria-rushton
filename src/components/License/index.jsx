@@ -60,32 +60,27 @@ const License = ({font}) => {
     // </form>
     <>
       <H2>License this font</H2>
-      <SelectionForm
-        setSelectedFonts={setSelectedFonts}
-        font={font}
-        setSelectedLicense={setSelectedLicense}
-        licenses={licenses}
-      />
-      <ParentContainer>
-        <LicenseContainer>
-          <div style={{width: '100%'}}>
-            <h3>For uses, not exceeding:</h3>
-            <p>{selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations</p>
-            <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
-            <p>{selectedLicense ? selectedLicense.ebooks : 0} e-book(s)</p>
-          </div>
-        </LicenseContainer>
-        <PriceContainer>
-          <PriceBreakdown
-            selectedLicense={selectedLicense}
-            selectedFonts={selectedFonts}
-            font={font}
-            currency={currency}
-            fontPrice={fontPrice}
-            licensePrice={licensePrice}
-          />
-        </PriceContainer>
-      </ParentContainer>
+      <FlexContainer>
+        <SelectionForm
+          setSelectedFonts={setSelectedFonts}
+          font={font}
+          setSelectedLicense={setSelectedLicense}
+          licenses={licenses}
+          selectedLicense={selectedLicense}
+        />
+        {/* <ParentContainer> */}
+      </FlexContainer>
+      <PriceContainer>
+        <PriceBreakdown
+          selectedLicense={selectedLicense}
+          selectedFonts={selectedFonts}
+          font={font}
+          currency={currency}
+          fontPrice={fontPrice}
+          licensePrice={licensePrice}
+        />
+      </PriceContainer>
+      {/* </ParentContainer> */}
     </>
   )
 }

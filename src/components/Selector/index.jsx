@@ -1,6 +1,6 @@
 import React from 'react'
 import {ReactSelect} from './styles'
-import {Label} from '../../styles'
+import {Label} from './styles'
 
 const Selector = ({title, options, defaultValue, handleChange, isDisabled, displayTitle}) => {
   return (

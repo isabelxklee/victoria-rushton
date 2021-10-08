@@ -1,9 +1,10 @@
 import React from 'react'
 import {Formik, Field, Form} from 'formik'
 import {Button} from '../../styles'
+import {LicenseContainer} from '../License/styles'
 import Selector from '../Selector'
 
-const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense}) => {
+const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, selectedLicense}) => {
   const allRomanWeights = () => {
     return font.weights.map((weight) => weight.title)
   }
@@ -33,7 +34,7 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense}) =
               {font &&
                 font.weights.map((weight) => (
                   <Button type="submit" key={weight.number}>
-                    <label>
+                    <label style={{cursor: 'pointer'}}>
                       <Field type="checkbox" name="fonts" value={weight.title} hidden />
                       {weight.title}
                     </label>
@@ -42,7 +43,7 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense}) =
             </div>
             {font.slants.length > 1 && (
               <Button type="submit">
-                <label>
+                <label style={{cursor: 'pointer'}}>
                   <Field type="checkbox" name="allRoman" hidden />
                   Select All Roman
                 </label>
@@ -50,13 +51,24 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense}) =
             )}
 
             <h3>Select license</h3>
-            <Selector
-              displayTitle={false}
-              title="License"
-              options={licenseOptions()}
-              defaultValue={'Small'}
-              handleChange={setSelectedLicense}
-            />
+            <LicenseContainer>
+              <Selector
+                displayTitle={false}
+                title="License"
+                options={licenseOptions()}
+                defaultValue={'Small'}
+                handleChange={setSelectedLicense}
+              />
+
+              <div style={{width: '100%'}}>
+                <h3>For uses, not exceeding:</h3>
+                <p>
+                  {selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations
+                </p>
+                <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
+                <p>{selectedLicense ? selectedLicense.ebooks : 0} e-book(s)</p>
+              </div>
+            </LicenseContainer>
           </Form>
         )}
       </Formik>

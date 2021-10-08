@@ -7,3 +7,7 @@ export const ReactSelect = styled(Select)`
   color: ${Colors.black};
   margin-top: 10px;
 `
+
+export const Label = styled.label`
+  width: 100%;
+`
