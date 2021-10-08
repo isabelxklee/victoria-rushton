@@ -76,11 +76,6 @@ export const Label = styled.label`
   font-size: 18px;
 `
 
-export const H2 = styled.h2`
-  font-size: 32px;
-  font-weight: 700;
-`
-
 export const H1 = styled.h1`
   font-size: 100px;
   font-weight: 400;
@@ -91,4 +86,14 @@ export const H1 = styled.h1`
   @media (max-width: 900px) {
     font-size: 60px;
   }
+`
+
+export const H2 = styled.h2`
+  font-size: 32px;
+  font-weight: 700;
+`
+
+export const H3 = styled.h3`
+  font-size: 18px;
+  margin: 0 0 16px 0;
 `

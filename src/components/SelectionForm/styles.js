@@ -1,8 +1,5 @@
 import styled from 'styled-components'
-import {Field} from 'formik'
 import {Colors} from '../../styles'
-
-export const Checkbox = styled(Field)``
 
 export const ButtonLabel = styled.label`
   border-radius: 40px;
@@ -26,7 +23,6 @@ export const LicenseContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 40px;
-  padding-right: 60px;
 
   @media (max-width: 900px) {
     display: block;
