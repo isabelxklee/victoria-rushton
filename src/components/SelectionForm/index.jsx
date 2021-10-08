@@ -1,7 +1,7 @@
 import React from 'react'
 import {Formik, Field, Form} from 'formik'
-import {Button} from '../../styles'
-import {LicenseContainer} from './styles'
+import {Button, SecondaryButton} from '../../styles'
+import {LicenseContainer, ButtonGroup} from './styles'
 import Selector from '../Selector'
 
 const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, selectedLicense}) => {
@@ -30,17 +30,17 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, se
         {({values}) => (
           <Form>
             <h3>Select fonts</h3>
-            <div role="group" aria-labelledby="checkbox-group">
+            <ButtonGroup role="group" aria-labelledby="checkbox-group">
               {font &&
                 font.weights.map((weight) => (
-                  <Button type="submit" key={weight.number}>
+                  <SecondaryButton type="submit" key={weight.number}>
                     <label style={{cursor: 'pointer'}}>
                       <Field type="checkbox" name="fonts" value={weight.title} hidden />
                       {weight.title}
                     </label>
-                  </Button>
+                  </SecondaryButton>
                 ))}
-            </div>
+            </ButtonGroup>
             {font.slants.length > 1 && (
               <Button type="submit">
                 <label style={{cursor: 'pointer'}}>

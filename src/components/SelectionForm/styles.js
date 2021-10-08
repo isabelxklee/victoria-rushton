@@ -33,3 +33,9 @@ export const LicenseContainer = styled.div`
     padding: 0;
   }
 `
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+`

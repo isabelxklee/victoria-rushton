@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {ParentContainer} from './styles'
 import sanityClient from '../../client.js'
-import {Button, H2, SecondaryButton} from '../../styles'
+import {H2} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 import SelectionForm from '../SelectionForm'
