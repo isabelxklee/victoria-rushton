@@ -1,29 +1,56 @@
-import React from 'react'
+import React from 'react' // {useState, useEffect}
+import {SelectedItem, TotalPrice} from './styles'
+import {P, PSpace, Button, H3} from '../../styles'
 
-const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice, currency}) => {
+const PriceBreakdown = ({font, fontPrice, licensePrice, selectedLicense, selectedFonts}) => {
+  // const [data, setData] = useState(null)
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch('https://victoria-rushton-express.herokuapp.com/express-backend')
+  //     // const response = await fetch('https://localhost:5000')
+  //     const body = await response.json()
+  //     setData(body.express)
+  //   }
+  //   fetchData()
+  // }, [])
+
+  // console.log(data)
+
   return (
     <>
-      <h3>Price breakdown</h3>
-      {selectedFonts &&
-        selectedFonts.map((weight) => (
-          <p key={weight}>
-            {font.title} {weight}
-          </p>
-        ))}
-      {totalPrice > 0 && (
-        <p>
-          $ {selectedLicense ? totalPrice - selectedLicense.price : totalPrice} {currency}
-        </p>
+      <H3>Cart</H3>
+      {selectedFonts || selectedLicense ? (
+        <>
+          {selectedFonts &&
+            selectedFonts.map((weightTitle) => (
+              <SelectedItem key={weightTitle}>
+                <P>
+                  {font.title} {weightTitle}
+                </P>
+                <P>$100</P>
+              </SelectedItem>
+            ))}
+          {selectedLicense && (
+            <SelectedItem>
+              <P>{selectedLicense.title} License</P>
+              <P>${licensePrice}</P>
+            </SelectedItem>
+          )}
+          <SelectedItem>
+            <TotalPrice>Subtotal</TotalPrice>
+            <TotalPrice>${licensePrice + fontPrice}</TotalPrice>
+          </SelectedItem>
+        </>
+      ) : (
+        <PSpace>Add something to your cart.</PSpace>
       )}
 
-      {selectedLicense && (
-        <p>
-          {selectedLicense.title} license: $ {selectedLicense.price}
-        </p>
-      )}
-      <p>
-        Subtotal: $ {totalPrice} {currency}
-      </p>
+      {/* <form action="/create-checkout-session" method="POST">
+        <button type="submit">Checkout</button>
+      </form> */}
+
+      <Button $disabled={selectedLicense || selectedFonts ? false : true}>Checkout</Button>
     </>
   )
 }

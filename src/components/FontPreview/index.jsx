@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
-import {PSpace, Padding} from '../../styles'
-import {PreviewText} from './styles'
+import {PSpace} from '../../styles'
+import {PreviewText, PreviewTextContainer} from './styles'
 
 const FontPreview = ({font}) => {
   const [previews, setPreviews] = useState(null)
@@ -30,7 +30,7 @@ const FontPreview = ({font}) => {
         previews.map((preview) => (
           <div key={preview._id}>
             {preview.font === font && (
-              <Padding $padding="40px 0px">
+              <PreviewTextContainer>
                 <PSpace>
                   {font} {preview.weightTitle}
                 </PSpace>
@@ -44,7 +44,7 @@ const FontPreview = ({font}) => {
                 >
                   {preview.text}
                 </PreviewText>
-              </Padding>
+              </PreviewTextContainer>
             )}
           </div>
         ))}

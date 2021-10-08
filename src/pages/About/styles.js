@@ -36,6 +36,12 @@ export const PressContainer = styled.div`
   padding: 80px;
   height: calc(100% + 80px);
   margin-bottom: -80px;
+
+  @media (max-width: 900px) {
+    padding: 40px;
+    width: calc(100vw - 80px);
+    margin-bottom: -20px;
+  }
 `
 
 export const PressArticleTitle = styled.a`
@@ -53,4 +59,8 @@ export const PressArticleContainer = styled.div`
 export const Container = styled.div`
   border-left: 1px solid ${Colors.white};
   padding-left: 50px;
+
+  @media (max-width: 900px) {
+    padding-left: 20px;
+  }
 `

@@ -26,18 +26,22 @@ const Panel = ({
   return (
     <PanelContainer>
       <Selector
+        displayTitle={true}
         title="Weight"
         options={weightOptions}
         defaultValue={weight}
         handleChange={setWeight}
+        typeTester={true}
       />
       {slantOptions.length > 1 && (
         <Selector
+          displayTitle={true}
           title="Slant"
           options={slantOptions}
           defaultValue={slant}
           handleChange={setSlant}
           isDisabled={slantOptions.length < 2}
+          typeTester={true}
         />
       )}
 
@@ -68,7 +72,7 @@ const Panel = ({
 
 const TypeTester = ({font}) => {
   const [weight, setWeight] = useState(null)
-  const [size, setSize] = useState(100)
+  const [size, setSize] = useState(80)
   const [slant, setSlant] = useState({value: 'Roman', label: 'Roman'})
   const [darkMode, setDarkMode] = useState(false)
 

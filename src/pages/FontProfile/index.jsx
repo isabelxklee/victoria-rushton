@@ -4,9 +4,8 @@ import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
 import FontPreview from '../../components/FontPreview'
 import License from '../../components/License'
-import {HeroPreview} from '../../components/FontHero/styles'
-import {Description, Button} from '../../styles'
-import {HeroContainer} from './styles'
+import {Button, H1} from '../../styles'
+import {HeroContainer, Description} from './styles'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -36,7 +35,9 @@ const FontProfile = () => {
       {font && (
         <>
           <HeroContainer>
-            <HeroPreview $isProfile={true}>{font.title}</HeroPreview>
+            <H1 $font={font.title} $margin="0 0 40px 0">
+              {font.title}
+            </H1>
             <Description>{font.description}</Description>
             <Button>License this font</Button>
           </HeroContainer>

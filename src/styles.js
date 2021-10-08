@@ -14,18 +14,9 @@ export const TextLink = styled.a`
 
 export const InternalLink = styled(Link)`
   font-weight: 700;
-  color: #1e1e1e;
+  color: ${Colors.black};
   text-decoration: none;
   margin-right: 20px;
-`
-
-export const Divider = styled.div`
-  width: 100%;
-  border: 1px solid #1e1e1e;
-`
-
-export const VerticalDivider = styled(Divider)`
-  transform: rotate(90deg);
 `
 
 export const P = styled.p`
@@ -42,14 +33,6 @@ export const P = styled.p`
 
 export const PSpace = styled(P)`
   margin: ${(props) => props.inputMargin || '16px 0'};
-`
-
-export const Description = styled(P)`
-  font-size: 18px;
-  margin: 24px 0;
-  line-height: 1.4;
-  width: 75%;
-  font-weight: 300;
 `
 
 export const Wrapper = styled.div`
@@ -72,20 +55,21 @@ export const Margin = styled.div`
 export const Button = styled.button`
   border: none;
   border-radius: 40px;
-  background: #1e1e1e;
+  background: ${Colors.black};
   color: ${Colors.white};
   border: 1px solid ${Colors.white};
   font-family: 'Cecilie Sans', 'sans-serif';
   font-weight: 300;
   font-size: 16px;
   padding: 14px 20px 10px 20px;
-  cursor: pointer;
+  cursor: ${({$disabled}) => ($disabled ? 'default' : 'pointer')};
+  opacity: ${({$disabled}) => ($disabled ? 0.3 : 1)};
 `
 
 export const SecondaryButton = styled(Button)`
   background: ${Colors.white};
-  color: #1e1e1e;
-  border: 2px solid #1e1e1e;
+  color: ${Colors.black};
+  border: 2px solid ${Colors.black};
 `
 
 export const Label = styled.label`
@@ -93,7 +77,24 @@ export const Label = styled.label`
   font-size: 18px;
 `
 
+export const H1 = styled.h1`
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 0.9;
+  margin: ${({$margin}) => $margin};
+  font-family: ${({$font}) => $font};
+
+  @media (max-width: 900px) {
+    font-size: 60px;
+  }
+`
+
 export const H2 = styled.h2`
   font-size: 32px;
   font-weight: 700;
+`
+
+export const H3 = styled.h3`
+  font-size: 18px;
+  margin: 0 0 16px 0;
 `
