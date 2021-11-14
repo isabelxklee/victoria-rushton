@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
+import {ReactComponent as LogoSVG} from '../../icons/logo-full.svg'
 
 export const HeaderContainer = styled.div`
   color: #1e1e1e;
@@ -8,6 +9,8 @@ export const HeaderContainer = styled.div`
   top: 0;
   width: calc(100vw - 160px);
   border-bottom: 2px solid #1e1e1e;
+  display: flex;
+  justify-content: space-between;
 
   @media (max-width: 900px) {
     width: 100%;
@@ -20,4 +23,8 @@ export const HeaderLink = styled(NavLink)`
   color: #1e1e1e;
   text-decoration: none;
   margin-right: 20px;
+`
+
+export const Logo = styled(LogoSVG)`
+  width: 50%;
 `

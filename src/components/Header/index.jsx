@@ -1,14 +1,12 @@
 import React from 'react'
-import {HeaderContainer, HeaderLink} from './styles'
+import {HeaderContainer, HeaderLink, Logo} from './styles'
 
 const Header = () => (
   <HeaderContainer>
+    <Logo />
     <HeaderLink exact to="/" activeClassName="active">
-      Victoria Rushton
-    </HeaderLink>
-    {/* <HeaderLink to="/type" activeClassName="active">
       Type
-    </HeaderLink> */}
+    </HeaderLink>
     <HeaderLink to="/about" activeClassName="active">
       About
     </HeaderLink>

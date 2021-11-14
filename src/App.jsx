@@ -19,7 +19,7 @@ const App = () => {
           <Route component={About} path="/about">
             <About />
           </Route>
-          {/* <Route path="/type">
+          {/* <Route component={Type} path="/type">
             <Type />
           </Route> */}
           <Route component={Home} exact path="/" />
