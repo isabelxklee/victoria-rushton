@@ -1,15 +1,20 @@
 import React from 'react'
-import {HeaderContainer, HeaderLink, Logo} from './styles'
+import {HeaderContainer, LogoLink, HeaderLink, Logo} from './styles'
 
 const Header = () => (
   <HeaderContainer>
-    <Logo />
-    <HeaderLink exact to="/" activeClassName="active">
-      Type
-    </HeaderLink>
-    <HeaderLink to="/about" activeClassName="active">
-      About
-    </HeaderLink>
+    <LogoLink exact to="/">
+      <Logo />
+    </LogoLink>
+
+    <div>
+      <HeaderLink exact to="/" activeClassName="active">
+        Type
+      </HeaderLink>
+      <HeaderLink to="/about" activeClassName="active">
+        About
+      </HeaderLink>
+    </div>
   </HeaderContainer>
 )
 
