@@ -24,6 +24,10 @@ export const HeaderLink = styled(NavLink)`
   margin-left: 40px;
 `
 
+export const LogoLink = styled(NavLink)`
+  display: block;
+`
+
 export const Logo = styled(LogoSVG)`
-  width: 22%;
+  width: 100%;
 `
