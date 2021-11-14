@@ -41,14 +41,6 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, se
                   </SecondaryButton>
                 ))}
             </ButtonGroup>
-            {font.slants.length > 1 && (
-              <Button type="submit">
-                <label style={{cursor: 'pointer'}}>
-                  <Field type="checkbox" name="allRoman" hidden />
-                  Select All Roman
-                </label>
-              </Button>
-            )}
 
             <div style={{marginTop: '60px'}}>
               <H3>Select license</H3>
