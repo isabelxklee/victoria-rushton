@@ -21,9 +21,9 @@ export const HeaderLink = styled(NavLink)`
   font-weight: 400;
   color: #1e1e1e;
   text-decoration: none;
-  margin-right: 20px;
+  margin-left: 40px;
 `
 
 export const Logo = styled(LogoSVG)`
-  width: 25%;
+  width: 22%;
 `
