@@ -4,13 +4,12 @@ import {ReactComponent as LogoSVG} from '../../icons/logo-full.svg'
 
 export const HeaderContainer = styled.div`
   color: #1e1e1e;
-  padding-bottom: 80px;
-  position: relative;
-  top: 0;
+  padding-bottom: 40px;
   width: calc(100vw - 160px);
   border-bottom: 2px solid #1e1e1e;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   @media (max-width: 900px) {
     width: 100%;
@@ -26,5 +25,5 @@ export const HeaderLink = styled(NavLink)`
 `
 
 export const Logo = styled(LogoSVG)`
-  width: 50%;
+  width: 25%;
 `
