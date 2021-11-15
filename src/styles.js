@@ -62,6 +62,7 @@ export const Button = styled.button`
   font-weight: 300;
   font-size: 16px;
   padding: 14px 20px 10px 20px;
+  pointer-events: ${({$disabled}) => ($disabled ? 'none' : 'auto')};
   cursor: ${({$disabled}) => ($disabled ? 'default' : 'pointer')};
   opacity: ${({$disabled}) => ($disabled ? 0.3 : 1)};
 `
