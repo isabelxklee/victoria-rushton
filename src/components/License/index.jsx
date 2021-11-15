@@ -38,6 +38,7 @@ const License = ({font}) => {
       <div>
         <H2>License this font</H2>
         <SelectionForm
+          selectedFonts={selectedFonts}
           setSelectedFonts={setSelectedFonts}
           font={font}
           setSelectedLicense={setSelectedLicense}

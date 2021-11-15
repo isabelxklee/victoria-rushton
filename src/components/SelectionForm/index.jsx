@@ -4,13 +4,22 @@ import {Button, H3} from '../../styles'
 import {LicenseContainer, ButtonGroup} from './styles'
 import Selector from '../Selector'
 
-const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, selectedLicense}) => {
+const SelectionForm = ({
+  font,
+  licenses,
+  selectedFonts,
+  setSelectedFonts,
+  setSelectedLicense,
+  selectedLicense,
+}) => {
   const licenseOptions = () => {
     return (
       licenses &&
       licenses.map((license) => ({...license, label: license.title, value: license.title}))
     )
   }
+
+  console.log(selectedFonts)
 
   return (
     <>
