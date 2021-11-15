@@ -5,10 +5,6 @@ import {LicenseContainer, ButtonGroup} from './styles'
 import Selector from '../Selector'
 
 const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, selectedLicense}) => {
-  const allRomanWeights = () => {
-    return font.weights.map((weight) => weight.title)
-  }
-
   const licenseOptions = () => {
     return (
       licenses &&
@@ -20,11 +16,10 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, se
     <>
       <Formik
         initialValues={{
-          allRoman: false,
           fonts: [],
         }}
         onSubmit={(values) => {
-          setSelectedFonts(values.allRoman ? allRomanWeights : values.fonts)
+          setSelectedFonts(values.fonts)
         }}
       >
         {({values}) => (
@@ -49,7 +44,7 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, se
             </LicenseContainer>
 
             <div style={{marginTop: '60px'}}>
-              {/* select font goes here */} <H3>Select fonts</H3>
+              <H3>Select fonts</H3>
               <ButtonGroup role="group" aria-labelledby="checkbox-group">
                 {font &&
                   font.weights.map((weight) => (

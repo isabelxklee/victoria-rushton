@@ -10,7 +10,6 @@ const License = ({font}) => {
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
   const [selectedFonts, setSelectedFonts] = useState(null)
-  const [fontPrice, setFontPrice] = useState(0)
   const [licensePrice, setLicensePrice] = useState(0)
 
   useEffect(() => {
@@ -31,15 +30,15 @@ const License = ({font}) => {
   }, [])
 
   useEffect(() => {
-    const updateFontPrice = () => {
-      setFontPrice(selectedFonts && selectedFonts.length * 100)
-    }
+    // const updateFontPrice = () => {
+    //   setFontPrice(selectedFonts && selectedFonts.length * 100)
+    // }
 
     const updateLicensePrice = () => {
       setLicensePrice(selectedLicense && selectedLicense.price)
     }
 
-    updateFontPrice()
+    // updateFontPrice()
     updateLicensePrice()
   }, [selectedFonts, selectedLicense])
 
@@ -60,7 +59,6 @@ const License = ({font}) => {
           selectedLicense={selectedLicense}
           selectedFonts={selectedFonts}
           font={font}
-          fontPrice={fontPrice}
           licensePrice={licensePrice}
         />
       </PriceContainer>
