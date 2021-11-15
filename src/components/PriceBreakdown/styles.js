@@ -40,9 +40,14 @@ export const LinksContainer = styled.div`
 `
 
 export const RemoveIcon = styled(Remove)`
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.3;
+  }
 `
 
 export const Right = styled.div`
