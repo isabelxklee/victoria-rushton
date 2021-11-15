@@ -1,5 +1,5 @@
 import React from 'react' // {useState, useEffect}
-import {SelectedItem, TotalPrice, LinksContainer} from './styles'
+import {SelectedItem, TotalPrice, LinksContainer, RemoveIcon, Right} from './styles'
 import {P, PSpace, Button, H3, Margin, TextLink, SmallText} from '../../styles'
 
 const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts, totalPrice}) => {
@@ -47,8 +47,10 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
                   <P>
                     {font.title} {weightTitle}
                   </P>
-                  <P>${selectedLicense.price}</P>
-                  <Button onClick={() => handleRemove(weightTitle)}>Remove</Button>
+                  <Right>
+                    <P>${selectedLicense.price}</P>
+                    <RemoveIcon onClick={() => handleRemove(weightTitle)} />
+                  </Right>
                 </SelectedItem>
               ))}
 

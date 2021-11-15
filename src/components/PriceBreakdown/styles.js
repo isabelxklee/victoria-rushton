@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {P} from '../../styles'
+import {ReactComponent as Remove} from '../../icons/icon-remove.svg'
 
 export const PriceContainer = styled.div`
   border-left: 2px solid #1e1e1e;
@@ -19,6 +20,7 @@ export const SelectedItem = styled.div`
   justify-content: space-between;
   padding: 8px 0;
   border-bottom: 1px solid rgb(30, 30, 30, 0.2);
+  align-items: center;
 
   &:last-child {
     border-bottom: none;
@@ -35,4 +37,16 @@ export const LinksContainer = styled.div`
   flex-direction: column;
   gap: 8px;
   margin-top: 32px;
+`
+
+export const RemoveIcon = styled(Remove)`
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+`
+
+export const Right = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
 `
