@@ -1,8 +1,8 @@
 import React from 'react' // {useState, useEffect}
 import {SelectedItem, TotalPrice} from './styles'
-import {P, PSpace, Button, H3} from '../../styles'
+import {P, PSpace, Button, H3, Margin} from '../../styles'
 
-const PriceBreakdown = ({font, fontPrice, licensePrice, selectedLicense, selectedFonts}) => {
+const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
   // const [data, setData] = useState(null)
 
   // useEffect(() => {
@@ -20,31 +20,33 @@ const PriceBreakdown = ({font, fontPrice, licensePrice, selectedLicense, selecte
   return (
     <>
       <H3>Cart</H3>
-      {selectedFonts || selectedLicense ? (
-        <>
-          {selectedFonts &&
-            selectedFonts.map((weightTitle) => (
-              <SelectedItem key={weightTitle}>
-                <P>
-                  {font.title} {weightTitle}
-                </P>
-                <P>$100</P>
+      <Margin $margin="16px 0">
+        {selectedFonts || selectedLicense ? (
+          <>
+            {selectedLicense && (
+              <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
+            )}
+            {selectedFonts &&
+              selectedFonts.map((weightTitle) => (
+                <SelectedItem key={weightTitle}>
+                  <P>
+                    {font.title} {weightTitle}
+                  </P>
+                  <P>${selectedLicense.price}</P>
+                </SelectedItem>
+              ))}
+
+            {selectedFonts && totalPrice && (
+              <SelectedItem>
+                <TotalPrice>Subtotal</TotalPrice>
+                <TotalPrice>${totalPrice}</TotalPrice>
               </SelectedItem>
-            ))}
-          {selectedLicense && (
-            <SelectedItem>
-              <P>{selectedLicense.title} License</P>
-              <P>${licensePrice}</P>
-            </SelectedItem>
-          )}
-          <SelectedItem>
-            <TotalPrice>Subtotal</TotalPrice>
-            <TotalPrice>${licensePrice + fontPrice}</TotalPrice>
-          </SelectedItem>
-        </>
-      ) : (
-        <PSpace>Add something to your cart.</PSpace>
-      )}
+            )}
+          </>
+        ) : (
+          <PSpace inputMargin="16px 0">Add something to your cart.</PSpace>
+        )}
+      </Margin>
 
       {/* <form action="/create-checkout-session" method="POST">
         <button type="submit">Checkout</button>
