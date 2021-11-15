@@ -65,6 +65,15 @@ const SelectionForm = ({
                     </Button>
                   ))}
               </ButtonGroup>
+              {font.slants.length > 1 &&
+                font.weights.map((weight) => (
+                  <Button type="submit" key={weight.number} $disabled={!selectedLicense}>
+                    <label style={{cursor: 'pointer'}}>
+                      <Field type="checkbox" name="fonts" value={`${weight.title} Italic`} hidden />
+                      {weight.title} Italic
+                    </label>
+                  </Button>
+                ))}
             </div>
           </Form>
         )}
