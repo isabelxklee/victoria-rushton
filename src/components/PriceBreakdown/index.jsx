@@ -3,6 +3,15 @@ import {SelectedItem, TotalPrice} from './styles'
 import {P, PSpace, Button, H3, Margin} from '../../styles'
 
 const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
+  const disableCheckout = () => {
+    if (!selectedLicense) {
+      return true
+    } else if (!selectedFonts) {
+      return true
+    } else if (selectedFonts.length < 1) {
+      return true
+    }
+  }
   // const [data, setData] = useState(null)
 
   // useEffect(() => {
@@ -52,7 +61,7 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
         <button type="submit">Checkout</button>
       </form> */}
 
-      <Button $disabled={selectedLicense || selectedFonts ? false : true}>Checkout</Button>
+      <Button $disabled={disableCheckout()}>Checkout</Button>
     </>
   )
 }
