@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {P, Colors} from '../../styles'
+import {P} from '../../styles'
 
 export const PriceContainer = styled.div`
   border-left: 2px solid #1e1e1e;
@@ -27,5 +27,4 @@ export const SelectedItem = styled.div`
 
 export const TotalPrice = styled(P)`
   font-weight: 700;
-  margin-top: 16px;
 `

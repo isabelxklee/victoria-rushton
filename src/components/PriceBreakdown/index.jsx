@@ -27,6 +27,7 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
               <P>{selectedLicense.title} License</P>
             </SelectedItem>
           )}
+
           {selectedFonts &&
             selectedFonts.map((weightTitle) => (
               <SelectedItem key={weightTitle}>
@@ -36,14 +37,13 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
                 <P>${selectedLicense.price}</P>
               </SelectedItem>
             ))}
-          <SelectedItem>
-            {selectedFonts && totalPrice && (
-              <>
-                <TotalPrice>Subtotal</TotalPrice>
-                <TotalPrice>${totalPrice}</TotalPrice>
-              </>
-            )}
-          </SelectedItem>
+
+          {selectedFonts && totalPrice && (
+            <SelectedItem>
+              <TotalPrice>Subtotal</TotalPrice>
+              <TotalPrice>${totalPrice}</TotalPrice>
+            </SelectedItem>
+          )}
         </Margin>
       ) : (
         <PSpace>Add something to your cart.</PSpace>
