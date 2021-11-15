@@ -1,6 +1,6 @@
 import React from 'react'
 import {Formik, Form, Field} from 'formik'
-import {Button, H3} from '../../styles'
+import {Button, SecondaryButton, H3} from '../../styles'
 import {LicenseContainer, ButtonGroup, Options} from './styles'
 import Selector from '../Selector'
 
@@ -67,7 +67,11 @@ const SelectionForm = ({
                     </Options>
                     <Options>
                       {font.slants.length > 1 && (
-                        <Button type="submit" key={weight.number} $disabled={!selectedLicense}>
+                        <SecondaryButton
+                          type="submit"
+                          key={weight.number}
+                          $disabled={!selectedLicense}
+                        >
                           <label style={{cursor: 'pointer'}}>
                             <Field
                               type="checkbox"
@@ -77,7 +81,7 @@ const SelectionForm = ({
                             />
                             {weight.title} Italic
                           </label>
-                        </Button>
+                        </SecondaryButton>
                       )}
                     </Options>
                   </ButtonGroup>
