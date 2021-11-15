@@ -69,7 +69,6 @@ const About = () => {
                   rel="no_referrer"
                   $linkStyle={object.link && 'on'}
                 >
-                  {object.link && '🔗 '}
                   {object.title}
                 </PressArticleTitle>
                 <P>{object.description}</P>
