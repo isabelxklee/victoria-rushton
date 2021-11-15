@@ -8,7 +8,7 @@ export const Colors = {
 
 export const TextLink = styled.a`
   font-weight: ${(props) => props.inputWeight || 700};
-  color: ${Colors.white};
+  color: ${({$light}) => ($light ? Colors.white : Colors.black)};
   text-decoration: none;
 `
 
