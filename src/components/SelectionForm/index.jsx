@@ -4,14 +4,7 @@ import {Button, SecondaryButton, H3} from '../../styles'
 import {LicenseContainer, ButtonGroup, Options} from './styles'
 import Selector from '../Selector'
 
-const SelectionForm = ({
-  font,
-  licenses,
-  selectedFonts,
-  setSelectedFonts,
-  setSelectedLicense,
-  selectedLicense,
-}) => {
+const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, selectedLicense}) => {
   const licenseOptions = () => {
     return (
       licenses &&
@@ -20,22 +13,25 @@ const SelectionForm = ({
   }
 
   const fontOptions = () => {
-    let fontArray = []
-    font.weights.map(
-      (weight) =>
-        fontArray.push({label: weight.title, value: weight.title, number: weight.number}) &&
-        font.slants.length > 1 &&
-        fontArray.push({
+    let fonts = {normal: []}
+
+    font.weights.map((weight) =>
+      fonts['normal'].push({label: weight.title, value: weight.title, number: weight.number})
+    )
+
+    if (font.slants.length > 1) {
+      fonts['italic'] = []
+      font.weights.map((weight) =>
+        fonts['italic'].push({
           label: `${weight.title} Italic`,
           value: `${weight.title} Italic`,
           number: weight.number,
         })
-    )
+      )
+    }
 
-    return fontArray
+    return fonts
   }
-
-  console.log(fontOptions())
 
   return (
     <>
@@ -70,38 +66,31 @@ const SelectionForm = ({
 
             <div style={{marginTop: '60px'}}>
               <H3>Select fonts</H3>
-              {font &&
-                font.weights.map((weight) => (
-                  <ButtonGroup role="group" aria-labelledby="checkbox-group">
-                    <Options>
-                      <Button type="submit" key={weight.number} $disabled={!selectedLicense}>
+              <ButtonGroup role="group" aria-labelledby="checkbox-group">
+                <Options>
+                  {font &&
+                    fontOptions()['normal'].map((option) => (
+                      <Button type="submit" key={option.label} $disabled={!selectedLicense}>
                         <label style={{cursor: 'pointer'}}>
-                          <Field type="checkbox" name="fonts" value={weight.title} hidden />
-                          {weight.title}
+                          <Field type="checkbox" name="fonts" value={option.value} hidden />
+                          {option.label}
                         </label>
                       </Button>
-                    </Options>
-                    <Options>
-                      {font.slants.length > 1 && (
-                        <SecondaryButton
-                          type="submit"
-                          key={weight.number}
-                          $disabled={!selectedLicense}
-                        >
-                          <label style={{cursor: 'pointer'}}>
-                            <Field
-                              type="checkbox"
-                              name="fonts"
-                              value={`${weight.title} Italic`}
-                              hidden
-                            />
-                            {weight.title} Italic
-                          </label>
-                        </SecondaryButton>
-                      )}
-                    </Options>
-                  </ButtonGroup>
-                ))}
+                    ))}
+                </Options>
+
+                <Options>
+                  {fontOptions()['italic'] &&
+                    fontOptions()['italic'].map((option) => (
+                      <Button type="submit" key={option.label} $disabled={!selectedLicense}>
+                        <label style={{cursor: 'pointer'}}>
+                          <Field type="checkbox" name="fonts" value={option.value} hidden />
+                          {option.label}
+                        </label>
+                      </Button>
+                    ))}
+                </Options>
+              </ButtonGroup>
             </div>
           </Form>
         )}
