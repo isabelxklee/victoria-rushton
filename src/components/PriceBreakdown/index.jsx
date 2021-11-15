@@ -2,7 +2,7 @@ import React from 'react' // {useState, useEffect}
 import {SelectedItem, TotalPrice} from './styles'
 import {P, PSpace, Button, H3} from '../../styles'
 
-const PriceBreakdown = ({font, fontPrice, licensePrice, selectedLicense, selectedFonts}) => {
+const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
   // const [data, setData] = useState(null)
 
   // useEffect(() => {
@@ -22,24 +22,27 @@ const PriceBreakdown = ({font, fontPrice, licensePrice, selectedLicense, selecte
       <H3>Cart</H3>
       {selectedFonts || selectedLicense ? (
         <>
+          {selectedLicense && (
+            <SelectedItem>
+              <P>{selectedLicense.title} License</P>
+            </SelectedItem>
+          )}
           {selectedFonts &&
             selectedFonts.map((weightTitle) => (
               <SelectedItem key={weightTitle}>
                 <P>
                   {font.title} {weightTitle}
                 </P>
-                <P>$100</P>
+                <P>${selectedLicense.price}</P>
               </SelectedItem>
             ))}
-          {selectedLicense && (
-            <SelectedItem>
-              <P>{selectedLicense.title} License</P>
-              <P>${licensePrice}</P>
-            </SelectedItem>
-          )}
           <SelectedItem>
-            <TotalPrice>Subtotal</TotalPrice>
-            <TotalPrice>${licensePrice + fontPrice}</TotalPrice>
+            {selectedFonts && totalPrice && (
+              <>
+                <TotalPrice>Subtotal</TotalPrice>
+                <TotalPrice>${totalPrice}</TotalPrice>
+              </>
+            )}
           </SelectedItem>
         </>
       ) : (
