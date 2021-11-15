@@ -34,4 +34,14 @@ export const ButtonGroup = styled.div`
   display: flex;
   gap: 8px;
   margin-bottom: 8px;
+  width: 75%;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+`
+
+export const Options = styled(ButtonGroup)`
+  flex-direction: column;
+  width: 100%;
 `

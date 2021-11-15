@@ -1,7 +1,7 @@
 import React from 'react'
 import {Formik, Form, Field} from 'formik'
 import {Button, H3} from '../../styles'
-import {LicenseContainer, ButtonGroup} from './styles'
+import {LicenseContainer, ButtonGroup, Options} from './styles'
 import Selector from '../Selector'
 
 const SelectionForm = ({
@@ -54,25 +54,33 @@ const SelectionForm = ({
 
             <div style={{marginTop: '60px'}}>
               <H3>Select fonts</H3>
-              <ButtonGroup role="group" aria-labelledby="checkbox-group">
-                {font &&
-                  font.weights.map((weight) => (
-                    <Button type="submit" key={weight.number} $disabled={!selectedLicense}>
-                      <label style={{cursor: 'pointer'}}>
-                        <Field type="checkbox" name="fonts" value={weight.title} hidden />
-                        {weight.title}
-                      </label>
-                    </Button>
-                  ))}
-              </ButtonGroup>
-              {font.slants.length > 1 &&
+              {font &&
                 font.weights.map((weight) => (
-                  <Button type="submit" key={weight.number} $disabled={!selectedLicense}>
-                    <label style={{cursor: 'pointer'}}>
-                      <Field type="checkbox" name="fonts" value={`${weight.title} Italic`} hidden />
-                      {weight.title} Italic
-                    </label>
-                  </Button>
+                  <ButtonGroup role="group" aria-labelledby="checkbox-group">
+                    <Options>
+                      <Button type="submit" key={weight.number} $disabled={!selectedLicense}>
+                        <label style={{cursor: 'pointer'}}>
+                          <Field type="checkbox" name="fonts" value={weight.title} hidden />
+                          {weight.title}
+                        </label>
+                      </Button>
+                    </Options>
+                    <Options>
+                      {font.slants.length > 1 && (
+                        <Button type="submit" key={weight.number} $disabled={!selectedLicense}>
+                          <label style={{cursor: 'pointer'}}>
+                            <Field
+                              type="checkbox"
+                              name="fonts"
+                              value={`${weight.title} Italic`}
+                              hidden
+                            />
+                            {weight.title} Italic
+                          </label>
+                        </Button>
+                      )}
+                    </Options>
+                  </ButtonGroup>
                 ))}
             </div>
           </Form>
