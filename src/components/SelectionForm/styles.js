@@ -34,4 +34,6 @@ export const ButtonGroup = styled.div`
   display: flex;
   gap: 8px;
   margin-bottom: 8px;
+  cursor: ${({$disabled}) => ($disabled ? 'default' : 'pointer')};
+  opacity: ${({$disabled}) => ($disabled ? 0.3 : 1)};
 `

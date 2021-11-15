@@ -1,6 +1,6 @@
 import React from 'react'
 import {Formik, Field, Form} from 'formik'
-import {SecondaryButton, H3} from '../../styles'
+import {Button, H3} from '../../styles'
 import {LicenseContainer, ButtonGroup} from './styles'
 import Selector from '../Selector'
 
@@ -45,15 +45,19 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, se
 
             <div style={{marginTop: '60px'}}>
               <H3>Select fonts</H3>
-              <ButtonGroup role="group" aria-labelledby="checkbox-group">
+              <ButtonGroup
+                role="group"
+                aria-labelledby="checkbox-group"
+                $disabled={!selectedLicense}
+              >
                 {font &&
                   font.weights.map((weight) => (
-                    <SecondaryButton type="submit" key={weight.number}>
+                    <Button type="submit" key={weight.number}>
                       <label style={{cursor: 'pointer'}}>
                         <Field type="checkbox" name="fonts" value={weight.title} hidden />
                         {weight.title}
                       </label>
-                    </SecondaryButton>
+                    </Button>
                   ))}
               </ButtonGroup>
             </div>
