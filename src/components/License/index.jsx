@@ -49,6 +49,7 @@ const License = ({font}) => {
       <PriceContainer>
         <PriceBreakdown
           selectedLicense={selectedLicense}
+          setSelectedFonts={setSelectedFonts}
           selectedFonts={selectedFonts}
           font={font}
           totalPrice={totalPrice}

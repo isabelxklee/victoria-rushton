@@ -2,7 +2,7 @@ import React from 'react' // {useState, useEffect}
 import {SelectedItem, TotalPrice, LinksContainer} from './styles'
 import {P, PSpace, Button, H3, Margin, TextLink, SmallText} from '../../styles'
 
-const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
+const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts, totalPrice}) => {
   const disableCheckout = () => {
     if (!selectedLicense) {
       return true
@@ -12,6 +12,12 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
       return true
     }
   }
+
+  const handleRemove = (deletedFont) => {
+    const newArr = selectedFonts.filter((font) => font !== deletedFont)
+    setSelectedFonts(newArr)
+  }
+
   // const [data, setData] = useState(null)
 
   // useEffect(() => {
@@ -42,6 +48,7 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
                     {font.title} {weightTitle}
                   </P>
                   <P>${selectedLicense.price}</P>
+                  <Button onClick={() => handleRemove(weightTitle)}>Remove</Button>
                 </SelectedItem>
               ))}
 
