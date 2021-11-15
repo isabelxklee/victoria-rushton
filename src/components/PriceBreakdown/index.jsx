@@ -23,7 +23,9 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
       <Margin $margin="16px 0">
         {selectedFonts || selectedLicense ? (
           <>
-            {selectedLicense && <PSpace>{selectedLicense.title} License</PSpace>}
+            {selectedLicense && (
+              <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
+            )}
             {selectedFonts &&
               selectedFonts.map((weightTitle) => (
                 <SelectedItem key={weightTitle}>
@@ -42,7 +44,7 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
             )}
           </>
         ) : (
-          <PSpace>Add something to your cart.</PSpace>
+          <PSpace inputMargin="16px 0">Add something to your cart.</PSpace>
         )}
       </Margin>
 

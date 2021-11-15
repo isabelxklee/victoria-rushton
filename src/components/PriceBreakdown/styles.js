@@ -27,4 +27,5 @@ export const SelectedItem = styled.div`
 
 export const TotalPrice = styled(P)`
   font-weight: 700;
+  margin-top: 16px;
 `
