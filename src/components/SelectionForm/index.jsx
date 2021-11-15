@@ -19,7 +19,23 @@ const SelectionForm = ({
     )
   }
 
-  console.log(selectedFonts)
+  const fontOptions = () => {
+    let fontArray = []
+    font.weights.map(
+      (weight) =>
+        fontArray.push({label: weight.title, value: weight.title, number: weight.number}) &&
+        font.slants.length > 1 &&
+        fontArray.push({
+          label: `${weight.title} Italic`,
+          value: `${weight.title} Italic`,
+          number: weight.number,
+        })
+    )
+
+    return fontArray
+  }
+
+  console.log(fontOptions())
 
   return (
     <>
