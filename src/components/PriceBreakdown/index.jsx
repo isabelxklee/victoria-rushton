@@ -1,6 +1,6 @@
 import React from 'react' // {useState, useEffect}
 import {SelectedItem, TotalPrice, LinksContainer} from './styles'
-import {P, PSpace, Button, H3, Margin, TextLink} from '../../styles'
+import {P, PSpace, Button, H3, Margin, TextLink, SmallText} from '../../styles'
 
 const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
   const disableCheckout = () => {
@@ -64,23 +64,23 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
       <Button $disabled={disableCheckout()}>Checkout</Button>
 
       <LinksContainer>
-        <P>
+        <SmallText>
           <TextLink href="/" rel="no_referrer">
             Type Network
           </TextLink>{' '}
           for larger licenses and hosted webfonts
-        </P>
-        <P>
+        </SmallText>
+        <SmallText>
           <TextLink href="/" rel="no_referrer">
             Licensing details
           </TextLink>
-        </P>
-        <P>
+        </SmallText>
+        <SmallText>
           <TextLink href="/" rel="no_referrer">
             Get in touch
           </TextLink>{' '}
           for more info
-        </P>
+        </SmallText>
       </LinksContainer>
     </>
   )
