@@ -17,7 +17,7 @@ export const SelectedItem = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: 8px 0;
   border-bottom: 1px solid rgb(30, 30, 30, 0.2);
 
   &:last-child {

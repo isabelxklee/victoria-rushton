@@ -20,34 +20,31 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
   return (
     <>
       <H3>Cart</H3>
-      {selectedFonts || selectedLicense ? (
-        <Margin $margin="16px 0">
-          {selectedLicense && (
-            <SelectedItem>
-              <P>{selectedLicense.title} License</P>
-            </SelectedItem>
-          )}
+      <Margin $margin="16px 0">
+        {selectedFonts || selectedLicense ? (
+          <>
+            {selectedLicense && <PSpace>{selectedLicense.title} License</PSpace>}
+            {selectedFonts &&
+              selectedFonts.map((weightTitle) => (
+                <SelectedItem key={weightTitle}>
+                  <P>
+                    {font.title} {weightTitle}
+                  </P>
+                  <P>${selectedLicense.price}</P>
+                </SelectedItem>
+              ))}
 
-          {selectedFonts &&
-            selectedFonts.map((weightTitle) => (
-              <SelectedItem key={weightTitle}>
-                <P>
-                  {font.title} {weightTitle}
-                </P>
-                <P>${selectedLicense.price}</P>
+            {selectedFonts && totalPrice && (
+              <SelectedItem>
+                <TotalPrice>Subtotal</TotalPrice>
+                <TotalPrice>${totalPrice}</TotalPrice>
               </SelectedItem>
-            ))}
-
-          {selectedFonts && totalPrice && (
-            <SelectedItem>
-              <TotalPrice>Subtotal</TotalPrice>
-              <TotalPrice>${totalPrice}</TotalPrice>
-            </SelectedItem>
-          )}
-        </Margin>
-      ) : (
-        <PSpace>Add something to your cart.</PSpace>
-      )}
+            )}
+          </>
+        ) : (
+          <PSpace>Add something to your cart.</PSpace>
+        )}
+      </Margin>
 
       {/* <form action="/create-checkout-session" method="POST">
         <button type="submit">Checkout</button>
