@@ -36,7 +36,7 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
                 </SelectedItem>
               ))}
 
-            {selectedFonts && totalPrice && (
+            {selectedFonts && selectedFonts.length > 0 && totalPrice && (
               <SelectedItem>
                 <TotalPrice>Subtotal</TotalPrice>
                 <TotalPrice>${totalPrice}</TotalPrice>
