@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {P} from '../../styles'
+import {P, Colors} from '../../styles'
 
 export const PriceContainer = styled.div`
   border-left: 2px solid #1e1e1e;
@@ -17,8 +17,15 @@ export const SelectedItem = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid rgb(30, 30, 30, 0.2);
+
+  &:last-child {
+    border-bottom: none;
+  }
 `
 
 export const TotalPrice = styled(P)`
   font-weight: 700;
+  margin-top: 16px;
 `
