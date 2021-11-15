@@ -34,7 +34,7 @@ export const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 4px;
   width: 85%;
-  gap: 16px;
+  gap: 8px;
 
   @media (max-width: 950px) {
     width: 100%;

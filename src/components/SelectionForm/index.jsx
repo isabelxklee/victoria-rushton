@@ -82,12 +82,16 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, se
                 <Options>
                   {fontOptions()['italic'] &&
                     fontOptions()['italic'].map((option) => (
-                      <Button type="submit" key={option.label} $disabled={!selectedLicense}>
+                      <SecondaryButton
+                        type="submit"
+                        key={option.label}
+                        $disabled={!selectedLicense}
+                      >
                         <label style={{cursor: 'pointer'}}>
                           <Field type="checkbox" name="fonts" value={option.value} hidden />
                           {option.label}
                         </label>
-                      </Button>
+                      </SecondaryButton>
                     ))}
                 </Options>
               </ButtonGroup>

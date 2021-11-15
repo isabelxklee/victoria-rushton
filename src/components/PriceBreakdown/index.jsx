@@ -65,18 +65,18 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
 
       <LinksContainer>
         <SmallText>
-          <TextLink href="/" rel="no_referrer">
+          <TextLink href="/" rel="no_referrer" target="_blank">
             Type Network
           </TextLink>{' '}
           for larger licenses and hosted webfonts
         </SmallText>
         <SmallText>
-          <TextLink href="/" rel="no_referrer">
+          <TextLink href="/" rel="no_referrer" target="_blank">
             Licensing details
           </TextLink>
         </SmallText>
         <SmallText>
-          <TextLink href="/" rel="no_referrer">
+          <TextLink href="/" rel="no_referrer" target="_blank">
             Get in touch
           </TextLink>{' '}
           for more info

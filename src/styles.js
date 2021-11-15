@@ -41,7 +41,7 @@ export const Button = styled.button`
   border-radius: 40px;
   background: ${Colors.black};
   color: ${Colors.white};
-  border: 1px solid ${Colors.white};
+  border: 2px solid ${Colors.white};
   font-family: 'Cecilie Sans', 'sans-serif';
   font-weight: 300;
   font-size: 16px;
