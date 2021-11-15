@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {PSpace} from '../../styles'
+import {P} from '../../styles'
 
 export const PriceContainer = styled.div`
   border-left: 2px solid #1e1e1e;
@@ -19,6 +19,6 @@ export const SelectedItem = styled.div`
   justify-content: space-between;
 `
 
-export const TotalPrice = styled(PSpace)`
+export const TotalPrice = styled(P)`
   font-weight: 700;
 `

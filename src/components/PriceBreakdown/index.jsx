@@ -1,6 +1,6 @@
 import React from 'react' // {useState, useEffect}
 import {SelectedItem, TotalPrice} from './styles'
-import {P, PSpace, Button, H3} from '../../styles'
+import {P, PSpace, Button, H3, Margin} from '../../styles'
 
 const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
   // const [data, setData] = useState(null)
@@ -21,7 +21,7 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
     <>
       <H3>Cart</H3>
       {selectedFonts || selectedLicense ? (
-        <>
+        <Margin $margin="16px 0">
           {selectedLicense && (
             <SelectedItem>
               <P>{selectedLicense.title} License</P>
@@ -44,7 +44,7 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
               </>
             )}
           </SelectedItem>
-        </>
+        </Margin>
       ) : (
         <PSpace>Add something to your cart.</PSpace>
       )}
