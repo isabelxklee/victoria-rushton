@@ -52,7 +52,7 @@ const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, se
               >
                 {font &&
                   font.weights.map((weight) => (
-                    <Button type="submit" key={weight.number}>
+                    <Button type="submit" key={weight.number} $disabled={!selectedLicense}>
                       <label style={{cursor: 'pointer'}}>
                         <Field type="checkbox" name="fonts" value={weight.title} hidden />
                         {weight.title}
