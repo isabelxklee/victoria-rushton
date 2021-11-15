@@ -49,7 +49,7 @@ const About = () => {
             <H2>{about.greeting}</H2>
             <PSpace inputMargin="40px 0">{about.aboutText}</PSpace>
             <Button>
-              <TextLink href={about.buttonLink} inputWeight="300">
+              <TextLink href={about.buttonLink} inputWeight="300" $light={true} target="_blank">
                 {about.buttonText}
               </TextLink>
             </Button>

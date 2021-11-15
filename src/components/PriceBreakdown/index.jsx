@@ -1,8 +1,17 @@
 import React from 'react' // {useState, useEffect}
-import {SelectedItem, TotalPrice} from './styles'
-import {P, PSpace, Button, H3, Margin} from '../../styles'
+import {SelectedItem, TotalPrice, LinksContainer} from './styles'
+import {P, PSpace, Button, H3, Margin, TextLink, SmallText} from '../../styles'
 
 const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
+  const disableCheckout = () => {
+    if (!selectedLicense) {
+      return true
+    } else if (!selectedFonts) {
+      return true
+    } else if (selectedFonts.length < 1) {
+      return true
+    }
+  }
   // const [data, setData] = useState(null)
 
   // useEffect(() => {
@@ -52,7 +61,27 @@ const PriceBreakdown = ({font, selectedLicense, selectedFonts, totalPrice}) => {
         <button type="submit">Checkout</button>
       </form> */}
 
-      <Button $disabled={selectedLicense || selectedFonts ? false : true}>Checkout</Button>
+      <Button $disabled={disableCheckout()}>Checkout</Button>
+
+      <LinksContainer>
+        <SmallText>
+          <TextLink href="/" rel="no_referrer" target="_blank">
+            Type Network
+          </TextLink>{' '}
+          for larger licenses and hosted webfonts
+        </SmallText>
+        <SmallText>
+          <TextLink href="/" rel="no_referrer" target="_blank">
+            Licensing details
+          </TextLink>
+        </SmallText>
+        <SmallText>
+          <TextLink href="/" rel="no_referrer" target="_blank">
+            Get in touch
+          </TextLink>{' '}
+          for more info
+        </SmallText>
+      </LinksContainer>
     </>
   )
 }

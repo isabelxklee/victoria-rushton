@@ -8,7 +8,7 @@ export const Colors = {
 
 export const TextLink = styled.a`
   font-weight: ${(props) => props.inputWeight || 700};
-  color: ${Colors.white};
+  color: ${({$light}) => ($light ? Colors.white : Colors.black)};
   text-decoration: none;
 `
 
@@ -17,22 +17,6 @@ export const InternalLink = styled(Link)`
   color: ${Colors.black};
   text-decoration: none;
   margin-right: 20px;
-`
-
-export const P = styled.p`
-  margin: 0;
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.4;
-  text-align: left;
-
-  @media (max-width: 900px) {
-    font-size: 16px;
-  }
-`
-
-export const PSpace = styled(P)`
-  margin: ${(props) => props.inputMargin || '16px 0'};
 `
 
 export const Wrapper = styled.div`
@@ -57,7 +41,7 @@ export const Button = styled.button`
   border-radius: 40px;
   background: ${Colors.black};
   color: ${Colors.white};
-  border: 1px solid ${Colors.white};
+  border: 2px solid ${Colors.white};
   font-family: 'Cecilie Sans', 'sans-serif';
   font-weight: 300;
   font-size: 16px;
@@ -98,4 +82,24 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-size: 18px;
   margin: 0 0 16px 0;
+`
+
+export const P = styled.p`
+  margin: 0;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.4;
+  text-align: left;
+
+  @media (max-width: 900px) {
+    font-size: 16px;
+  }
+`
+
+export const PSpace = styled(P)`
+  margin: ${(props) => props.inputMargin || '16px 0'};
+`
+
+export const SmallText = styled(P)`
+  font-size: 14px;
 `

@@ -32,6 +32,15 @@ export const LicenseContainer = styled.div`
 
 export const ButtonGroup = styled.div`
   display: flex;
+  margin-bottom: 4px;
+  width: 85%;
   gap: 8px;
-  margin-bottom: 8px;
+
+  @media (max-width: 950px) {
+    width: 100%;
+  }
+`
+
+export const Options = styled(ButtonGroup)`
+  flex-direction: column;
 `

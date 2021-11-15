@@ -29,3 +29,10 @@ export const TotalPrice = styled(P)`
   font-weight: 700;
   margin-top: 16px;
 `
+
+export const LinksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 32px;
+`

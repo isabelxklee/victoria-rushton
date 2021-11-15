@@ -1,17 +1,10 @@
 import React from 'react'
 import {Formik, Form, Field} from 'formik'
-import {Button, H3} from '../../styles'
-import {LicenseContainer, ButtonGroup} from './styles'
+import {Button, SecondaryButton, H3} from '../../styles'
+import {LicenseContainer, ButtonGroup, Options} from './styles'
 import Selector from '../Selector'
 
-const SelectionForm = ({
-  font,
-  licenses,
-  selectedFonts,
-  setSelectedFonts,
-  setSelectedLicense,
-  selectedLicense,
-}) => {
+const SelectionForm = ({font, licenses, setSelectedFonts, setSelectedLicense, selectedLicense}) => {
   const licenseOptions = () => {
     return (
       licenses &&
@@ -19,7 +12,26 @@ const SelectionForm = ({
     )
   }
 
-  console.log(selectedFonts)
+  const fontOptions = () => {
+    let fonts = {normal: []}
+
+    font.weights.map((weight) =>
+      fonts['normal'].push({label: weight.title, value: weight.title, number: weight.number})
+    )
+
+    if (font.slants.length > 1) {
+      fonts['italic'] = []
+      font.weights.map((weight) =>
+        fonts['italic'].push({
+          label: `${weight.title} Italic`,
+          value: `${weight.title} Italic`,
+          number: weight.number,
+        })
+      )
+    }
+
+    return fonts
+  }
 
   return (
     <>
@@ -55,15 +67,33 @@ const SelectionForm = ({
             <div style={{marginTop: '60px'}}>
               <H3>Select fonts</H3>
               <ButtonGroup role="group" aria-labelledby="checkbox-group">
-                {font &&
-                  font.weights.map((weight) => (
-                    <Button type="submit" key={weight.number} $disabled={!selectedLicense}>
-                      <label style={{cursor: 'pointer'}}>
-                        <Field type="checkbox" name="fonts" value={weight.title} hidden />
-                        {weight.title}
-                      </label>
-                    </Button>
-                  ))}
+                <Options>
+                  {font &&
+                    fontOptions()['normal'].map((option) => (
+                      <Button type="submit" key={option.label} $disabled={!selectedLicense}>
+                        <label style={{cursor: 'pointer'}}>
+                          <Field type="checkbox" name="fonts" value={option.value} hidden />
+                          {option.label}
+                        </label>
+                      </Button>
+                    ))}
+                </Options>
+
+                <Options>
+                  {fontOptions()['italic'] &&
+                    fontOptions()['italic'].map((option) => (
+                      <SecondaryButton
+                        type="submit"
+                        key={option.label}
+                        $disabled={!selectedLicense}
+                      >
+                        <label style={{cursor: 'pointer'}}>
+                          <Field type="checkbox" name="fonts" value={option.value} hidden />
+                          {option.label}
+                        </label>
+                      </SecondaryButton>
+                    ))}
+                </Options>
               </ButtonGroup>
             </div>
           </Form>
