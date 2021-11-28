@@ -80,6 +80,7 @@ const SelectionForm = ({
                   name={weight.title}
                   onClick={(event) => handleFontClick(event)}
                   className={selectedFonts.includes(weight.title) ? 'active' : 'inactive'}
+                  $disabled={!selectedLicense}
                 >
                   {weight.title}
                 </SecondaryButton>
@@ -95,6 +96,7 @@ const SelectionForm = ({
                     className={
                       selectedFonts.includes(`${weight.title} Italic`) ? 'active' : 'inactive'
                     }
+                    $disabled={!selectedLicense}
                   >
                     {weight.title} Italic
                   </SecondaryButton>
