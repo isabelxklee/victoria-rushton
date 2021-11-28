@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, SecondaryButton, H3} from '../../styles'
+import {SecondaryButton, H3} from '../../styles'
 import {LicenseContainer, ButtonGroup, Options} from './styles'
 import Selector from '../Selector'
 
@@ -11,8 +11,6 @@ const SelectionForm = ({
   setSelectedLicense,
   selectedLicense,
 }) => {
-  console.log(selectedFonts)
-
   const handleFontClick = (event) => {
     event.preventDefault()
     setSelectedFonts((selectedFonts) =>
@@ -65,9 +63,10 @@ const SelectionForm = ({
                 </SecondaryButton>
               ))}
             </Options>
-            <Options>
-              {font.slants.length > 1 &&
-                font.weights.map((weight) => (
+
+            {font.slants.length > 1 && (
+              <Options>
+                {font.weights.map((weight) => (
                   <SecondaryButton
                     key={weight.number}
                     name={`${weight.title} Italic`}
@@ -80,7 +79,8 @@ const SelectionForm = ({
                     {weight.title} Italic
                   </SecondaryButton>
                 ))}
-            </Options>
+              </Options>
+            )}
           </ButtonGroup>
         </div>
       </form>
