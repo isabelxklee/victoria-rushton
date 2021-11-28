@@ -72,18 +72,18 @@ const SelectionForm = ({
 
         <div style={{marginTop: '60px'}}>
           <H3>Select fonts</H3>
-          <div className="button-group">
+          <ButtonGroup>
             {font.weights.map((weight) => (
-              <button
+              <SecondaryButton
                 key={weight.number}
                 name={weight.title}
                 onClick={(event) => handleFontClick(event)}
                 className={selectedFonts.includes(weight.title) ? 'active' : 'inactive'}
               >
                 {weight.title}
-              </button>
+              </SecondaryButton>
             ))}
-          </div>
+          </ButtonGroup>
           {/* <ButtonGroup role="group" aria-labelledby="checkbox-group">
             <Options>
               {font &&

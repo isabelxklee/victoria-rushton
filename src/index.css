@@ -27,5 +27,7 @@ a.active {
 }
 
 button.active {
-  background-color: blue;
+  background: #1e1e1e;
+  color: #f4f4f4;
+  border: 2px solid #f4f4f4;
 }
