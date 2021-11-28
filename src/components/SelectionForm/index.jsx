@@ -20,6 +20,7 @@ const SelectionForm = ({
   const handleFontClick = (event, index) => {
     event.preventDefault()
     setClickedId(index)
+    console.log(event.target.name)
   }
 
   // const licenseOptions = () => {
@@ -78,6 +79,7 @@ const SelectionForm = ({
                 key={index}
                 name={weight.title}
                 onClick={(event) => handleFontClick(event, index)}
+                className={index === clickedId ? 'active' : 'inactive'}
               >
                 {weight.title}
               </button>
