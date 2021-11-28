@@ -25,3 +25,9 @@ span.MuiSlider-thumb.MuiSlider-thumbColorPrimary {
 a.active {
   font-weight: 700;
 }
+
+button.active {
+  background: #1e1e1e;
+  color: #f4f4f4;
+  border: 2px solid #f4f4f4;
+}
