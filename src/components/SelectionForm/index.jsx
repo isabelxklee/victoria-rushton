@@ -29,27 +29,6 @@ const SelectionForm = ({
     )
   }
 
-  // const fontOptions = () => {
-  //   let fonts = {normal: []}
-
-  //   font.weights.map((weight) =>
-  //     fonts['normal'].push({label: weight.title, value: weight.title, number: weight.number})
-  //   )
-
-  //   if (font.slants.length > 1) {
-  //     fonts['italic'] = []
-  //     font.weights.map((weight) =>
-  //       fonts['italic'].push({
-  //         label: `${weight.title} Italic`,
-  //         value: `${weight.title} Italic`,
-  //         number: weight.number,
-  //       })
-  //     )
-  //   }
-
-  //   return fonts
-  // }
-
   return (
     <>
       <form>
