@@ -73,42 +73,34 @@ const SelectionForm = ({
         <div style={{marginTop: '60px'}}>
           <H3>Select fonts</H3>
           <ButtonGroup>
-            {font.weights.map((weight) => (
-              <SecondaryButton
-                key={weight.number}
-                name={weight.title}
-                onClick={(event) => handleFontClick(event)}
-                className={selectedFonts.includes(weight.title) ? 'active' : 'inactive'}
-              >
-                {weight.title}
-              </SecondaryButton>
-            ))}
-          </ButtonGroup>
-          {/* <ButtonGroup role="group" aria-labelledby="checkbox-group">
             <Options>
-              {font &&
-                fontOptions()['normal'].map((option) => (
-                  <Button type="submit" key={option.label} $disabled={!selectedLicense}>
-                    <label style={{cursor: 'pointer'}}>
-                      <Field type="checkbox" name="fonts" value={option.value} hidden />
-                      {option.label}
-                    </label>
-                  </Button>
-                ))}
+              {font.weights.map((weight) => (
+                <SecondaryButton
+                  key={weight.number}
+                  name={weight.title}
+                  onClick={(event) => handleFontClick(event)}
+                  className={selectedFonts.includes(weight.title) ? 'active' : 'inactive'}
+                >
+                  {weight.title}
+                </SecondaryButton>
+              ))}
             </Options>
-
             <Options>
-              {fontOptions()['italic'] &&
-                fontOptions()['italic'].map((option) => (
-                  <SecondaryButton type="submit" key={option.label} $disabled={!selectedLicense}>
-                    <label style={{cursor: 'pointer'}}>
-                      <Field type="checkbox" name="fonts" value={option.value} hidden />
-                      {option.label}
-                    </label>
+              {font.slants.length > 1 &&
+                font.weights.map((weight) => (
+                  <SecondaryButton
+                    key={weight.number}
+                    name={`${weight.title} Italic`}
+                    onClick={(event) => handleFontClick(event)}
+                    className={
+                      selectedFonts.includes(`${weight.title} Italic`) ? 'active' : 'inactive'
+                    }
+                  >
+                    {weight.title} Italic
                   </SecondaryButton>
                 ))}
             </Options>
-          </ButtonGroup> */}
+          </ButtonGroup>
         </div>
       </form>
     </>
