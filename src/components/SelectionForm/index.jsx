@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Button, SecondaryButton, H3} from '../../styles'
 import {LicenseContainer, ButtonGroup, Options} from './styles'
 import Selector from '../Selector'
@@ -13,11 +13,8 @@ const SelectionForm = ({
 }) => {
   console.log(selectedFonts)
 
-  const [clickedId, setClickedId] = useState(null)
-
-  const handleFontClick = (event, index) => {
+  const handleFontClick = (event) => {
     event.preventDefault()
-    setClickedId(index)
     setSelectedFonts((selectedFonts) =>
       selectedFonts.includes(event.target.name)
         ? selectedFonts.filter((font) => font !== event.target.name)
@@ -76,12 +73,12 @@ const SelectionForm = ({
         <div style={{marginTop: '60px'}}>
           <H3>Select fonts</H3>
           <div className="button-group">
-            {font.weights.map((weight, index) => (
+            {font.weights.map((weight) => (
               <button
-                key={index}
+                key={weight.number}
                 name={weight.title}
-                onClick={(event) => handleFontClick(event, index)}
-                className={index === clickedId ? 'active' : 'inactive'}
+                onClick={(event) => handleFontClick(event)}
+                className={selectedFonts.includes(weight.title) ? 'active' : 'inactive'}
               >
                 {weight.title}
               </button>
