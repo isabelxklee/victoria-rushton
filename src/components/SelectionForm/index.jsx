@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Button, SecondaryButton, H3} from '../../styles'
 // import {LicenseContainer, ButtonGroup, Options} from './styles'
 // import Selector from '../Selector'
@@ -13,9 +13,13 @@ const SelectionForm = ({
 }) => {
   console.log(selectedFonts)
 
-  const handleChangeFonts = (event) => {
-    // setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => thisFont !== font))
-    setSelectedFonts((selectedFonts) => [...selectedFonts, {value: event.target.value}])
+  const [clickedId, setClickedId] = useState(null)
+
+  console.log(clickedId)
+
+  const handleFontClick = (event, index) => {
+    event.preventDefault()
+    setClickedId(index)
   }
 
   // const licenseOptions = () => {
@@ -68,13 +72,17 @@ const SelectionForm = ({
 
         <div style={{marginTop: '60px'}}>
           <H3>Select fonts</H3>
-          <select multiple={true} value={selectedFonts} onChange={handleChangeFonts}>
-            {font.weights.map((weight) => (
-              <option key={weight.number} value={weight.title}>
+          <div className="button-group">
+            {font.weights.map((weight, index) => (
+              <button
+                key={index}
+                name={weight.title}
+                onClick={(event) => handleFontClick(event, index)}
+              >
                 {weight.title}
-              </option>
+              </button>
             ))}
-          </select>
+          </div>
           {/* <ButtonGroup role="group" aria-labelledby="checkbox-group">
             <Options>
               {font &&
