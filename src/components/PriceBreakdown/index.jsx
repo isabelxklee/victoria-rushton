@@ -14,8 +14,7 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
   }
 
   const handleRemove = (deletedFont) => {
-    const newArr = selectedFonts.filter((font) => font !== deletedFont)
-    setSelectedFonts(newArr)
+    setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => font !== deletedFont))
   }
 
   // const [data, setData] = useState(null)
