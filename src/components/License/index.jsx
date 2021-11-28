@@ -9,7 +9,7 @@ import SelectionForm from '../SelectionForm'
 const License = ({font}) => {
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
-  const [selectedFonts, setSelectedFonts] = useState(null)
+  const [selectedFonts, setSelectedFonts] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const License = ({font}) => {
           selectedLicense={selectedLicense}
         />
       </div>
-      <PriceContainer>
+      {/* <PriceContainer>
         <PriceBreakdown
           selectedLicense={selectedLicense}
           setSelectedFonts={setSelectedFonts}
@@ -54,7 +54,7 @@ const License = ({font}) => {
           font={font}
           totalPrice={totalPrice}
         />
-      </PriceContainer>
+      </PriceContainer> */}
     </ParentContainer>
   )
 }
