@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Button, SecondaryButton, H3} from '../../styles'
-// import {LicenseContainer, ButtonGroup, Options} from './styles'
-// import Selector from '../Selector'
+import {LicenseContainer, ButtonGroup, Options} from './styles'
+import Selector from '../Selector'
 
 const SelectionForm = ({
   font,
@@ -15,20 +15,22 @@ const SelectionForm = ({
 
   const [clickedId, setClickedId] = useState(null)
 
-  console.log(clickedId)
-
   const handleFontClick = (event, index) => {
     event.preventDefault()
     setClickedId(index)
-    console.log(event.target.name)
+    setSelectedFonts((selectedFonts) =>
+      selectedFonts.includes(event.target.name)
+        ? selectedFonts.filter((font) => font !== event.target.name)
+        : [...selectedFonts, event.target.name]
+    )
   }
 
-  // const licenseOptions = () => {
-  //   return (
-  //     licenses &&
-  //     licenses.map((license) => ({...license, label: license.title, value: license.title}))
-  //   )
-  // }
+  const licenseOptions = () => {
+    return (
+      licenses &&
+      licenses.map((license) => ({...license, label: license.title, value: license.title}))
+    )
+  }
 
   // const fontOptions = () => {
   //   let fonts = {normal: []}
@@ -55,7 +57,7 @@ const SelectionForm = ({
     <>
       <form>
         <H3>Select license</H3>
-        {/* <LicenseContainer>
+        <LicenseContainer>
           <Selector
             displayTitle={false}
             title="License"
@@ -69,7 +71,7 @@ const SelectionForm = ({
             <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
             <p>{selectedLicense ? selectedLicense.ebooks : 0} e-book(s)</p>
           </div>
-        </LicenseContainer> */}
+        </LicenseContainer>
 
         <div style={{marginTop: '60px'}}>
           <H3>Select fonts</H3>

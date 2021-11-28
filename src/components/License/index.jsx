@@ -46,7 +46,7 @@ const License = ({font}) => {
           selectedLicense={selectedLicense}
         />
       </div>
-      {/* <PriceContainer>
+      <PriceContainer>
         <PriceBreakdown
           selectedLicense={selectedLicense}
           setSelectedFonts={setSelectedFonts}
@@ -54,7 +54,7 @@ const License = ({font}) => {
           font={font}
           totalPrice={totalPrice}
         />
-      </PriceContainer> */}
+      </PriceContainer>
     </ParentContainer>
   )
 }
