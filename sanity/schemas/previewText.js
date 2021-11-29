@@ -50,13 +50,15 @@ export default {
 
   preview: {
     select: {
-      title: 'text',
+      title: 'order',
       font: 'font.0.title',
+      text: 'text',
     },
-    prepare: ({title, font}) => {
+    prepare(selection) {
+      const {title, text, font} = selection
       return {
-        title: title,
-        font: `Font: ${font}`,
+        title: `${font}: ${title}`,
+        subtitle: text,
       }
     },
   },
