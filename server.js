@@ -1,33 +1,25 @@
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc')
 const express = require('express')
 const app = express()
-// This is a sample test API key.
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc')
-
 app.use(express.static('public'))
-app.use(express.json())
 
-const calculateOrderAmount = (items) => {
-  // Replace this constant with a calculation of the order's amount
-  // Calculate the order total on the server to prevent
-  // people from directly manipulating the amount on the client
-  return 1400
-}
+const YOUR_DOMAIN = 'http://localhost:4242'
 
-app.post('/create-payment-intent', async (req, res) => {
-  const {items} = req.body
-
-  // Create a PaymentIntent with the order amount and currency
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: calculateOrderAmount(items),
-    currency: 'eur',
-    automatic_payment_methods: {
-      enabled: true,
-    },
+app.post('/create-checkout-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        // Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
+        price: '{{PRICE_ID}}',
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${YOUR_DOMAIN}/success.html`,
+    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
   })
 
-  res.send({
-    clientSecret: paymentIntent.client_secret,
-  })
+  res.redirect(303, session.url)
 })
 
-app.listen(4242, () => console.log('Node server listening on port 4242!'))
+app.listen(4242, () => console.log('Running on port 4242'))
