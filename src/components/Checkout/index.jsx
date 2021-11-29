@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {Button} from '../../styles'
 
 const Message = ({message}) => (
   <section>
@@ -6,7 +7,7 @@ const Message = ({message}) => (
   </section>
 )
 
-const CheckoutForm = () => {
+const CheckoutForm = ({disableCheckout}) => {
   const [message, setMessage] = useState('')
 
   useEffect(() => {
@@ -26,7 +27,9 @@ const CheckoutForm = () => {
       {message && <Message message={message} />}
 
       <form action="/create-checkout-session" method="POST">
-        <button type="submit">Checkout</button>
+        <Button type="submit" $disabled={disableCheckout()}>
+          Checkout
+        </Button>
       </form>
     </>
   )

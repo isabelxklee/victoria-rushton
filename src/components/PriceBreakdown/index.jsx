@@ -21,15 +21,15 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
       .catch(console.error)
   }, [])
 
-  // const disableCheckout = () => {
-  //   if (!selectedLicense) {
-  //     return true
-  //   } else if (!selectedFonts) {
-  //     return true
-  //   } else if (selectedFonts.length < 1) {
-  //     return true
-  //   }
-  // }
+  const disableCheckout = () => {
+    if (!selectedLicense) {
+      return true
+    } else if (!selectedFonts) {
+      return true
+    } else if (selectedFonts.length < 1) {
+      return true
+    }
+  }
 
   const handleRemove = (deletedFont) => {
     setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => font !== deletedFont))
@@ -69,7 +69,7 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
         )}
       </Margin>
 
-      <Checkout />
+      <Checkout disableCheckout={disableCheckout} />
 
       <LinksContainer>
         {checkoutLinks.map((link) => (
