@@ -1,8 +1,27 @@
-import React from 'react' // {useState, useEffect}
+import React, {useState, useEffect} from 'react'
+import sanityClient from '../../client.js'
 import {SelectedItem, TotalPrice, LinksContainer, RemoveIcon, Right} from './styles'
 import {P, PSpace, Button, H3, Margin, TextLink, SmallText} from '../../styles'
 
 const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts, totalPrice}) => {
+  const [checkoutLinks, setCheckoutLinks] = useState([])
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "checkoutLink"] {
+            _id,
+            title,
+            linkText,
+            url
+        }`
+      )
+      .then((data) => setCheckoutLinks(data))
+      .catch(console.error)
+  }, [])
+
+  console.log(checkoutLinks)
+
   const disableCheckout = () => {
     if (!selectedLicense) {
       return true
@@ -72,23 +91,13 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
       <Button $disabled={disableCheckout()}>Checkout</Button>
 
       <LinksContainer>
-        <SmallText>
-          <TextLink href="/" rel="no_referrer" target="_blank">
-            Type Network
-          </TextLink>{' '}
-          for larger licenses and hosted webfonts
-        </SmallText>
-        <SmallText>
-          <TextLink href="/" rel="no_referrer" target="_blank">
-            Licensing details
-          </TextLink>
-        </SmallText>
-        <SmallText>
-          <TextLink href="/" rel="no_referrer" target="_blank">
-            Get in touch
-          </TextLink>{' '}
-          for more info
-        </SmallText>
+        {checkoutLinks.map((link) => (
+          <SmallText key={link._id}>
+            <TextLink href={link.url} rel="no_referrer" target="_blank">
+              {link.linkText}
+            </TextLink>
+          </SmallText>
+        ))}
       </LinksContainer>
     </>
   )
