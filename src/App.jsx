@@ -7,7 +7,6 @@ import Home from './pages/Home'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import FontProfile from './pages/FontProfile'
-import CheckoutForm from './components/CheckoutForm'
 
 const App = () => {
   return (
@@ -22,7 +21,6 @@ const App = () => {
           <Route component={Home} exact path="/" />
           <Route component={FontProfile} path="/:slug" />
         </Switch>
-        <CheckoutForm />
       </Wrapper>
       <Footer />
     </>
