@@ -26,7 +26,7 @@ const CheckoutForm = ({disableCheckout}) => {
     <>
       {message && <Message message={message} />}
 
-      <form action="/create-checkout-session" method="POST">
+      <form action="http://localhost:4242/create-checkout-session" method="POST">
         <Button type="submit" $disabled={disableCheckout()}>
           Checkout
         </Button>
