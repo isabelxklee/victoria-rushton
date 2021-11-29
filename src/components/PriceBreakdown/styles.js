@@ -19,12 +19,7 @@ export const SelectedItem = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid rgb(30, 30, 30, 0.2);
   align-items: center;
-
-  &:last-child {
-    border-bottom: none;
-  }
 `
 
 export const TotalPrice = styled(P)`
