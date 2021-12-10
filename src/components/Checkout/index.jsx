@@ -26,7 +26,7 @@ const CheckoutForm = ({disableCheckout}) => {
     <>
       {message && <Message message={message} />}
 
-      <form action="http://localhost:4242/create-checkout-session" method="POST">
+      <form action="https://victoria-rushton.herokuapp.com//create-checkout-session" method="POST">
         <Button type="submit" $disabled={disableCheckout()}>
           Checkout
         </Button>
