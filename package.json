@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": false,
-  "proxy": "http://localhost:4242",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@sanity/cli": "^2.18.0",
@@ -19,6 +18,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-select": "^4.3.1",
+    "stripe": "^8.193.0",
     "styled-components": "^5.3.0",
     "web-vitals": "^1.0.1"
   },
@@ -26,8 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "serverStart": "node server.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
