@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/isabelxklee/victoria-rushton/issues"
   },
-  "homepage": "https://github.com/isabelxklee/victoria-rushton#readme"
+  "homepage": "https://github.com/isabelxklee/victoria-rushton#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }

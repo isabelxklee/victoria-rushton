@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 
 app.post("/create-checkout-session", async (req, res) => {
   const data = req.body;
-
   console.log(req.body);
 
   // const transformLineItems = () => {
@@ -40,8 +39,9 @@ app.post("/create-checkout-session", async (req, res) => {
           product_data: {
             name: data.name,
           },
-          unit_amount: data.price,
+          unit_amount: data.price * 100,
         },
+        quantity: 1,
       },
     ],
     mode: "payment",

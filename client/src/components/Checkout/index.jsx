@@ -3,6 +3,8 @@ import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
 
 const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, totalPrice, font}) => {
+  const item = {name: 'test', price: 1000}
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
@@ -10,10 +12,11 @@ const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, totalPri
     const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        price: totalPrice,
-        name: font,
-      }),
+      body: JSON.stringify(item),
+      // body: JSON.stringify({
+      //   price: totalPrice,
+      //   name: font,
+      // }),
     })
       .then((r) => r.json())
       .then((session) => stripe.redirectToCheckout({sessionId: session.id}))
