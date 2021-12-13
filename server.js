@@ -1,30 +1,57 @@
-const dotenv = require('dotenv')
-dotenv.config()
-const stripe = require('stripe')(process.env.STRIPE_SECRET)
-const express = require('express')
-const app = express()
-app.use(express.static('public'))
+require("dotenv").config();
+const express = require("express");
+const app = express();
+app.use(express.static("public"));
+const cors = require("cors");
+const path = require("path");
+const bodyParser = require("body-parser");
+const stripe = require("stripe")(process.env.SECRET_STRIPE_KEY);
+const port = process.env.PORT;
 
-app.post('/create-checkout-session', async (req, res) => {
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.post("/create-checkout-session", async (req, res) => {
+  const data = req.body;
+
+  console.log(req.body);
+
+  // const transformLineItems = () => {
+  //   data.fonts.map((font) => {
+  //     return {
+  //       price_data: {
+  //         currency: "usd",
+  //         product_data: {
+  //           name: font,
+  //         },
+  //         unit_amount: data.license.price,
+  //       },
+  //     };
+  //   });
+  // };
+
   const session = await stripe.checkout.sessions.create({
+    // line_items: transformLineItems(),
     line_items: [
       {
         price_data: {
-          currency: 'usd',
+          currency: "usd",
           product_data: {
-            name: 'T-shirt',
+            name: data.name,
           },
-          unit_amount: 2000,
+          unit_amount: data.price,
         },
-        quantity: 1,
       },
     ],
-    mode: 'payment',
-    success_url: 'https://example.com/success',
-    cancel_url: 'https://example.com/cancel',
-  })
+    mode: "payment",
+    success_url: "https://example.com/success",
+    cancel_url: "https://example.com/cancel",
+  });
 
-  res.redirect(303, session.url)
-})
+  res.json(session);
+});
 
-app.listen(4242, () => console.log(`Listening on port ${4242}!`))
+// app.use(express.static(path.join(__dirname, "../client/build")));
+
+app.listen(port, () => console.log(`Listening on port ${port}!`));

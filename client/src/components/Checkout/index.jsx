@@ -1,32 +1,31 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
+import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
 
-const Message = ({message}) => (
-  <section>
-    <p>{message}</p>
-  </section>
-)
+const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, totalPrice, font}) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
 
-const CheckoutForm = ({disableCheckout}) => {
-  const [message, setMessage] = useState('')
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        price: totalPrice,
+        name: font,
+      }),
+    })
+      .then((r) => r.json())
+      .then((session) => stripe.redirectToCheckout({sessionId: session.id}))
 
-  useEffect(() => {
-    const query = new URLSearchParams(window.location.search)
-
-    if (query.get('success')) {
-      setMessage('Order placed! You will receive an email confirmation.')
+    if (!response) {
+      console.log(response.error)
     }
-
-    if (query.get('canceled')) {
-      setMessage("Order canceled -- continue to shop around and checkout when you're ready.")
-    }
-  }, [])
+  }
 
   return (
     <>
-      {message && <Message message={message} />}
-
-      <form action="/create-checkout-session" method="POST">
+      <form onSubmit={handleSubmit}>
         <Button type="submit" $disabled={disableCheckout()}>
           Checkout
         </Button>

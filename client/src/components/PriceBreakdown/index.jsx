@@ -69,7 +69,13 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
         )}
       </Margin>
 
-      <Checkout disableCheckout={disableCheckout} />
+      <Checkout
+        disableCheckout={disableCheckout}
+        selectedLicense={selectedLicense}
+        selectedFonts={selectedFonts}
+        totalPrice={totalPrice}
+        font={font.title}
+      />
 
       <LinksContainer>
         {checkoutLinks.map((link) => (
