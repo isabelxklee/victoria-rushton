@@ -5,6 +5,7 @@ app.use(express.static("public"));
 const cors = require("cors");
 const path = require("path");
 const bodyParser = require("body-parser");
+const { stringify } = require("querystring");
 const stripe = require("stripe")(process.env.SECRET_STRIPE_KEY);
 const port = process.env.PORT;
 const domain = process.env.DOMAIN;
@@ -15,6 +16,11 @@ app.use(bodyParser.json());
 
 app.post("/create-checkout-session", async (req, res) => {
   const data = req.body;
+
+  const fontDomain = () => {
+    const regex = /\s/;
+    return data.name.toLowerCase().replace(regex, "-");
+  };
 
   const transformLineItems = () => {
     const fontLineItems = data.weights.map((weight) => {
@@ -49,8 +55,8 @@ app.post("/create-checkout-session", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: transformLineItems(),
     mode: "payment",
-    success_url: `${domain}`,
-    cancel_url: "https://example.com/cancel",
+    success_url: `${domain}/${fontDomain()}`,
+    cancel_url: `${domain}/${fontDomain()}`,
   });
 
   res.json(session);
