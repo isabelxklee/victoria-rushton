@@ -6,7 +6,7 @@ export const HeaderContainer = styled.div`
   color: #1e1e1e;
   padding-bottom: 40px;
   width: calc(100vw - 160px);
-  border-bottom: 2px solid #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -9,7 +9,7 @@ export const TypeTesterBackground = styled.div`
 
 export const HeroContainer = styled.div`
   padding: 120px 0;
-  border-bottom: 2px solid #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
 
   @media (max-width: 900px) {
     padding: 90px 0;
