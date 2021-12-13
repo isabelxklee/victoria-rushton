@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import {useParams} from 'react-router-dom'
 import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
@@ -10,6 +10,7 @@ import {HeroContainer, Description} from './styles'
 const FontProfile = () => {
   const [font, setFont] = useState(null)
   const {slug} = useParams()
+  const divEl = useRef(null)
 
   useEffect(() => {
     sanityClient
@@ -28,6 +29,10 @@ const FontProfile = () => {
       .catch(console.error)
   }, [slug])
 
+  const handleClick = () => {
+    divEl.current.scrollIntoView()
+  }
+
   if (!font) return <div>Loading...</div>
 
   return (
@@ -39,11 +44,13 @@ const FontProfile = () => {
               {font.title}
             </H1>
             <Description>{font.description}</Description>
-            <Button>License this font</Button>
+            <Button onClick={handleClick}>License this font</Button>
           </HeroContainer>
           <FontPreview font={font.title} />
           <TypeTester font={font} />
-          <License font={font} />
+          <div ref={divEl}>
+            <License font={font} />
+          </div>
         </>
       )}
     </>
