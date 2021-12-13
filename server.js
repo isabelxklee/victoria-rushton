@@ -16,35 +16,38 @@ app.use(bodyParser.json());
 app.post("/create-checkout-session", async (req, res) => {
   const data = req.body;
 
-  // const transformLineItems = () => {
-  //   data.weights.map((weight) => {
-  //     return {
-  //       price_data: {
-  //         currency: "usd",
-  //         product_data: {
-  //           name: `${data.name} ${weight}`,
-  //         },
-  //         unit_amount: data.license.price,
-  //       },
-  //       quantity: 1,
-  //     };
-  //   });
-  // };
-
-  const session = await stripe.checkout.sessions.create({
-    // line_items: transformLineItems(),
-    line_items: [
-      {
+  const transformLineItems = () => {
+    const fontLineItems = data.weights.map((weight) => {
+      return {
         price_data: {
           currency: "usd",
           product_data: {
-            name: data.name,
+            name: `${data.name} ${weight}`,
           },
-          unit_amount: data.weights.length * data.license.price * 100,
+          unit_amount: data.license.price * 100,
         },
         quantity: 1,
+      };
+    });
+
+    const licenseLineItem = {
+      price_data: {
+        currency: "usd",
+        product_data: {
+          name: `${data.license.title} License`,
+        },
+        unit_amount: 0,
       },
-    ],
+      quantity: 1,
+    };
+
+    return [licenseLineItem, ...fontLineItems];
+  };
+
+  console.log(transformLineItems());
+
+  const session = await stripe.checkout.sessions.create({
+    line_items: transformLineItems(),
     mode: "payment",
     success_url: `${domain}`,
     cancel_url: "https://example.com/cancel",

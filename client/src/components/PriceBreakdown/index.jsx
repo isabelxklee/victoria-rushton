@@ -73,7 +73,6 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
         disableCheckout={disableCheckout}
         selectedLicense={selectedLicense}
         selectedFonts={selectedFonts}
-        totalPrice={totalPrice}
         font={font.title}
       />
 
