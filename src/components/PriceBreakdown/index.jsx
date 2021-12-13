@@ -79,7 +79,7 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
       <LinksContainer>
         {checkoutLinks.map((link) => (
           <SmallText key={link._id}>
-            <TextLink href={link.url} rel="no_referrer" target="_blank">
+            <TextLink inputWeight={400} href={link.url} rel="no_referrer" target="_blank">
               {link.linkText}
             </TextLink>
           </SmallText>
