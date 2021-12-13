@@ -8,9 +8,10 @@ const Home = () => {
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "font"]{
+        `*[_type == "font"] | order(order){
             _id,
             title,
+            order,
             homeText,
             homeTextSize,
             "homeTextSlant": homeTextSlant[0]->title,
