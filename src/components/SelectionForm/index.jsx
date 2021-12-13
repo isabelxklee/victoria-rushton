@@ -43,7 +43,7 @@ const SelectionForm = ({
             <H3>For uses, not exceeding:</H3>
             <p>{selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations</p>
             <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
-            <p>{selectedLicense ? selectedLicense.ebooks : 0} e-book(s)</p>
+            <p>{selectedLicense ? selectedLicense.ebooks : 0} apps or e-books</p>
           </div>
         </LicenseContainer>
 

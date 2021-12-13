@@ -11,6 +11,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+    },
+    {
       name: 'homeText',
       title: 'Home Text',
       type: 'text',

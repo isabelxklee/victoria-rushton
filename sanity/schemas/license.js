@@ -24,17 +24,17 @@ export default {
     {
       name: 'desktopWorkstations',
       title: 'Desktop workstations',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'webVisitors',
       title: 'Web visitors',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'ebooks',
       title: 'E-books',
-      type: 'number',
+      type: 'string',
     },
   ],
 }
