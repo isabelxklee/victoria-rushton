@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
 import {SelectedItem, TotalPrice, LinksContainer, RemoveIcon, Right} from './styles'
-import {P, PSpace, Button, H3, Margin, TextLink, SmallText} from '../../styles'
+import {P, PSpace, H3, Margin, TextLink, SmallText} from '../../styles'
+import Checkout from '../Checkout'
 
 const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts, totalPrice}) => {
   const [checkoutLinks, setCheckoutLinks] = useState([])
@@ -20,8 +21,6 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
       .catch(console.error)
   }, [])
 
-  console.log(checkoutLinks)
-
   const disableCheckout = () => {
     if (!selectedLicense) {
       return true
@@ -35,20 +34,6 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
   const handleRemove = (deletedFont) => {
     setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => font !== deletedFont))
   }
-
-  // const [data, setData] = useState(null)
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await fetch('https://victoria-rushton-express.herokuapp.com/express-backend')
-  //     // const response = await fetch('https://localhost:5000')
-  //     const body = await response.json()
-  //     setData(body.express)
-  //   }
-  //   fetchData()
-  // }, [])
-
-  // console.log(data)
 
   return (
     <>
@@ -84,11 +69,12 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
         )}
       </Margin>
 
-      {/* <form action="/create-checkout-session" method="POST">
-        <button type="submit">Checkout</button>
-      </form> */}
-
-      <Button $disabled={disableCheckout()}>Checkout</Button>
+      <Checkout
+        disableCheckout={disableCheckout}
+        selectedLicense={selectedLicense}
+        selectedFonts={selectedFonts}
+        font={font.title}
+      />
 
       <LinksContainer>
         {checkoutLinks.map((link) => (
