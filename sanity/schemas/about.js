@@ -15,6 +15,12 @@ export default {
       type: 'text',
     },
     {
+      name: 'bio',
+      title: 'Bio',
+      type: 'array',
+      of: [{type: 'block'}],
+    },
+    {
       name: 'buttonText',
       title: 'Button Text',
       type: 'string',
