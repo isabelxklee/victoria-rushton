@@ -9,36 +9,38 @@ import {
   Container,
 } from './styles'
 import sanityClient from '../../client.js'
+import {aboutQuery, pressQuery} from '../../queries.js'
 
 const About = () => {
-  const [data, setData] = useState(null)
+  const [about, setAbout] = useState(null)
+  const [press, setPress] = useState(null)
+
+  const BlockContent = require('@sanity/block-content-to-react')
+  const serializers = {
+    types: {
+      code: (props) => (
+        <pre data-language={props.node.language}>
+          <code>{props.node.code}</code>
+        </pre>
+      ),
+    },
+  }
 
   useEffect(() => {
     sanityClient
-      .fetch(
-        `*[_type in ["about", "press"]] | order(_type) {
-        _id,
-        _type,
-        greeting,
-        aboutText,
-        buttonText,
-        buttonLink,
-        title,
-        description,
-        date,
-        link
-      }`
-      )
-      .then((data) => setData(data))
+      .fetch(aboutQuery)
+      .then((data) => setAbout(data[0]))
+      .catch(console.error)
+
+    sanityClient
+      .fetch(pressQuery)
+      .then((data) => setPress(data))
       .catch(console.error)
   }, [])
 
-  const about = data && data.filter((object) => object._type === 'about')[0]
-  const press = data && data.filter((object) => object._type === 'press')
-
   return (
     <>
-      {data && (
+      {about && (
         <IntroContainer>
           <ProfilePic
             src="https://res.cloudinary.com/extrapickles/image/upload/c_scale,w_1000/v1633237161/victoria_profile_pic_ds7twb.png"
@@ -47,7 +49,9 @@ const About = () => {
           />
           <div>
             <H2>{about.greeting}</H2>
-            <PSpace inputMargin="40px 0">{about.aboutText}</PSpace>
+            <PSpace inputMargin="40px 0">
+              <BlockContent blocks={about.bio} serializers={serializers} />
+            </PSpace>
             <Button>
               <TextLink href={about.buttonLink} inputWeight="300" $light={true} target="_blank">
                 {about.buttonText}

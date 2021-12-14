@@ -9,7 +9,7 @@ const FontPreview = ({font}) => {
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "previewText"]{
+        `*[_type == "previewText"] | order(order){
             _id,
             text,
             size,
