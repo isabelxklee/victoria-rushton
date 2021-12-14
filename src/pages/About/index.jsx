@@ -15,6 +15,17 @@ const About = () => {
   const [about, setAbout] = useState(null)
   const [press, setPress] = useState(null)
 
+  const BlockContent = require('@sanity/block-content-to-react')
+  const serializers = {
+    types: {
+      code: (props) => (
+        <pre data-language={props.node.language}>
+          <code>{props.node.code}</code>
+        </pre>
+      ),
+    },
+  }
+
   useEffect(() => {
     sanityClient
       .fetch(aboutQuery)
@@ -38,7 +49,9 @@ const About = () => {
           />
           <div>
             <H2>{about.greeting}</H2>
-            {/* <PSpace inputMargin="40px 0">{about.bio}</PSpace> */}
+            <PSpace inputMargin="40px 0">
+              <BlockContent blocks={about.bio} serializers={serializers} />
+            </PSpace>
             <Button>
               <TextLink href={about.buttonLink} inputWeight="300" $light={true} target="_blank">
                 {about.buttonText}
