@@ -19,12 +19,12 @@ const About = () => {
     sanityClient
       .fetch(aboutQuery)
       .then((data) => setAbout(data[0]))
-      .then(console.log)
+      .catch(console.error)
 
     sanityClient
       .fetch(pressQuery)
       .then((data) => setPress(data))
-      .then(console.log)
+      .catch(console.error)
   }, [])
 
   return (
