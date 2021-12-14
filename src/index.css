@@ -22,6 +22,14 @@ span.MuiSlider-thumb.MuiSlider-thumbColorPrimary {
   border: 4px solid #f4f4f4;
 }
 
+a > strong {
+  color: #1e1e1e;
+}
+
+a {
+  text-decoration: none;
+}
+
 a.active {
   font-weight: 700;
 }
