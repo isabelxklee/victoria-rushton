@@ -10,11 +10,6 @@ export default {
       type: 'text',
     },
     {
-      name: 'aboutText',
-      title: 'About Text',
-      type: 'text',
-    },
-    {
       name: 'bio',
       title: 'Bio',
       type: 'array',
