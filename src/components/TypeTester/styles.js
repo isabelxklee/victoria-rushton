@@ -8,7 +8,6 @@ export const TypeTesterContainer = styled.div`
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-top: 100px;
-  margin-bottom: 100px;
 
   @media (max-width: 900px) {
     display: block;

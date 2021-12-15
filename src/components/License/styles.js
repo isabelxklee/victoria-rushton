@@ -4,6 +4,7 @@ import {Colors} from '../../styles'
 export const ParentContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin-top: 80px;
 
   @media (max-width: 900px) {
     display: block;

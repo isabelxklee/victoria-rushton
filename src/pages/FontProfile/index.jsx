@@ -4,6 +4,7 @@ import sanityClient from '../../client.js'
 import TypeTester from '../../components/TypeTester'
 import FontPreview from '../../components/FontPreview'
 import License from '../../components/License'
+import Announcement from '../../components/Announcement'
 import {Button, H1} from '../../styles'
 import {HeroContainer, Description} from './styles'
 
@@ -33,6 +34,22 @@ const FontProfile = () => {
     divEl.current.scrollIntoView()
   }
 
+  const weightOptions = () => {
+    const arr = []
+    font.weights.map(
+      (weight) => weight.number && arr.push({value: weight.number, label: weight.title})
+    )
+
+    return arr
+  }
+
+  const slantOptions = () => {
+    const arr = []
+    font.slants.map((slant) => arr.push({value: slant, label: slant}))
+
+    return arr
+  }
+
   if (!font) return <div>Loading...</div>
 
   return (
@@ -47,9 +64,10 @@ const FontProfile = () => {
             <Button onClick={handleClick}>License this font</Button>
           </HeroContainer>
           <FontPreview font={font.title} />
-          <TypeTester font={font} />
+          <TypeTester font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
+          {font.title.includes('Cecilie') && <Announcement />}
           <div ref={divEl}>
-            <License font={font} />
+            <License font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
           </div>
         </>
       )}

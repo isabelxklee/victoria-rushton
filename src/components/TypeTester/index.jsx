@@ -70,25 +70,11 @@ const Panel = ({
   )
 }
 
-const TypeTester = ({font}) => {
+const TypeTester = ({font, weightOptions, slantOptions}) => {
   const [weight, setWeight] = useState(null)
   const [size, setSize] = useState(80)
   const [slant, setSlant] = useState({value: 'Roman', label: 'Roman'})
   const [darkMode, setDarkMode] = useState(false)
-
-  const weightOptions = () => {
-    const arr = []
-    font.weights.map((weight) => arr.push({value: weight.number, label: weight.title}))
-
-    return arr
-  }
-
-  const slantOptions = () => {
-    const arr = []
-    font.slants.map((slant) => arr.push({value: slant, label: slant}))
-
-    return arr
-  }
 
   const handleSizeChange = (event, newValue) => {
     setSize(newValue)
@@ -116,7 +102,7 @@ const TypeTester = ({font}) => {
       <InputField
         name="input"
         placeholder="Type something..."
-        $weight={weight ? weight.value : weightOptions[0]}
+        $weight={weight ? weight.value : weightOptions()[0]}
         $size={size}
         $fontFamily={font.title}
         $slant={slant.value}
