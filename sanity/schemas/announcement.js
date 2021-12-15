@@ -7,7 +7,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'text',
+      type: 'string',
     },
     {
       name: 'description',

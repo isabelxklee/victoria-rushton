@@ -1,16 +1,28 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {P, H3} from '../../styles'
 import {AnnouncementContainer} from './styles'
+import sanityClient from '../../client.js'
+import {announcementQuery} from '../../queries.js'
 
 const Announcement = () => {
+  const [message, setMessage] = useState(null)
+
+  useEffect(() => {
+    sanityClient
+      .fetch(announcementQuery)
+      .then((data) => setMessage(data[0]))
+      .catch(console.error)
+  }, [])
+
   return (
-    <AnnouncementContainer>
-      <H3>Also available as a variable font!</H3>
-      <P>
-        Purchase 5 styles to receive it along with your order - the value of all 10 styles for half
-        the price.
-      </P>
-    </AnnouncementContainer>
+    <>
+      {message && (
+        <AnnouncementContainer>
+          <H3>{message.title}</H3>
+          <P>{message.description}</P>
+        </AnnouncementContainer>
+      )}
+    </>
   )
 }
 

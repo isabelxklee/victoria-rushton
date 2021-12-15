@@ -11,3 +11,8 @@ export const aboutQuery = `*[_type == "about"] {
     buttonText,
     buttonLink
   }`
+
+export const announcementQuery = `*[_type == "announcement"] {
+    title,
+    description
+  }`
