@@ -102,4 +102,5 @@ export const PSpace = styled(P)`
 
 export const SmallText = styled(P)`
   font-size: 14px;
+  margin-bottom: 8px;
 `

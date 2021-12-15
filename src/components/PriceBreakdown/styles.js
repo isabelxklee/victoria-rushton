@@ -23,7 +23,6 @@ export const TotalPrice = styled(P)`
 export const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
   margin-top: 32px;
 `
 
