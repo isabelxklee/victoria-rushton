@@ -53,7 +53,7 @@ const SelectionForm = ({
             <Options>
               {font.weights.map((weight) => (
                 <SecondaryButton
-                  key={weight.number}
+                  key={weight.title}
                   name={weight.title}
                   onClick={(event) => handleFontClick(event)}
                   className={selectedFonts.includes(weight.title) ? 'active' : 'inactive'}
@@ -68,7 +68,7 @@ const SelectionForm = ({
               <Options>
                 {font.weights.map((weight) => (
                   <SecondaryButton
-                    key={weight.number}
+                    key={weight.title}
                     name={`${weight.title} Italic`}
                     onClick={(event) => handleFontClick(event)}
                     className={

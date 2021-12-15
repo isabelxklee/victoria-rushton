@@ -35,6 +35,8 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
     setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => font !== deletedFont))
   }
 
+  console.log(selectedFonts)
+
   return (
     <>
       <H3>Cart</H3>

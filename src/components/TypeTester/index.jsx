@@ -78,7 +78,9 @@ const TypeTester = ({font}) => {
 
   const weightOptions = () => {
     const arr = []
-    font.weights.map((weight) => arr.push({value: weight.number, label: weight.title}))
+    font.weights.map(
+      (weight) => weight.number && arr.push({value: weight.number, label: weight.title})
+    )
 
     return arr
   }
