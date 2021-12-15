@@ -6,7 +6,7 @@ import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 import SelectionForm from '../SelectionForm'
 
-const License = ({font}) => {
+const License = ({font, weightOptions, slantOptions}) => {
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState(null)
   const [selectedFonts, setSelectedFonts] = useState([])
@@ -44,6 +44,8 @@ const License = ({font}) => {
           setSelectedLicense={setSelectedLicense}
           licenses={licenses}
           selectedLicense={selectedLicense}
+          weightOptions={weightOptions()}
+          slantOptions={slantOptions()}
         />
       </SelectionContainer>
       <PriceContainer>

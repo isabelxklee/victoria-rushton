@@ -67,7 +67,7 @@ const FontProfile = () => {
           <TypeTester font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
           {font.title.includes('Cecilie') && <Announcement />}
           <div ref={divEl}>
-            <License font={font} />
+            <License font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
           </div>
         </>
       )}
