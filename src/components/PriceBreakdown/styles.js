@@ -1,17 +1,10 @@
 import styled from 'styled-components'
-import {P, Colors} from '../../styles'
+import {P} from '../../styles'
 import {ReactComponent as Remove} from '../../icons/icon-remove.svg'
 
 export const PriceContainer = styled.div`
-  border-left: 2px solid ${Colors.black};
   margin: 40px 0;
   padding: 0 40px;
-
-  @media (max-width: 900px) {
-    border-left: unset;
-    border-top: 2px solid ${Colors.black};
-    padding: 40px 0;
-  }
 `
 
 export const SelectedItem = styled.div`

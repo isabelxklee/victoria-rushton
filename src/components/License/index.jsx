@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
-import {ParentContainer} from './styles'
+import {ParentContainer, SelectionContainer} from './styles'
 import {H2} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
@@ -35,7 +35,7 @@ const License = ({font}) => {
 
   return (
     <ParentContainer>
-      <div>
+      <SelectionContainer>
         <H2>License this font</H2>
         <SelectionForm
           selectedFonts={selectedFonts}
@@ -45,7 +45,7 @@ const License = ({font}) => {
           licenses={licenses}
           selectedLicense={selectedLicense}
         />
-      </div>
+      </SelectionContainer>
       <PriceContainer>
         <PriceBreakdown
           selectedLicense={selectedLicense}
