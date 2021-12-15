@@ -3,15 +3,8 @@ import {P} from '../../styles'
 import {ReactComponent as Remove} from '../../icons/icon-remove.svg'
 
 export const PriceContainer = styled.div`
-  border-left: 1px solid #1e1e1e;
   margin: 40px 0;
   padding: 0 40px;
-
-  @media (max-width: 900px) {
-    border-left: unset;
-    border-top: 2px solid #1e1e1e;
-    padding: 40px 0;
-  }
 `
 
 export const SelectedItem = styled.div`
@@ -30,7 +23,6 @@ export const TotalPrice = styled(P)`
 export const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
   margin-top: 32px;
 `
 

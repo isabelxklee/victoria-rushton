@@ -7,7 +7,7 @@ export const ProfilePic = styled.img`
   width: 280px;
   height: 280px;
   object-fit: cover;
-  border: 2px solid #1e1e1e;
+  border: 2px solid ${Colors.black};
   margin: 40px 80px 20px 0;
 
   @media (max-width: 900px) {
@@ -57,7 +57,7 @@ export const PressArticleContainer = styled.div`
 `
 
 export const Container = styled.div`
-  border-left: 1px solid ${Colors.white};
+  border-left: 2px solid ${Colors.white};
   padding-left: 50px;
 
   @media (max-width: 900px) {

@@ -47,7 +47,8 @@ export const InputField = styled.textarea.attrs(
   width: 100%;
   padding: 40px;
   resize: none;
-  border: 1px solid ${Colors.black};
+  border-top: 2px solid ${Colors.black};
+  border-bottom: 2px solid ${Colors.black};
   box-sizing: border-box;
   line-height: 1;
 
@@ -74,7 +75,7 @@ export const IconButton = styled(Button)`
 export const IconSun = styled(Sun)`
   width: 24px;
   height: 24px;
-  fill: #1f1f1f;
+  fill: ${Colors.black};
 `
 
 export const IconMoon = styled(Moon)`

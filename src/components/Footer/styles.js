@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import {Colors} from '../../styles'
 
 export const FooterContainer = styled.div`
-  background: #1e1e1e;
+  background: ${Colors.black};
   color: ${Colors.white};
   padding: 32px 80px;
   position: relative;

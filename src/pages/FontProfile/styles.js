@@ -1,15 +1,15 @@
 import styled from 'styled-components'
-import {P} from '../../styles'
+import {P, Colors} from '../../styles'
 
 export const TypeTesterBackground = styled.div`
-  background: #1f1f1f;
-  border: 2px solid #1f1f1f;
+  background: ${Colors.black};
+  border: 2px solid ${Colors.black};
   margin-top: 100px;
 `
 
 export const HeroContainer = styled.div`
   padding: 120px 0;
-  border-bottom: 1px solid #1e1e1e;
+  border-bottom: 2px solid ${Colors.black};
 
   @media (max-width: 900px) {
     padding: 90px 0;
