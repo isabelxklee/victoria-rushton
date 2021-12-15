@@ -47,7 +47,8 @@ export const InputField = styled.textarea.attrs(
   width: 100%;
   padding: 40px;
   resize: none;
-  border: 1px solid ${Colors.black};
+  border-top: 2px solid ${Colors.black};
+  border-bottom: 2px solid ${Colors.black};
   box-sizing: border-box;
   line-height: 1;
 
