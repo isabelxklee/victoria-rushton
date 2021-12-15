@@ -75,7 +75,7 @@ export const IconButton = styled(Button)`
 export const IconSun = styled(Sun)`
   width: 24px;
   height: 24px;
-  fill: #1f1f1f;
+  fill: ${Colors.black};
 `
 
 export const IconMoon = styled(Moon)`

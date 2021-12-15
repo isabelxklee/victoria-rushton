@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import {P} from '../../styles'
+import {P, Colors} from '../../styles'
 
 export const FontHeroContainer = styled.div`
   position: relative;
-  border-bottom: 1px solid #1e1e1e;
+  border-bottom: 2px solid ${Colors.black};
 
   &:last-child {
     border-bottom: none;
