@@ -23,6 +23,8 @@ export const HeaderLink = styled(NavLink)`
   color: ${Colors.black};
   text-decoration: none;
   margin-left: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
 `
 
 export const LogoLink = styled(NavLink)`
