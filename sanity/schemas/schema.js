@@ -13,6 +13,7 @@ import license from './license'
 import about from './about'
 import press from './press'
 import checkoutLink from './checkoutLink'
+import announcement from './announcement'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -31,5 +32,6 @@ export default createSchema({
     about,
     press,
     checkoutLink,
+    announcement,
   ]),
 })

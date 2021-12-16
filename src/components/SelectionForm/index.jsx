@@ -10,6 +10,8 @@ const SelectionForm = ({
   setSelectedFonts,
   setSelectedLicense,
   selectedLicense,
+  weightOptions,
+  slantOptions,
 }) => {
   const handleFontClick = (event) => {
     event.preventDefault()
@@ -18,6 +20,14 @@ const SelectionForm = ({
         ? selectedFonts.filter((font) => font !== event.target.name)
         : [...selectedFonts, event.target.name]
     )
+
+    // console.log(selectedFonts)
+
+    // if (font.title.includes('Cecilie')) {
+    //   selectedFonts.length > 4
+    //     ? setSelectedFonts((selectedFonts) => [...selectedFonts, 'Variable Font'])
+    //     : selectedFonts.filter((font) => !font.includes('Variable'))
+    // }
   }
 
   const licenseOptions = () => {
@@ -51,32 +61,32 @@ const SelectionForm = ({
           <H3>Select fonts</H3>
           <ButtonGroup>
             <Options>
-              {font.weights.map((weight) => (
+              {weightOptions.map((weight) => (
                 <SecondaryButton
-                  key={weight.number}
-                  name={weight.title}
+                  key={weight.value}
+                  name={weight.label}
                   onClick={(event) => handleFontClick(event)}
-                  className={selectedFonts.includes(weight.title) ? 'active' : 'inactive'}
+                  className={selectedFonts.includes(weight.label) ? 'active' : 'inactive'}
                   $disabled={!selectedLicense}
                 >
-                  {weight.title}
+                  {weight.label}
                 </SecondaryButton>
               ))}
             </Options>
 
-            {font.slants.length > 1 && (
+            {slantOptions.length > 1 && (
               <Options>
-                {font.weights.map((weight) => (
+                {weightOptions.map((weight) => (
                   <SecondaryButton
-                    key={weight.number}
-                    name={`${weight.title} Italic`}
+                    key={weight.value}
+                    name={`${weight.label} Italic`}
                     onClick={(event) => handleFontClick(event)}
                     className={
-                      selectedFonts.includes(`${weight.title} Italic`) ? 'active' : 'inactive'
+                      selectedFonts.includes(`${weight.label} Italic`) ? 'active' : 'inactive'
                     }
                     $disabled={!selectedLicense}
                   >
-                    {weight.title} Italic
+                    {weight.label} Italic
                   </SecondaryButton>
                 ))}
               </Options>
