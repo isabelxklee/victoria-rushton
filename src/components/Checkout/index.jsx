@@ -14,15 +14,14 @@ const CheckoutForm = ({
     event.preventDefault()
 
     const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
-
-    if (variableFont === true) {
-      setSelectedFonts((selectedFonts) => [...selectedFonts, 'Variable Font'])
-    }
-
     const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({name: font, weights: selectedFonts, license: selectedLicense}),
+      body: JSON.stringify({
+        name: font,
+        weights: selectedFonts,
+        license: selectedLicense,
+      }),
     })
       .then((r) => r.json())
       .then((session) => stripe.redirectToCheckout({sessionId: session.id}))
