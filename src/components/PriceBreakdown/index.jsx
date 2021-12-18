@@ -97,7 +97,9 @@ const PriceBreakdown = ({
         disableCheckout={disableCheckout}
         selectedLicense={selectedLicense}
         selectedFonts={selectedFonts}
+        setSelectedFonts={setSelectedFonts}
         font={font.title}
+        variableFont={variableFont}
       />
 
       <LinksContainer>

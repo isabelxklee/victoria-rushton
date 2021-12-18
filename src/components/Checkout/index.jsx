@@ -2,11 +2,22 @@ import React from 'react'
 import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
 
-const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) => {
+const CheckoutForm = ({
+  disableCheckout,
+  selectedLicense,
+  selectedFonts,
+  setSelectedFonts,
+  font,
+  variableFont,
+}) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
     const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
+
+    if (variableFont === true) {
+      setSelectedFonts((selectedFonts) => [...selectedFonts, 'Variable Font'])
+    }
 
     const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, {
       method: 'POST',
