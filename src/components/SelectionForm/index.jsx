@@ -20,14 +20,6 @@ const SelectionForm = ({
         ? selectedFonts.filter((font) => font !== event.target.name)
         : [...selectedFonts, event.target.name]
     )
-
-    // console.log(selectedFonts)
-
-    // if (font.title.includes('Cecilie')) {
-    //   selectedFonts.length > 4
-    //     ? setSelectedFonts((selectedFonts) => [...selectedFonts, 'Variable Font'])
-    //     : selectedFonts.filter((font) => !font.includes('Variable'))
-    // }
   }
 
   const licenseOptions = () => {

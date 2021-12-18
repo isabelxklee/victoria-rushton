@@ -4,7 +4,15 @@ import {SelectedItem, TotalPrice, LinksContainer, RemoveIcon, Right} from './sty
 import {P, PSpace, H3, Margin, TextLink, SmallText} from '../../styles'
 import Checkout from '../Checkout'
 
-const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts, totalPrice}) => {
+const PriceBreakdown = ({
+  font,
+  selectedLicense,
+  setSelectedFonts,
+  selectedFonts,
+  totalPrice,
+  variableFont,
+  setVariableFont,
+}) => {
   const [checkoutLinks, setCheckoutLinks] = useState([])
 
   useEffect(() => {
@@ -19,7 +27,15 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
       )
       .then((data) => setCheckoutLinks(data))
       .catch(console.error)
-  }, [])
+
+    if (selectedFonts.length > 4) {
+      setVariableFont(true)
+    } else {
+      setVariableFont(false)
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedFonts])
 
   const disableCheckout = () => {
     if (!selectedLicense) {
@@ -42,11 +58,19 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
         {selectedFonts || selectedLicense ? (
           <>
             {selectedLicense && (
-              <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
+              <>
+                <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
+                <SelectedItem $disabled={!variableFont}>
+                  <P>{font.title} Variable Font</P>
+                  <Right>
+                    <P>FREE</P>
+                  </Right>
+                </SelectedItem>
+              </>
             )}
             {selectedFonts &&
               selectedFonts.map((weightTitle) => (
-                <SelectedItem key={weightTitle}>
+                <SelectedItem key={weightTitle} $disabled={false}>
                   <P>
                     {font.title} {weightTitle}
                   </P>
@@ -58,7 +82,7 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
               ))}
 
             {selectedFonts && selectedFonts.length > 0 && totalPrice && (
-              <SelectedItem>
+              <SelectedItem $disabled={false}>
                 <TotalPrice>Subtotal</TotalPrice>
                 <TotalPrice>${totalPrice}</TotalPrice>
               </SelectedItem>
@@ -73,7 +97,9 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
         disableCheckout={disableCheckout}
         selectedLicense={selectedLicense}
         selectedFonts={selectedFonts}
+        setSelectedFonts={setSelectedFonts}
         font={font.title}
+        variableFont={variableFont}
       />
 
       <LinksContainer>
