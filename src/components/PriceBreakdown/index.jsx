@@ -54,7 +54,7 @@ const PriceBreakdown = ({
             {selectedLicense && (
               <>
                 <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
-                <SelectedItem>
+                <SelectedItem $disabled={!variableFont}>
                   <P>{font.title} Variable Font</P>
                   <Right>
                     <P>FREE</P>
@@ -64,7 +64,7 @@ const PriceBreakdown = ({
             )}
             {selectedFonts &&
               selectedFonts.map((weightTitle) => (
-                <SelectedItem key={weightTitle}>
+                <SelectedItem key={weightTitle} $disabled={false}>
                   <P>
                     {font.title} {weightTitle}
                   </P>
@@ -76,7 +76,7 @@ const PriceBreakdown = ({
               ))}
 
             {selectedFonts && selectedFonts.length > 0 && totalPrice && (
-              <SelectedItem>
+              <SelectedItem $disabled={false}>
                 <TotalPrice>Subtotal</TotalPrice>
                 <TotalPrice>${totalPrice}</TotalPrice>
               </SelectedItem>

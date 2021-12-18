@@ -13,6 +13,7 @@ export const SelectedItem = styled.div`
   justify-content: space-between;
   padding: 8px 0;
   align-items: center;
+  opacity: ${({$disabled}) => ($disabled ? 0.3 : 1)};
 `
 
 export const TotalPrice = styled(P)`
