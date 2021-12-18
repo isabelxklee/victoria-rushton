@@ -27,7 +27,15 @@ const PriceBreakdown = ({
       )
       .then((data) => setCheckoutLinks(data))
       .catch(console.error)
-  }, [])
+
+    if (selectedFonts.length > 4) {
+      setVariableFont(true)
+    } else {
+      setVariableFont(false)
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedFonts])
 
   const disableCheckout = () => {
     if (!selectedLicense) {
@@ -42,8 +50,6 @@ const PriceBreakdown = ({
   const handleRemove = (deletedFont) => {
     setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => font !== deletedFont))
   }
-
-  console.log(variableFont)
 
   return (
     <>
