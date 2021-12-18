@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {SecondaryButton, H3} from '../../styles'
 import {LicenseContainer, ButtonGroup, Options} from './styles'
 import Selector from '../Selector'
@@ -13,6 +13,8 @@ const SelectionForm = ({
   weightOptions,
   slantOptions,
 }) => {
+  const [variableFont, setVariableFont] = useState(false)
+
   const handleFontClick = (event) => {
     event.preventDefault()
     setSelectedFonts((selectedFonts) =>
@@ -20,14 +22,6 @@ const SelectionForm = ({
         ? selectedFonts.filter((font) => font !== event.target.name)
         : [...selectedFonts, event.target.name]
     )
-
-    // console.log(selectedFonts)
-
-    // if (font.title.includes('Cecilie')) {
-    //   selectedFonts.length > 4
-    //     ? setSelectedFonts((selectedFonts) => [...selectedFonts, 'Variable Font'])
-    //     : selectedFonts.filter((font) => !font.includes('Variable'))
-    // }
   }
 
   const licenseOptions = () => {
@@ -36,6 +30,8 @@ const SelectionForm = ({
       licenses.map((license) => ({...license, label: license.title, value: license.title}))
     )
   }
+
+  console.log(variableFont)
 
   return (
     <>
