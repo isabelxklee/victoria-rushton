@@ -11,6 +11,7 @@ const License = ({font, weightOptions, slantOptions}) => {
   const [selectedLicense, setSelectedLicense] = useState(null)
   const [selectedFonts, setSelectedFonts] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
+  const [variableFont, setVariableFont] = useState(false)
 
   useEffect(() => {
     sanityClient
@@ -55,6 +56,8 @@ const License = ({font, weightOptions, slantOptions}) => {
           selectedFonts={selectedFonts}
           font={font}
           totalPrice={totalPrice}
+          variableFont={variableFont}
+          setVariableFont={setVariableFont}
         />
       </PriceContainer>
     </ParentContainer>

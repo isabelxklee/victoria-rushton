@@ -4,7 +4,15 @@ import {SelectedItem, TotalPrice, LinksContainer, RemoveIcon, Right} from './sty
 import {P, PSpace, H3, Margin, TextLink, SmallText} from '../../styles'
 import Checkout from '../Checkout'
 
-const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts, totalPrice}) => {
+const PriceBreakdown = ({
+  font,
+  selectedLicense,
+  setSelectedFonts,
+  selectedFonts,
+  totalPrice,
+  variableFont,
+  setVariableFont,
+}) => {
   const [checkoutLinks, setCheckoutLinks] = useState([])
 
   useEffect(() => {
@@ -35,6 +43,8 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
     setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => font !== deletedFont))
   }
 
+  console.log(variableFont)
+
   return (
     <>
       <H3>Cart</H3>
@@ -42,7 +52,15 @@ const PriceBreakdown = ({font, selectedLicense, setSelectedFonts, selectedFonts,
         {selectedFonts || selectedLicense ? (
           <>
             {selectedLicense && (
-              <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
+              <>
+                <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
+                <SelectedItem>
+                  <P>{font.title} Variable Font</P>
+                  <Right>
+                    <P>FREE</P>
+                  </Right>
+                </SelectedItem>
+              </>
             )}
             {selectedFonts &&
               selectedFonts.map((weightTitle) => (
