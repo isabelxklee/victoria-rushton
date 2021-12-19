@@ -20,3 +20,7 @@ export const PreviewTextContainer = styled.div`
     padding: 30px 0;
   }
 `
+
+export const SVG = styled.img`
+  width: ${({$width}) => $width}px;
+`

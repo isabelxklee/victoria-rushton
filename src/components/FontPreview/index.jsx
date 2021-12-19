@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
 import {PSpace} from '../../styles'
-import {PreviewText, PreviewTextContainer} from './styles'
+import {PreviewText, PreviewTextContainer, SVG} from './styles'
 
 const FontPreview = ({font}) => {
   const [previews, setPreviews] = useState(null)
@@ -12,6 +12,15 @@ const FontPreview = ({font}) => {
         `*[_type == "previewText"] | order(order){
             _id,
             text,
+            svg{
+              altText,
+              width,
+              asset->{
+                _id,
+                url
+              }
+            },
+            useSVG,
             size,
             lineHeight,
             "font": font[0]->title,
@@ -24,6 +33,8 @@ const FontPreview = ({font}) => {
       .catch(console.error)
   }, [font])
 
+  console.log(previews)
+
   return (
     <>
       {previews &&
@@ -34,16 +45,24 @@ const FontPreview = ({font}) => {
                 <PSpace>
                   {font} {preview.weightTitle}
                 </PSpace>
-                <PreviewText
-                  $size={preview.size}
-                  $weight={preview.weightNumber}
-                  $slant={preview.slant}
-                  $font={font}
-                  $lineHeight={preview.lineHeight}
-                  $margin="0"
-                >
-                  {preview.text}
-                </PreviewText>
+                {preview.useSVG && preview.svg ? (
+                  <SVG
+                    src={preview.svg.asset.url}
+                    alt={preview.svg.altText}
+                    $width={preview.svg.width}
+                  />
+                ) : (
+                  <PreviewText
+                    $size={preview.size}
+                    $weight={preview.weightNumber}
+                    $slant={preview.slant}
+                    $font={font}
+                    $lineHeight={preview.lineHeight}
+                    $margin="0"
+                  >
+                    {preview.text}
+                  </PreviewText>
+                )}
               </PreviewTextContainer>
             )}
           </div>
