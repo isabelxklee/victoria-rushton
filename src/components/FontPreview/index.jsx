@@ -12,6 +12,8 @@ const FontPreview = ({font}) => {
         `*[_type == "previewText"] | order(order){
             _id,
             text,
+            svg,
+            useSVG,
             size,
             lineHeight,
             "font": font[0]->title,
@@ -23,6 +25,8 @@ const FontPreview = ({font}) => {
       .then((data) => setPreviews(data))
       .catch(console.error)
   }, [font])
+
+  console.log(previews)
 
   return (
     <>
