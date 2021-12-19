@@ -2,14 +2,7 @@ import React from 'react'
 import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
 
-const CheckoutForm = ({
-  disableCheckout,
-  selectedLicense,
-  selectedFonts,
-  setSelectedFonts,
-  font,
-  variableFont,
-}) => {
+const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
