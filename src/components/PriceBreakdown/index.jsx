@@ -60,12 +60,14 @@ const PriceBreakdown = ({
             {selectedLicense && (
               <>
                 <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
-                <SelectedItem $disabled={!variableFont}>
-                  <P>{font.title} Variable Font</P>
-                  <Right>
-                    <P>FREE</P>
-                  </Right>
-                </SelectedItem>
+                {font.title.includes('Cecilie') && (
+                  <SelectedItem $disabled={!variableFont}>
+                    <P>{font.title} Variable Font</P>
+                    <Right>
+                      <P>FREE</P>
+                    </Right>
+                  </SelectedItem>
+                )}
               </>
             )}
             {selectedFonts &&
