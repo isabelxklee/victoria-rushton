@@ -27,8 +27,8 @@ export default {
         },
         {
           name: 'width',
-          title: 'width',
-          type: 'string',
+          title: 'Width (px)',
+          type: 'number',
         },
       ],
     },

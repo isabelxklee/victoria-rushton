@@ -14,6 +14,7 @@ const FontPreview = ({font}) => {
             text,
             svg{
               altText,
+              width,
               asset->{
                 _id,
                 url
