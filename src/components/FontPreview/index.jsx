@@ -46,7 +46,11 @@ const FontPreview = ({font}) => {
                   {font} {preview.weightTitle}
                 </PSpace>
                 {preview.useSVG && preview.svg ? (
-                  <SVG src={preview.svg.asset.url} alt={preview.svg.altText} />
+                  <SVG
+                    src={preview.svg.asset.url}
+                    alt={preview.svg.altText}
+                    $width={preview.svg.width}
+                  />
                 ) : (
                   <PreviewText
                     $size={preview.size}

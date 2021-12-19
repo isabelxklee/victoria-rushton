@@ -22,5 +22,5 @@ export const PreviewTextContainer = styled.div`
 `
 
 export const SVG = styled.img`
-  width: 50%;
+  width: ${({$width}) => $width}px;
 `
