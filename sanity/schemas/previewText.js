@@ -16,6 +16,23 @@ export default {
       type: 'number',
     },
     {
+      name: 'svg',
+      title: 'SVG File',
+      type: 'image',
+      fields: [
+        {
+          name: 'altText',
+          title: 'Alt Text',
+          type: 'string',
+        },
+      ],
+    },
+    {
+      name: 'useSVG',
+      title: 'Display SVG file?',
+      type: 'boolean',
+    },
+    {
       name: 'font',
       title: 'Font',
       type: 'array',
