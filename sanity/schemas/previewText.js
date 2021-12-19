@@ -25,6 +25,11 @@ export default {
           title: 'Alt Text',
           type: 'string',
         },
+        {
+          name: 'width',
+          title: 'width',
+          type: 'string',
+        },
       ],
     },
     {

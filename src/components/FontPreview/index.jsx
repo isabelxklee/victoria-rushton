@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
 import {PSpace} from '../../styles'
-import {PreviewText, PreviewTextContainer} from './styles'
+import {PreviewText, PreviewTextContainer, SVG} from './styles'
 
 const FontPreview = ({font}) => {
   const [previews, setPreviews] = useState(null)
@@ -45,7 +45,7 @@ const FontPreview = ({font}) => {
                   {font} {preview.weightTitle}
                 </PSpace>
                 {preview.useSVG && preview.svg ? (
-                  <img src={preview.svg.asset.url} alt={preview.svg.altText} />
+                  <SVG src={preview.svg.asset.url} alt={preview.svg.altText} />
                 ) : (
                   <PreviewText
                     $size={preview.size}
