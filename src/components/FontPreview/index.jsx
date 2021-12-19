@@ -12,7 +12,13 @@ const FontPreview = ({font}) => {
         `*[_type == "previewText"] | order(order){
             _id,
             text,
-            svg,
+            svg{
+              asset->{
+                _id,
+                url,
+                fields
+              }
+            },
             useSVG,
             size,
             lineHeight,
@@ -38,16 +44,20 @@ const FontPreview = ({font}) => {
                 <PSpace>
                   {font} {preview.weightTitle}
                 </PSpace>
-                <PreviewText
-                  $size={preview.size}
-                  $weight={preview.weightNumber}
-                  $slant={preview.slant}
-                  $font={font}
-                  $lineHeight={preview.lineHeight}
-                  $margin="0"
-                >
-                  {preview.text}
-                </PreviewText>
+                {preview.useSVG ? (
+                  <img src="" alt="" />
+                ) : (
+                  <PreviewText
+                    $size={preview.size}
+                    $weight={preview.weightNumber}
+                    $slant={preview.slant}
+                    $font={font}
+                    $lineHeight={preview.lineHeight}
+                    $margin="0"
+                  >
+                    {preview.text}
+                  </PreviewText>
+                )}
               </PreviewTextContainer>
             )}
           </div>
