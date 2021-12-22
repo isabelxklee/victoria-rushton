@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {P} from '../../styles'
-import {ReactComponent as Remove} from '../../icons/icon-remove.svg'
+import {ReactComponent as Remove} from '../../assets/icons/icon-remove.svg'
 
 export const PriceContainer = styled.div`
   margin: 40px 0;

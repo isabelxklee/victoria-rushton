@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {Button, Colors} from '../../styles'
-import {ReactComponent as Sun} from '../../icons/icon-sun.svg'
-import {ReactComponent as Moon} from '../../icons/icon-moon.svg'
+import {ReactComponent as Sun} from '../../assets/icons/icon-sun.svg'
+import {ReactComponent as Moon} from '../../assets/icons/icon-moon.svg'
 
 export const TypeTesterContainer = styled.div`
   display: flex;
