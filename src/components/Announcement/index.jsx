@@ -3,8 +3,8 @@ import {P, H3} from '../../styles'
 import {AnnouncementContainer, GIF} from './styles'
 import sanityClient from '../../client.js'
 import {announcementQuery} from '../../queries.js'
-import gif1 from '../../assets/Cecilie-Sans-Variable-1.gif'
-import gif2 from '../../assets/Cecilie-Sans-Variable-2.gif'
+import GIF1 from '../../assets/GIFs/Cecilie-Sans-Variable-1.gif'
+import GIF2 from '../../assets/GIFs/Cecilie-Sans-Variable-2.gif'
 
 const Announcement = () => {
   const [message, setMessage] = useState(null)
@@ -20,8 +20,8 @@ const Announcement = () => {
     <>
       {message && (
         <>
-          <GIF src={gif1} alt="" />
-          <GIF src={gif2} alt="" />
+          <GIF src={GIF1} alt="The word 'Variable' grows and shrinks." />
+          <GIF src={GIF2} alt="The phrase 'weight and italic axes' grows and shrinks." />
           <AnnouncementContainer>
             <H3>{message.title}</H3>
             <P>{message.description}</P>
