@@ -7,6 +7,7 @@ import License from '../../components/License'
 import Announcement from '../../components/Announcement'
 import {Button, H1, H3, P} from '../../styles'
 import {HeroContainer, Description} from './styles'
+import {currentFontQuery} from '../../queries'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -15,18 +16,7 @@ const FontProfile = () => {
 
   useEffect(() => {
     sanityClient
-      .fetch(
-        `*[slug.current == $slug]{
-            _id,
-            title,
-            description,
-            "slug": slug.current,
-            "weights": weights[]->,
-            "slants": slants[]->title,
-            supportedLanguages
-        }`,
-        {slug}
-      )
+      .fetch(currentFontQuery, {slug})
       .then((font) => setFont(font[0]))
       .catch(console.error)
   }, [slug])

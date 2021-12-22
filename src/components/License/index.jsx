@@ -5,6 +5,7 @@ import {H2} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 import SelectionForm from '../SelectionForm'
+import {licensesQuery} from '../../queries'
 
 const License = ({font, weightOptions, slantOptions}) => {
   const [licenses, setLicenses] = useState(null)
@@ -15,17 +16,7 @@ const License = ({font, weightOptions, slantOptions}) => {
 
   useEffect(() => {
     sanityClient
-      .fetch(
-        `*[_type == "license"] | order(order){
-            _id,
-            order,
-            title,
-            price,
-            desktopWorkstations,
-            webVisitors,
-            ebooks
-        }`
-      )
+      .fetch(licensesQuery)
       .then((data) => setLicenses(data))
       .catch(console.error)
   }, [])

@@ -3,6 +3,7 @@ import sanityClient from '../../client.js'
 import {SelectedItem, TotalPrice, LinksContainer, RemoveIcon, Right} from './styles'
 import {P, PSpace, H3, Margin, TextLink, SmallText} from '../../styles'
 import Checkout from '../Checkout'
+import {checkoutLinksQuery} from '../../queries'
 
 const PriceBreakdown = ({
   font,
@@ -17,14 +18,7 @@ const PriceBreakdown = ({
 
   useEffect(() => {
     sanityClient
-      .fetch(
-        `*[_type == "checkoutLink"] {
-            _id,
-            title,
-            linkText,
-            url
-        }`
-      )
+      .fetch(checkoutLinksQuery)
       .then((data) => setCheckoutLinks(data))
       .catch(console.error)
 
