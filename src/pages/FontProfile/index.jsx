@@ -5,7 +5,7 @@ import TypeTester from '../../components/TypeTester'
 import FontPreview from '../../components/FontPreview'
 import License from '../../components/License'
 import Announcement from '../../components/Announcement'
-import {Button, H1} from '../../styles'
+import {Button, H1, H3} from '../../styles'
 import {HeroContainer, Description} from './styles'
 
 const FontProfile = () => {
@@ -66,6 +66,9 @@ const FontProfile = () => {
           <FontPreview font={font.title} />
           <TypeTester font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
           {font.title.includes('Cecilie') && <Announcement />}
+          <HeroContainer>
+            <H3>Supported Languages</H3>
+          </HeroContainer>
           <div ref={divEl}>
             <License font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
           </div>
