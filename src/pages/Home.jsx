@@ -1,27 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import FontHero from '../components/FontHero'
 import sanityClient from '../client.js'
+import {fontsQuery} from '../../queries.js'
 
 const Home = () => {
   const [fonts, setFonts] = useState(null)
 
   useEffect(() => {
     sanityClient
-      .fetch(
-        `*[_type == "font"] | order(order){
-            _id,
-            title,
-            order,
-            homeText,
-            homeTextSize,
-            "homeTextSlant": homeTextSlant[0]->title,
-            "homeTextWeight": homeTextWeight[0]->number,
-            homeTextLineHeight,
-            "slug": slug.current,
-            "weights": weights[]->title,
-            "slants": slants[]->title
-        }`
-      )
+      .fetch(fontsQuery)
       .then((data) => setFonts(data))
       .catch(console.error)
   }, [])

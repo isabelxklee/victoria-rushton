@@ -2,33 +2,14 @@ import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
 import {PSpace} from '../../styles'
 import {PreviewText, PreviewTextContainer, SVG} from './styles'
+import {previewTextQuery} from '../../queries'
 
 const FontPreview = ({font}) => {
   const [previews, setPreviews] = useState(null)
 
   useEffect(() => {
     sanityClient
-      .fetch(
-        `*[_type == "previewText"] | order(order){
-            _id,
-            text,
-            svg{
-              altText,
-              width,
-              asset->{
-                _id,
-                url
-              }
-            },
-            useSVG,
-            size,
-            lineHeight,
-            "font": font[0]->title,
-            "weightTitle": weight[0]->title,
-            "weightNumber": weight[0]->number,
-            "slant": slant[0]->title,
-        }`
-      )
+      .fetch(previewTextQuery)
       .then((data) => setPreviews(data))
       .catch(console.error)
   }, [font])
