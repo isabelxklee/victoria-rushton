@@ -75,6 +75,12 @@ export default {
       of: [{type: 'reference', to: {type: 'slant'}}],
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'supportedLanguages',
+      title: 'Supported Languages',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
+    },
   ],
 
   preview: {
