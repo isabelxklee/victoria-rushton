@@ -2,6 +2,8 @@
 
 # Victoria Rushton's typography site 🖋✨
 
+Connected to Express.js server [here](https://github.com/isabelxklee/victoria-rushton-express).
+
 ## Getting started
 
 1. Install [Node.js](https://www.npmjs.com/get-npm).
