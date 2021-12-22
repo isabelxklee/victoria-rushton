@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import FontHero from '../components/FontHero'
-import sanityClient from '../client.js'
+import FontHero from '../../components/FontHero'
+import sanityClient from '../../client.js'
 import {fontsQuery} from '../../queries.js'
 
 const Home = () => {

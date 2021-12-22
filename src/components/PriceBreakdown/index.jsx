@@ -18,7 +18,7 @@ const PriceBreakdown = ({
 
   useEffect(() => {
     sanityClient
-      .fetch(checkoutLinks)
+      .fetch(checkoutLinksQuery)
       .then((data) => setCheckoutLinks(data))
       .catch(console.error)
 
