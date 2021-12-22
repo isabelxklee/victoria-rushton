@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
 
 const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) => {
+  const [buttonLabel, setButtonLabel] = useState('Checkout')
+
   const handleSubmit = async (event) => {
+    setButtonLabel('Loading...')
+
     event.preventDefault()
 
     const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
@@ -22,13 +26,15 @@ const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) =
     if (!response) {
       console.log(response.error)
     }
+
+    setButtonLabel('Checkout')
   }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <Button type="submit" $disabled={disableCheckout()}>
-          Checkout
+          {buttonLabel}
         </Button>
       </form>
     </>
