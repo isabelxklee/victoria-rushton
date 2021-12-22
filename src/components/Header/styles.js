@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
-import {ReactComponent as LogoSVG} from '../../icons/logo-full.svg'
+import {ReactComponent as LogoSVG} from '../../assets/icons/logo-full.svg'
 import {Colors} from '../../styles'
 
 export const HeaderContainer = styled.div`

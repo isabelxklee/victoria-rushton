@@ -66,11 +66,11 @@ const FontProfile = () => {
           </HeroContainer>
           <FontPreview font={font.title} />
           <TypeTester font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
-          {font.title.includes('Cecilie') && <Announcement />}
           <HeroContainer>
             <H3>Supported Languages</H3>
             <P>{font.supportedLanguages}</P>
           </HeroContainer>
+          {font.title.includes('Cecilie') && <Announcement />}
           <div ref={divEl}>
             <License font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
           </div>
