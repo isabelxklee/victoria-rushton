@@ -15,8 +15,8 @@ const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) =
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        name: font,
-        weights: selectedFonts,
+        name: font.title,
+        selectedFonts: selectedFonts,
         license: selectedLicense,
       }),
     })

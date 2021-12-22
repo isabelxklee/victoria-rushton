@@ -94,7 +94,7 @@ const PriceBreakdown = ({
         selectedLicense={selectedLicense}
         selectedFonts={selectedFonts}
         setSelectedFonts={setSelectedFonts}
-        font={font.title}
+        font={font}
         variableFont={variableFont}
       />
 
