@@ -31,19 +31,19 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
         <Selector
           displayTitle={true}
           title="Weight"
-          options={weightOptions}
+          options={weightOptions()}
           defaultValue={weight}
           handleChange={setWeight}
           typeTester={true}
         />
-        {slantOptions.length > 1 && (
+        {slantOptions().length > 1 && (
           <Selector
             displayTitle={true}
             title="Slant"
-            options={slantOptions}
+            options={slantOptions()}
             defaultValue={slant}
             handleChange={setSlant}
-            isDisabled={slantOptions.length < 2}
+            isDisabled={slantOptions().length < 2}
             typeTester={true}
           />
         )}
