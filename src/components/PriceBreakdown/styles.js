@@ -5,6 +5,10 @@ import {ReactComponent as Remove} from '../../assets/icons/icon-remove.svg'
 export const PriceContainer = styled.div`
   margin: 40px 0;
   padding: 0 40px;
+
+  @media (max-width: 900px) {
+    padding: 0 20px;
+  }
 `
 
 export const SelectedItem = styled.div`
