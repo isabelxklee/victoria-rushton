@@ -10,7 +10,7 @@ const FontHero = ({font}) => {
 
   return (
     <FontHeroContainer>
-      <Padding $padding="20px 0px">
+      <Padding $padding="20px 0px 0px 0px">
         <InternalLink to={'/' + font.slug} key={font._id}>
           <FlexContainer>
             <P>{font.title}</P>
