@@ -1,6 +1,6 @@
 import React from 'react'
-import {InternalLink, Padding} from '../../styles'
-import {FontHeroContainer, FontHeroP, FontHeroPRight} from './styles'
+import {InternalLink, Padding, P} from '../../styles'
+import {FontHeroContainer, FlexContainer} from './styles'
 import {PreviewText} from '../FontPreview/styles'
 
 const FontHero = ({font}) => {
@@ -10,10 +10,13 @@ const FontHero = ({font}) => {
 
   return (
     <FontHeroContainer>
-      <Padding $padding="20px 0px">
+      <Padding $padding="20px 0px 0px 0px">
         <InternalLink to={'/' + font.slug} key={font._id}>
-          <FontHeroP>{font.title}</FontHeroP>
-          <FontHeroPRight>{calculateStyles()} available styles</FontHeroPRight>
+          <FlexContainer>
+            <P>{font.title}</P>
+            <P $right={true}>{calculateStyles()} available styles</P>
+          </FlexContainer>
+
           <PreviewText
             $font={font.title}
             $size={font.homeTextSize}
@@ -23,7 +26,7 @@ const FontHero = ({font}) => {
           >
             {font.homeText}
           </PreviewText>
-          <FontHeroP>View this font</FontHeroP>
+          <P>View this font</P>
         </InternalLink>
       </Padding>
     </FontHeroContainer>

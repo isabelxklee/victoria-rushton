@@ -61,6 +61,7 @@ export const Container = styled.div`
   padding-left: 50px;
 
   @media (max-width: 900px) {
-    padding-left: 20px;
+    padding-left: 0;
+    border-left: none;
   }
 `
