@@ -8,6 +8,7 @@ export const ParentContainer = styled.div`
 
   @media (max-width: 900px) {
     display: block;
+    margin-top: 0;
   }
 `
 
@@ -16,7 +17,7 @@ export const SelectionContainer = styled.div`
   padding: 0 40px;
 
   @media (max-width: 900px) {
-    padding: 40px;
+    padding: 20px 20px 40px 20px;
     border-right: unset;
     border-bottom: 2px solid ${Colors.black};
   }

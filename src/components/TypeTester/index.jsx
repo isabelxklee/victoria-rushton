@@ -13,7 +13,7 @@ import {Colors} from '../../styles'
 
 const TypeTester = ({font, weightOptions, slantOptions}) => {
   const [weight, setWeight] = useState(null)
-  const [size, setSize] = useState(80)
+  const [size, setSize] = useState(60)
   const [slant, setSlant] = useState({value: 'Roman', label: 'Roman'})
   const [darkMode, setDarkMode] = useState(false)
 
