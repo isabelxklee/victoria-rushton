@@ -8,6 +8,7 @@ import Announcement from '../../components/Announcement'
 import {Button, H1, H3, P} from '../../styles'
 import {HeroContainer, Description} from './styles'
 import {currentFontQuery} from '../../queries'
+import LoadingComponent from '../../components/Loading'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -41,7 +42,7 @@ const FontProfile = () => {
     return arr
   }
 
-  if (!font) return <div>Loading...</div>
+  if (!font) return <LoadingComponent />
 
   return (
     <>
