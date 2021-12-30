@@ -10,11 +10,7 @@ export const FontHeroContainer = styled.div`
   }
 `
 
-export const FontHeroP = styled(P)`
-  position: absolute;
-  font-weight: 300;
-`
-
-export const FontHeroPRight = styled(FontHeroP)`
-  right: 0;
+export const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `

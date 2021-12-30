@@ -9,7 +9,7 @@ export const PreviewText = styled.p`
   margin: ${({$margin}) => $margin};
 
   @media (max-width: 900px) {
-    font-size: ${({$size}) => $size * 0.5}px;
+    font-size: ${({$size}) => $size * 0.7}px;
   }
 `
 
