@@ -14,7 +14,7 @@ export const FooterContainer = styled.div`
   }
 
   @media (max-width: 900px) {
-    padding: 20px;
+    padding: 20px 20px 40px 20px;
     width: calc(100% - 40px);
 
     > p {
