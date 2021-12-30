@@ -25,6 +25,10 @@ export const HeaderLink = styled(NavLink)`
   margin-left: 40px;
   font-size: 14px;
   text-transform: uppercase;
+
+  @media (max-width: 900px) {
+    margin-left: 20px;
+  }
 `
 
 export const LogoLink = styled(NavLink)`
@@ -33,4 +37,8 @@ export const LogoLink = styled(NavLink)`
 
 export const Logo = styled(LogoSVG)`
   width: 100%;
+
+  @media (max-width: 900px) {
+    width: 80%;
+  }
 `
