@@ -11,65 +11,6 @@ import {
 } from './styles'
 import {Colors} from '../../styles'
 
-const Panel = ({
-  weight,
-  setWeight,
-  weightOptions,
-  size,
-  handleSizeChange,
-  handleColorModeChange,
-  slant,
-  setSlant,
-  slantOptions,
-  darkMode,
-}) => {
-  return (
-    <PanelContainer>
-      <Selector
-        displayTitle={true}
-        title="Weight"
-        options={weightOptions}
-        defaultValue={weight}
-        handleChange={setWeight}
-        typeTester={true}
-      />
-      {slantOptions.length > 1 && (
-        <Selector
-          displayTitle={true}
-          title="Slant"
-          options={slantOptions}
-          defaultValue={slant}
-          handleChange={setSlant}
-          isDisabled={slantOptions.length < 2}
-          typeTester={true}
-        />
-      )}
-
-      <SliderInput
-        title="Size"
-        value={size}
-        handleChange={handleSizeChange}
-        min={8}
-        max={160}
-        ariaLabel="continuous-slider"
-      />
-      <IconButton onClick={handleColorModeChange} $darkMode={darkMode}>
-        {darkMode ? (
-          <>
-            Light
-            <IconSun />
-          </>
-        ) : (
-          <>
-            Dark
-            <IconMoon />
-          </>
-        )}
-      </IconButton>
-    </PanelContainer>
-  )
-}
-
 const TypeTester = ({font, weightOptions, slantOptions}) => {
   const [weight, setWeight] = useState(null)
   const [size, setSize] = useState(80)
@@ -86,19 +27,49 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
 
   return (
     <TypeTesterContainer>
-      <Panel
-        font={font}
-        weight={weight}
-        setWeight={setWeight}
-        weightOptions={weightOptions()}
-        size={size}
-        handleSizeChange={handleSizeChange}
-        darkMode={darkMode}
-        handleColorModeChange={handleColorModeChange}
-        slant={slant}
-        setSlant={setSlant}
-        slantOptions={slantOptions()}
-      />
+      <PanelContainer>
+        <Selector
+          displayTitle={true}
+          title="Weight"
+          options={weightOptions}
+          defaultValue={weight}
+          handleChange={setWeight}
+          typeTester={true}
+        />
+        {slantOptions.length > 1 && (
+          <Selector
+            displayTitle={true}
+            title="Slant"
+            options={slantOptions}
+            defaultValue={slant}
+            handleChange={setSlant}
+            isDisabled={slantOptions.length < 2}
+            typeTester={true}
+          />
+        )}
+
+        <SliderInput
+          title="Size"
+          value={size}
+          handleChange={handleSizeChange}
+          min={8}
+          max={160}
+          ariaLabel="continuous-slider"
+        />
+        <IconButton onClick={handleColorModeChange} $darkMode={darkMode}>
+          {darkMode ? (
+            <>
+              Light
+              <IconSun />
+            </>
+          ) : (
+            <>
+              Dark
+              <IconMoon />
+            </>
+          )}
+        </IconButton>
+      </PanelContainer>
       <InputField
         name="input"
         placeholder="Type something..."

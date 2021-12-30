@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {P, Colors} from '../../styles'
+import {Colors} from '../../styles'
 
 export const FontHeroContainer = styled.div`
   border-bottom: 2px solid ${Colors.black};
