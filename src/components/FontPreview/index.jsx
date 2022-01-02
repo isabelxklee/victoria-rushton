@@ -14,6 +14,8 @@ const FontPreview = ({font}) => {
       .catch(console.error)
   }, [font])
 
+  console.log(previews)
+
   return (
     <>
       {previews &&
@@ -22,7 +24,7 @@ const FontPreview = ({font}) => {
             {preview.font === font && (
               <PreviewTextContainer>
                 <PSpace>
-                  {font} {preview.weightTitle}
+                  {font} {preview.weightTitle} {preview.slant.includes('Italic') && preview.slant}
                 </PSpace>
                 {preview.useSVG && preview.svg ? (
                   <SVG
