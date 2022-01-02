@@ -7,9 +7,11 @@ export const PreviewText = styled.p`
   font-family: ${({$font}) => $font};
   line-height: ${({$lineHeight}) => $lineHeight};
   margin: ${({$margin}) => $margin};
+  max-width: 1000px;
 
   @media (max-width: 900px) {
     font-size: ${({$size}) => $size * 0.7}px;
+    
   }
 `
 
