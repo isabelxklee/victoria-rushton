@@ -14,8 +14,6 @@ const FontPreview = ({font}) => {
       .catch(console.error)
   }, [font])
 
-  console.log(previews)
-
   return (
     <>
       {previews &&
