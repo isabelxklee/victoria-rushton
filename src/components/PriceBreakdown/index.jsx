@@ -64,12 +64,10 @@ const PriceBreakdown = ({
           </SelectedItem>
         ))}
 
-      {/* {selectedFonts && selectedFonts.length > 0 && totalPrice && (
-        <SelectedItem $disabled={false}>
-          <TotalPrice>Subtotal</TotalPrice>
-          <TotalPrice>${totalPrice}</TotalPrice>
-        </SelectedItem>
-      )} */}
+      <SelectedItem $disabled={false}>
+        <TotalPrice>Subtotal</TotalPrice>
+        <TotalPrice>${totalPrice ? totalPrice : 0}</TotalPrice>
+      </SelectedItem>
 
       <Checkout
         disableCheckout={disableCheckout}
