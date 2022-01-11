@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
-import {ParentContainer, SelectionContainer, LinksContainer} from './styles'
+import {ParentContainer, SelectionContainer} from './styles'
 import {H2, H3, Margin} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
