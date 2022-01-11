@@ -25,12 +25,6 @@ export const TotalPrice = styled(P)`
   margin-top: 16px;
 `
 
-export const LinksContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 32px;
-`
-
 export const RemoveIcon = styled(Remove)`
   width: 16px;
   height: 16px;

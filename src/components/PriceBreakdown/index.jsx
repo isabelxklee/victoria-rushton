@@ -47,47 +47,44 @@ const PriceBreakdown = ({
 
   return (
     <>
-      <H3>Cart</H3>
-      <Margin $margin="16px 0">
-        {selectedFonts || selectedLicense ? (
-          <>
-            {selectedLicense && (
-              <>
-                <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
-                {font.title.includes('Cecilie') && (
-                  <SelectedItem $disabled={!variableFont}>
-                    <P>{font.title} Variable Font</P>
-                    <Right>
-                      <P>FREE</P>
-                    </Right>
-                  </SelectedItem>
-                )}
-              </>
-            )}
-            {selectedFonts &&
-              selectedFonts.map((weightTitle) => (
-                <SelectedItem key={weightTitle} $disabled={false}>
-                  <P>
-                    {font.title} {weightTitle}
-                  </P>
+      {selectedFonts || selectedLicense ? (
+        <>
+          {selectedLicense && (
+            <>
+              <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
+              {font.title.includes('Cecilie') && (
+                <SelectedItem $disabled={!variableFont}>
+                  <P>{font.title} Variable Font</P>
                   <Right>
-                    <P>${selectedLicense.price}</P>
-                    <RemoveIcon onClick={() => handleRemove(weightTitle)} />
+                    <P>FREE</P>
                   </Right>
                 </SelectedItem>
-              ))}
-
-            {selectedFonts && selectedFonts.length > 0 && totalPrice && (
-              <SelectedItem $disabled={false}>
-                <TotalPrice>Subtotal</TotalPrice>
-                <TotalPrice>${totalPrice}</TotalPrice>
+              )}
+            </>
+          )}
+          {selectedFonts &&
+            selectedFonts.map((weightTitle) => (
+              <SelectedItem key={weightTitle} $disabled={false}>
+                <P>
+                  {font.title} {weightTitle}
+                </P>
+                <Right>
+                  <P>${selectedLicense.price}</P>
+                  <RemoveIcon onClick={() => handleRemove(weightTitle)} />
+                </Right>
               </SelectedItem>
-            )}
-          </>
-        ) : (
-          <PSpace inputMargin="16px 0">Add something to your cart.</PSpace>
-        )}
-      </Margin>
+            ))}
+
+          {selectedFonts && selectedFonts.length > 0 && totalPrice && (
+            <SelectedItem $disabled={false}>
+              <TotalPrice>Subtotal</TotalPrice>
+              <TotalPrice>${totalPrice}</TotalPrice>
+            </SelectedItem>
+          )}
+        </>
+      ) : (
+        <PSpace inputMargin="16px 0">Add something to your cart.</PSpace>
+      )}
 
       <Checkout
         disableCheckout={disableCheckout}
@@ -97,17 +94,6 @@ const PriceBreakdown = ({
         font={font}
         variableFont={variableFont}
       />
-
-      <LinksContainer>
-        <H3>More resources</H3>
-        {checkoutLinks.map((link) => (
-          <SmallText key={link._id}>
-            <TextLink inputWeight={400} href={link.url} rel="no_referrer" target="_blank">
-              {link.linkText}
-            </TextLink>
-          </SmallText>
-        ))}
-      </LinksContainer>
     </>
   )
 }

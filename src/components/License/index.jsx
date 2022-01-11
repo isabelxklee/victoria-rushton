@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
-import {ParentContainer, SelectionContainer} from './styles'
-import {H2} from '../../styles'
+import {ParentContainer, SelectionContainer, LinksContainer} from './styles'
+import {H2, H3, Margin} from '../../styles'
 import {PriceContainer} from '../PriceBreakdown/styles'
 import PriceBreakdown from '../PriceBreakdown'
 import SelectionForm from '../SelectionForm'
+import CheckoutLinks from '../CheckoutLinks'
 import {licensesQuery} from '../../queries'
 
 const License = ({font, weightOptions, slantOptions}) => {
@@ -25,6 +26,8 @@ const License = ({font, weightOptions, slantOptions}) => {
     setTotalPrice(selectedLicense && selectedFonts && selectedLicense.price * selectedFonts.length)
   }, [selectedFonts, selectedLicense])
 
+  console.log(selectedLicense && selectedFonts && selectedLicense.price * selectedFonts.length)
+
   return (
     <ParentContainer>
       <SelectionContainer>
@@ -41,15 +44,19 @@ const License = ({font, weightOptions, slantOptions}) => {
         />
       </SelectionContainer>
       <PriceContainer>
-        <PriceBreakdown
-          selectedLicense={selectedLicense}
-          setSelectedFonts={setSelectedFonts}
-          selectedFonts={selectedFonts}
-          font={font}
-          totalPrice={totalPrice}
-          variableFont={variableFont}
-          setVariableFont={setVariableFont}
-        />
+        <H3>Cart</H3>
+        <Margin $margin="16px 0">
+          <PriceBreakdown
+            selectedLicense={selectedLicense}
+            setSelectedFonts={setSelectedFonts}
+            selectedFonts={selectedFonts}
+            font={font}
+            totalPrice={totalPrice}
+            variableFont={variableFont}
+            setVariableFont={setVariableFont}
+          />
+        </Margin>
+        <CheckoutLinks />
       </PriceContainer>
     </ParentContainer>
   )
