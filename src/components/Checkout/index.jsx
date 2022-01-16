@@ -16,24 +16,19 @@ const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) =
 
     if (selectedLicense.title === 'Trial') {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download`, {
-        method: 'GET',
+        method: 'POSt',
         headers: {'Content-Type': 'application/json'},
-        // body: JSON.stringify({
-        //   name: font.title,
-        //   selectedFonts: selectedFonts,
-        //   license: selectedLicense,
-        // }),
+        body: JSON.stringify({
+          name: font.title,
+          selectedFonts: selectedFonts,
+          license: selectedLicense,
+        }),
       })
       const doc = await response.blob()
-      // It is necessary to create a new blob object with mime-type explicitly set for all browsers except Chrome, but it works for Chrome too.
-      const newBlob = new Blob([doc], {type: 'application/pdf'})
-
-      // MS Edge and IE don't allow using a blob object directly as link href, instead it is necessary to use msSaveOrOpenBlob
       if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-        window.navigator.msSaveOrOpenBlob(newBlob)
+        window.navigator.msSaveOrOpenBlob(doc)
       } else {
-        // For other browsers: create a link pointing to the ObjectURL containing the blob.
-        const objUrl = window.URL.createObjectURL(newBlob)
+        const objUrl = window.URL.createObjectURL(doc)
 
         let link = document.createElement('a')
         link.href = objUrl
