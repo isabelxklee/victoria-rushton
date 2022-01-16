@@ -26,8 +26,6 @@ const License = ({font, weightOptions, slantOptions}) => {
     setTotalPrice(selectedLicense && selectedFonts && selectedLicense.price * selectedFonts.length)
   }, [selectedFonts, selectedLicense])
 
-  console.log(selectedLicense && selectedFonts && selectedLicense.price * selectedFonts.length)
-
   return (
     <ParentContainer>
       <SelectionContainer>

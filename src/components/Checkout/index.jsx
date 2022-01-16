@@ -1,9 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
 
 const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) => {
   const [buttonLabel, setButtonLabel] = useState('Checkout')
+
+  useEffect(() => {
+    setButtonLabel(selectedLicense && selectedLicense.title === 'Trial' ? 'Download' : 'Checkout')
+  }, [selectedLicense])
 
   const handleSubmit = async (event) => {
     setButtonLabel('Loading...')
