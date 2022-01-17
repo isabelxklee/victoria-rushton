@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
+import {InputField} from './styles'
 
 const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) => {
   const [buttonLabel, setButtonLabel] = useState('Checkout')
@@ -16,7 +17,7 @@ const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) =
 
     if (selectedLicense.title === 'Trial') {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download`, {
-        method: 'POSt',
+        method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           name: font.title,
@@ -69,6 +70,15 @@ const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) =
   return (
     <>
       <form onSubmit={handleSubmit}>
+        {selectedLicense && selectedLicense.title === 'Trial' && (
+          <>
+            <label>Name</label>
+            <InputField type="text" name="name" required autoComplete="off" />
+            <label>Email</label>
+            <InputField type="email" name="email" required autoComplete="off" />
+          </>
+        )}
+
         <Button type="submit" $disabled={disableCheckout()}>
           {buttonLabel}
         </Button>
