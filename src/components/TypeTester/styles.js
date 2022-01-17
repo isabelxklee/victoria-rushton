@@ -30,7 +30,7 @@ export const PanelContainer = styled.div`
   }
 `
 
-export const InputField = styled.textarea.attrs(
+export const TextArea = styled.textarea.attrs(
   ({$weight, $size, $darkMode, $lightMode, $slant}) => ({
     style: {
       fontWeight: `${$weight}`,

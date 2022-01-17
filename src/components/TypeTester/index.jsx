@@ -4,7 +4,7 @@ import SliderInput from '../Slider'
 import {
   TypeTesterContainer,
   PanelContainer,
-  InputField,
+  TextArea,
   IconButton,
   IconSun,
   IconMoon,
@@ -70,7 +70,7 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
           )}
         </IconButton>
       </PanelContainer>
-      <InputField
+      <TextArea
         name="input"
         placeholder="Type something..."
         $weight={weight ? weight.value : weightOptions()[0]}
