@@ -31,53 +31,43 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
 
   const handleSubmit = async (values) => {
     setButtonLabel('Loading...')
-    let slug = ''
 
-    selectedLicense.title === 'Trial'
-      ? (slug = 'download-trial-fonts')
-      : (slug = 'create-checkout-session')
+    if (selectedLicense.title === 'Trial') {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download-trial-fonts`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          font: font.title,
+          selectedFonts: selectedFonts,
+          license: selectedLicense,
+          customerName: values.name,
+          customerEmail: values.email,
+        }),
+      })
 
-    //   const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
-    //   const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, {
-    //     method: 'POST',
-    //     headers: {'Content-Type': 'application/json'},
-    //     body: JSON.stringify({
-    //       name: font.title,
-    //       selectedFonts: selectedFonts,
-    //       license: selectedLicense,
-    //     }),
-    //   })
-    //     .then((r) => r.json())
-    //     .then((session) => stripe.redirectToCheckout({sessionId: session.id}))
+      if (!response) {
+        console.log(response.error)
+      }
+    } else {
+      const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          font: font.title,
+          selectedFonts: selectedFonts,
+          license: selectedLicense,
+        }),
+      })
+        .then((r) => r.json())
+        .then((session) => stripe.redirectToCheckout({sessionId: session.id}))
 
-    //   if (!response) {
-    //     console.log(response.error)
-    //   }
-    // }
-
-    const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
-    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/${slug}`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        name: font.title,
-        selectedFonts: selectedFonts,
-        license: selectedLicense,
-        customerName: values.name,
-        customerEmail: values.email,
-      }),
-    })
-      .then((r) => r.json())
-      .then(
-        (session) =>
-          slug === 'create-checkout-session' && stripe.redirectToCheckout({sessionId: session.id})
-      )
-
-    if (!response) {
-      console.log(response.error)
+      if (!response) {
+        console.log(response.error)
+      }
     }
 
-    setButtonLabel('Checkout')
+    window.location.reload()
   }
 
   return (
