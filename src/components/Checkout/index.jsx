@@ -96,13 +96,15 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
         {({errors, touched}) => (
           <>
             {selectedLicense && selectedLicense.title === 'Trial' ? (
-              <Form>
-                <Label>Name</Label>
-                <InputField type="name" name="name" autoComplete="off" />
-                {errors.name && touched.name && <ErrorMessage name="name" />}
-                <Label>Email address</Label>
-                <InputField type="email" name="email" autoComplete="off" />
-                {errors.email && touched.email && <ErrorMessage name="email" />}
+              <Form onSubmit={handleSubmit}>
+                <FieldContainer>
+                  <Label>Name</Label>
+                  <InputField type="name" name="name" autoComplete="off" />
+                  {errors.name && touched.name && <ErrorMessage name="name" />}
+                  <Label>Email address</Label>
+                  <InputField type="email" name="email" autoComplete="off" />
+                  {errors.email && touched.email && <ErrorMessage name="email" />}
+                </FieldContainer>
                 <Button type="submit" $disabled={errors.name && errors.email}>
                   {buttonLabel}
                 </Button>
@@ -115,21 +117,6 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
           </>
         )}
       </Formik>
-
-      {/* <form onSubmit={handleSubmit}>
-        {selectedLicense && selectedLicense.title === 'Trial' && (
-          <FieldContainer $margin="16px 0">
-            <Label>Name</Label>
-            <InputField type="text" name="name" required autoComplete="off" />
-            <Label>Email</Label>
-            <InputField type="email" name="email" required autoComplete="off" />
-          </FieldContainer>
-        )}
-
-        <Button type="submit" $disabled={disableCheckout()}>
-          {buttonLabel}
-        </Button>
-      </form> */}
     </>
   )
 }
