@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {Field} from 'formik'
+import {P} from '../../styles'
 
 export const InputField = styled(Field)`
   font-family: 'Cecilie Sans', sans-serif;
@@ -8,10 +9,11 @@ export const InputField = styled(Field)`
   border-radius: 4px;
   border: 1px solid #ccc !important;
   margin-bottom: 4px;
+  font-weight: 300;
 `
 
 export const Label = styled.label`
-  margin: 2px;
+  margin: 16px 0 2px 0;
 `
 
 export const FieldContainer = styled.div`
@@ -21,4 +23,6 @@ export const FieldContainer = styled.div`
 
 export const Error = styled.div`
   color: red;
+  font-size: 16px;
+  font-weight: 300;
 `
