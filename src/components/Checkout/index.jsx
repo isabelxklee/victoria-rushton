@@ -7,8 +7,6 @@ import * as Yup from 'yup'
 
 const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
   const [buttonLabel, setButtonLabel] = useState('Checkout')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
 
   const formSchema = Yup.object().shape({
     name: Yup.string().required('This is a required field.'),
@@ -31,10 +29,8 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
     }
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (values) => {
     setButtonLabel('Loading...')
-
-    event.preventDefault()
 
     if (selectedLicense.title === 'Trial') {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download`, {
@@ -44,9 +40,13 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
           name: font.title,
           selectedFonts: selectedFonts,
           license: selectedLicense,
+          customerName: values.name,
+          customerEmail: values.email,
         }),
       })
+
       const doc = await response.blob()
+
       if (window.navigator && window.navigator.msSaveOrOpenBlob) {
         window.navigator.msSaveOrOpenBlob(doc)
       } else {
@@ -93,12 +93,12 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
       <Formik
         initialValues={{name: '', email: ''}}
         validationSchema={formSchema}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => handleSubmit(values)}
       >
         {({errors, touched}) => (
           <>
             {selectedLicense && selectedLicense.title === 'Trial' ? (
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <FieldContainer>
                   <Label>Name</Label>
                   <InputField type="name" name="name" autoComplete="off" />
