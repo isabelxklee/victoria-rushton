@@ -3,12 +3,24 @@ import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
 import {InputField, FieldContainer, Label} from './styles'
 
-const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) => {
+const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
   const [buttonLabel, setButtonLabel] = useState('Checkout')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
 
   useEffect(() => {
     setButtonLabel(selectedLicense && selectedLicense.title === 'Trial' ? 'Download' : 'Checkout')
   }, [selectedLicense])
+
+  const disableCheckout = () => {
+    if (!selectedLicense) {
+      return true
+    } else if (!selectedFonts) {
+      return true
+    } else if (selectedFonts.length < 1) {
+      return true
+    }
+  }
 
   const handleSubmit = async (event) => {
     setButtonLabel('Loading...')

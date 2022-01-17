@@ -22,16 +22,6 @@ const PriceBreakdown = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFonts])
 
-  const disableCheckout = () => {
-    if (!selectedLicense) {
-      return true
-    } else if (!selectedFonts) {
-      return true
-    } else if (selectedFonts.length < 1) {
-      return true
-    }
-  }
-
   const handleRemove = (deletedFont) => {
     setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => font !== deletedFont))
   }
@@ -70,7 +60,6 @@ const PriceBreakdown = ({
       </SelectedItem>
 
       <Checkout
-        disableCheckout={disableCheckout}
         selectedLicense={selectedLicense}
         selectedFonts={selectedFonts}
         setSelectedFonts={setSelectedFonts}
