@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
-import {InputField} from './styles'
+import {InputField, FieldContainer, Label} from './styles'
 
 const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) => {
   const [buttonLabel, setButtonLabel] = useState('Checkout')
@@ -71,12 +71,12 @@ const CheckoutForm = ({disableCheckout, selectedLicense, selectedFonts, font}) =
     <>
       <form onSubmit={handleSubmit}>
         {selectedLicense && selectedLicense.title === 'Trial' && (
-          <>
-            <label>Name</label>
+          <FieldContainer $margin="16px 0">
+            <Label>Name</Label>
             <InputField type="text" name="name" required autoComplete="off" />
-            <label>Email</label>
+            <Label>Email</Label>
             <InputField type="email" name="email" required autoComplete="off" />
-          </>
+          </FieldContainer>
         )}
 
         <Button type="submit" $disabled={disableCheckout()}>
