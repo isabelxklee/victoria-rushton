@@ -31,58 +31,50 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
 
   const handleSubmit = async (values) => {
     setButtonLabel('Loading...')
+    let slug = ''
 
-    if (selectedLicense.title === 'Trial') {
-      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download-trial-fonts`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          name: font.title,
-          selectedFonts: selectedFonts,
-          license: selectedLicense,
-          customerName: values.name,
-          customerEmail: values.email,
-        }),
-      })
+    selectedLicense.title === 'Trial'
+      ? (slug = 'download-trial-fonts')
+      : (slug = 'create-checkout-session')
 
-      const doc = await response.blob()
+    //   const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
+    //   const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, {
+    //     method: 'POST',
+    //     headers: {'Content-Type': 'application/json'},
+    //     body: JSON.stringify({
+    //       name: font.title,
+    //       selectedFonts: selectedFonts,
+    //       license: selectedLicense,
+    //     }),
+    //   })
+    //     .then((r) => r.json())
+    //     .then((session) => stripe.redirectToCheckout({sessionId: session.id}))
 
-      if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-        window.navigator.msSaveOrOpenBlob(doc)
-      } else {
-        const objUrl = window.URL.createObjectURL(doc)
+    //   if (!response) {
+    //     console.log(response.error)
+    //   }
+    // }
 
-        let link = document.createElement('a')
-        link.href = objUrl
-        link.download = response.filename
-        link.click()
+    const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/${slug}`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        name: font.title,
+        selectedFonts: selectedFonts,
+        license: selectedLicense,
+        customerName: values.name,
+        customerEmail: values.email,
+      }),
+    })
+      .then((r) => r.json())
+      .then(
+        (session) =>
+          slug === 'create-checkout-session' && stripe.redirectToCheckout({sessionId: session.id})
+      )
 
-        // For Firefox it is necessary to delay revoking the ObjectURL.
-        setTimeout(() => {
-          window.URL.revokeObjectURL(objUrl)
-        }, 250)
-      }
-
-      if (!response) {
-        console.log(response.error)
-      }
-    } else {
-      const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
-      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          name: font.title,
-          selectedFonts: selectedFonts,
-          license: selectedLicense,
-        }),
-      })
-        .then((r) => r.json())
-        .then((session) => stripe.redirectToCheckout({sessionId: session.id}))
-
-      if (!response) {
-        console.log(response.error)
-      }
+    if (!response) {
+      console.log(response.error)
     }
 
     setButtonLabel('Checkout')
