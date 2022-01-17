@@ -18,3 +18,7 @@ export const FieldContainer = styled.div`
   margin: 16px 0;
   display: grid;
 `
+
+export const Error = styled.div`
+  color: red;
+`

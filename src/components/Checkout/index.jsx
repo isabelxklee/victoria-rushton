@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
-import {InputField, FieldContainer, Label} from './styles'
-import {Formik, Form, Field, ErrorMessage} from 'formik'
+import {InputField, FieldContainer, Label, Error} from './styles'
+import {Formik, Form} from 'formik'
 import * as Yup from 'yup'
 
 const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
@@ -11,8 +11,10 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
   const [email, setEmail] = useState('')
 
   const formSchema = Yup.object().shape({
-    name: Yup.string().required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
+    name: Yup.string().required('This is a required field.'),
+    email: Yup.string()
+      .email('Please enter a valid email address.')
+      .required('This is a required field.'),
   })
 
   useEffect(() => {
@@ -100,10 +102,10 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
                 <FieldContainer>
                   <Label>Name</Label>
                   <InputField type="name" name="name" autoComplete="off" />
-                  {errors.name && touched.name && <ErrorMessage name="name" />}
+                  {errors.name && touched.name && <Error name="name">{errors.name}</Error>}
                   <Label>Email address</Label>
                   <InputField type="email" name="email" autoComplete="off" />
-                  {errors.email && touched.email && <ErrorMessage name="email" />}
+                  {errors.email && touched.email && <Error name="email">{errors.email}</Error>}
                 </FieldContainer>
                 <Button type="submit" $disabled={errors.name && errors.email}>
                   {buttonLabel}
