@@ -66,8 +66,6 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
         console.log(response.error)
       }
     }
-
-    window.location.reload()
   }
 
   return (
@@ -75,7 +73,13 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
       <Formik
         initialValues={{name: '', email: ''}}
         validationSchema={formSchema}
-        onSubmit={(values) => handleSubmit(values)}
+        onSubmit={(values) => {
+          handleSubmit(values)
+
+          setTimeout(() => {
+            window.location.reload()
+          }, 1200)
+        }}
       >
         {({errors, touched, isValid, dirty}) => (
           <>
