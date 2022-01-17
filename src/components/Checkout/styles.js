@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import {Field} from 'formik'
 
-export const InputField = styled.input`
+export const InputField = styled(Field)`
   font-family: 'Cecilie Sans', sans-serif;
   font-size: 16px;
   padding: 4px 8px;

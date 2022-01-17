@@ -3,11 +3,17 @@ import {loadStripe} from '@stripe/stripe-js'
 import {Button} from '../../styles'
 import {InputField, FieldContainer, Label} from './styles'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
+import * as Yup from 'yup'
 
 const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
   const [buttonLabel, setButtonLabel] = useState('Checkout')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+
+  const formSchema = Yup.object().shape({
+    name: Yup.string().required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+  })
 
   useEffect(() => {
     setButtonLabel(selectedLicense && selectedLicense.title === 'Trial' ? 'Download' : 'Checkout')
@@ -84,32 +90,29 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
     <>
       <Formik
         initialValues={{name: '', email: ''}}
-        validate={(values) => {
-          const errors = {}
-          if (!values.email) {
-            errors.email = 'Required'
-          } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-            errors.email = 'Invalid email address'
-          }
-          return errors
-        }}
-        onSubmit={(values, {setSubmitting}) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
-            setSubmitting(false)
-          }, 400)
-        }}
+        validationSchema={formSchema}
+        onSubmit={(values) => console.log(values)}
       >
-        {({isSubmitting}) => (
-          <Form>
-            <Field type="name" name="name" />
-            <ErrorMessage name="name" component="div" />
-            <Field type="email" name="email" />
-            <ErrorMessage name="email" component="div" />
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
-          </Form>
+        {({errors, touched}) => (
+          <>
+            {selectedLicense && selectedLicense.title === 'Trial' ? (
+              <Form>
+                <Label>Name</Label>
+                <InputField type="name" name="name" autoComplete="off" />
+                {errors.name && touched.name && <ErrorMessage name="name" />}
+                <Label>Email address</Label>
+                <InputField type="email" name="email" autoComplete="off" />
+                {errors.email && touched.email && <ErrorMessage name="email" />}
+                <Button type="submit" $disabled={errors.name && errors.email}>
+                  {buttonLabel}
+                </Button>
+              </Form>
+            ) : (
+              <Button type="submit" $disabled={disableCheckout()}>
+                {buttonLabel}
+              </Button>
+            )}
+          </>
         )}
       </Formik>
 
