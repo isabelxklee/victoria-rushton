@@ -33,7 +33,7 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
     setButtonLabel('Loading...')
 
     if (selectedLicense.title === 'Trial') {
-      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download`, {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download-trial-fonts`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -95,7 +95,7 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
         validationSchema={formSchema}
         onSubmit={(values) => handleSubmit(values)}
       >
-        {({errors, touched}) => (
+        {({errors, touched, isValid, dirty}) => (
           <>
             {selectedLicense && selectedLicense.title === 'Trial' ? (
               <Form>
@@ -107,7 +107,7 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
                   <InputField type="email" name="email" autoComplete="off" />
                   {errors.email && touched.email && <Error name="email">{errors.email}</Error>}
                 </FieldContainer>
-                <Button type="submit" $disabled={errors.name && errors.email}>
+                <Button type="submit" $disabled={!(isValid && dirty)}>
                   {buttonLabel}
                 </Button>
               </Form>
