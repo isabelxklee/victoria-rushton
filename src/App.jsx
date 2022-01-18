@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import FontProfile from './pages/FontProfile'
+import Success from './pages/Success'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           </Route>
           <Route component={Home} exact path="/" />
           <Route component={FontProfile} path="/:slug" />
+          <Route component={Success} path="/success" />
         </Switch>
       </Wrapper>
       <Footer />
