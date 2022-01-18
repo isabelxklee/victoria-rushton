@@ -16,12 +16,14 @@ const App = () => {
       <Wrapper>
         <Header />
         <Switch>
-          <Route component={About} path="/about">
+          <Route path="/about">
             <About />
+          </Route>
+          <Route path="/success">
+            <Success />
           </Route>
           <Route component={Home} exact path="/" />
           <Route component={FontProfile} path="/:slug" />
-          <Route component={Success} path="/success" />
         </Switch>
       </Wrapper>
       <Footer />
