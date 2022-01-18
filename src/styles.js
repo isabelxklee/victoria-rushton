@@ -19,9 +19,14 @@ export const InternalLink = styled(Link)`
   margin-right: 20px;
 `
 
+export const AppContainer = styled.div`
+  position: relative;
+  min-height: 100vh;
+`
+
 export const Wrapper = styled.div`
-  margin: 80px;
-  padding: 0;
+  margin: 80px 80px 0 80px;
+  padding-bottom: 20px;
 
   @media (max-width: 900px) {
     margin: 20px;

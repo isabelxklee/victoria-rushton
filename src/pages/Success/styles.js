@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const SuccessContainer = styled.div`
-  padding: 100px 220px 200px 220px;
+  padding: 100px 260px;
 
-  @media (max-width: 1000px) {
-    padding: 60px 0 200px 0;
+  @media (max-width: 1100px) {
+    padding: 100px 0;
   }
 `
