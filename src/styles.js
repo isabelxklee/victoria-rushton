@@ -77,6 +77,7 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   font-size: 32px;
   font-weight: 700;
+  line-height: 1.1;
 `
 
 export const H3 = styled.h3`
