@@ -12,7 +12,7 @@ const Success = () => {
       <Margin $margin="20px 0" />
       <PSpace>
         Please check your email for the font files and your Trial License Agreement, and feel free
-        to get in touch with any questions.”
+        to get in touch with any questions.
       </PSpace>
       <Margin $margin="40px 0" />
       <Button onClick={() => history.push('/')}>Back to fonts</Button>

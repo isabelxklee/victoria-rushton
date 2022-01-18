@@ -17,31 +17,33 @@ const FormikForm = ({selectedLicense, selectedFonts, font}) => {
   })
 
   useEffect(() => {
-    setButtonLabel(selectedLicense && selectedLicense.title === 'Trial' ? 'Download' : 'Checkout')
+    setButtonLabel(
+      selectedLicense && selectedLicense.title === 'Trial' ? 'Send trial fonts' : 'Checkout'
+    )
   }, [selectedLicense])
 
   const handleSubmit = async (values) => {
     setButtonLabel('Loading...')
 
-    // const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download-trial-fonts`, {
-    //   method: 'POST',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({
-    //     font: font.title,
-    //     selectedFonts: selectedFonts,
-    //     license: selectedLicense,
-    //     customerName: values.name,
-    //     customerEmail: values.email,
-    //   }),
-    // })
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download-trial-fonts`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        font: font.title,
+        selectedFonts: selectedFonts,
+        license: selectedLicense,
+        customerName: values.name,
+        customerEmail: values.email,
+      }),
+    })
 
-    // if (!response) {
-    //   console.log(response.error)
-    // }
+    if (!response) {
+      console.log(response.error)
+    }
 
     setTimeout(() => {
       history.push('/success')
-    }, 1200)
+    }, 900)
   }
 
   return (
