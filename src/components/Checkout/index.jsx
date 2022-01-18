@@ -15,31 +15,31 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
 
     event.preventDefault()
 
-    const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
-    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        font: font.title,
-        selectedFonts: selectedFonts,
-        license: selectedLicense,
-      }),
-    })
-      .then((r) => r.json())
-      .then((session) => stripe.redirectToCheckout({sessionId: session.id}))
+    // const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET)
+    // const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`, {
+    //   method: 'POST',
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify({
+    //     font: font.title,
+    //     selectedFonts: selectedFonts,
+    //     license: selectedLicense,
+    //   }),
+    // })
+    //   .then((r) => r.json())
+    //   .then((session) => stripe.redirectToCheckout({sessionId: session.id}))
 
-    if (!response) {
-      console.log(response.error)
-    }
+    // if (!response) {
+    //   console.log(response.error)
+    // }
   }
 
   return (
     <>
       {selectedLicense && selectedLicense.title === 'Trial' ? (
-        <FormikForm />
+        <FormikForm selectedLicense={selectedLicense} selectedFonts={selectedFonts} font={font} />
       ) : (
         <form onSubmit={handleSubmit}>
-          <Button type="submit" $disabled={!selectedLicense && selectedFonts.length < 1}>
+          <Button type="submit" $disabled={!selectedLicense || selectedFonts.length < 1}>
             {buttonLabel}
           </Button>
         </form>

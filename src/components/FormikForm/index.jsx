@@ -21,21 +21,21 @@ const FormikForm = ({selectedLicense, selectedFonts, font}) => {
   const handleSubmit = async (values) => {
     setButtonLabel('Loading...')
 
-    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download-trial-fonts`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        font: font.title,
-        selectedFonts: selectedFonts,
-        license: selectedLicense,
-        customerName: values.name,
-        customerEmail: values.email,
-      }),
-    })
+    // const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/download-trial-fonts`, {
+    //   method: 'POST',
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify({
+    //     font: font.title,
+    //     selectedFonts: selectedFonts,
+    //     license: selectedLicense,
+    //     customerName: values.name,
+    //     customerEmail: values.email,
+    //   }),
+    // })
 
-    if (!response) {
-      console.log(response.error)
-    }
+    // if (!response) {
+    //   console.log(response.error)
+    // }
   }
 
   return (
@@ -44,8 +44,6 @@ const FormikForm = ({selectedLicense, selectedFonts, font}) => {
         initialValues={{name: '', email: ''}}
         validationSchema={formSchema}
         onSubmit={(values) => {
-          console.log('made it here')
-
           handleSubmit(values)
 
           setTimeout(() => {
