@@ -34,13 +34,10 @@ export const PressContainer = styled.div`
   width: calc(100vw - 160px);
   margin-left: calc(50% - 50vw);
   padding: 80px;
-  height: calc(100% + 80px);
-  margin-bottom: -80px;
 
   @media (max-width: 900px) {
     padding: 40px;
     width: calc(100vw - 80px);
-    margin-bottom: -20px;
   }
 `
 

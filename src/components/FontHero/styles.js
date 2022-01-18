@@ -6,6 +6,7 @@ export const FontHeroContainer = styled.div`
 
   &:last-child {
     border-bottom: none;
+    margin-bottom: 180px;
   }
 `
 

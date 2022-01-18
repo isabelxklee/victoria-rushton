@@ -19,12 +19,18 @@ export const InternalLink = styled(Link)`
   margin-right: 20px;
 `
 
+export const AppContainer = styled.div`
+  position: relative;
+  min-height: 100vh;
+`
+
 export const Wrapper = styled.div`
-  margin: 80px;
-  padding: 0;
+  margin: 80px 80px 0 80px;
+  padding-bottom: 20px;
 
   @media (max-width: 900px) {
-    margin: 20px;
+    margin: 20px 20px 0 20px;
+    padding-bottom: 40px;
   }
 `
 
@@ -77,6 +83,7 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   font-size: 32px;
   font-weight: 700;
+  line-height: 1.1;
 `
 
 export const H3 = styled.h3`

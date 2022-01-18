@@ -4,11 +4,10 @@ import {Colors} from '../../styles'
 export const ParentContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 80px;
+  margin: 80px 0 140px 0;
 
   @media (max-width: 900px) {
     display: block;
-    margin-top: 0;
   }
 `
 

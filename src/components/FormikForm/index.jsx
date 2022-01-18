@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import {Button} from '../../styles'
 import {InputField, FieldContainer, Label, Error} from './styles'
 import {Formik, Form} from 'formik'
@@ -6,6 +7,7 @@ import * as Yup from 'yup'
 
 const FormikForm = ({selectedLicense, selectedFonts, font}) => {
   const [buttonLabel, setButtonLabel] = useState('Checkout')
+  let history = useHistory()
 
   const formSchema = Yup.object().shape({
     name: Yup.string().required('This is a required field.'),
@@ -15,7 +17,9 @@ const FormikForm = ({selectedLicense, selectedFonts, font}) => {
   })
 
   useEffect(() => {
-    setButtonLabel(selectedLicense && selectedLicense.title === 'Trial' ? 'Download' : 'Checkout')
+    setButtonLabel(
+      selectedLicense && selectedLicense.title === 'Trial' ? 'Send trial fonts' : 'Checkout'
+    )
   }, [selectedLicense])
 
   const handleSubmit = async (values) => {
@@ -36,6 +40,10 @@ const FormikForm = ({selectedLicense, selectedFonts, font}) => {
     if (!response) {
       console.log(response.error)
     }
+
+    setTimeout(() => {
+      history.push('/success')
+    }, 900)
   }
 
   return (
@@ -45,10 +53,6 @@ const FormikForm = ({selectedLicense, selectedFonts, font}) => {
         validationSchema={formSchema}
         onSubmit={(values) => {
           handleSubmit(values)
-
-          setTimeout(() => {
-            window.location.reload()
-          }, 1200)
         }}
       >
         {({errors, touched, isValid, dirty}) => (
