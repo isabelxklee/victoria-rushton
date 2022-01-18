@@ -31,7 +31,7 @@ const PriceBreakdown = ({
       {selectedLicense && (
         <>
           <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
-          {font.title.includes('Cecilie') && (
+          {font.title.includes('Cecilie') && selectedLicense.title !== 'Trial' && (
             <SelectedItem $disabled={!variableFont}>
               <P>{font.title} Variable Font</P>
               <Right>
@@ -64,7 +64,6 @@ const PriceBreakdown = ({
         selectedFonts={selectedFonts}
         setSelectedFonts={setSelectedFonts}
         font={font}
-        variableFont={variableFont}
       />
     </>
   )
