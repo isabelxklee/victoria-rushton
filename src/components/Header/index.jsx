@@ -3,12 +3,12 @@ import {HeaderContainer, LogoLink, HeaderLink, Logo} from './styles'
 
 const Header = () => (
   <HeaderContainer>
-    <LogoLink exact to="/">
+    <LogoLink to="/">
       <Logo />
     </LogoLink>
 
     <div>
-      <HeaderLink exact to="/" activeClassName="active">
+      <HeaderLink to="/" activeClassName="active">
         Type
       </HeaderLink>
       <HeaderLink to="/about" activeClassName="active">

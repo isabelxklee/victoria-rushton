@@ -19,7 +19,7 @@ const App = () => {
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/success" element={<Success />} />
-            <Route exact path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/:slug" element={<FontProfile />} />
           </Routes>
         </Wrapper>
