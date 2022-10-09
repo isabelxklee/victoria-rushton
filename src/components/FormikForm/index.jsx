@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import {Button} from '../../styles'
 import {InputField, FieldContainer, Label, Error} from './styles'
 import {Formik, Form} from 'formik'
@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 
 const FormikForm = ({selectedLicense, selectedFonts, font}) => {
   const [buttonLabel, setButtonLabel] = useState('Checkout')
-  let history = useHistory()
+  let navigate = useNavigate()
 
   const formSchema = Yup.object().shape({
     name: Yup.string().required('This is a required field.'),
@@ -42,7 +42,7 @@ const FormikForm = ({selectedLicense, selectedFonts, font}) => {
     }
 
     setTimeout(() => {
-      history.push('/success')
+      navigate('/success')
     }, 900)
   }
 

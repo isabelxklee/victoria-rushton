@@ -1,5 +1,5 @@
 import React from 'react'
-import {ReactSelect} from './styles'
+// import {ReactSelect} from './styles'
 import {Label} from './styles'
 
 const Selector = ({
@@ -15,14 +15,14 @@ const Selector = ({
     <>
       <Label>
         {displayTitle && title}
-        <ReactSelect
+        {/* <ReactSelect
           defaultValue={defaultValue}
           onChange={handleChange}
           options={options}
           placeholder={`Select ${title.toLowerCase()}`}
           isDisabled={isDisabled}
           $typeTester={typeTester}
-        />
+        /> */}
       </Label>
     </>
   )

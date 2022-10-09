@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {PSpace, P, Button, TextLink, H2} from '../../styles'
+import BlockContent from '@sanity/block-content-to-react'
+import {P, Button, TextLink, H2} from '../../styles'
 import {
   ProfilePic,
   IntroContainer,
@@ -14,17 +15,6 @@ import {aboutQuery, pressQuery} from '../../queries.js'
 const About = () => {
   const [about, setAbout] = useState(null)
   const [press, setPress] = useState(null)
-
-  const BlockContent = require('@sanity/block-content-to-react')
-  const serializers = {
-    types: {
-      code: (props) => (
-        <pre data-language={props.node.language}>
-          <code>{props.node.code}</code>
-        </pre>
-      ),
-    },
-  }
 
   useEffect(() => {
     sanityClient
@@ -49,9 +39,7 @@ const About = () => {
           />
           <div>
             <H2>{about.greeting}</H2>
-            <PSpace inputMargin="40px 0">
-              <BlockContent blocks={about.bio} serializers={serializers} />
-            </PSpace>
+            <BlockContent blocks={about.bio} />
             <Button>
               <TextLink href={about.buttonLink} inputWeight="300" $light={true} target="_blank">
                 {about.buttonText}

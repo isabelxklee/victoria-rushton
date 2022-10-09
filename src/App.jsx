@@ -1,13 +1,13 @@
 import React from 'react'
 import {Wrapper, AppContainer} from './styles'
 import {GlobalStyle} from './globalStyle'
-import {Switch, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import About from './pages/About'
 import Home from './pages/Home'
-import Footer from './components/Footer'
-import Header from './components/Header'
 import FontProfile from './pages/FontProfile'
 import Success from './pages/Success'
+import Footer from './components/Footer'
+import Header from './components/Header'
 
 const App = () => {
   return (
@@ -16,16 +16,12 @@ const App = () => {
       <AppContainer>
         <Wrapper>
           <Header />
-          <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/success">
-              <Success />
-            </Route>
-            <Route component={Home} exact path="/" />
-            <Route component={FontProfile} path="/:slug" />
-          </Switch>
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/:slug" element={<FontProfile />} />
+          </Routes>
         </Wrapper>
         <Footer />
       </AppContainer>
