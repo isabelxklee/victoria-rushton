@@ -14,7 +14,7 @@ import {Colors} from '../../styles'
 const TypeTester = ({font, weightOptions, slantOptions}) => {
   const [weight, setWeight] = useState(400)
   const [size, setSize] = useState(60)
-  const [slant, setSlant] = useState({value: 'Roman', label: 'Roman'})
+  const [slant, setSlant] = useState('Roman')
   const [darkMode, setDarkMode] = useState(false)
 
   const handleSizeChange = (event, newValue) => {
@@ -36,17 +36,16 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
             </option>
           ))}
         </select>
-        {slantOptions().length > 1 && (
-          <Selector
-            displayTitle={true}
-            title="Slant"
-            options={slantOptions()}
-            defaultValue={slant}
-            handleChange={setSlant}
-            isDisabled={slantOptions().length < 2}
-            typeTester={true}
-          />
-        )}
+
+        <label>Slant</label>
+        <select value={'Roman'} onChange={(event) => setSlant(event.target.value)}>
+          {slantOptions().length > 1 &&
+            slantOptions().map((slant) => (
+              <option key={slant.value} value={slant.value}>
+                {slant.value}
+              </option>
+            ))}
+        </select>
 
         <SliderInput
           title="Size"
@@ -76,7 +75,7 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
         $weight={weight ? weight : weightOptions()[0]}
         $size={size}
         $fontFamily={font.title}
-        $slant={slant.value}
+        $slant={slant}
         $darkMode={darkMode ? Colors.black : Colors.white}
         $lightMode={darkMode ? Colors.white : Colors.black}
         spellCheck="false"
