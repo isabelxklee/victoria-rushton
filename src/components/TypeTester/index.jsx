@@ -12,7 +12,7 @@ import {
 import {Colors} from '../../styles'
 
 const TypeTester = ({font, weightOptions, slantOptions}) => {
-  const [weight, setWeight] = useState(null)
+  const [weight, setWeight] = useState(400)
   const [size, setSize] = useState(60)
   const [slant, setSlant] = useState({value: 'Roman', label: 'Roman'})
   const [darkMode, setDarkMode] = useState(false)
@@ -28,14 +28,14 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
   return (
     <TypeTesterContainer>
       <PanelContainer>
-        <Selector
-          displayTitle={true}
-          title="Weight"
-          options={weightOptions()}
-          defaultValue={weight}
-          handleChange={setWeight}
-          typeTester={true}
-        />
+        <label>Weight</label>
+        <select value={400} onChange={(event) => setWeight(event.target.value)}>
+          {weightOptions().map((weight) => (
+            <option key={weight.value} value={weight.value}>
+              {weight.label}
+            </option>
+          ))}
+        </select>
         {slantOptions().length > 1 && (
           <Selector
             displayTitle={true}
@@ -73,7 +73,7 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
       <TextArea
         name="input"
         placeholder="Type something..."
-        $weight={weight ? weight.value : weightOptions()[0]}
+        $weight={weight ? weight : weightOptions()[0]}
         $size={size}
         $fontFamily={font.title}
         $slant={slant.value}
