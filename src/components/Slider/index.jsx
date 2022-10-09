@@ -9,7 +9,7 @@ const SliderInput = ({title, handleChange, value, min, max, ariaLabel, marks, st
         <Label>{title} </Label>
         <P>{value}px</P>
       </LabelContainer>
-      <ReactSlider
+      {/* <ReactSlider
         value={value}
         onChange={handleChange}
         min={min}
@@ -17,7 +17,7 @@ const SliderInput = ({title, handleChange, value, min, max, ariaLabel, marks, st
         aria-labelledby={ariaLabel}
         marks={marks}
         step={step}
-      />
+      /> */}
     </div>
   )
 }
