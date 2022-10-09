@@ -1,15 +1,6 @@
 import React, {useState} from 'react'
-import Selector from '../Selector'
-import SliderInput from '../Slider'
-import {
-  TypeTesterContainer,
-  PanelContainer,
-  TextArea,
-  IconButton,
-  IconSun,
-  IconMoon,
-} from './styles'
-import {Colors} from '../../styles'
+import * as Component from '../componentStyles'
+import * as Global from '../../styles'
 
 const TypeTester = ({font, weightOptions, slantOptions}) => {
   const [weight, setWeight] = useState(400)
@@ -17,17 +8,13 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
   const [slant, setSlant] = useState('Roman')
   const [darkMode, setDarkMode] = useState(false)
 
-  const handleSizeChange = (event, newValue) => {
-    setSize(newValue)
-  }
-
   const handleColorModeChange = () => {
     setDarkMode((darkMode) => !darkMode)
   }
 
   return (
-    <TypeTesterContainer>
-      <PanelContainer>
+    <Component.TypeTesterContainer>
+      <Component.PanelContainer>
         <label>Weight</label>
         <select value={400} onChange={(event) => setWeight(event.target.value)}>
           {weightOptions().map((weight) => (
@@ -47,40 +34,43 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
             ))}
         </select>
 
-        <SliderInput
-          title="Size"
-          value={size}
-          handleChange={handleSizeChange}
-          min={8}
-          max={160}
-          ariaLabel="continuous-slider"
+        <Component.LabelContainer>
+          <Component.Label>Size </Component.Label>
+          <Global.P>{size}px</Global.P>
+        </Component.LabelContainer>
+        <input
+          type="range"
+          value="60"
+          min="8"
+          max="160"
+          onChange={(event) => setSize(event.target.value)}
         />
-        <IconButton onClick={handleColorModeChange} $darkMode={darkMode}>
+        <Component.IconButton onClick={handleColorModeChange} $darkMode={darkMode}>
           {darkMode ? (
             <>
               Light
-              <IconSun />
+              <Component.IconSun />
             </>
           ) : (
             <>
               Dark
-              <IconMoon />
+              <Component.IconMoon />
             </>
           )}
-        </IconButton>
-      </PanelContainer>
-      <TextArea
+        </Component.IconButton>
+      </Component.PanelContainer>
+      <Component.TextArea
         name="input"
         placeholder="Type something..."
         $weight={weight ? weight : weightOptions()[0]}
         $size={size}
         $fontFamily={font.title}
         $slant={slant}
-        $darkMode={darkMode ? Colors.black : Colors.white}
-        $lightMode={darkMode ? Colors.white : Colors.black}
+        $darkMode={darkMode ? Global.Colors.black : Global.Colors.white}
+        $lightMode={darkMode ? Global.Colors.white : Global.Colors.black}
         spellCheck="false"
       />
-    </TypeTesterContainer>
+    </Component.TypeTesterContainer>
   )
 }
 
