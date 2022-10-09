@@ -1,6 +1,6 @@
 import React from 'react'
 import {Label, P} from '../../styles'
-import {LabelContainer, ReactSlider} from './styles'
+import {LabelContainer} from './styles'
 
 const SliderInput = ({title, handleChange, value, min, max, ariaLabel, marks, step}) => {
   return (
