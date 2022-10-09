@@ -1,7 +1,7 @@
 import React from 'react'
 import {Wrapper, AppContainer} from './styles'
 import {GlobalStyle} from './globalStyle'
-import {Switch, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import About from './pages/About'
 import Home from './pages/Home'
 import Footer from './components/Footer'
@@ -16,7 +16,7 @@ const App = () => {
       <AppContainer>
         <Wrapper>
           <Header />
-          <Switch>
+          <Routes>
             <Route path="/about">
               <About />
             </Route>
@@ -25,7 +25,7 @@ const App = () => {
             </Route>
             <Route component={Home} exact path="/" />
             <Route component={FontProfile} path="/:slug" />
-          </Switch>
+          </Routes>
         </Wrapper>
         <Footer />
       </AppContainer>
