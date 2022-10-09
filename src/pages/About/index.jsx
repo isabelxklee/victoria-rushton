@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import BlockContent from '@sanity/block-content-to-react'
-import {PSpace, P, Button, TextLink, H2} from '../../styles'
+import {P, Button, TextLink, H2} from '../../styles'
 import {
   ProfilePic,
   IntroContainer,
