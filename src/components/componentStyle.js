@@ -3,6 +3,18 @@ import * as Global from '../styles'
 import {ReactComponent as Sun} from '../assets/icons/icon-sun.svg'
 import {ReactComponent as Moon} from '../assets/icons/icon-moon.svg'
 
+export const Slider = styled.input`
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: ${Global.Colors.white};
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 100px;
+`
+
 export const Label = styled.label`
   width: 100%;
 `

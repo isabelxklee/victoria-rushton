@@ -15,7 +15,7 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
   return (
     <Component.TypeTesterContainer>
       <Component.PanelContainer>
-        <label>Weight</label>
+        <Component.Label>Weight</Component.Label>
         <select value={400} onChange={(event) => setWeight(event.target.value)}>
           {weightOptions().map((weight) => (
             <option key={weight.value} value={weight.value}>
@@ -24,7 +24,7 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
           ))}
         </select>
 
-        <label>Slant</label>
+        <Component.Label>Slant</Component.Label>
         <select value={'Roman'} onChange={(event) => setSlant(event.target.value)}>
           {slantOptions().length > 1 &&
             slantOptions().map((slant) => (
@@ -38,7 +38,13 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
           <Component.Label>Size </Component.Label>
           <Global.P>{size}px</Global.P>
         </Component.LabelContainer>
-        <input type="range" min="8" max="160" onChange={(event) => setSize(event.target.value)} />
+        <Component.Slider
+          type="range"
+          min="8"
+          max="160"
+          onChange={(event) => setSize(event.target.value)}
+          className="slider"
+        />
         <Component.IconButton onClick={handleColorModeChange} $darkMode={darkMode}>
           {darkMode ? (
             <>
