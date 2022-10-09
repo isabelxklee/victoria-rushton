@@ -16,23 +16,23 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
     <Component.TypeTesterContainer>
       <Component.PanelContainer>
         <Component.Label>Weight</Component.Label>
-        <select value={400} onChange={(event) => setWeight(event.target.value)}>
+        <Component.Select value={400} onChange={(event) => setWeight(event.target.value)}>
           {weightOptions().map((weight) => (
             <option key={weight.value} value={weight.value}>
               {weight.label}
             </option>
           ))}
-        </select>
+        </Component.Select>
 
         <Component.Label>Slant</Component.Label>
-        <select value={'Roman'} onChange={(event) => setSlant(event.target.value)}>
+        <Component.Select value={'Roman'} onChange={(event) => setSlant(event.target.value)}>
           {slantOptions().length > 1 &&
             slantOptions().map((slant) => (
               <option key={slant.value} value={slant.value}>
                 {slant.value}
               </option>
             ))}
-        </select>
+        </Component.Select>
 
         <Component.LabelContainer>
           <Component.Label>Size </Component.Label>

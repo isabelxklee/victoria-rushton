@@ -7,12 +7,20 @@ export const Slider = styled.input`
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 4px;
+  height: 2px;
   background: ${Global.Colors.white};
   outline: none;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
   border-radius: 100px;
+`
+
+export const Select = styled.select`
+  padding: 10px;
+  font-family: 'Cecilie Sans', 'sans-serif';
+  font-size: 16px;
+  font-weight: 300;
+  border-radius: 4px;
 `
 
 export const Label = styled.label`
