@@ -1,10 +1,10 @@
 import React from 'react'
 import {H2, PSpace, Button, Margin} from '../../styles'
 import {SuccessContainer} from './styles'
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const Success = () => {
-  let history = useHistory()
+  let navigate = useNavigate()
 
   return (
     <SuccessContainer>
@@ -15,7 +15,7 @@ const Success = () => {
         to get in touch with any questions.
       </PSpace>
       <Margin $margin="40px 0" />
-      <Button onClick={() => history.push('/')}>Back to fonts</Button>
+      <Button onClick={() => navigate('/')}>Back to fonts</Button>
     </SuccessContainer>
   )
 }
