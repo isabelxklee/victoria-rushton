@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import * as Component from '../componentStyles'
-import * as Global from '../../styles'
+import * as Component from './componentStyle'
+import * as Global from '../styles'
 
 const TypeTester = ({font, weightOptions, slantOptions}) => {
   const [weight, setWeight] = useState(400)
@@ -38,13 +38,7 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
           <Component.Label>Size </Component.Label>
           <Global.P>{size}px</Global.P>
         </Component.LabelContainer>
-        <input
-          type="range"
-          value="60"
-          min="8"
-          max="160"
-          onChange={(event) => setSize(event.target.value)}
-        />
+        <input type="range" min="8" max="160" onChange={(event) => setSize(event.target.value)} />
         <Component.IconButton onClick={handleColorModeChange} $darkMode={darkMode}>
           {darkMode ? (
             <>

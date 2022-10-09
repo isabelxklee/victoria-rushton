@@ -1,7 +1,7 @@
 import React from 'react'
 import {SecondaryButton, H3} from '../../styles'
 import {LicenseContainer, ButtonGroup, Options} from './styles'
-import Selector from '../Selector'
+// import Selector from '../Selector'
 
 const SelectionForm = ({
   font,
@@ -34,13 +34,13 @@ const SelectionForm = ({
       <form>
         <H3>Select license</H3>
         <LicenseContainer>
-          <Selector
+          {/* <Selector
             displayTitle={false}
             title="License"
             options={licenseOptions()}
             defaultValue={'Small'}
             handleChange={setSelectedLicense}
-          />
+          /> */}
           <div style={{width: '100%'}}>
             <H3>For uses, not exceeding:</H3>
             <p>{selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations</p>
