@@ -59,7 +59,7 @@ export const PanelContainer = styled.div`
   width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 
   @media (max-width: 900px) {
     width: calc(100% - 80px);
@@ -106,6 +106,7 @@ export const IconButton = styled(Global.Button)`
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  margin-top: 20px;
 `
 
 export const IconSun = styled(Sun)`
