@@ -21,6 +21,14 @@ export const Select = styled.select`
   font-size: 16px;
   font-weight: 300;
   border-radius: 4px;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 20px), calc(100% - 15px), calc(100% - 2.5em);
+  background-position-y: calc(50%);
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  cursor: pointer;
 `
 
 export const Label = styled.label`

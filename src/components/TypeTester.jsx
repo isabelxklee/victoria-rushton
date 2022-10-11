@@ -16,7 +16,11 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
     <Component.TypeTesterContainer>
       <Component.PanelContainer>
         <Component.Label>Weight</Component.Label>
-        <Component.Select value={400} onChange={(event) => setWeight(event.target.value)}>
+        <Component.Select
+          className="selector"
+          value={400}
+          onChange={(event) => setWeight(event.target.value)}
+        >
           {weightOptions().map((weight) => (
             <option key={weight.value} value={weight.value}>
               {weight.label}
