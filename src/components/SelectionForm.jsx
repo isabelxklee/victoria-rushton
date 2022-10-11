@@ -28,6 +28,10 @@ const SelectionForm = ({
     )
   }
 
+  const getSelectedLicenseInfo = () => {
+    return licenses && licenses.filter((license) => license.title === selectedLicense)
+  }
+
   return (
     <>
       <form>
@@ -46,9 +50,12 @@ const SelectionForm = ({
           </Component.Select>
           <div style={{width: '100%'}}>
             <Global.H3>For uses, not exceeding:</Global.H3>
-            <p>{selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations</p>
-            <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
-            <p>{selectedLicense ? selectedLicense.ebooks : 0} apps or e-books</p>
+            <p>
+              {selectedLicense ? getSelectedLicenseInfo().desktopWorkstations : 0} desktop
+              workstations
+            </p>
+            <p>{selectedLicense ? getSelectedLicenseInfo().webVisitors : 0} web visitors</p>
+            <p>{selectedLicense ? getSelectedLicenseInfo().ebooks : 0} apps or e-books</p>
           </div>
         </Component.LicenseContainer>
 
