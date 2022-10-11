@@ -10,7 +10,7 @@ import {licensesQuery} from '../../queries'
 
 const License = ({font, weightOptions, slantOptions}) => {
   const [licenses, setLicenses] = useState(null)
-  const [selectedLicense, setSelectedLicense] = useState(null)
+  const [selectedLicense, setSelectedLicense] = useState('Mini')
   const [selectedFonts, setSelectedFonts] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [variableFont, setVariableFont] = useState(false)

@@ -33,12 +33,14 @@ const SelectionForm = ({
       <form>
         <Global.H3>Select license</Global.H3>
         <Component.LicenseContainer>
-          <Component.Label>Slant</Component.Label>
-          <Component.Select value={'Roman'} onChange={(event) => setSlant(event.target.value)}>
-            {slantOptions().length > 1 &&
-              slantOptions().map((slant) => (
-                <option key={slant.value} value={slant.value}>
-                  {slant.value}
+          <Component.Select
+            value={selectedLicense}
+            onChange={(event) => setSelectedLicense(event.target.value)}
+          >
+            {licenses &&
+              licenseOptions().map((license) => (
+                <option key={license._id} value={license.value}>
+                  {license.value}
                 </option>
               ))}
           </Component.Select>
