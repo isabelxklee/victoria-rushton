@@ -1,7 +1,6 @@
 import React from 'react'
-import {SecondaryButton, H3} from '../../styles'
-import {LicenseContainer, ButtonGroup, Options} from './styles'
-// import Selector from '../Selector'
+import * as Component from './componentStyle'
+import * as Global from '../styles'
 
 const SelectionForm = ({
   font,
@@ -32,29 +31,31 @@ const SelectionForm = ({
   return (
     <>
       <form>
-        <H3>Select license</H3>
-        <LicenseContainer>
-          {/* <Selector
-            displayTitle={false}
-            title="License"
-            options={licenseOptions()}
-            defaultValue={'Small'}
-            handleChange={setSelectedLicense}
-          /> */}
+        <Global.H3>Select license</Global.H3>
+        <Component.LicenseContainer>
+          <Component.Label>Slant</Component.Label>
+          <Component.Select value={'Roman'} onChange={(event) => setSlant(event.target.value)}>
+            {slantOptions().length > 1 &&
+              slantOptions().map((slant) => (
+                <option key={slant.value} value={slant.value}>
+                  {slant.value}
+                </option>
+              ))}
+          </Component.Select>
           <div style={{width: '100%'}}>
-            <H3>For uses, not exceeding:</H3>
+            <Global.H3>For uses, not exceeding:</Global.H3>
             <p>{selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations</p>
             <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
             <p>{selectedLicense ? selectedLicense.ebooks : 0} apps or e-books</p>
           </div>
-        </LicenseContainer>
+        </Component.LicenseContainer>
 
         <div style={{marginTop: '60px'}}>
-          <H3>Select fonts</H3>
-          <ButtonGroup>
-            <Options>
+          <Global.H3>Select fonts</Global.H3>
+          <Component.ButtonGroup>
+            <Component.Options>
               {weightOptions.map((weight) => (
-                <SecondaryButton
+                <Global.SecondaryButton
                   key={weight.value}
                   name={weight.label}
                   onClick={(event) => handleFontClick(event)}
@@ -62,14 +63,14 @@ const SelectionForm = ({
                   $disabled={!selectedLicense}
                 >
                   {weight.label}
-                </SecondaryButton>
+                </Global.SecondaryButton>
               ))}
-            </Options>
+            </Component.Options>
 
             {slantOptions.length > 1 && (
-              <Options>
+              <Component.Options>
                 {weightOptions.map((weight) => (
-                  <SecondaryButton
+                  <Global.SecondaryButton
                     key={weight.value}
                     name={`${weight.label} Italic`}
                     onClick={(event) => handleFontClick(event)}
@@ -79,11 +80,11 @@ const SelectionForm = ({
                     $disabled={!selectedLicense}
                   >
                     {weight.label} Italic
-                  </SecondaryButton>
+                  </Global.SecondaryButton>
                 ))}
-              </Options>
+              </Component.Options>
             )}
-          </ButtonGroup>
+          </Component.ButtonGroup>
         </div>
       </form>
     </>
