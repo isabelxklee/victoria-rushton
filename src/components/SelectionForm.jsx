@@ -1,10 +1,8 @@
 import React from 'react'
-import {SecondaryButton, H3} from '../../styles'
-import {LicenseContainer, ButtonGroup, Options} from './styles'
-import Selector from '../Selector'
+import * as Component from './componentStyle'
+import * as Global from '../styles'
 
 const SelectionForm = ({
-  font,
   licenses,
   selectedFonts,
   setSelectedFonts,
@@ -12,6 +10,7 @@ const SelectionForm = ({
   selectedLicense,
   weightOptions,
   slantOptions,
+  findLicenseInfo,
 }) => {
   const handleFontClick = (event) => {
     event.preventDefault()
@@ -32,29 +31,39 @@ const SelectionForm = ({
   return (
     <>
       <form>
-        <H3>Select license</H3>
-        <LicenseContainer>
-          <Selector
-            displayTitle={false}
-            title="License"
-            options={licenseOptions()}
-            defaultValue={'Small'}
-            handleChange={setSelectedLicense}
-          />
+        <Global.H3>Select license</Global.H3>
+        <Component.LicenseContainer>
+          <Component.Select
+            value={selectedLicense}
+            onChange={(event) => setSelectedLicense(event.target.value)}
+          >
+            {licenses &&
+              licenseOptions().map((license) => (
+                <option key={license._id} value={license.value}>
+                  {license.value}
+                </option>
+              ))}
+          </Component.Select>
           <div style={{width: '100%'}}>
-            <H3>For uses, not exceeding:</H3>
-            <p>{selectedLicense ? selectedLicense.desktopWorkstations : 0} desktop workstations</p>
-            <p>{selectedLicense ? selectedLicense.webVisitors : 0} web visitors</p>
-            <p>{selectedLicense ? selectedLicense.ebooks : 0} apps or e-books</p>
+            <Global.H3>For uses, not exceeding:</Global.H3>
+            {licenses !== null && (
+              <>
+                <p>
+                  {findLicenseInfo(selectedLicense)[0].desktopWorkstations} desktop workstations
+                </p>
+                <p>{findLicenseInfo(selectedLicense)[0].webVisitors} web visitors</p>
+                <p>{findLicenseInfo(selectedLicense)[0].ebooks} apps or e-books</p>
+              </>
+            )}
           </div>
-        </LicenseContainer>
+        </Component.LicenseContainer>
 
         <div style={{marginTop: '60px'}}>
-          <H3>Select fonts</H3>
-          <ButtonGroup>
-            <Options>
+          <Global.H3>Select fonts</Global.H3>
+          <Component.ButtonGroup>
+            <Component.Options>
               {weightOptions.map((weight) => (
-                <SecondaryButton
+                <Global.SecondaryButton
                   key={weight.value}
                   name={weight.label}
                   onClick={(event) => handleFontClick(event)}
@@ -62,14 +71,14 @@ const SelectionForm = ({
                   $disabled={!selectedLicense}
                 >
                   {weight.label}
-                </SecondaryButton>
+                </Global.SecondaryButton>
               ))}
-            </Options>
+            </Component.Options>
 
             {slantOptions.length > 1 && (
-              <Options>
+              <Component.Options>
                 {weightOptions.map((weight) => (
-                  <SecondaryButton
+                  <Global.SecondaryButton
                     key={weight.value}
                     name={`${weight.label} Italic`}
                     onClick={(event) => handleFontClick(event)}
@@ -79,11 +88,11 @@ const SelectionForm = ({
                     $disabled={!selectedLicense}
                   >
                     {weight.label} Italic
-                  </SecondaryButton>
+                  </Global.SecondaryButton>
                 ))}
-              </Options>
+              </Component.Options>
             )}
-          </ButtonGroup>
+          </Component.ButtonGroup>
         </div>
       </form>
     </>

@@ -1,16 +1,15 @@
 import React, {useState, useEffect} from 'react'
-import sanityClient from '../../client.js'
-import {ParentContainer, SelectionContainer} from './styles'
-import {H2, H3, Margin} from '../../styles'
-import {PriceContainer} from '../PriceBreakdown/styles'
-import PriceBreakdown from '../PriceBreakdown'
-import SelectionForm from '../SelectionForm'
-import CheckoutLinks from '../CheckoutLinks'
-import {licensesQuery} from '../../queries'
+import sanityClient from '../client.js'
+import * as Component from './componentStyle'
+import * as Global from '../styles'
+import PriceBreakdown from './PriceBreakdown'
+import SelectionForm from './SelectionForm'
+import CheckoutLinks from './CheckoutLinks'
+import {licensesQuery} from '../queries'
 
 const License = ({font, weightOptions, slantOptions}) => {
   const [licenses, setLicenses] = useState(null)
-  const [selectedLicense, setSelectedLicense] = useState(null)
+  const [selectedLicense, setSelectedLicense] = useState('Mini')
   const [selectedFonts, setSelectedFonts] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [variableFont, setVariableFont] = useState(false)
@@ -22,28 +21,34 @@ const License = ({font, weightOptions, slantOptions}) => {
       .catch(console.error)
   }, [])
 
+  const findLicenseInfo = () => {
+    return licenses.filter((license) => license.title === selectedLicense)
+  }
+
   useEffect(() => {
-    setTotalPrice(selectedLicense && selectedFonts && selectedLicense.price * selectedFonts.length)
-  }, [selectedFonts, selectedLicense])
+    setTotalPrice(
+      licenses && selectedFonts && findLicenseInfo(selectedLicense)[0].price * selectedFonts.length
+    )
+  }, [selectedFonts, selectedLicense, licenses])
 
   return (
-    <ParentContainer>
-      <SelectionContainer>
-        <H2>License this font</H2>
+    <Component.ParentContainer>
+      <Component.SelectionContainer>
+        <Global.H2>License this font</Global.H2>
         <SelectionForm
           selectedFonts={selectedFonts}
           setSelectedFonts={setSelectedFonts}
-          font={font}
           setSelectedLicense={setSelectedLicense}
           licenses={licenses}
           selectedLicense={selectedLicense}
           weightOptions={weightOptions()}
           slantOptions={slantOptions()}
+          findLicenseInfo={findLicenseInfo}
         />
-      </SelectionContainer>
-      <PriceContainer>
-        <H3>Cart</H3>
-        <Margin $margin="16px 0">
+      </Component.SelectionContainer>
+      <Component.PriceContainer>
+        <Global.H3>Cart</Global.H3>
+        <Global.Margin $margin="16px 0">
           <PriceBreakdown
             selectedLicense={selectedLicense}
             setSelectedFonts={setSelectedFonts}
@@ -52,11 +57,13 @@ const License = ({font, weightOptions, slantOptions}) => {
             totalPrice={totalPrice}
             variableFont={variableFont}
             setVariableFont={setVariableFont}
+            findLicenseInfo={findLicenseInfo}
+            licenses={licenses}
           />
-        </Margin>
+        </Global.Margin>
         <CheckoutLinks />
-      </PriceContainer>
-    </ParentContainer>
+      </Component.PriceContainer>
+    </Component.ParentContainer>
   )
 }
 
