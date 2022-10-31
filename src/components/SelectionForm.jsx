@@ -28,7 +28,7 @@ const SelectionForm = ({
   }
 
   const findLicenseInfo = () => {
-    if (licenses !== null && selectedLicense) {
+    if (licenses !== null) {
       return licenses.filter((license) => license.title === selectedLicense)
     }
   }
@@ -51,7 +51,7 @@ const SelectionForm = ({
           </Component.Select>
           <div style={{width: '100%'}}>
             <Global.H3>For uses, not exceeding:</Global.H3>
-            {licenses !== null && selectedLicense && (
+            {licenses !== null && (
               <>
                 <p>{findLicenseInfo()[0].desktopWorkstations} desktop workstations</p>
                 <p>{findLicenseInfo()[0].webVisitors} web visitors</p>
