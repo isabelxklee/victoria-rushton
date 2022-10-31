@@ -25,6 +25,10 @@ const License = ({font, weightOptions, slantOptions}) => {
     setTotalPrice(selectedLicense && selectedFonts && selectedLicense.price * selectedFonts.length)
   }, [selectedFonts, selectedLicense])
 
+  const findLicenseInfo = () => {
+    return licenses.filter((license) => license.title === selectedLicense)
+  }
+
   return (
     <Component.ParentContainer>
       <Component.SelectionContainer>
@@ -32,12 +36,12 @@ const License = ({font, weightOptions, slantOptions}) => {
         <SelectionForm
           selectedFonts={selectedFonts}
           setSelectedFonts={setSelectedFonts}
-          font={font}
           setSelectedLicense={setSelectedLicense}
           licenses={licenses}
           selectedLicense={selectedLicense}
           weightOptions={weightOptions()}
           slantOptions={slantOptions()}
+          findLicenseInfo={findLicenseInfo}
         />
       </Component.SelectionContainer>
       <Component.PriceContainer>
@@ -51,6 +55,8 @@ const License = ({font, weightOptions, slantOptions}) => {
             totalPrice={totalPrice}
             variableFont={variableFont}
             setVariableFont={setVariableFont}
+            findLicenseInfo={findLicenseInfo}
+            licenses={licenses}
           />
         </Global.Margin>
         <CheckoutLinks />

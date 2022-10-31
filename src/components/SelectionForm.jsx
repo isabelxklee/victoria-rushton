@@ -10,6 +10,7 @@ const SelectionForm = ({
   selectedLicense,
   weightOptions,
   slantOptions,
+  findLicenseInfo,
 }) => {
   const handleFontClick = (event) => {
     event.preventDefault()
@@ -25,12 +26,6 @@ const SelectionForm = ({
       licenses &&
       licenses.map((license) => ({...license, label: license.title, value: license.title}))
     )
-  }
-
-  const findLicenseInfo = () => {
-    if (licenses !== null) {
-      return licenses.filter((license) => license.title === selectedLicense)
-    }
   }
 
   return (
@@ -53,9 +48,11 @@ const SelectionForm = ({
             <Global.H3>For uses, not exceeding:</Global.H3>
             {licenses !== null && (
               <>
-                <p>{findLicenseInfo()[0].desktopWorkstations} desktop workstations</p>
-                <p>{findLicenseInfo()[0].webVisitors} web visitors</p>
-                <p>{findLicenseInfo()[0].ebooks} apps or e-books</p>
+                <p>
+                  {findLicenseInfo(selectedLicense)[0].desktopWorkstations} desktop workstations
+                </p>
+                <p>{findLicenseInfo(selectedLicense)[0].webVisitors} web visitors</p>
+                <p>{findLicenseInfo(selectedLicense)[0].ebooks} apps or e-books</p>
               </>
             )}
           </div>

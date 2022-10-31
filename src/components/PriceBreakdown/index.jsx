@@ -11,6 +11,8 @@ const PriceBreakdown = ({
   totalPrice,
   variableFont,
   setVariableFont,
+  findLicenseInfo,
+  licenses,
 }) => {
   useEffect(() => {
     if (selectedFonts.length > 4) {
@@ -26,21 +28,22 @@ const PriceBreakdown = ({
     setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => font !== deletedFont))
   }
 
+  // console.log(`selected license + fonts: ${selectedLicense} ${selectedFonts}`)
+  // console.log(`total price: ${totalPrice}`)
+  // console.log(selectedLicense.price)
+
   return (
     <>
-      {selectedLicense && (
-        <>
-          <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
-          {font.title.includes('Cecilie') && selectedLicense.title !== 'Trial' && (
-            <SelectedItem $disabled={!variableFont}>
-              <P>{font.title} Variable Font</P>
-              <Right>
-                <P>FREE</P>
-              </Right>
-            </SelectedItem>
-          )}
-        </>
+      <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
+      {font.title.includes('Cecilie') && selectedLicense.title !== 'Trial' && (
+        <SelectedItem $disabled={!variableFont}>
+          <P>{font.title} Variable Font</P>
+          <Right>
+            <P>FREE</P>
+          </Right>
+        </SelectedItem>
       )}
+
       {selectedFonts &&
         selectedFonts.map((weightTitle) => (
           <SelectedItem key={weightTitle} $disabled={false}>
@@ -48,7 +51,7 @@ const PriceBreakdown = ({
               {font.title} {weightTitle}
             </P>
             <Right>
-              <P>${selectedLicense.price}</P>
+              <P>${findLicenseInfo(selectedLicense)[0].price}</P>
               <RemoveIcon onClick={() => handleRemove(weightTitle)} />
             </Right>
           </SelectedItem>
