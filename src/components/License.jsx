@@ -29,6 +29,8 @@ const License = ({font, weightOptions, slantOptions}) => {
     setTotalPrice(
       licenses && selectedFonts && findLicenseInfo(selectedLicense)[0].price * selectedFonts.length
     )
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFonts, selectedLicense, licenses])
 
   return (
