@@ -21,13 +21,15 @@ const License = ({font, weightOptions, slantOptions}) => {
       .catch(console.error)
   }, [])
 
-  useEffect(() => {
-    setTotalPrice(selectedLicense && selectedFonts && selectedLicense.price * selectedFonts.length)
-  }, [selectedFonts, selectedLicense])
-
   const findLicenseInfo = () => {
     return licenses.filter((license) => license.title === selectedLicense)
   }
+
+  useEffect(() => {
+    setTotalPrice(
+      licenses && selectedFonts && findLicenseInfo(selectedLicense)[0].price * selectedFonts.length
+    )
+  }, [selectedFonts, selectedLicense, licenses])
 
   return (
     <Component.ParentContainer>
