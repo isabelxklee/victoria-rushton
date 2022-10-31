@@ -3,7 +3,6 @@ import * as Component from './componentStyle'
 import * as Global from '../styles'
 
 const SelectionForm = ({
-  font,
   licenses,
   selectedFonts,
   setSelectedFonts,
@@ -28,8 +27,10 @@ const SelectionForm = ({
     )
   }
 
-  const getSelectedLicenseInfo = () => {
-    return licenses && licenses.filter((license) => license.title === selectedLicense)
+  const findLicenseInfo = () => {
+    if (licenses !== null && selectedLicense) {
+      return licenses.filter((license) => license.title === selectedLicense)
+    }
   }
 
   return (
@@ -50,12 +51,13 @@ const SelectionForm = ({
           </Component.Select>
           <div style={{width: '100%'}}>
             <Global.H3>For uses, not exceeding:</Global.H3>
-            <p>
-              {selectedLicense ? getSelectedLicenseInfo().desktopWorkstations : 0} desktop
-              workstations
-            </p>
-            <p>{selectedLicense ? getSelectedLicenseInfo().webVisitors : 0} web visitors</p>
-            <p>{selectedLicense ? getSelectedLicenseInfo().ebooks : 0} apps or e-books</p>
+            {licenses !== null && selectedLicense && (
+              <>
+                <p>{findLicenseInfo()[0].desktopWorkstations} desktop workstations</p>
+                <p>{findLicenseInfo()[0].webVisitors} web visitors</p>
+                <p>{findLicenseInfo()[0].ebooks} apps or e-books</p>
+              </>
+            )}
           </div>
         </Component.LicenseContainer>
 
