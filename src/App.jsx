@@ -8,6 +8,7 @@ import FontProfile from './pages/FontProfile'
 import Success from './pages/Success'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import Counter from './features/counter/Counter'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <AppContainer>
         <Wrapper>
           <Header />
+          <Counter />
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/success" element={<Success />} />
