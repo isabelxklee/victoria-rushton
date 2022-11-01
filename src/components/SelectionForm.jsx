@@ -44,7 +44,7 @@ const SelectionForm = ({
                 </option>
               ))}
           </Component.Select>
-          <div style={{width: '100%'}}>
+          <div>
             <Global.H3>For uses, not exceeding:</Global.H3>
             {licenses !== null && (
               <>

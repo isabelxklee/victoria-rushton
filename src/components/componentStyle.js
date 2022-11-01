@@ -16,6 +16,8 @@ export const Slider = styled.input`
 `
 
 export const Select = styled.select`
+  height: fit-content;
+  width: 170px;
   padding: 10px;
   font-family: 'Cecilie Sans', 'sans-serif';
   font-size: 16px;
