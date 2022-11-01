@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.6",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/cli": "^2.34.0",
     "@sanity/client": "^3.4.1",
