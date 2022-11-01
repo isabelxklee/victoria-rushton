@@ -31,6 +31,10 @@ export const Select = styled.select`
   background-size: 5px 5px, 5px 5px, 1px 1.5em;
   background-repeat: no-repeat;
   cursor: pointer;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `
 
 export const Label = styled.label`
