@@ -12,7 +12,6 @@ const PriceBreakdown = ({
   variableFont,
   setVariableFont,
   findLicenseInfo,
-  licenses,
 }) => {
   useEffect(() => {
     if (selectedFonts.length > 4) {
@@ -27,10 +26,6 @@ const PriceBreakdown = ({
   const handleRemove = (deletedFont) => {
     setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => font !== deletedFont))
   }
-
-  // console.log(`selected license + fonts: ${selectedLicense} ${selectedFonts}`)
-  // console.log(`total price: ${totalPrice}`)
-  // console.log(selectedLicense.price)
 
   return (
     <>
