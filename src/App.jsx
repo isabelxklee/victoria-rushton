@@ -24,15 +24,12 @@ const App = () => {
       .catch(console.error)
   }, [dispatch])
 
-  console.log(fonts)
-
   return (
     <>
       <GlobalStyle />
       <AppContainer>
         <Wrapper>
           <Header />
-          {/* <Counter /> */}
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/success" element={<Success />} />

@@ -1,18 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import FontHero from '../../components/FontHero'
-import sanityClient from '../../client.js'
-import {fontsQuery} from '../../queries.js'
+import {useSelector} from 'react-redux'
 import LoadingComponent from '../../components/Loading'
 
 const Home = () => {
-  const [fonts, setFonts] = useState(null)
-
-  useEffect(() => {
-    sanityClient
-      .fetch(fontsQuery)
-      .then((data) => setFonts(data))
-      .catch(console.error)
-  }, [])
+  const fonts = useSelector((state) => state.fonts.value)
+  console.log(fonts)
 
   if (!fonts) return <LoadingComponent />
 
