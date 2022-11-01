@@ -37,6 +37,7 @@ const SelectionForm = ({
             <Component.Select
               value={selectedLicense}
               onChange={(event) => setSelectedLicense(event.target.value)}
+              $width="fixed"
             >
               {licenses &&
                 licenseOptions().map((license) => (
