@@ -31,20 +31,23 @@ const SelectionForm = ({
   return (
     <>
       <form>
-        <Global.H3>Select license</Global.H3>
         <Component.LicenseContainer>
-          <Component.Select
-            value={selectedLicense}
-            onChange={(event) => setSelectedLicense(event.target.value)}
-          >
-            {licenses &&
-              licenseOptions().map((license) => (
-                <option key={license._id} value={license.value}>
-                  {license.value}
-                </option>
-              ))}
-          </Component.Select>
-          <div style={{width: '100%'}}>
+          <div style={{marginBottom: '40px'}}>
+            <Global.H3>Select license</Global.H3>
+            <Component.Select
+              value={selectedLicense}
+              onChange={(event) => setSelectedLicense(event.target.value)}
+              $width="fixed"
+            >
+              {licenses &&
+                licenseOptions().map((license) => (
+                  <option key={license._id} value={license.value}>
+                    {license.value}
+                  </option>
+                ))}
+            </Component.Select>
+          </div>
+          <div>
             <Global.H3>For uses, not exceeding:</Global.H3>
             {licenses !== null && (
               <>

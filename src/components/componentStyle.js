@@ -16,6 +16,8 @@ export const Slider = styled.input`
 `
 
 export const Select = styled.select`
+  height: fit-content;
+  width: ${({$width}) => ($width === 'fixed' ? '170px' : '100%')};
   padding: 10px;
   font-family: 'Cecilie Sans', 'sans-serif';
   font-size: 16px;
@@ -29,6 +31,10 @@ export const Select = styled.select`
   background-size: 5px 5px, 5px 5px, 1px 1.5em;
   background-repeat: no-repeat;
   cursor: pointer;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `
 
 export const Label = styled.label`
