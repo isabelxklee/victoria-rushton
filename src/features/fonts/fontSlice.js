@@ -9,7 +9,7 @@ export const fontSlice = createSlice({
   initialState,
   reducers: {
     addFonts: (state, action) => {
-      state.value += action.payload
+      state.value = action.payload
     },
   },
 })
