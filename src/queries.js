@@ -1,3 +1,8 @@
+export const getEverythingQuery = `
+
+
+`
+
 export const pressQuery = `*[_type == "press"] {
     _id,
     title,
