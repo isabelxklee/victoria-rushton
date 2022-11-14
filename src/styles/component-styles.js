@@ -238,6 +238,14 @@ export const HeroContainer = styled.div`
   }
 `
 
+export const SuccessContainer = styled.div`
+  padding: 100px 260px;
+
+  @media (max-width: 1100px) {
+    padding: 100px 0;
+  }
+`
+
 export const Description = styled(Global.P)`
   font-size: 18px;
   margin: 24px 0;
