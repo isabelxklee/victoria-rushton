@@ -28,6 +28,7 @@ const FontProfile = () => {
 
   const weightOptions = () => {
     const arr = []
+
     font.weights.map(
       (weight) => weight.number && arr.push({value: weight.number, label: weight.title})
     )
@@ -37,16 +38,17 @@ const FontProfile = () => {
 
   const slantOptions = () => {
     const arr = []
+
     font.slants.map((slant) => arr.push({value: slant, label: slant}))
 
     return arr
   }
 
-  if (!font) return <LoadingComponent />
-
   return (
     <>
-      {font && (
+      {!font ? (
+        <LoadingComponent />
+      ) : (
         <>
           <Component.HeroContainer>
             <Global.H1 $font={font.title} $margin="0 0 40px 0">
