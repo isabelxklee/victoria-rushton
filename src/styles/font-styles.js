@@ -3,61 +3,61 @@ import {Colors} from './global-styles'
 
 // cecilie sans
 // 800
-import cecilie800 from './fonts/cecilie-sans/Cecilie-Black.woff'
-import cecilieItalic800 from './fonts/cecilie-sans/Cecilie-Black-Italic.woff'
+import cecilie800 from '../fonts/cecilie-sans/Cecilie-Black.woff'
+import cecilieItalic800 from '../fonts/cecilie-sans/Cecilie-Black-Italic.woff'
 // 700
-import cecilie700 from './fonts/cecilie-sans/Cecilie-Bold.woff'
-import cecilieItalic700 from './fonts/cecilie-sans/Cecilie-Bold-Italic.woff'
+import cecilie700 from '../fonts/cecilie-sans/Cecilie-Bold.woff'
+import cecilieItalic700 from '../fonts/cecilie-sans/Cecilie-Bold-Italic.woff'
 // 400
-import cecilie400 from './fonts/cecilie-sans/Cecilie-Regular.woff'
-import cecilieItalic400 from './fonts/cecilie-sans/Cecilie-Regular-Italic.woff'
+import cecilie400 from '../fonts/cecilie-sans/Cecilie-Regular.woff'
+import cecilieItalic400 from '../fonts/cecilie-sans/Cecilie-Regular-Italic.woff'
 // 300
-import cecilie300 from './fonts/cecilie-sans/Cecilie-Book.woff'
-import cecilieItalic300 from './fonts/cecilie-sans/Cecilie-Book-Italic.woff'
+import cecilie300 from '../fonts/cecilie-sans/Cecilie-Book.woff'
+import cecilieItalic300 from '../fonts/cecilie-sans/Cecilie-Book-Italic.woff'
 // 200
-import cecilie200 from './fonts/cecilie-sans/Cecilie-Light.woff'
-import cecilieItalic200 from './fonts/cecilie-sans/Cecilie-Light-Italic.woff'
+import cecilie200 from '../fonts/cecilie-sans/Cecilie-Light.woff'
+import cecilieItalic200 from '../fonts/cecilie-sans/Cecilie-Light-Italic.woff'
 
 // embury text
 // 700
-import emburyText7001 from './fonts/embury-text/700-embury-text-bold.woff'
-import emburyText7002 from './fonts/embury-text/700-embury-text-bold.woff2'
-import emburyTextItalic7001 from './fonts/embury-text/700-embury-text-bold-italic.woff'
-import emburyTextItalic7002 from './fonts/embury-text/700-embury-text-bold-italic.woff2'
+import emburyText7001 from '../fonts/embury-text/700-embury-text-bold.woff'
+import emburyText7002 from '../fonts/embury-text/700-embury-text-bold.woff2'
+import emburyTextItalic7001 from '../fonts/embury-text/700-embury-text-bold-italic.woff'
+import emburyTextItalic7002 from '../fonts/embury-text/700-embury-text-bold-italic.woff2'
 // 400
-import emburyText4001 from './fonts/embury-text/400-embury-text-regular.woff'
-import emburyText4002 from './fonts/embury-text/400-embury-text-regular.woff2'
-import emburyTextItalic4001 from './fonts/embury-text/400-embury-text-italic.woff'
-import emburyTextItalic4002 from './fonts/embury-text/400-embury-text-italic.woff2'
+import emburyText4001 from '../fonts/embury-text/400-embury-text-regular.woff'
+import emburyText4002 from '../fonts/embury-text/400-embury-text-regular.woff2'
+import emburyTextItalic4001 from '../fonts/embury-text/400-embury-text-italic.woff'
+import emburyTextItalic4002 from '../fonts/embury-text/400-embury-text-italic.woff2'
 // 300
-import emburyText3001 from './fonts/embury-text/300-embury-text-book.woff'
-import emburyText3002 from './fonts/embury-text/300-embury-text-book.woff2'
-import emburyTextItalic3001 from './fonts/embury-text/300-embury-text-book-italic.woff'
-import emburyTextItalic3002 from './fonts/embury-text/300-embury-text-book-italic.woff2'
+import emburyText3001 from '../fonts/embury-text/300-embury-text-book.woff'
+import emburyText3002 from '../fonts/embury-text/300-embury-text-book.woff2'
+import emburyTextItalic3001 from '../fonts/embury-text/300-embury-text-book-italic.woff'
+import emburyTextItalic3002 from '../fonts/embury-text/300-embury-text-book-italic.woff2'
 
 //gautreaux
 // 700
-import gautreaux7001 from './fonts/gautreaux/700-gautreaux-bold.woff'
-import gautreaux7002 from './fonts/gautreaux/700-gautreaux-bold.woff2'
+import gautreaux7001 from '../fonts/gautreaux/700-gautreaux-bold.woff'
+import gautreaux7002 from '../fonts/gautreaux/700-gautreaux-bold.woff2'
 // 500
-import gautreaux5001 from './fonts/gautreaux/500-gautreaux-medium.woff'
-import gautreaux5002 from './fonts/gautreaux/500-gautreaux-medium.woff2'
+import gautreaux5001 from '../fonts/gautreaux/500-gautreaux-medium.woff'
+import gautreaux5002 from '../fonts/gautreaux/500-gautreaux-medium.woff2'
 // 200
-import gautreaux2001 from './fonts/gautreaux/200-gautreaux-light.woff'
-import gautreaux2002 from './fonts/gautreaux/200-gautreaux-light.woff2'
+import gautreaux2001 from '../fonts/gautreaux/200-gautreaux-light.woff'
+import gautreaux2002 from '../fonts/gautreaux/200-gautreaux-light.woff2'
 
 // marcia
 // 700
-import marcia7001 from './fonts/marcia/700-marcia-bold.woff'
-// import marcia7002 from './fonts/marcia/700-marcia-bold.woff2'
-import marciaItalic7001 from './fonts/marcia/700-marcia-bold-italic.woff'
-// import marciaItalic7002 from './fonts/marcia/700-marcia-bold-italic.woff2'
+import marcia7001 from '../fonts/marcia/700-marcia-bold.woff'
+// import marcia7002 from '../fonts/marcia/700-marcia-bold.woff2'
+import marciaItalic7001 from '../fonts/marcia/700-marcia-bold-italic.woff'
+// import marciaItalic7002 from '../fonts/marcia/700-marcia-bold-italic.woff2'
 
 // 400
-import marcia4001 from './fonts/marcia/400-marcia-regular.woff'
-// import marcia4002 from './fonts/marcia/400-marcia-regular.woff2'
-import marciaItalic4001 from './fonts/marcia/400-marcia-regular-italic.woff'
-// import marciaItalic4002 from './fonts/marcia/400-marcia-regular-italic.woff2'
+import marcia4001 from '../fonts/marcia/400-marcia-regular.woff'
+// import marcia4002 from '../fonts/marcia/400-marcia-regular.woff2'
+import marciaItalic4001 from '../fonts/marcia/400-marcia-regular-italic.woff'
+// import marciaItalic4002 from '../fonts/marcia/400-marcia-regular-italic.woff2'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {

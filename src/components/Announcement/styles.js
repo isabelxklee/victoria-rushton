@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Colors} from '../../global-styles'
+import {Colors} from '../../styles/global-styles'
 
 export const AnnouncementContainer = styled.div`
   /* background-color: ${Colors.black}; */

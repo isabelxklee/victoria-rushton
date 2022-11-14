@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import * as Global from './global-styles'
-import {ReactComponent as Sun} from './assets/icons/icon-sun.svg'
-import {ReactComponent as Moon} from './assets/icons/icon-moon.svg'
+import {ReactComponent as Sun} from '../assets/icons/icon-sun.svg'
+import {ReactComponent as Moon} from '../assets/icons/icon-moon.svg'
 
 export const Slider = styled.input`
   -webkit-appearance: none;

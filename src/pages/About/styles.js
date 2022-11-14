@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {HeroContainer} from '../FontProfile/styles'
-import {Colors} from '../../global-styles'
+import {Colors} from '../../styles/global-styles'
 
 export const ProfilePic = styled.img`
   border-radius: 100%;
