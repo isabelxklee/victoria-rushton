@@ -4,7 +4,7 @@ import {GlobalStyle} from './globalStyle'
 import {Routes, Route} from 'react-router-dom'
 import sanityClient from './client.js'
 import {fontsQuery} from './queries.js'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {addFonts} from './features/fonts/fontSlice.js'
 import About from './pages/About'
 import Home from './pages/Home'
@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 
 const App = () => {
+  const fonts = useSelector((state) => state.fonts.value)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const App = () => {
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/success" element={<Success />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home fonts={fonts} />} />
             <Route path="/:slug" element={<FontProfile />} />
           </Routes>
         </Wrapper>
