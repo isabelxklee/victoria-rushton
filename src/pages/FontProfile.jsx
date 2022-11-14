@@ -1,14 +1,14 @@
 import React, {useState, useEffect, useRef} from 'react'
 import {useParams} from 'react-router-dom'
-import sanityClient from '../../client.js'
-import TypeTester from '../../components/TypeTester'
-import FontPreview from '../../components/FontPreview'
-import License from '../../components/License'
-import Announcement from '../../components/Announcement'
-import {Button, H1, H3, P} from '../../styles/global-styles'
-import {HeroContainer, Description} from './styles'
-import {currentFontQuery} from '../../queries'
-import LoadingComponent from '../../components/Loading'
+import sanityClient from '../client.js'
+import TypeTester from '../components/TypeTester'
+import FontPreview from '../components/FontPreview'
+import License from '../components/License'
+import Announcement from '../components/Announcement'
+import LoadingComponent from '../components/Loading'
+import * as Global from '../styles/global-styles'
+import * as Component from '../styles/component-styles'
+import {currentFontQuery} from '../queries'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
@@ -48,19 +48,19 @@ const FontProfile = () => {
     <>
       {font && (
         <>
-          <HeroContainer>
-            <H1 $font={font.title} $margin="0 0 40px 0">
+          <Component.HeroContainer>
+            <Global.H1 $font={font.title} $margin="0 0 40px 0">
               {font.title}
-            </H1>
-            <Description>{font.description}</Description>
-            <Button onClick={handleClick}>License this font</Button>
-          </HeroContainer>
+            </Global.H1>
+            <Component.Description>{font.description}</Component.Description>
+            <Global.Button onClick={handleClick}>License this font</Global.Button>
+          </Component.HeroContainer>
           <FontPreview font={font.title} />
           <TypeTester font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
-          <HeroContainer>
-            <H3>Supported Languages</H3>
-            <P>{font.supportedLanguages}</P>
-          </HeroContainer>
+          <Component.HeroContainer>
+            <Global.H3>Supported Languages</Global.H3>
+            <Global.P>{font.supportedLanguages}</Global.P>
+          </Component.HeroContainer>
           {font.title.includes('Cecilie') && <Announcement />}
           <div ref={divEl}>
             <License font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
