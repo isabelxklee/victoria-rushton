@@ -1,7 +1,7 @@
 import React from 'react'
 import {PreviewText} from './FontPreview/styles'
-import * as Global from '../../global-styles'
-import * as Component from '../../component-styles'
+import * as Global from '../global-styles'
+import * as Component from '../component-styles'
 
 const FontHero = ({font}) => {
   const calculateStyles = () => {

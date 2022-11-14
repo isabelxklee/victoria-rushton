@@ -1,4 +1,5 @@
 import React from 'react'
+import FontHero from '../../components/FontHero'
 
 const Home = ({fonts}) => {
   return (

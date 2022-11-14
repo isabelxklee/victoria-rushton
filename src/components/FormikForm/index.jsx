@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
-import {Button} from '../../styles'
+import {Button} from '../../global-styles'
 import {InputField, FieldContainer, Label, Error} from './styles'
 import {Formik, Form} from 'formik'
 import * as Yup from 'yup'

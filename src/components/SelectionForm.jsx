@@ -1,6 +1,6 @@
 import React from 'react'
-import * as Component from './component-styles'
-import * as Global from '../styles'
+import * as Component from '../component-styles'
+import * as Global from '../global-styles'
 
 const SelectionForm = ({
   licenses,

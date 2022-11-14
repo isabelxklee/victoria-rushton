@@ -1,5 +1,5 @@
 import React from 'react'
-import {H2} from '../../styles'
+import {H2} from '../../global-styles'
 import {LoadingContainer} from './styles'
 
 const LoadingComponent = () => (

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {P} from '../../styles'
+import {P} from '../../global-styles'
 import {ReactComponent as Remove} from '../../assets/icons/icon-remove.svg'
 
 export const PriceContainer = styled.div`

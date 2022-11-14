@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {P, H3} from '../../styles'
+import {P, H3} from '../../global-styles'
 import {AnnouncementContainer, GIF} from './styles'
 import sanityClient from '../../client.js'
 import {announcementQuery} from '../../queries.js'

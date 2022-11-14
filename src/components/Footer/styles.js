@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Colors} from '../../styles'
+import {Colors} from '../../global-styles'
 
 export const FooterContainer = styled.div`
   background: ${Colors.black};

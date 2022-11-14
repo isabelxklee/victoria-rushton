@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {SelectedItem, TotalPrice, RemoveIcon, Right} from './styles'
-import {P, PSpace} from '../../styles'
+import {P, PSpace} from '../../global-styles'
 import Checkout from '../Checkout'
 
 const PriceBreakdown = ({
