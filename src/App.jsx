@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {Wrapper, AppContainer} from './styles'
-import {GlobalStyle} from './globalStyle'
+import {GlobalStyle} from './global-styles'
 import {Routes, Route} from 'react-router-dom'
 import sanityClient from './client.js'
 import {fontsQuery} from './queries.js'

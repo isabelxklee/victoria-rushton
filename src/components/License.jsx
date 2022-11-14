@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../client.js'
-import * as Component from './componentStyle'
+import * as Component from './component-styles'
 import * as Global from '../styles'
 import PriceBreakdown from './PriceBreakdown'
 import SelectionForm from './SelectionForm'

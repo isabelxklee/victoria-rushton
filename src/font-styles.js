@@ -1,5 +1,5 @@
 import {createGlobalStyle} from 'styled-components'
-import {Colors} from './styles'
+import {Colors} from './global-styles'
 
 // cecilie sans
 // 800
