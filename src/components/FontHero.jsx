@@ -1,5 +1,4 @@
 import React from 'react'
-import {PreviewText} from './FontPreview/styles'
 import * as Global from '../styles/global-styles'
 import * as Component from '../styles/component-styles'
 
@@ -17,7 +16,7 @@ const FontHero = ({font}) => {
             <Global.P $right={true}>{calculateStyles()} available styles</Global.P>
           </Component.FlexContainer>
 
-          <PreviewText
+          <Component.PreviewText
             $font={font.title}
             $size={font.homeTextSize}
             $weight={font.homeTextWeight}
@@ -25,7 +24,7 @@ const FontHero = ({font}) => {
             $lineHeight={font.homeTextLineHeight}
           >
             {font.homeText}
-          </PreviewText>
+          </Component.PreviewText>
           <Global.P>View this font</Global.P>
         </Global.InternalLink>
       </Global.Padding>

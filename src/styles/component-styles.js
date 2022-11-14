@@ -214,3 +214,47 @@ export const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `
+
+export const PreviewText = styled.p`
+  font-size: ${({$size}) => $size}px;
+  font-weight: ${({$weight}) => $weight};
+  font-style: ${({$slant}) => ($slant === 'Roman' ? 'normal' : 'italic')};
+  font-family: ${({$font}) => $font};
+  line-height: ${({$lineHeight}) => $lineHeight};
+  margin: ${({$margin}) => $margin};
+  max-width: 1000px;
+
+  @media (max-width: 900px) {
+    font-size: ${({$size}) => $size * 0.7}px;
+  }
+`
+
+export const HeroContainer = styled.div`
+  padding: 120px 0;
+  border-bottom: 2px solid ${Global.Colors.black};
+
+  @media (max-width: 900px) {
+    padding: 90px 0;
+  }
+`
+
+export const SuccessContainer = styled.div`
+  padding: 100px 260px;
+
+  @media (max-width: 1100px) {
+    padding: 100px 0;
+  }
+`
+
+export const Description = styled(Global.P)`
+  font-size: 18px;
+  margin: 24px 0;
+  line-height: 1.4;
+  width: 75%;
+  font-weight: 300;
+
+  @media (max-width: 900px) {
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+`
