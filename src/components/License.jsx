@@ -7,14 +7,12 @@ import SelectionForm from './SelectionForm'
 import CheckoutLinks from './CheckoutLinks'
 import {licensesQuery} from '../queries'
 
-const License = ({font, weightOptions, slantOptions}) => {
+const License = ({font, weightOptions}) => {
   const [licenses, setLicenses] = useState(null)
   const [selectedLicense, setSelectedLicense] = useState('Mini')
   const [selectedFonts, setSelectedFonts] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [variableFont, setVariableFont] = useState(false)
-
-  console.log(weightOptions(), slantOptions())
 
   useEffect(() => {
     sanityClient
@@ -40,13 +38,13 @@ const License = ({font, weightOptions, slantOptions}) => {
       <Component.SelectionContainer>
         <Global.H2>License this font</Global.H2>
         <SelectionForm
+          font={font}
           selectedFonts={selectedFonts}
           setSelectedFonts={setSelectedFonts}
           setSelectedLicense={setSelectedLicense}
           licenses={licenses}
           selectedLicense={selectedLicense}
           weightOptions={weightOptions()}
-          slantOptions={slantOptions()}
           findLicenseInfo={findLicenseInfo}
         />
       </Component.SelectionContainer>

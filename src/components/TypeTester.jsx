@@ -24,15 +24,18 @@ const TypeTester = ({font, weightOptions}) => {
           ))}
         </Component.Select>
 
-        <Component.Label>Slant</Component.Label>
-        <Component.Select value={slant} onChange={(event) => setSlant(event.target.value)}>
-          {font.slants.length > 1 &&
-            font.slants.map((slant) => (
-              <option key={slant} value={slant}>
-                {slant}
-              </option>
-            ))}
-        </Component.Select>
+        {font.slants.length > 1 && (
+          <>
+            <Component.Label>Slant</Component.Label>
+            <Component.Select value={slant} onChange={(event) => setSlant(event.target.value)}>
+              {font.slants.map((slant) => (
+                <option key={slant} value={slant}>
+                  {slant}
+                </option>
+              ))}
+            </Component.Select>
+          </>
+        )}
 
         <Component.LabelContainer>
           <Component.Label>Size </Component.Label>

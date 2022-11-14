@@ -3,13 +3,13 @@ import * as Component from '../styles/component-styles'
 import * as Global from '../styles/global-styles'
 
 const SelectionForm = ({
+  font,
   licenses,
   selectedFonts,
   setSelectedFonts,
   setSelectedLicense,
   selectedLicense,
   weightOptions,
-  slantOptions,
   findLicenseInfo,
 }) => {
   const handleFontClick = (event) => {
@@ -78,7 +78,7 @@ const SelectionForm = ({
               ))}
             </Component.Options>
 
-            {slantOptions.length > 1 && (
+            {font.slants.length > 1 && (
               <Component.Options>
                 {weightOptions.map((weight) => (
                   <Global.SecondaryButton
