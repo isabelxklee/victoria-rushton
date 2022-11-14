@@ -36,14 +36,6 @@ const FontProfile = () => {
     return arr
   }
 
-  const slantOptions = () => {
-    const arr = []
-
-    font.slants.map((slant) => arr.push({value: slant, label: slant}))
-
-    return arr
-  }
-
   return (
     <>
       {!font ? (
@@ -58,14 +50,14 @@ const FontProfile = () => {
             <Global.Button onClick={handleClick}>License this font</Global.Button>
           </Component.HeroContainer>
           <FontPreview font={font.title} />
-          <TypeTester font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
+          <TypeTester font={font} weightOptions={weightOptions} />
           <Component.HeroContainer>
             <Global.H3>Supported Languages</Global.H3>
             <Global.P>{font.supportedLanguages}</Global.P>
           </Component.HeroContainer>
           {font.title.includes('Cecilie') && <Announcement />}
           <div ref={divEl}>
-            <License font={font} weightOptions={weightOptions} slantOptions={slantOptions} />
+            <License font={font} weightOptions={weightOptions} />
           </div>
         </>
       )}

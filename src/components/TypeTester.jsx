@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import * as Component from '../styles/component-styles'
 import * as Global from '../styles/global-styles'
 
-const TypeTester = ({font, weightOptions, slantOptions}) => {
+const TypeTester = ({font, weightOptions}) => {
   const [weight, setWeight] = useState(400)
   const [size, setSize] = useState(60)
   const [slant, setSlant] = useState('Roman')
@@ -26,10 +26,10 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
 
         <Component.Label>Slant</Component.Label>
         <Component.Select value={slant} onChange={(event) => setSlant(event.target.value)}>
-          {slantOptions().length > 1 &&
-            slantOptions().map((slant) => (
-              <option key={slant.value} value={slant.value}>
-                {slant.value}
+          {font.slants.length > 1 &&
+            font.slants.map((slant) => (
+              <option key={slant} value={slant}>
+                {slant}
               </option>
             ))}
         </Component.Select>

@@ -14,6 +14,8 @@ const License = ({font, weightOptions, slantOptions}) => {
   const [totalPrice, setTotalPrice] = useState(0)
   const [variableFont, setVariableFont] = useState(false)
 
+  console.log(weightOptions(), slantOptions())
+
   useEffect(() => {
     sanityClient
       .fetch(licensesQuery)
