@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
-import {PSpace} from '../../styles'
+import {PSpace} from '../../styles/global-styles'
 import {PreviewText, PreviewTextContainer, SVG} from './styles'
 import {previewTextQuery} from '../../queries'
 

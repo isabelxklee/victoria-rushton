@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {P, Colors} from '../../styles'
+import {P, Colors} from '../../styles/global-styles'
 
 export const TypeTesterBackground = styled.div`
   background: ${Colors.black};

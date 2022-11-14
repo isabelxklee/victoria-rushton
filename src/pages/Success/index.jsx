@@ -1,5 +1,5 @@
 import React from 'react'
-import {H2, PSpace, Button, Margin} from '../../styles'
+import {H2, PSpace, Button, Margin} from '../../styles/global-styles'
 import {SuccessContainer} from './styles'
 import {useNavigate} from 'react-router-dom'
 

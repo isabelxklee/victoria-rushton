@@ -1,6 +1,6 @@
 import React from 'react'
 import {FooterContainer} from './styles'
-import {TextLink, P} from '../../styles'
+import {TextLink, P} from '../../styles/global-styles'
 
 const Footer = () => (
   <FooterContainer>

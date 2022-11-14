@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {loadStripe} from '@stripe/stripe-js'
-import {Button} from '../../styles'
+import {Button} from '../../styles/global-styles'
 import FormikForm from '../FormikForm'
 
 const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {

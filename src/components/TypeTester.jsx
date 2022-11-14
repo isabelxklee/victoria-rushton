@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import * as Component from './componentStyle'
-import * as Global from '../styles'
+import * as Component from '../styles/component-styles'
+import * as Global from '../styles/global-styles'
 
 const TypeTester = ({font, weightOptions, slantOptions}) => {
   const [weight, setWeight] = useState(400)

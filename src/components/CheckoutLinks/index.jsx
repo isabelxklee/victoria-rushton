@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
 import {LinksContainer} from './styles'
-import {H3, SmallText, TextLink} from '../../styles'
+import {H3, SmallText, TextLink} from '../../styles/global-styles'
 import {checkoutLinksQuery} from '../../queries'
 
 const CheckoutLinks = () => {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import * as Global from '../styles'
+import * as Global from './global-styles'
 import {ReactComponent as Sun} from '../assets/icons/icon-sun.svg'
 import {ReactComponent as Moon} from '../assets/icons/icon-moon.svg'
 
@@ -199,4 +199,18 @@ export const PriceContainer = styled.div`
   @media (max-width: 900px) {
     padding: 0 20px;
   }
+`
+
+export const FontHeroContainer = styled.div`
+  border-bottom: 2px solid ${Global.Colors.black};
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 180px;
+  }
+`
+
+export const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `

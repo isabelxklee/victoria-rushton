@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
 import {ReactComponent as LogoSVG} from '../../assets/icons/logo-full.svg'
-import {Colors} from '../../styles'
+import {Colors} from '../../styles/global-styles'
 
 export const HeaderContainer = styled.div`
   color: ${Colors.black};
