@@ -5,11 +5,12 @@ import LoadingComponent from '../../components/Loading'
 
 const Home = () => {
   const fonts = useSelector((state) => state.fonts.value)
-  console.log(fonts)
 
-  if (!fonts) return <LoadingComponent />
-
-  return <>{fonts && fonts.map((font) => <FontHero font={font} key={font._id} />)}</>
+  return (
+    <>
+      {!fonts ? <LoadingComponent /> : fonts.map((font) => <FontHero font={font} key={font._id} />)}
+    </>
+  )
 }
 
 export default Home
