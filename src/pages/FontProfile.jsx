@@ -1,5 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import {useParams} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
+import {addCurrentFont} from '../slices/current-font-slice.js'
 import sanityClient from '../client.js'
 import TypeTester from '../components/TypeTester'
 import FontPreview from '../components/FontPreview'
@@ -11,16 +13,17 @@ import * as Component from '../styles/component-styles'
 import {currentFontQuery} from '../queries'
 
 const FontProfile = () => {
-  const [font, setFont] = useState(null)
+  const currentFont = useSelector((state) => state.currentFont.value)
+  const dispatch = useDispatch()
   const {slug} = useParams()
   const divEl = useRef(null)
 
   useEffect(() => {
     sanityClient
       .fetch(currentFontQuery, {slug})
-      .then((font) => setFont(font[0]))
+      .then((font) => dispatch(addCurrentFont(font[0])))
       .catch(console.error)
-  }, [slug])
+  }, [slug, dispatch])
 
   const handleClick = () => {
     divEl.current.scrollIntoView()
@@ -29,7 +32,7 @@ const FontProfile = () => {
   const weightOptions = () => {
     const arr = []
 
-    font.weights.map(
+    currentFont.weights.map(
       (weight) => weight.number && arr.push({value: weight.number, label: weight.title})
     )
 
@@ -38,26 +41,26 @@ const FontProfile = () => {
 
   return (
     <>
-      {!font ? (
+      {!currentFont ? (
         <LoadingComponent />
       ) : (
         <>
           <Component.HeroContainer>
-            <Global.H1 $font={font.title} $margin="0 0 40px 0">
-              {font.title}
+            <Global.H1 $font={currentFont.title} $margin="0 0 40px 0">
+              {currentFont.title}
             </Global.H1>
-            <Component.Description>{font.description}</Component.Description>
+            <Component.Description>{currentFont.description}</Component.Description>
             <Global.Button onClick={handleClick}>License this font</Global.Button>
           </Component.HeroContainer>
-          <FontPreview font={font.title} />
-          <TypeTester font={font} weightOptions={weightOptions} />
+          <FontPreview font={currentFont.title} />
+          <TypeTester font={currentFont} weightOptions={weightOptions} />
           <Component.HeroContainer>
             <Global.H3>Supported Languages</Global.H3>
-            <Global.P>{font.supportedLanguages}</Global.P>
+            <Global.P>{currentFont.supportedLanguages}</Global.P>
           </Component.HeroContainer>
-          {font.title.includes('Cecilie') && <Announcement />}
+          {currentFont.title.includes('Cecilie') && <Announcement />}
           <div ref={divEl}>
-            <License font={font} weightOptions={weightOptions} />
+            <License font={currentFont} weightOptions={weightOptions} />
           </div>
         </>
       )}
