@@ -22,8 +22,6 @@ const License = ({font}) => {
     setTotalPrice(selectedFonts && selectedLicense && selectedLicense.price * selectedFonts.length)
   }, [selectedFonts, selectedLicense, licenses])
 
-  console.log(totalPrice)
-
   return (
     <Component.ParentContainer>
       <Component.SelectionContainer>
@@ -40,22 +38,25 @@ const License = ({font}) => {
           <LoadingComponent />
         )}
       </Component.SelectionContainer>
-      {/* <Component.PriceContainer>
+      <Component.PriceContainer>
         <Global.H3>Cart</Global.H3>
         <Global.Margin $margin="16px 0">
-          <PriceBreakdown
-            selectedLicense={selectedLicense}
-            setSelectedFonts={setSelectedFonts}
-            selectedFonts={selectedFonts}
-            font={font}
-            totalPrice={totalPrice}
-            variableFont={variableFont}
-            setVariableFont={setVariableFont}
-            findLicenseInfo={findLicenseInfo}
-          />
+          {selectedLicense ? (
+            <PriceBreakdown
+              selectedLicense={selectedLicense}
+              setSelectedFonts={setSelectedFonts}
+              selectedFonts={selectedFonts}
+              font={font}
+              totalPrice={totalPrice}
+              variableFont={variableFont}
+              setVariableFont={setVariableFont}
+            />
+          ) : (
+            <LoadingComponent />
+          )}
         </Global.Margin>
         <CheckoutLinks />
-      </Component.PriceContainer> */}
+      </Component.PriceContainer>
     </Component.ParentContainer>
   )
 }
