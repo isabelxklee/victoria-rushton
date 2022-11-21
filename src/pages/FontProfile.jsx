@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import {useParams} from 'react-router-dom'
-// import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import sanityClient from '../client.js'
 import TypeTester from '../components/TypeTester'
 import FontPreview from '../components/FontPreview'
@@ -10,19 +10,24 @@ import LoadingComponent from '../components/Loading'
 import * as Global from '../styles/global-styles'
 import * as Component from '../styles/component-styles'
 import {currentFontQuery} from '../queries'
+import {addCurrentFont} from '../slices/current-font-slice.js'
 
 const FontProfile = () => {
   const [font, setFont] = useState(null)
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const {slug} = useParams()
   const divEl = useRef(null)
 
   useEffect(() => {
     sanityClient
       .fetch(currentFontQuery, {slug})
-      .then((font) => setFont(font[0]))
+      .then((font) => {
+        let data = font[0]
+        setFont(data)
+        dispatch(addCurrentFont(data))
+      })
       .catch(console.error)
-  }, [slug])
+  }, [slug, dispatch])
 
   const handleClick = () => {
     divEl.current.scrollIntoView()
