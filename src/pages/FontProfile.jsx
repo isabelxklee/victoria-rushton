@@ -29,12 +29,6 @@ const FontProfile = () => {
     divEl.current.scrollIntoView()
   }
 
-  const weightOptions = () => {
-    return currentFont.weights.map((weight) => {
-      return {value: weight.number, label: weight.title}
-    })
-  }
-
   return (
     <>
       {!currentFont ? (
@@ -49,14 +43,14 @@ const FontProfile = () => {
             <Global.Button onClick={handleClick}>License this font</Global.Button>
           </Component.HeroContainer>
           <FontPreview font={currentFont.title} />
-          <TypeTester font={currentFont} weightOptions={weightOptions} />
+          <TypeTester font={currentFont} />
           <Component.HeroContainer>
             <Global.H3>Supported Languages</Global.H3>
             <Global.P>{currentFont.supportedLanguages}</Global.P>
           </Component.HeroContainer>
           {currentFont.title.includes('Cecilie') && <Announcement />}
           <div ref={divEl}>
-            <License font={currentFont} weightOptions={weightOptions} />
+            <License font={currentFont} />
           </div>
         </>
       )}

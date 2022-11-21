@@ -7,7 +7,7 @@ import SelectionForm from './SelectionForm'
 import CheckoutLinks from './CheckoutLinks'
 import LoadingComponent from './Loading'
 
-const License = ({font, weightOptions}) => {
+const License = ({font}) => {
   const licenses = useSelector((state) => state.licenses.value)
   const [selectedLicense, setSelectedLicense] = useState(null)
   const [selectedFonts, setSelectedFonts] = useState([])
@@ -32,7 +32,6 @@ const License = ({font, weightOptions}) => {
             setSelectedFonts={setSelectedFonts}
             setSelectedLicense={setSelectedLicense}
             selectedLicense={selectedLicense}
-            weightOptions={weightOptions()}
           />
         ) : (
           <LoadingComponent />

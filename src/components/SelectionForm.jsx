@@ -9,8 +9,6 @@ const SelectionForm = ({
   setSelectedFonts,
   setSelectedLicense,
   selectedLicense,
-  weightOptions,
-  findLicenseInfo,
 }) => {
   const licenses = useSelector((state) => state.licenses.value)
 
@@ -28,8 +26,6 @@ const SelectionForm = ({
     let data = licenses.filter((license) => license.title === event.target.value)
     setSelectedLicense(data[0])
   }
-
-  console.log(selectedLicense.title)
 
   return (
     <>
@@ -64,32 +60,32 @@ const SelectionForm = ({
           <Global.H3>Select fonts</Global.H3>
           <Component.ButtonGroup>
             <Component.Options>
-              {weightOptions.map((weight) => (
+              {font.weights.map((weight) => (
                 <Global.SecondaryButton
-                  key={weight.label}
-                  name={weight.label}
+                  key={weight.title}
+                  name={weight.title}
                   onClick={(event) => handleFontClick(event)}
-                  className={selectedFonts.includes(weight.label) ? 'active' : 'inactive'}
+                  className={selectedFonts.includes(weight.title) ? 'active' : 'inactive'}
                   $disabled={!selectedLicense}
                 >
-                  {weight.label}
+                  {weight.title}
                 </Global.SecondaryButton>
               ))}
             </Component.Options>
 
             {font.slants.length > 1 && (
               <Component.Options>
-                {weightOptions.map((weight) => (
+                {font.weights.map((weight) => (
                   <Global.SecondaryButton
-                    key={weight.label}
-                    name={`${weight.label} Italic`}
+                    key={weight.title}
+                    name={`${weight.title} Italic`}
                     onClick={(event) => handleFontClick(event)}
                     className={
-                      selectedFonts.includes(`${weight.label} Italic`) ? 'active' : 'inactive'
+                      selectedFonts.includes(`${weight.title} Italic`) ? 'active' : 'inactive'
                     }
                     $disabled={!selectedLicense}
                   >
-                    {weight.label} Italic
+                    {weight.title} Italic
                   </Global.SecondaryButton>
                 ))}
               </Component.Options>

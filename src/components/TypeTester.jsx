@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import * as Component from '../styles/component-styles'
 import * as Global from '../styles/global-styles'
 
-const TypeTester = ({font, weightOptions}) => {
+const TypeTester = ({font}) => {
   const [weight, setWeight] = useState(400)
   const [size, setSize] = useState(60)
   const [slant, setSlant] = useState('Roman')
@@ -17,9 +17,9 @@ const TypeTester = ({font, weightOptions}) => {
       <Component.PanelContainer>
         <Component.Label>Weight</Component.Label>
         <Component.Select value={weight} onChange={(event) => setWeight(event.target.value)}>
-          {weightOptions().map((weight) => (
-            <option key={weight.label} value={weight.value}>
-              {weight.label}
+          {font.weights.map((weight) => (
+            <option key={weight.title} value={weight.number}>
+              {weight.title}
             </option>
           ))}
         </Component.Select>
@@ -65,7 +65,7 @@ const TypeTester = ({font, weightOptions}) => {
       <Component.TextArea
         name="input"
         placeholder="Type something..."
-        $weight={weight ? weight : weightOptions()[0]}
+        $weight={weight ? weight : font.weights[0]}
         $size={size}
         $fontFamily={font.title}
         $slant={slant}
