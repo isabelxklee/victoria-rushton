@@ -30,13 +30,9 @@ const FontProfile = () => {
   }
 
   const weightOptions = () => {
-    const arr = []
-
-    currentFont.weights.map(
-      (weight) => weight.number && arr.push({value: weight.number, label: weight.title})
-    )
-
-    return arr
+    return currentFont.weights.map((weight) => {
+      return {value: weight.number, label: weight.title}
+    })
   }
 
   return (
