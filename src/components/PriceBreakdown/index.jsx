@@ -11,7 +11,6 @@ const PriceBreakdown = ({
   totalPrice,
   variableFont,
   setVariableFont,
-  findLicenseInfo,
 }) => {
   useEffect(() => {
     if (selectedFonts.length > 4) {
@@ -46,7 +45,7 @@ const PriceBreakdown = ({
               {font.title} {weightTitle}
             </P>
             <Right>
-              <P>${findLicenseInfo(selectedLicense)[0].price}</P>
+              <P>${selectedLicense.price}</P>
               <RemoveIcon onClick={() => handleRemove(weightTitle)} />
             </Right>
           </SelectedItem>

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import * as Component from '../styles/component-styles'
 import * as Global from '../styles/global-styles'
 
-const TypeTester = ({font, weightOptions, slantOptions}) => {
+const TypeTester = ({font}) => {
   const [weight, setWeight] = useState(400)
   const [size, setSize] = useState(60)
   const [slant, setSlant] = useState('Roman')
@@ -17,22 +17,25 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
       <Component.PanelContainer>
         <Component.Label>Weight</Component.Label>
         <Component.Select value={weight} onChange={(event) => setWeight(event.target.value)}>
-          {weightOptions().map((weight) => (
-            <option key={weight.value} value={weight.value}>
-              {weight.label}
+          {font.weights.map((weight) => (
+            <option key={weight.title} value={weight.number}>
+              {weight.title}
             </option>
           ))}
         </Component.Select>
 
-        <Component.Label>Slant</Component.Label>
-        <Component.Select value={slant} onChange={(event) => setSlant(event.target.value)}>
-          {slantOptions().length > 1 &&
-            slantOptions().map((slant) => (
-              <option key={slant.value} value={slant.value}>
-                {slant.value}
-              </option>
-            ))}
-        </Component.Select>
+        {font.slants.length > 1 && (
+          <>
+            <Component.Label>Slant</Component.Label>
+            <Component.Select value={slant} onChange={(event) => setSlant(event.target.value)}>
+              {font.slants.map((slant) => (
+                <option key={slant} value={slant}>
+                  {slant}
+                </option>
+              ))}
+            </Component.Select>
+          </>
+        )}
 
         <Component.LabelContainer>
           <Component.Label>Size </Component.Label>
@@ -62,7 +65,7 @@ const TypeTester = ({font, weightOptions, slantOptions}) => {
       <Component.TextArea
         name="input"
         placeholder="Type something..."
-        $weight={weight ? weight : weightOptions()[0]}
+        $weight={weight ? weight : font.weights[0]}
         $size={size}
         $fontFamily={font.title}
         $slant={slant}
