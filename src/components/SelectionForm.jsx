@@ -67,7 +67,7 @@ const SelectionForm = ({
             <Component.Options>
               {weightOptions.map((weight) => (
                 <Global.SecondaryButton
-                  key={weight.value}
+                  key={weight.label}
                   name={weight.label}
                   onClick={(event) => handleFontClick(event)}
                   className={selectedFonts.includes(weight.label) ? 'active' : 'inactive'}
@@ -82,7 +82,7 @@ const SelectionForm = ({
               <Component.Options>
                 {weightOptions.map((weight) => (
                   <Global.SecondaryButton
-                    key={weight.value}
+                    key={weight.label}
                     name={`${weight.label} Italic`}
                     onClick={(event) => handleFontClick(event)}
                     className={
