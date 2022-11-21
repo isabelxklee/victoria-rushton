@@ -27,6 +27,8 @@ const PriceBreakdown = ({
     setSelectedFonts((selectedFonts) => selectedFonts.filter((font) => font !== deletedFont))
   }
 
+  console.log(selectedLicense)
+
   return (
     <>
       <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>

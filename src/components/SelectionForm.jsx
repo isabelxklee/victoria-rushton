@@ -23,9 +23,13 @@ const SelectionForm = ({
     )
   }
 
-  const licenseOptions = () => {
-    return licenses.map((license) => ({...license, label: license.title, value: license.title}))
+  const handleLicenseClick = (event) => {
+    event.preventDefault()
+    let data = licenses.filter((license) => license.title === event.target.value)
+    setSelectedLicense(data[0])
   }
+
+  console.log(selectedLicense.title)
 
   return (
     <>
@@ -34,13 +38,13 @@ const SelectionForm = ({
           <div style={{marginBottom: '40px'}}>
             <Global.H3>Select license</Global.H3>
             <Component.Select
-              value={selectedLicense}
-              onChange={(event) => setSelectedLicense(event.target.value)}
+              value={selectedLicense.title}
+              onChange={(event) => handleLicenseClick(event)}
               $width="fixed"
             >
-              {licenseOptions().map((license) => (
-                <option key={license._id} value={license.value}>
-                  {license.value}
+              {licenses.map((license) => (
+                <option key={license._id} value={license.title}>
+                  {license.title}
                 </option>
               ))}
             </Component.Select>
@@ -49,9 +53,9 @@ const SelectionForm = ({
             <Global.H3>For uses, not exceeding:</Global.H3>
 
             <>
-              <p>{findLicenseInfo(selectedLicense)[0].desktopWorkstations} desktop workstations</p>
-              <p>{findLicenseInfo(selectedLicense)[0].webVisitors} web visitors</p>
-              <p>{findLicenseInfo(selectedLicense)[0].ebooks} apps or e-books</p>
+              <p>{selectedLicense.desktopWorkstations} desktop workstations</p>
+              <p>{selectedLicense.webVisitors} web visitors</p>
+              <p>{selectedLicense.ebooks} apps or e-books</p>
             </>
           </div>
         </Component.LicenseContainer>
