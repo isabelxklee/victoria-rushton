@@ -3,9 +3,10 @@ import {Wrapper, AppContainer} from './styles/global-styles'
 import {GlobalStyle} from './styles/font-styles'
 import {Routes, Route} from 'react-router-dom'
 import sanityClient from './client.js'
-import {fontsQuery} from './queries.js'
+import {fontsQuery, licensesQuery} from './queries.js'
 import {useDispatch, useSelector} from 'react-redux'
 import {addFonts} from './slices/font-slice.js'
+import {addLicenses} from './slices/license-slice.js'
 import About from './pages/About'
 import Home from './pages/Home'
 import FontProfile from './pages/FontProfile'
@@ -21,6 +22,11 @@ const App = () => {
     sanityClient
       .fetch(fontsQuery)
       .then((data) => dispatch(addFonts(data)))
+      .catch(console.error)
+
+    sanityClient
+      .fetch(licensesQuery)
+      .then((data) => dispatch(addLicenses(data)))
       .catch(console.error)
   }, [dispatch])
 
