@@ -1,10 +1,10 @@
 import React from 'react'
+import {useSelector} from 'react-redux'
 import * as Component from '../styles/component-styles'
 import * as Global from '../styles/global-styles'
 
 const SelectionForm = ({
   font,
-  licenses,
   selectedFonts,
   setSelectedFonts,
   setSelectedLicense,
@@ -12,6 +12,8 @@ const SelectionForm = ({
   weightOptions,
   findLicenseInfo,
 }) => {
+  const licenses = useSelector((state) => state.licenses.value)
+
   const handleFontClick = (event) => {
     event.preventDefault()
     setSelectedFonts((selectedFonts) =>
@@ -22,10 +24,7 @@ const SelectionForm = ({
   }
 
   const licenseOptions = () => {
-    return (
-      licenses &&
-      licenses.map((license) => ({...license, label: license.title, value: license.title}))
-    )
+    return licenses.map((license) => ({...license, label: license.title, value: license.title}))
   }
 
   return (
@@ -39,25 +38,21 @@ const SelectionForm = ({
               onChange={(event) => setSelectedLicense(event.target.value)}
               $width="fixed"
             >
-              {licenses &&
-                licenseOptions().map((license) => (
-                  <option key={license._id} value={license.value}>
-                    {license.value}
-                  </option>
-                ))}
+              {licenseOptions().map((license) => (
+                <option key={license._id} value={license.value}>
+                  {license.value}
+                </option>
+              ))}
             </Component.Select>
           </div>
           <div>
             <Global.H3>For uses, not exceeding:</Global.H3>
-            {licenses !== null && (
-              <>
-                <p>
-                  {findLicenseInfo(selectedLicense)[0].desktopWorkstations} desktop workstations
-                </p>
-                <p>{findLicenseInfo(selectedLicense)[0].webVisitors} web visitors</p>
-                <p>{findLicenseInfo(selectedLicense)[0].ebooks} apps or e-books</p>
-              </>
-            )}
+
+            <>
+              <p>{findLicenseInfo(selectedLicense)[0].desktopWorkstations} desktop workstations</p>
+              <p>{findLicenseInfo(selectedLicense)[0].webVisitors} web visitors</p>
+              <p>{findLicenseInfo(selectedLicense)[0].ebooks} apps or e-books</p>
+            </>
           </div>
         </Component.LicenseContainer>
 

@@ -1,25 +1,17 @@
 import React, {useState, useEffect} from 'react'
-import sanityClient from '../client.js'
+import {useSelector} from 'react-redux'
 import * as Component from '../styles/component-styles'
 import * as Global from '../styles/global-styles'
 import PriceBreakdown from './PriceBreakdown'
 import SelectionForm from './SelectionForm'
 import CheckoutLinks from './CheckoutLinks'
-import {licensesQuery} from '../queries'
 
 const License = ({font, weightOptions}) => {
-  const [licenses, setLicenses] = useState(null)
+  const licenses = useSelector((state) => state.licenses.value)
   const [selectedLicense, setSelectedLicense] = useState('Mini')
   const [selectedFonts, setSelectedFonts] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
   const [variableFont, setVariableFont] = useState(false)
-
-  useEffect(() => {
-    sanityClient
-      .fetch(licensesQuery)
-      .then((data) => setLicenses(data))
-      .catch(console.error)
-  }, [])
 
   const findLicenseInfo = () => {
     return licenses.filter((license) => license.title === selectedLicense)
@@ -42,7 +34,6 @@ const License = ({font, weightOptions}) => {
           selectedFonts={selectedFonts}
           setSelectedFonts={setSelectedFonts}
           setSelectedLicense={setSelectedLicense}
-          licenses={licenses}
           selectedLicense={selectedLicense}
           weightOptions={weightOptions()}
           findLicenseInfo={findLicenseInfo}
@@ -60,7 +51,6 @@ const License = ({font, weightOptions}) => {
             variableFont={variableFont}
             setVariableFont={setVariableFont}
             findLicenseInfo={findLicenseInfo}
-            licenses={licenses}
           />
         </Global.Margin>
         <CheckoutLinks />
