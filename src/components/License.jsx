@@ -15,11 +15,14 @@ const License = ({font}) => {
   const [variableFont, setVariableFont] = useState(false)
 
   useEffect(() => {
-    setSelectedLicense(licenses[0])
-    // setTotalPrice(selectedFonts && findLicenseInfo(selectedLicense)[0].price * selectedFonts.length)
+    if (!selectedLicense) {
+      setSelectedLicense(licenses[0])
+    }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedFonts, licenses])
+    setTotalPrice(selectedFonts && selectedLicense && selectedLicense.price * selectedFonts.length)
+  }, [selectedFonts, selectedLicense, licenses])
+
+  console.log(totalPrice)
 
   return (
     <Component.ParentContainer>
