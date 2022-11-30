@@ -32,8 +32,6 @@ const FontProfile = () => {
     divEl.current.scrollIntoView()
   }
 
-  console.log(currentFont)
-
   return (
     <>
       {!currentFont ? (
@@ -47,15 +45,15 @@ const FontProfile = () => {
             <Component.Description>{currentFont.description}</Component.Description>
             <Global.Button onClick={handleClick}>License this font</Global.Button>
           </Component.HeroContainer>
-          <FontPreview font={currentFont.title} />
-          <TypeTester font={currentFont} />
+          <FontPreview />
+          <TypeTester />
           <Component.HeroContainer>
             <Global.H3>Supported Languages</Global.H3>
             <Global.P>{currentFont.supportedLanguages}</Global.P>
           </Component.HeroContainer>
           {currentFont.title.includes('Cecilie') && <Announcement />}
           <div ref={divEl}>
-            <License font={currentFont} />
+            <License />
           </div>
         </>
       )}
