@@ -3,14 +3,9 @@ import {useSelector} from 'react-redux'
 import * as Component from '../styles/component-styles'
 import * as Global from '../styles/global-styles'
 
-const SelectionForm = ({
-  font,
-  selectedFonts,
-  setSelectedFonts,
-  setSelectedLicense,
-  selectedLicense,
-}) => {
+const SelectionForm = ({selectedFonts, setSelectedFonts, setSelectedLicense, selectedLicense}) => {
   const licenses = useSelector((state) => state.licenses.value)
+  const currentFont = useSelector((state) => state.currentFont.value)
 
   const handleFontClick = (event) => {
     event.preventDefault()
@@ -60,7 +55,7 @@ const SelectionForm = ({
           <Global.H3>Select fonts</Global.H3>
           <Component.ButtonGroup>
             <Component.Options>
-              {font.weights.map((weight) => (
+              {currentFont.weights.map((weight) => (
                 <Global.SecondaryButton
                   key={weight.title}
                   name={weight.title}
@@ -73,9 +68,9 @@ const SelectionForm = ({
               ))}
             </Component.Options>
 
-            {font.slants.length > 1 && (
+            {currentFont.slants.length > 1 && (
               <Component.Options>
-                {font.weights.map((weight) => (
+                {currentFont.weights.map((weight) => (
                   <Global.SecondaryButton
                     key={weight.title}
                     name={`${weight.title} Italic`}

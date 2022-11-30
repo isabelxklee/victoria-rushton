@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {Wrapper, AppContainer} from './styles/global-styles'
 import {GlobalStyle} from './styles/font-styles'
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, useLocation} from 'react-router-dom'
 import sanityClient from './client.js'
 import {fontsQuery, licensesQuery} from './queries.js'
 import {useDispatch} from 'react-redux'
@@ -16,6 +16,9 @@ import Header from './components/Header'
 
 const App = () => {
   const dispatch = useDispatch()
+  const {pathname} = useLocation()
+
+  console.log(pathname)
 
   useEffect(() => {
     sanityClient
@@ -27,7 +30,9 @@ const App = () => {
       .fetch(licensesQuery)
       .then((data) => dispatch(addLicenses(data)))
       .catch(console.error)
-  }, [dispatch])
+
+    window.scrollTo(0, 0)
+  }, [dispatch, pathname])
 
   return (
     <>

@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import {loadStripe} from '@stripe/stripe-js'
+import {useSelector} from 'react-redux'
 import {Button} from '../../styles/global-styles'
 import FormikForm from '../FormikForm'
 
-const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
+const CheckoutForm = ({selectedLicense, selectedFonts}) => {
+  const currentFont = useSelector((state) => state.currentFont.value)
   const [buttonLabel, setButtonLabel] = useState('Checkout')
 
   useEffect(() => {
@@ -20,7 +22,7 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        font: font.title,
+        font: currentFont.title,
         selectedFonts: selectedFonts,
         license: selectedLicense,
       }),
@@ -36,7 +38,7 @@ const CheckoutForm = ({selectedLicense, selectedFonts, font}) => {
   return (
     <>
       {selectedLicense && selectedLicense.title === 'Trial' ? (
-        <FormikForm selectedLicense={selectedLicense} selectedFonts={selectedFonts} font={font} />
+        <FormikForm selectedLicense={selectedLicense} selectedFonts={selectedFonts} />
       ) : (
         <form onSubmit={handleSubmit}>
           <Button type="submit" $disabled={!selectedLicense || selectedFonts.length < 1}>
