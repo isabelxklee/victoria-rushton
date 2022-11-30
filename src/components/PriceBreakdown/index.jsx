@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react'
+import {useSelector} from 'react-redux'
 import {SelectedItem, TotalPrice, RemoveIcon, Right} from './styles'
 import {P, PSpace} from '../../styles/global-styles'
 import Checkout from '../Checkout'
 
 const PriceBreakdown = ({
-  font,
   selectedLicense,
   setSelectedFonts,
   selectedFonts,
@@ -12,6 +12,8 @@ const PriceBreakdown = ({
   variableFont,
   setVariableFont,
 }) => {
+  const currentFont = useSelector((state) => state.currentFont.value)
+
   useEffect(() => {
     if (selectedFonts.length > 4) {
       setVariableFont(true)
@@ -29,9 +31,9 @@ const PriceBreakdown = ({
   return (
     <>
       <PSpace inputMargin="8px 0">{selectedLicense.title} License</PSpace>
-      {font.title.includes('Cecilie') && selectedLicense.title !== 'Trial' && (
+      {currentFont.title.includes('Cecilie') && selectedLicense.title !== 'Trial' && (
         <SelectedItem $disabled={!variableFont}>
-          <P>{font.title} Variable Font</P>
+          <P>{currentFont.title} Variable Font</P>
           <Right>
             <P>FREE</P>
           </Right>
@@ -42,7 +44,7 @@ const PriceBreakdown = ({
         selectedFonts.map((weightTitle) => (
           <SelectedItem key={weightTitle} $disabled={false}>
             <P>
-              {font.title} {weightTitle}
+              {currentFont.title} {weightTitle}
             </P>
             <Right>
               <P>${selectedLicense.price}</P>
@@ -60,7 +62,6 @@ const PriceBreakdown = ({
         selectedLicense={selectedLicense}
         selectedFonts={selectedFonts}
         setSelectedFonts={setSelectedFonts}
-        font={font}
       />
     </>
   )

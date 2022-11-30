@@ -7,7 +7,7 @@ import SelectionForm from './SelectionForm'
 import CheckoutLinks from './CheckoutLinks'
 import LoadingComponent from './Loading'
 
-const License = ({font}) => {
+const License = () => {
   const licenses = useSelector((state) => state.licenses.value)
   const [selectedLicense, setSelectedLicense] = useState(null)
   const [selectedFonts, setSelectedFonts] = useState([])
@@ -28,7 +28,6 @@ const License = ({font}) => {
         <Global.H2>License this font</Global.H2>
         {selectedLicense ? (
           <SelectionForm
-            font={font}
             selectedFonts={selectedFonts}
             setSelectedFonts={setSelectedFonts}
             setSelectedLicense={setSelectedLicense}
@@ -46,7 +45,6 @@ const License = ({font}) => {
               selectedLicense={selectedLicense}
               setSelectedFonts={setSelectedFonts}
               selectedFonts={selectedFonts}
-              font={font}
               totalPrice={totalPrice}
               variableFont={variableFont}
               setVariableFont={setVariableFont}

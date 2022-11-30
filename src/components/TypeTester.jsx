@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
+import {useSelector} from 'react-redux'
 import * as Component from '../styles/component-styles'
 import * as Global from '../styles/global-styles'
 
-const TypeTester = ({font}) => {
+const TypeTester = () => {
+  const currentFont = useSelector((state) => state.currentFont.value)
   const [weight, setWeight] = useState(400)
   const [size, setSize] = useState(60)
   const [slant, setSlant] = useState('Roman')
@@ -17,18 +19,18 @@ const TypeTester = ({font}) => {
       <Component.PanelContainer>
         <Component.Label>Weight</Component.Label>
         <Component.Select value={weight} onChange={(event) => setWeight(event.target.value)}>
-          {font.weights.map((weight) => (
+          {currentFont.weights.map((weight) => (
             <option key={weight.title} value={weight.number}>
               {weight.title}
             </option>
           ))}
         </Component.Select>
 
-        {font.slants.length > 1 && (
+        {currentFont.slants.length > 1 && (
           <>
             <Component.Label>Slant</Component.Label>
             <Component.Select value={slant} onChange={(event) => setSlant(event.target.value)}>
-              {font.slants.map((slant) => (
+              {currentFont.slants.map((slant) => (
                 <option key={slant} value={slant}>
                   {slant}
                 </option>
@@ -65,9 +67,9 @@ const TypeTester = ({font}) => {
       <Component.TextArea
         name="input"
         placeholder="Type something..."
-        $weight={weight ? weight : font.weights[0]}
+        $weight={weight ? weight : currentFont.weights[0]}
         $size={size}
-        $fontFamily={font.title}
+        $fontFamily={currentFont.title}
         $slant={slant}
         $darkMode={darkMode ? Global.Colors.black : Global.Colors.white}
         $lightMode={darkMode ? Global.Colors.white : Global.Colors.black}

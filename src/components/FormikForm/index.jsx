@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react'
+import {useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {Button} from '../../styles/global-styles'
 import {InputField, FieldContainer, Label, Error} from './styles'
 import {Formik, Form} from 'formik'
 import * as Yup from 'yup'
 
-const FormikForm = ({selectedLicense, selectedFonts, font}) => {
+const FormikForm = ({selectedLicense, selectedFonts}) => {
+  const currentFont = useSelector((state) => state.currentFont.value)
   const [buttonLabel, setButtonLabel] = useState('Checkout')
   let navigate = useNavigate()
 
@@ -29,7 +31,7 @@ const FormikForm = ({selectedLicense, selectedFonts, font}) => {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        font: font.title,
+        font: currentFont.title,
         selectedFonts: selectedFonts,
         license: selectedLicense,
         customerName: values.name,
