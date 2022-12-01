@@ -231,7 +231,8 @@ export const PreviewText = styled.p`
 
 export const HeroContainer = styled.div`
   padding: 120px 0;
-  border-bottom: 2px solid ${Global.Colors.black};
+  border-bottom: ${({$borderBottom}) =>
+    $borderBottom ? `2px solid ${Global.Colors.black}` : 'none'};
 
   @media (max-width: 900px) {
     padding: 90px 0;
