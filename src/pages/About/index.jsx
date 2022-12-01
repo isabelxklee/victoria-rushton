@@ -40,7 +40,7 @@ const About = () => {
           <div>
             <H2>{about.greeting}</H2>
             <BlockContent blocks={about.bio} />
-            <Button>
+            <Button style={{margin: '26px 0'}}>
               <TextLink href={about.buttonLink} inputWeight="300" $light={true} target="_blank">
                 {about.buttonText}
               </TextLink>
