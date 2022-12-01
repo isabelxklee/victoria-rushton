@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import sanityClient from '../../client.js'
+import {useSelector} from 'react-redux'
 import {PSpace} from '../../styles/global-styles'
 import {PreviewText} from '../../styles/component-styles'
 import {PreviewTextContainer, SVG} from './styles'
 import {previewTextQuery} from '../../queries'
 
-const FontPreview = ({font}) => {
+const FontPreview = () => {
+  const currentFont = useSelector((state) => state.currentFont.value)
   const [previews, setPreviews] = useState(null)
 
   useEffect(() => {
@@ -13,17 +15,22 @@ const FontPreview = ({font}) => {
       .fetch(previewTextQuery)
       .then((data) => setPreviews(data))
       .catch(console.error)
-  }, [font])
+  }, [currentFont])
+
+  const filterPreviews = () => {
+    return previews.filter((preview) => preview.font === currentFont.title)
+  }
 
   return (
     <>
       {previews &&
         previews.map((preview) => (
           <div key={preview._id}>
-            {preview.font === font && (
+            {preview.font === currentFont && (
               <PreviewTextContainer>
                 <PSpace>
-                  {font} {preview.weightTitle} {preview.slant.includes('Italic') && preview.slant}
+                  {currentFont} {preview.weightTitle}{' '}
+                  {preview.slant.includes('Italic') && preview.slant}
                 </PSpace>
                 {preview.useSVG && preview.svg ? (
                   <SVG
@@ -36,7 +43,7 @@ const FontPreview = ({font}) => {
                     $size={preview.size}
                     $weight={preview.weightNumber}
                     $slant={preview.slant}
-                    $font={font}
+                    $font={currentFont}
                     $lineHeight={preview.lineHeight}
                     $margin="0"
                   >
