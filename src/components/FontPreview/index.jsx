@@ -8,15 +8,17 @@ const FontPreview = () => {
   const currentFont = useSelector((state) => state.currentFont.value)
   const previewTexts = useSelector((state) => state.previewTexts.value)
 
-  console.log(previewTexts)
+  const filterPreviewTexts = () => {
+    return previewTexts.filter((preview) => preview.font === currentFont.title)
+  }
 
   return (
     <>
-      {/* {filterPreviews().map((preview) => (
+      {filterPreviewTexts().map((preview) => (
         <div key={preview._id}>
           <PreviewTextContainer>
             <PSpace>
-              {currentFont} {preview.weightTitle}{' '}
+              {currentFont.title} {preview.weightTitle}{' '}
               {preview.slant.includes('Italic') && preview.slant}
             </PSpace>
             {preview.useSVG && preview.svg ? (
@@ -39,7 +41,7 @@ const FontPreview = () => {
             )}
           </PreviewTextContainer>
         </div>
-      ))} */}
+      ))}
     </>
   )
 }
