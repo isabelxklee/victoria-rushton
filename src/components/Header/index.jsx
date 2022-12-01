@@ -11,9 +11,9 @@ const Header = () => {
       </LogoLink>
 
       <div>
-        <HeaderLink to="/" className={({isActive}) => isActive && activeClassName}>
+        {/* <HeaderLink to="/" className={({isActive}) => isActive && activeClassName}>
           Type
-        </HeaderLink>
+        </HeaderLink> */}
         <HeaderLink to="/about" className={({isActive}) => isActive && activeClassName}>
           About
         </HeaderLink>
