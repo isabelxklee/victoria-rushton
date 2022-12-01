@@ -18,8 +18,6 @@ const App = () => {
   const dispatch = useDispatch()
   const {pathname} = useLocation()
 
-  console.log(pathname)
-
   useEffect(() => {
     sanityClient
       .fetch(fontsQuery)
