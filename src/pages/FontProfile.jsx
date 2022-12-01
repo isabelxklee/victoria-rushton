@@ -14,6 +14,7 @@ import * as Component from '../styles/component-styles'
 
 const FontProfile = () => {
   const currentFont = useSelector((state) => state.currentFont.value)
+  const previewTexts = useSelector((state) => state.previewTexts.value)
   const dispatch = useDispatch()
   const {slug} = useParams()
   const divEl = useRef(null)
@@ -32,21 +33,25 @@ const FontProfile = () => {
     divEl.current.scrollIntoView()
   }
 
+  const filterPreviewTexts = () => {
+    return previewTexts.filter((preview) => preview.font === currentFont.title)
+  }
+
   return (
     <>
       {!currentFont ? (
         <LoadingComponent />
       ) : (
         <>
-          <Component.HeroContainer>
+          <Component.HeroContainer $noBorderBottom={filterPreviewTexts().length < 1}>
             <Global.H1 $font={currentFont.title} $margin="0 0 40px 0">
               {currentFont.title}
             </Global.H1>
             <Component.Description>{currentFont.description}</Component.Description>
             <Global.Button onClick={handleClick}>License this font</Global.Button>
           </Component.HeroContainer>
-          <FontPreview />
-          <TypeTester />
+          {filterPreviewTexts().length > 0 && <FontPreview />}
+          <TypeTester marginTop={filterPreviewTexts().length > 0} />
           <Component.HeroContainer>
             <Global.H3>Supported Languages</Global.H3>
             <Global.P>{currentFont.supportedLanguages}</Global.P>

@@ -3,10 +3,11 @@ import {Wrapper, AppContainer} from './styles/global-styles'
 import {GlobalStyle} from './styles/font-styles'
 import {Routes, Route, useLocation} from 'react-router-dom'
 import sanityClient from './client.js'
-import {fontsQuery, licensesQuery} from './queries.js'
+import {fontsQuery, licensesQuery, previewTextsQuery} from './queries.js'
 import {useDispatch} from 'react-redux'
 import {addFonts} from './slices/font-slice.js'
 import {addLicenses} from './slices/license-slice.js'
+import {addPreviewTexts} from './slices/preview-text-slice.js'
 import About from './pages/About'
 import Home from './pages/Home'
 import FontProfile from './pages/FontProfile'
@@ -18,8 +19,6 @@ const App = () => {
   const dispatch = useDispatch()
   const {pathname} = useLocation()
 
-  console.log(pathname)
-
   useEffect(() => {
     sanityClient
       .fetch(fontsQuery)
@@ -29,6 +28,11 @@ const App = () => {
     sanityClient
       .fetch(licensesQuery)
       .then((data) => dispatch(addLicenses(data)))
+      .catch(console.error)
+
+    sanityClient
+      .fetch(previewTextsQuery)
+      .then((data) => dispatch(addPreviewTexts(data)))
       .catch(console.error)
 
     window.scrollTo(0, 0)

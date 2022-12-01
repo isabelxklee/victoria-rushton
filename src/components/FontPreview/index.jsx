@@ -1,52 +1,47 @@
-import React, {useState, useEffect} from 'react'
-import sanityClient from '../../client.js'
+import React from 'react'
+import {useSelector} from 'react-redux'
 import {PSpace} from '../../styles/global-styles'
 import {PreviewText} from '../../styles/component-styles'
 import {PreviewTextContainer, SVG} from './styles'
-import {previewTextQuery} from '../../queries'
 
-const FontPreview = ({font}) => {
-  const [previews, setPreviews] = useState(null)
+const FontPreview = () => {
+  const currentFont = useSelector((state) => state.currentFont.value)
+  const previewTexts = useSelector((state) => state.previewTexts.value)
 
-  useEffect(() => {
-    sanityClient
-      .fetch(previewTextQuery)
-      .then((data) => setPreviews(data))
-      .catch(console.error)
-  }, [font])
+  const filterPreviewTexts = () => {
+    return previewTexts.filter((preview) => preview.font === currentFont.title)
+  }
 
   return (
     <>
-      {previews &&
-        previews.map((preview) => (
-          <div key={preview._id}>
-            {preview.font === font && (
-              <PreviewTextContainer>
-                <PSpace>
-                  {font} {preview.weightTitle} {preview.slant.includes('Italic') && preview.slant}
-                </PSpace>
-                {preview.useSVG && preview.svg ? (
-                  <SVG
-                    src={preview.svg.asset.url}
-                    alt={preview.svg.altText}
-                    $width={preview.svg.width}
-                  />
-                ) : (
-                  <PreviewText
-                    $size={preview.size}
-                    $weight={preview.weightNumber}
-                    $slant={preview.slant}
-                    $font={font}
-                    $lineHeight={preview.lineHeight}
-                    $margin="0"
-                  >
-                    {preview.text}
-                  </PreviewText>
-                )}
-              </PreviewTextContainer>
+      {filterPreviewTexts().map((preview) => (
+        <div key={preview._id}>
+          <PreviewTextContainer>
+            <PSpace>
+              {currentFont.title} {preview.weightTitle}{' '}
+              {preview.slant.includes('Italic') && preview.slant}
+            </PSpace>
+            {preview.useSVG && preview.svg ? (
+              <SVG
+                src={preview.svg.asset.url}
+                alt={preview.svg.altText}
+                $width={preview.svg.width}
+              />
+            ) : (
+              <PreviewText
+                $size={preview.size}
+                $weight={preview.weightNumber}
+                $slant={preview.slant}
+                $font={currentFont}
+                $lineHeight={preview.lineHeight}
+                $margin="0"
+              >
+                {preview.text}
+              </PreviewText>
             )}
-          </div>
-        ))}
+          </PreviewTextContainer>
+        </div>
+      ))}
     </>
   )
 }

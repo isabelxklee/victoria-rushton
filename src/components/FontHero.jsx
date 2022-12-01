@@ -16,16 +16,18 @@ const FontHero = ({font}) => {
             <Global.P $right={true}>{calculateStyles()} available styles</Global.P>
           </Component.FlexContainer>
 
-          <Component.PreviewText
-            $font={font.title}
-            $size={font.homeTextSize}
-            $weight={font.homeTextWeight}
-            $slant={font.homeTextSlant}
-            $lineHeight={font.homeTextLineHeight}
-          >
-            {font.homeText}
-          </Component.PreviewText>
-          <Global.P>View this font</Global.P>
+          <Global.Margin $margin="60px 0">
+            <Component.PreviewText
+              $font={font.title}
+              $size={font.homeTextSize}
+              $weight={font.homeTextWeight}
+              $slant={font.homeTextSlant}
+              $lineHeight={font.homeTextLineHeight}
+            >
+              {font.homeText}
+            </Component.PreviewText>
+          </Global.Margin>
+          <Global.P style={{margin: '-10px 0'}}>View this font</Global.P>
         </Global.InternalLink>
       </Global.Padding>
     </Component.FontHeroContainer>

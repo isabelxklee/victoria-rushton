@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 import * as Component from '../styles/component-styles'
 import * as Global from '../styles/global-styles'
 
-const TypeTester = () => {
+const TypeTester = ({marginTop}) => {
   const currentFont = useSelector((state) => state.currentFont.value)
   const [weight, setWeight] = useState(400)
   const [size, setSize] = useState(60)
@@ -15,7 +15,7 @@ const TypeTester = () => {
   }
 
   return (
-    <Component.TypeTesterContainer>
+    <Component.TypeTesterContainer $marginTop={marginTop}>
       <Component.PanelContainer>
         <Component.Label>Weight</Component.Label>
         <Component.Select value={weight} onChange={(event) => setWeight(event.target.value)}>

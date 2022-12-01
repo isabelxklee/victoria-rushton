@@ -50,7 +50,7 @@ export const TypeTesterContainer = styled.div`
   display: flex;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  margin-top: 100px;
+  margin-top: ${({$marginTop}) => ($marginTop ? '100px' : '0px')};
 
   @media (max-width: 900px) {
     display: block;
@@ -231,7 +231,8 @@ export const PreviewText = styled.p`
 
 export const HeroContainer = styled.div`
   padding: 120px 0;
-  border-bottom: 2px solid ${Global.Colors.black};
+  border-bottom: ${({$noBorderBottom}) =>
+    $noBorderBottom ? 'none' : `2px solid ${Global.Colors.black}`};
 
   @media (max-width: 900px) {
     padding: 90px 0;
