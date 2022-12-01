@@ -50,7 +50,7 @@ export const TypeTesterContainer = styled.div`
   display: flex;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  margin-top: 100px;
+  margin-top: ${({$marginTop}) => ($marginTop ? '100px' : '0px')};
 
   @media (max-width: 900px) {
     display: block;

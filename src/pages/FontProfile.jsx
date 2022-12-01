@@ -51,7 +51,7 @@ const FontProfile = () => {
             <Global.Button onClick={handleClick}>License this font</Global.Button>
           </Component.HeroContainer>
           {filterPreviewTexts().length > 0 && <FontPreview />}
-          <TypeTester />
+          <TypeTester marginTop={filterPreviewTexts().length > 0} />
           <Component.HeroContainer>
             <Global.H3>Supported Languages</Global.H3>
             <Global.P>{currentFont.supportedLanguages}</Global.P>
