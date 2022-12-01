@@ -43,7 +43,7 @@ const FontProfile = () => {
         <LoadingComponent />
       ) : (
         <>
-          <Component.HeroContainer $borderBottom={filterPreviewTexts().length > 0}>
+          <Component.HeroContainer $noBorderBottom={filterPreviewTexts().length < 1}>
             <Global.H1 $font={currentFont.title} $margin="0 0 40px 0">
               {currentFont.title}
             </Global.H1>
