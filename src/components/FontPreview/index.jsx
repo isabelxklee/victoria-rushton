@@ -1,29 +1,18 @@
-import React, {useState, useEffect} from 'react'
-import sanityClient from '../../client.js'
+import React from 'react'
 import {useSelector} from 'react-redux'
 import {PSpace} from '../../styles/global-styles'
 import {PreviewText} from '../../styles/component-styles'
 import {PreviewTextContainer, SVG} from './styles'
-import {previewTextQuery} from '../../queries'
 
 const FontPreview = () => {
   const currentFont = useSelector((state) => state.currentFont.value)
-  const [previews, setPreviews] = useState(null)
+  const previewTexts = useSelector((state) => state.previewTexts.value)
 
-  useEffect(() => {
-    sanityClient
-      .fetch(previewTextQuery)
-      .then((data) => setPreviews(data))
-      .catch(console.error)
-  }, [currentFont])
-
-  const filterPreviews = () => {
-    return previews.filter((preview) => preview.font === currentFont.title)
-  }
+  console.log(previewTexts)
 
   return (
     <>
-      {filterPreviews().map((preview) => (
+      {/* {filterPreviews().map((preview) => (
         <div key={preview._id}>
           <PreviewTextContainer>
             <PSpace>
@@ -50,7 +39,7 @@ const FontPreview = () => {
             )}
           </PreviewTextContainer>
         </div>
-      ))}
+      ))} */}
     </>
   )
 }

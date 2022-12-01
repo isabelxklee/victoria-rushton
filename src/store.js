@@ -9,6 +9,6 @@ export const store = configureStore({
     fonts: fontReducer,
     licenses: licenseReducer,
     currentFont: currentFontReducer,
-    previeTexts: previewTextReducer,
+    previewTexts: previewTextReducer,
   },
 })

@@ -3,7 +3,7 @@ import {Wrapper, AppContainer} from './styles/global-styles'
 import {GlobalStyle} from './styles/font-styles'
 import {Routes, Route, useLocation} from 'react-router-dom'
 import sanityClient from './client.js'
-import {fontsQuery, licensesQuery, previewTextQuery} from './queries.js'
+import {fontsQuery, licensesQuery, previewTextsQuery} from './queries.js'
 import {useDispatch} from 'react-redux'
 import {addFonts} from './slices/font-slice.js'
 import {addLicenses} from './slices/license-slice.js'
@@ -31,7 +31,7 @@ const App = () => {
       .catch(console.error)
 
     sanityClient
-      .fetch(previewTextQuery)
+      .fetch(previewTextsQuery)
       .then((data) => dispatch(addPreviewTexts(data)))
       .catch(console.error)
 

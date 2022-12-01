@@ -31,7 +31,7 @@ export const fontsQuery = `*[_type == "font"] | order(order){
   "slants": slants[]->title
 }`
 
-export const previewTextQuery = `*[_type == "previewText"] | order(order){
+export const previewTextsQuery = `*[_type == "previewText"] | order(order){
   _id,
   text,
   svg{
