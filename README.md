@@ -21,6 +21,10 @@ Connected to Express.js server [here](https://github.com/isabelxklee/victoria-ru
 
 5. Open your browser and navigate to `http://localhost:3000/`.
 
+6. Run tests.
+
+   `$ npm run test --watch`
+
 ## Sanity Studio
 
 1. `cd` into the `sanity` folder from the root directory.
@@ -48,6 +52,5 @@ Connected to Express.js server [here](https://github.com/isabelxklee/victoria-ru
 - [styled components](https://styled-components.com/)
 - [Stripe API](https://stripe.com/docs/payments/accept-a-payment?platform=web&ui=checkout): accept payments using Stripe
 - [Netlify](https://www.netlify.com): front-end hosting service
-- [React Select](https://react-select.com/home)
-- [Material UI](https://material-ui.com/components/slider/#continuous-sliders)
 - [Sanity.io](https://www.sanity.io/)
+- [Jest Testing](https://jestjs.io/)

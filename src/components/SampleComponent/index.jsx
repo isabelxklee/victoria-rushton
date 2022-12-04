@@ -1,10 +1,10 @@
 import React from 'react'
 
 const SampleComponent = ({children}) => (
-  <div>
+  <span>
     <h1>hello world</h1>
     <p>{children}</p>
-  </div>
+  </span>
 )
 
 export default SampleComponent

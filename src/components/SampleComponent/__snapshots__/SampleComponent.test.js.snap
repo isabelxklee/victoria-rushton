@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SampleComponent snapshot renders 1`] = `
-<div>
+<span>
   <h1>
     hello world
   </h1>
   <p>
     helllo worlddd
   </p>
-</div>
+</span>
 `;
