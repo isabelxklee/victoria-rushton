@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useSelector} from 'react-redux'
-import * as Component from '../styles/component-styles'
-import * as Global from '../styles/global-styles'
+import * as Component from '../../styles/component-styles'
+import * as Global from '../../styles/global-styles'
 
 const TypeTester = ({marginTop}) => {
   const currentFont = useSelector((state) => state.currentFont.value)

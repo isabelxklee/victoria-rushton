@@ -1,6 +1,6 @@
 import React from 'react'
-import * as Global from '../styles/global-styles'
-import * as Component from '../styles/component-styles'
+import * as Global from '../../styles/global-styles'
+import * as Component from '../../styles/component-styles'
 
 const FontHero = ({font}) => {
   const calculateStyles = () => {

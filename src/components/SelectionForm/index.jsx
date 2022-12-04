@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import * as Component from '../styles/component-styles'
-import * as Global from '../styles/global-styles'
+import * as Component from '../../styles/component-styles'
+import * as Global from '../../styles/global-styles'
 
 const SelectionForm = ({selectedFonts, setSelectedFonts, setSelectedLicense, selectedLicense}) => {
   const licenses = useSelector((state) => state.licenses.value)

@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector} from 'react-redux'
-import * as Component from '../styles/component-styles'
-import * as Global from '../styles/global-styles'
-import PriceBreakdown from './PriceBreakdown'
-import SelectionForm from './SelectionForm'
-import CheckoutLinks from './CheckoutLinks'
-import LoadingComponent from './Loading'
+import * as Component from '../../styles/component-styles'
+import * as Global from '../../styles/global-styles'
+import PriceBreakdown from '../PriceBreakdown'
+import SelectionForm from '../SelectionForm'
+import CheckoutLinks from '../CheckoutLinks'
+import LoadingComponent from '../Loading'
 
 const License = () => {
   const licenses = useSelector((state) => state.licenses.value)
