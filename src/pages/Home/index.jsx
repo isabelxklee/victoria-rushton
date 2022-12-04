@@ -1,5 +1,5 @@
 import React from 'react'
-import FontHero from '../components/FontHero'
+import FontHero from '../../components/FontHero'
 import {useSelector} from 'react-redux'
 
 const Home = () => {

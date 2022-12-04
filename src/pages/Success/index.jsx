@@ -1,7 +1,7 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-import * as Global from '../styles/global-styles'
-import * as Component from '../styles/component-styles'
+import * as Global from '../../styles/global-styles'
+import * as Component from '../../styles/component-styles'
 
 const Success = () => {
   let navigate = useNavigate()
