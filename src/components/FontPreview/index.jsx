@@ -12,6 +12,8 @@ const FontPreview = () => {
     return previewTexts.filter((preview) => preview.font === currentFont.title)
   }
 
+  console.log(currentFont)
+
   return (
     <>
       {filterPreviewTexts().map((preview) => (
@@ -32,7 +34,7 @@ const FontPreview = () => {
                 $size={preview.size}
                 $weight={preview.weightNumber}
                 $slant={preview.slant}
-                $font={currentFont}
+                $font={currentFont.title}
                 $lineHeight={preview.lineHeight}
                 $margin="0"
               >
