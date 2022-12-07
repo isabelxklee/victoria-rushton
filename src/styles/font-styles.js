@@ -1,92 +1,75 @@
 import {createGlobalStyle} from 'styled-components'
 import {Colors} from './global-styles'
 
-// cecilie sans
-// 800
-import cecilie800 from '../fonts/cecilie-sans/Cecilie-Black.woff'
-import cecilieItalic800 from '../fonts/cecilie-sans/Cecilie-Black-Italic.woff'
-// 700
-import cecilie700 from '../fonts/cecilie-sans/Cecilie-Bold.woff'
-import cecilieItalic700 from '../fonts/cecilie-sans/Cecilie-Bold-Italic.woff'
-// 400
-import cecilie400 from '../fonts/cecilie-sans/Cecilie-Regular.woff'
-import cecilieItalic400 from '../fonts/cecilie-sans/Cecilie-Regular-Italic.woff'
-// 300
-import cecilie300 from '../fonts/cecilie-sans/Cecilie-Book.woff'
-import cecilieItalic300 from '../fonts/cecilie-sans/Cecilie-Book-Italic.woff'
-// 200
-import cecilie200 from '../fonts/cecilie-sans/Cecilie-Light.woff'
-import cecilieItalic200 from '../fonts/cecilie-sans/Cecilie-Light-Italic.woff'
-
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: normal;
     font-weight: 800;
-    src: url(${cecilie800}) format('woff')
+    src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Black.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: italic;
     font-weight: 800;
-    src: url(${cecilieItalic800}) format('woff')
+    src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Black-Italic.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: normal;
     font-weight: 700;
-    src: url(${cecilie700}) format('woff')
+    src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Bold.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: italic;
     font-weight: 700;
-    src: url(${cecilieItalic700}) format('woff')
+    src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Bold-Italic.woff') format('woff')
   }
 
   @font-face {
       font-family: 'Cecilie Sans';
       font-style: normal;
       font-weight: 400;
-      src: url(${cecilie400}) format('woff')
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Regular.woff') format('woff')
   }
 
   @font-face {
       font-family: 'Cecilie Sans';
       font-style: italic;
       font-weight: 400;
-      src: url(${cecilieItalic400}) format('woff')
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Regular-Italic.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: normal;
     font-weight: 300;
-    src: url(${cecilie300}) format('woff')
+    src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Book.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: italic;
     font-weight: 300;
-    src: url(${cecilieItalic300}) format('woff')
+    src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Book-Italic.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: normal;
     font-weight: 200;
-    src: url(${cecilie200}) format('woff')
+    src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Light.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: italic;
     font-weight: 200;
-    src: url(${cecilieItalic200}) format('woff')
+    src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Light-Italic.woff') format('woff')
   }
 
   /* embury text */
