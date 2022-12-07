@@ -212,28 +212,28 @@ export const GlobalStyle = createGlobalStyle`
       font-family: 'Marcia';
       font-style: normal;
       font-weight: 700;
-      src: url(${marcia7001}) format('woff')
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/marcia/700-marcia-bold.woff') format('woff')
   }
 
   @font-face {
       font-family: 'Marcia';
       font-style: italic;
       font-weight: 700;
-      src: url(${marciaItalic7001}) format('woff')
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/marcia/700-marcia-bold-italic.woff') format('woff')
   }
 
   @font-face {
       font-family: 'Marcia';
       font-style: normal;
       font-weight: 400;
-      src: url(${marcia4001}) format('woff')
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/marcia/400-marcia-regular.woff') format('woff')
   }
 
   @font-face {
       font-family: 'Marcia';
       font-style: italic;
       font-weight: 400;
-      src: url(${marciaItalic4001}) format('woff')
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/marcia/400-marcia-regular-italic.woff') format('woff')
   }
 
   body {
