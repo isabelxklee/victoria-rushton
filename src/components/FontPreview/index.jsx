@@ -32,7 +32,7 @@ const FontPreview = () => {
                 $size={preview.size}
                 $weight={preview.weightNumber}
                 $slant={preview.slant}
-                $font={currentFont}
+                $font={currentFont.title}
                 $lineHeight={preview.lineHeight}
                 $margin="0"
               >
