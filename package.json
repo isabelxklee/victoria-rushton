@@ -50,6 +50,8 @@
     ]
   },
   "devDependencies": {
-    "prettier": "2.7.1"
+    "@babel/preset-react": "^7.18.6",
+    "prettier": "2.7.1",
+    "react-test-renderer": "^18.2.0"
   }
 }
