@@ -33,7 +33,7 @@ const About = () => {
       {about && (
         <IntroContainer>
           <ProfilePic
-            src="https://res.cloudinary.com/extrapickles/image/upload/c_scale,w_1000/v1633237161/victoria_profile_pic_ds7twb.png"
+            src="https://storage.googleapis.com/victoria-rushton-bucket/victoria_profile_pic_ds7twb.png"
             rel="no_link referrer"
             alt="A black and white portrait of a woman wearing glasses."
           />
