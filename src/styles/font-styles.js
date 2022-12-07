@@ -18,23 +18,6 @@ import cecilieItalic300 from '../fonts/cecilie-sans/Cecilie-Book-Italic.woff'
 import cecilie200 from '../fonts/cecilie-sans/Cecilie-Light.woff'
 import cecilieItalic200 from '../fonts/cecilie-sans/Cecilie-Light-Italic.woff'
 
-// embury text
-// 700
-import emburyText7001 from '../fonts/embury-text/700-embury-text-bold.woff'
-import emburyText7002 from '../fonts/embury-text/700-embury-text-bold.woff2'
-import emburyTextItalic7001 from '../fonts/embury-text/700-embury-text-bold-italic.woff'
-import emburyTextItalic7002 from '../fonts/embury-text/700-embury-text-bold-italic.woff2'
-// 400
-import emburyText4001 from '../fonts/embury-text/400-embury-text-regular.woff'
-import emburyText4002 from '../fonts/embury-text/400-embury-text-regular.woff2'
-import emburyTextItalic4001 from '../fonts/embury-text/400-embury-text-italic.woff'
-import emburyTextItalic4002 from '../fonts/embury-text/400-embury-text-italic.woff2'
-// 300
-import emburyText3001 from '../fonts/embury-text/300-embury-text-book.woff'
-import emburyText3002 from '../fonts/embury-text/300-embury-text-book.woff2'
-import emburyTextItalic3001 from '../fonts/embury-text/300-embury-text-book-italic.woff'
-import emburyTextItalic3002 from '../fonts/embury-text/300-embury-text-book-italic.woff2'
-
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Cecilie Sans';
@@ -112,48 +95,48 @@ export const GlobalStyle = createGlobalStyle`
       font-family: 'Embury Text';
       font-style: normal;
       font-weight: 700;
-      src: url(${emburyText7001}) format('woff'),
-        url(${emburyText7002}) format('woff2');
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/700-embury-text-bold.woff') format('woff'),
+        url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/700-embury-text-bold.woff2') format('woff2');
   }
 
   @font-face {
       font-family: 'Embury Text';
       font-style: italic;
       font-weight: 700;
-      src: url(${emburyTextItalic7001}) format('woff'),
-        url(${emburyTextItalic7002}) format('woff2');
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/700-embury-text-bold-italic.woff') format('woff'),
+        url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/700-embury-text-bold-italic.woff2') format('woff2');
   }
 
   @font-face {
       font-family: 'Embury Text';
       font-style: normal;
       font-weight: 400;
-      src: url(${emburyText4001}) format('woff'),
-        url(${emburyText4002}) format('woff2');
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/400-embury-text-regular.woff') format('woff'),
+        url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/400-embury-text-regular.woff2') format('woff2');
   }
 
   @font-face {
       font-family: 'Embury Text';
       font-style: italic;
       font-weight: 400;
-      src: url(${emburyTextItalic4001}) format('woff'),
-        url(${emburyTextItalic4002}) format('woff2');
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/400-embury-text-italic.woff') format('woff'),
+        url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/400-embury-text-italic.woff2') format('woff2');
   }
 
   @font-face {
       font-family: 'Embury Text';
       font-style: normal;
       font-weight: 300;
-      src: url(${emburyText3001}) format('woff'),
-        url(${emburyText3002}) format('woff2');
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/300-embury-text-book.woff') format('woff'),
+        url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/300-embury-text-book.woff2') format('woff2');
   }
 
   @font-face {
       font-family: 'Embury Text';
       font-style: italic;
       font-weight: 300;
-      src: url(${emburyTextItalic3001}) format('woff'),
-        url(${emburyTextItalic3002}) format('woff2');
+      src: url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/300-embury-text-book-italic.woff') format('woff'),
+        url('https://storage.googleapis.com/victoria-rushton-bucket/embury-text/300-embury-text-book-italic.woff2') format('woff2');
   }
 
   /* gautreaux */
@@ -222,4 +205,3 @@ export const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
   }
 `
-/* cecilie sans */
