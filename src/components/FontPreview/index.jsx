@@ -12,8 +12,6 @@ const FontPreview = () => {
     return previewTexts.filter((preview) => preview.font === currentFont.title)
   }
 
-  console.log(currentFont)
-
   return (
     <>
       {filterPreviewTexts().map((preview) => (
