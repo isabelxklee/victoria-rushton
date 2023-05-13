@@ -4,6 +4,9 @@ import { graphql, useStaticQuery } from "gatsby";
 const About = () => {
   const data = useStaticQuery(pageQuery);
   const about = data.allContentfulAbout.nodes[0];
+  const press = data.allContentfulPress.nodes;
+
+  console.log(press);
 
   return (
     <>
@@ -30,6 +33,13 @@ const pageQuery = graphql`
         greeting {
           greeting
         }
+      }
+    }
+    allContentfulPress {
+      nodes {
+        title
+        description
+        url
       }
     }
   }
