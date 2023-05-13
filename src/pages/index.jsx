@@ -1,16 +1,15 @@
-import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import React from 'react'
+import {graphql, useStaticQuery} from 'gatsby'
+import PageTemplate from '../components/PageTemplate'
 
 const IndexPage = () => {
-  const data = useStaticQuery(pageQuery);
-  const fonts = data.allContentfulFont.nodes;
+  const data = useStaticQuery(pageQuery)
+  const fonts = data.allContentfulFont.nodes
 
-  console.log(fonts);
+  return <PageTemplate>hello world</PageTemplate>
+}
 
-  return <h1>hello world</h1>;
-};
-
-export default IndexPage;
+export default IndexPage
 
 const pageQuery = graphql`
   query HomePageQuery {
@@ -31,4 +30,4 @@ const pageQuery = graphql`
       }
     }
   }
-`;
+`
