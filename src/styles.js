@@ -42,12 +42,11 @@ export const H3 = styled.h3`
   margin: 0 0 16px 0;
 `
 
-export const P = styled.p`
+export const Text = styled.p`
   margin: 0;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: ${FONT_WEIGHTS.BOOK};
   line-height: 1.4;
-  text-align: left;
 
   @media (max-width: 900px) {
     font-size: 16px;
@@ -67,6 +66,13 @@ export const GlobalStyles = createGlobalStyle`
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.REGULAR};
     src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Regular.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: normal;
+    font-weight: ${FONT_WEIGHTS.BOLD};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Bold.woff') format('woff')
   }
 
   body {

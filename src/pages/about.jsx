@@ -1,6 +1,7 @@
 import React from 'react'
 import {graphql, useStaticQuery} from 'gatsby'
 import PageTemplate from '../components/PageTemplate'
+import {H2, Text} from '../styles'
 
 const About = () => {
   const data = useStaticQuery(pageQuery)
@@ -10,8 +11,8 @@ const About = () => {
   return (
     <PageTemplate>
       <div>
-        <h2>{about.greeting.greeting}</h2>
-        <p>{about.bio.bio}</p>
+        <H2>{about.greeting.greeting}</H2>
+        <Text>{about.bio.bio}</Text>
         <button>
           <a href={about.buttonURL}>{about.buttonLabel}</a>
         </button>
