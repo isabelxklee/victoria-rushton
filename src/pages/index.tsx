@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import type { graphql, PageProps, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
-const IndexPage: React.FunctionComponent = () => {
-  const data = useStaticQuery(query);
+const IndexPage: FunctionComponent = () => {
+  const data = useStaticQuery(pageQuery);
 
   console.log(data);
 
@@ -11,11 +11,22 @@ const IndexPage: React.FunctionComponent = () => {
 
 export default IndexPage;
 
-const query = graphql`
+const pageQuery = graphql`
   query HomePageQuery {
-    site {
-      siteMetadata {
-        description
+    allContentfulFont {
+      nodes {
+        name
+        slug
+        description {
+          description
+        }
+        heroCopy {
+          heroCopy
+        }
+        weights {
+          name
+          value
+        }
       }
     }
   }
