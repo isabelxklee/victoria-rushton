@@ -1,5 +1,10 @@
 import styled, {createGlobalStyle} from 'styled-components'
 
+export const COLORS = {
+  WHITE: '#F4F4F4',
+  BLACK: '#1E1E1E',
+}
+
 export const Wrapper = styled.div`
   padding: 80px;
 `
