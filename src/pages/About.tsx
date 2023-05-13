@@ -2,12 +2,14 @@ import React, { FunctionComponent } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
+
+
 const ProfilePic = styled.img`
   border-radius: 100%;
   width: 280px;
   height: 280px;
   object-fit: cover;
-  border: 2px solid ${Colors.black};
+  border: 2px solid ${COLORS.BLACK};
   margin: 40px 80px 20px 0;
 
   @media (max-width: 900px) {
@@ -15,22 +17,22 @@ const ProfilePic = styled.img`
     width: 200px;
     height: 200px;
   }
-`
+`;
 
-const IntroContainer = styled(HeroContainer)`
-  display: flex;
-  border-bottom: none;
+// const IntroContainer = styled(HeroContainer)`
+//   display: flex;
+//   border-bottom: none;
 
-  @media (max-width: 900px) {
-    display: block;
-    padding: 60px 0;
-    text-align: center;
-  }
-`
+//   @media (max-width: 900px) {
+//     display: block;
+//     padding: 60px 0;
+//     text-align: center;
+//   }
+// `
 
 const PressContainer = styled.div`
-  background: ${Colors.black};
-  color: ${Colors.white};
+  background: ${COLORS.BLACK};
+  color: ${COLORS.WHITE};
   width: calc(100vw - 160px);
   margin-left: calc(50% - 50vw);
   padding: 80px;
@@ -39,29 +41,29 @@ const PressContainer = styled.div`
     padding: 40px;
     width: calc(100vw - 80px);
   }
-`
+`;
 
 const PressArticleTitle = styled.a`
   text-transform: uppercase;
   font-weight: 700;
   font-size: 16px;
   text-decoration: none;
-  color: ${Colors.white};
-`
+  color: ${COLORS.WHITE};
+`;
 
 const PressArticleContainer = styled.div`
   margin: 48px 0;
-`
+`;
 
 const Container = styled.div`
-  border-left: 2px solid ${Colors.white};
+  border-left: 2px solid ${COLORS.WHITE};
   padding-left: 50px;
 
   @media (max-width: 900px) {
     padding-left: 0;
     border-left: none;
   }
-`
+`;
 
 const About: FunctionComponent = () => {
   // const data = useStaticQuery(pageQuery);
@@ -69,8 +71,10 @@ const About: FunctionComponent = () => {
 
   // console.log(fonts);
 
-  return <><IntroContainer>
-  <ProfilePic
+  return (
+    <>
+      <IntroContainer>
+        {/* <ProfilePic
     src="https://storage.googleapis.com/victoria-rushton-bucket/victoria_profile_pic_ds7twb.png"
     rel="no_link referrer"
     alt="A black and white portrait of a woman wearing glasses."
@@ -83,10 +87,10 @@ const About: FunctionComponent = () => {
         {about.buttonText}
       </TextLink>
     </Button>
-  </div>
-</IntroContainer>
-)}
+  </div> */}
+      </IntroContainer>
 
+      {/* 
 <PressContainer>
 <Container>
   <H2>Speaking and Writing</H2>
@@ -105,7 +109,9 @@ const About: FunctionComponent = () => {
       </PressArticleContainer>
     ))}
 </Container>
-</PressContainer></>
+</PressContainer> */}
+    </>
+  );
 };
 
 export default About;

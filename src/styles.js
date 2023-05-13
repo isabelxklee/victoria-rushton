@@ -1,10 +1,7 @@
 import styled from "styled-components";
 // import { Link } from "react-router-dom";
 
-export const COLORS = {
-  WHITE: "#f4f4f4",
-  BLACK: "#1E1E1E",
-};
+import { COLORS } from "./utils";
 
 export const TextLink = styled.a`
   font-weight: ${(props) => props.inputWeight || 700};
