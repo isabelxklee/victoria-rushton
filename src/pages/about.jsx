@@ -1,15 +1,14 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import PageTemplate from "../components/PageTemplate";
 
 const About = () => {
   const data = useStaticQuery(pageQuery);
   const about = data.allContentfulAbout.nodes[0];
   const press = data.allContentfulPress.nodes;
 
-  console.log(press);
-
   return (
-    <>
+    <PageTemplate>
       <div>
         <h2>{about.greeting.greeting}</h2>
         <p>{about.bio.bio}</p>
@@ -30,7 +29,7 @@ const About = () => {
           </div>
         ))}
       </div>
-    </>
+    </PageTemplate>
   );
 };
 

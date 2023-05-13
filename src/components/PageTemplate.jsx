@@ -1,8 +1,8 @@
 import React from "react";
 import { Wrapper } from "../styles";
 
-const PageTemplate = () => {
-  return <Wrapper>hello world</Wrapper>;
+const PageTemplate = ({ children }) => {
+  return <Wrapper>{children}</Wrapper>;
 };
 
 export default PageTemplate;
