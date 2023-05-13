@@ -1,15 +1,16 @@
 import React, { FunctionComponent } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
-const IndexPage: FunctionComponent = () => {
+const Home: FunctionComponent = () => {
   const data = useStaticQuery(pageQuery);
+  const fonts = data.allContentfulFont.nodes;
 
-  console.log(data);
+  console.log(fonts);
 
   return <h1>hello world</h1>;
 };
 
-export default IndexPage;
+export default Home;
 
 const pageQuery = graphql`
   query HomePageQuery {
