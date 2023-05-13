@@ -1,8 +1,13 @@
-import React from "react";
-import { Wrapper } from "../styles";
+import React from 'react'
+import {Wrapper, GlobalStyles} from '../styles'
 
-const PageTemplate = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
-};
+const PageTemplate = ({children}) => {
+  return (
+    <Wrapper>
+      <GlobalStyles />
+      {children}
+    </Wrapper>
+  )
+}
 
-export default PageTemplate;
+export default PageTemplate
