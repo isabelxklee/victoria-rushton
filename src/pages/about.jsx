@@ -10,11 +10,26 @@ const About = () => {
 
   return (
     <>
-      <h2>{about.greeting.greeting}</h2>
-      <p>{about.bio.bio}</p>
-      <button>
-        <a href={about.buttonURL}>{about.buttonLabel}</a>
-      </button>
+      <div>
+        <h2>{about.greeting.greeting}</h2>
+        <p>{about.bio.bio}</p>
+        <button>
+          <a href={about.buttonURL}>{about.buttonLabel}</a>
+        </button>
+      </div>
+      <div>
+        <h2>Speaking and Writing</h2>
+        {press.map((press, index) => (
+          <div key={index}>
+            <h3>
+              <a href={press.url} target="_blank" rel="no_referrer">
+                {press.title}
+              </a>
+            </h3>
+            <p>{press.description}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
