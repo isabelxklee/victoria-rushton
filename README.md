@@ -1,56 +1,49 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/24a9ab91-ba5d-416e-92e4-a8ea8d17f6f6/deploy-status)](https://app.netlify.com/sites/victoria-rushton/deploys)
+<p align="center">
+  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby Minimal TypeScript Starter
+</h1>
 
-# Victoria Rushton's typography site 🖋✨
+## 🚀 Quick start
 
-Connected to Express.js server [here](https://github.com/isabelxklee/victoria-rushton-express).
+1.  **Create a Gatsby site.**
 
-## Getting started
+    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
 
-1. Install [Node.js](https://www.npmjs.com/get-npm).
+    ```shell
+    # create a new Gatsby site using the minimal TypeScript starter
+    npm init gatsby -- -ts
+    ```
 
-   `$ brew install node`
+2.  **Start developing.**
 
-2. Clone this repo and `cd` into the directory.
-3. Install all dependencies.
+    Navigate into your new site’s directory and start it up.
 
-   `$ npm install`
+    ```shell
+    cd my-gatsby-site/
+    npm run develop
+    ```
 
-4. Start the development mode.
+3.  **Open the code and start customizing!**
 
-   `$ npm start`
+    Your site is now running at http://localhost:8000!
 
-5. Open your browser and navigate to `http://localhost:3000/`.
+    Edit `src/pages/index.tsx` to see your site update in real-time!
 
-6. Run tests.
+4.  **Learn more**
 
-   `$ npm run test --watch`
+    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
 
-## Sanity Studio
+## 🚀 Quick start (Netlify)
 
-1. `cd` into the `sanity` folder from the root directory.
+Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
 
-   `$ cd sanity`
-
-2. Install all dependencies.
-
-   `$ npm install`
-
-3. Start the local Sanity server.
-
-   `$ npx sanity start`
-
-4. Open your browser and navigate to `http://localhost:3333/`.
-
-5. Deploy any changes to Sanity.
-
-   `$ npx sanity deploy`
-
-## Tools
-
-- React.js
-- HTML/CSS
-- [styled components](https://styled-components.com/)
-- [Stripe API](https://stripe.com/docs/payments/accept-a-payment?platform=web&ui=checkout): accept payments using Stripe
-- [Netlify](https://www.netlify.com): front-end hosting service
-- [Sanity.io](https://www.sanity.io/)
-- [Jest Testing](https://jestjs.io/)
+[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
