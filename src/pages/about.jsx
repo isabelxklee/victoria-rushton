@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql, useStaticQuery} from 'gatsby'
 import PageTemplate from '../components/PageTemplate'
-import {H2, Text} from '../styles'
+import {H2, H3, Button, Text} from '../styles'
 
 const About = () => {
   const data = useStaticQuery(pageQuery)
@@ -13,19 +13,17 @@ const About = () => {
       <div>
         <H2>{about.greeting.greeting}</H2>
         <Text>{about.bio.bio}</Text>
-        <button>
+        <Button>
           <a href={about.buttonURL}>{about.buttonLabel}</a>
-        </button>
+        </Button>
       </div>
       <div>
-        <h2>Speaking and Writing</h2>
+        <H2>Speaking and Writing</H2>
         {press.map((press, index) => (
           <div key={index}>
-            <h3>
-              {/* <a href={press.url} target="_blank" rel="no_referrer">
-                {press.title}
-              </a> */}
-            </h3>
+            <H3>
+              <a href={press.url}>{press.title}</a>
+            </H3>
             <p>{press.description}</p>
           </div>
         ))}
