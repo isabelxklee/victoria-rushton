@@ -29,5 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     font-family: 'Cecilie Sans', sans-serif;
     font-weight: 300;
+    background: ${COLORS.WHITE};
+    color: ${COLORS.BLACK};
   }
 `
