@@ -1,11 +1,11 @@
-import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import PageTemplate from "../components/PageTemplate";
+import React from 'react'
+import {graphql, useStaticQuery} from 'gatsby'
+import PageTemplate from '../components/PageTemplate'
 
 const About = () => {
-  const data = useStaticQuery(pageQuery);
-  const about = data.allContentfulAbout.nodes[0];
-  const press = data.allContentfulPress.nodes;
+  const data = useStaticQuery(pageQuery)
+  const about = data.allContentfulAbout.nodes[0]
+  const press = data.allContentfulPress.nodes
 
   return (
     <PageTemplate>
@@ -21,19 +21,19 @@ const About = () => {
         {press.map((press, index) => (
           <div key={index}>
             <h3>
-              <a href={press.url} target="_blank" rel="no_referrer">
+              {/* <a href={press.url} target="_blank" rel="no_referrer">
                 {press.title}
-              </a>
+              </a> */}
             </h3>
             <p>{press.description}</p>
           </div>
         ))}
       </div>
     </PageTemplate>
-  );
-};
+  )
+}
 
-export default About;
+export default About
 
 const pageQuery = graphql`
   query MyQuery {
@@ -57,4 +57,4 @@ const pageQuery = graphql`
       }
     }
   }
-`;
+`

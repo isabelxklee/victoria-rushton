@@ -13,13 +13,21 @@ export const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: normal;
+    font-weight: 300;
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Book.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: normal;
     font-weight: 400;
-    src: url('https://storage.googleapis.com/victoria-rushton-bucket/cecilie-sans/Cecilie-Regular.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Regular.woff') format('woff')
   }
 
   body {
     margin: 0;
     padding: 0;
     font-family: 'Cecilie Sans', sans-serif;
+    font-weight: 300;
   }
 `
