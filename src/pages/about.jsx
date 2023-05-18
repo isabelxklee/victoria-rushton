@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql, useStaticQuery} from 'gatsby'
 import PageTemplate from '../components/PageTemplate'
-import {H2, H3, Button, Text} from '../styles'
+import {H2, H3, Button, Text, TextLink, FONT_WEIGHTS} from '../styles'
 import {
   IntroContainer,
   ProfilePic,
@@ -30,9 +30,14 @@ const About = () => {
           <H2>{about.greeting.greeting}</H2>
           <Text>{about.bio.bio}</Text>
           <Button style={{margin: '26px 0'}}>
-            {/* <TextLink href={about.buttonLink} inputWeight="300" $light={true} target="_blank">
-              {about.buttonText}
-            </TextLink> */}
+            <TextLink
+              href={about.buttonURL}
+              inputWeight={FONT_WEIGHTS.BOOK}
+              $light={true}
+              target="_blank"
+            >
+              {about.buttonLabel}
+            </TextLink>
           </Button>
         </div>
       </IntroContainer>
@@ -40,8 +45,8 @@ const About = () => {
         <Container>
           <H2>Speaking and Writing</H2>
           {press &&
-            press.map((object) => (
-              <PressArticleContainer key={object._id}>
+            press.map((object, index) => (
+              <PressArticleContainer key={index}>
                 <PressArticleTitle
                   href={object.link}
                   target="_blank"
