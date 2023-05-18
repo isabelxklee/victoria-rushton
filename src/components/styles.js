@@ -1,7 +1,7 @@
 // import {ReactComponent as Sun} from '../assets/icons/icon-sun.svg'
 // import {ReactComponent as Moon} from '../assets/icons/icon-moon.svg'
 import styled from 'styled-components'
-import {Button, P, COLORS, FONT_WEIGHTS} from '../styles'
+import {Button, Text, COLORS, FONT_WEIGHTS} from '../styles'
 
 export const Slider = styled.input`
   -webkit-appearance: none;
@@ -246,7 +246,7 @@ export const SuccessContainer = styled.div`
   }
 `
 
-export const Description = styled(P)`
+export const Description = styled(Text)`
   font-size: 18px;
   margin: 24px 0;
   line-height: 1.4;

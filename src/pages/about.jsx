@@ -2,7 +2,14 @@ import React from 'react'
 import {graphql, useStaticQuery} from 'gatsby'
 import PageTemplate from '../components/PageTemplate'
 import {H2, H3, Button, Text} from '../styles'
-import {IntroContainer} from '../components/styles'
+import {
+  IntroContainer,
+  ProfilePic,
+  PressContainer,
+  PressArticleContainer,
+  PressArticleTitle,
+  Container,
+} from '../components/styles'
 
 const About = () => {
   const data = useStaticQuery(pageQuery)
@@ -19,11 +26,11 @@ const About = () => {
         />
         <div>
           <H2>{about.greeting}</H2>
-          <BlockContent blocks={about.bio} />
+          {/* <BlockContent blocks={about.bio} /> */}
           <Button style={{margin: '26px 0'}}>
-            <TextLink href={about.buttonLink} inputWeight="300" $light={true} target="_blank">
+            {/* <TextLink href={about.buttonLink} inputWeight="300" $light={true} target="_blank">
               {about.buttonText}
-            </TextLink>
+            </TextLink> */}
           </Button>
         </div>
       </IntroContainer>
@@ -41,7 +48,7 @@ const About = () => {
                 >
                   {object.title}
                 </PressArticleTitle>
-                <P>{object.description}</P>
+                <Text>{object.description}</Text>
               </PressArticleContainer>
             ))}
         </Container>
