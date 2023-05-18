@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {Link} from 'gatsby'
 // import {NavLink} from 'react-router-dom'
 // import {ReactComponent as LogoSVG} from '../../assets/icons/logo-full.svg'
-import {COLORS} from '../styles'
+import {COLORS, FONT_WEIGHTS} from '../styles'
 
 export const HeaderContainer = styled.div`
   color: ${COLORS.BLACK};
@@ -20,8 +20,8 @@ export const HeaderContainer = styled.div`
   }
 `
 
-export const HeaderLink = styled.a`
-  font-weight: 400;
+export const StyledLink = styled(Link)`
+  font-weight: ${FONT_WEIGHTS.REGULAR};
   color: ${COLORS.BLACK};
   text-decoration: none;
   margin-left: 40px;
@@ -55,15 +55,12 @@ const Header = () => {
       </LogoLink> */}
 
       <div>
-        <Link to="/" activeStyle={{color: 'blue'}}>
+        <StyledLink to="/" activeStyle={{fontWeight: FONT_WEIGHTS.BOLD}}>
           Home
-        </Link>
-        <Link to="/about" activeStyle={{color: 'blue'}}>
+        </StyledLink>
+        <StyledLink to="/about" activeStyle={{fontWeight: FONT_WEIGHTS.BOLD}}>
           About
-        </Link>
-        {/* <HeaderLink to="/about" className={({isActive}) => isActive && activeClassName}>
-          About
-        </HeaderLink> */}
+        </StyledLink>
       </div>
     </HeaderContainer>
   )
