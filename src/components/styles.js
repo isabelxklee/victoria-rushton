@@ -1,7 +1,7 @@
 // import {ReactComponent as Sun} from '../assets/icons/icon-sun.svg'
 // import {ReactComponent as Moon} from '../assets/icons/icon-moon.svg'
 import styled from 'styled-components'
-import {COLORS} from '../styles'
+import {COLORS, FONT_WEIGHTS} from '../styles'
 
 export const Slider = styled.input`
   -webkit-appearance: none;
@@ -21,7 +21,7 @@ export const Select = styled.select`
   padding: 10px;
   font-family: 'Cecilie Sans', 'sans-serif';
   font-size: 16px;
-  font-weight: 300;
+  font-weight: ${FONT_WEIGHTS.BOOK};
   border-radius: 4px;
   appearance: none;
   background-image: linear-gradient(45deg, transparent 50%, gray 50%),
@@ -133,7 +133,7 @@ export const ButtonLabel = styled.label`
   color: ${COLORS.BLACK};
   border: 2px solid ${COLORS.BLACK};
   font-family: 'Cecilie Sans', 'sans-serif';
-  font-weight: 400;
+  font-weight: ${FONT_WEIGHTS.REGULAR};
   font-size: 16px;
   padding: 14px 20px 10px 20px;
   cursor: pointer;
@@ -251,7 +251,7 @@ export const Description = styled(Global.P)`
   margin: 24px 0;
   line-height: 1.4;
   width: 75%;
-  font-weight: 300;
+  font-weight: ${FONT_WEIGHTS.BOOK};
 
   @media (max-width: 900px) {
     margin: 0 0 20px 0;
@@ -299,7 +299,7 @@ export const PressContainer = styled.div`
 
 export const PressArticleTitle = styled.a`
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: ${FONT_WEIGHTS.BOLD};
   font-size: 16px;
   text-decoration: none;
   color: ${Colors.white};
