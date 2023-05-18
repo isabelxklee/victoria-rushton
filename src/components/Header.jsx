@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
-// import {NavLink} from 'react-router-dom'
-// import {ReactComponent as LogoSVG} from '../../assets/icons/logo-full.svg'
 import {COLORS, FONT_WEIGHTS} from '../styles'
 
 export const HeaderContainer = styled.div`
@@ -33,26 +31,23 @@ export const StyledLink = styled(Link)`
   }
 `
 
-// export const LogoLink = styled(NavLink)`
-//   display: block;
-// `
+export const Logo = styled.img`
+  width: 300px;
 
-// export const Logo = styled(LogoSVG)`
-//   width: 100%;
-
-//   @media (max-width: 900px) {
-//     width: 80%;
-//   }
-// `
+  /* @media (max-width: 900px) {
+    width: 80%;
+  } */
+`
 
 const Header = () => {
-  console.log(window.location.href)
-
   return (
     <HeaderContainer>
-      {/* <LogoLink to="/">
-        <Logo />
-      </LogoLink> */}
+      <Link to="/">
+        <Logo
+          alt=""
+          src="https://images.ctfassets.net/6l1e28rigfdw/4M73zAbJDT93lMBUrSnGC6/a063c57966eee5adcffb38e9ed564cee/logo-full.svg"
+        />
+      </Link>
 
       <div>
         <StyledLink to="/" activeStyle={{fontWeight: FONT_WEIGHTS.BOLD}}>
