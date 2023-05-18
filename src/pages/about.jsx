@@ -2,6 +2,7 @@ import React from 'react'
 import {graphql, useStaticQuery} from 'gatsby'
 import PageTemplate from '../components/PageTemplate'
 import {H2, H3, Button, Text} from '../styles'
+import {IntroContainer} from '../components/styles'
 
 const About = () => {
   const data = useStaticQuery(pageQuery)

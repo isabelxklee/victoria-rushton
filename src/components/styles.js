@@ -1,7 +1,7 @@
 // import {ReactComponent as Sun} from '../assets/icons/icon-sun.svg'
 // import {ReactComponent as Moon} from '../assets/icons/icon-moon.svg'
 import styled from 'styled-components'
-import {COLORS, FONT_WEIGHTS} from '../styles'
+import {Button, P, COLORS, FONT_WEIGHTS} from '../styles'
 
 export const Slider = styled.input`
   -webkit-appearance: none;
@@ -103,10 +103,10 @@ export const TextArea = styled.textarea.attrs(
   }
 `
 
-export const IconButton = styled(Global.Button)`
-  border: 2px solid ${({$darkMode}) => ($darkMode ? Global.Colors.black : Global.Colors.white)};
-  background: ${({$darkMode}) => ($darkMode ? Global.Colors.white : Global.Colors.black)};
-  color: ${({$darkMode}) => ($darkMode ? Global.Colors.black : Global.Colors.white)};
+export const IconButton = styled(Button)`
+  border: 2px solid ${({$darkMode}) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
+  background: ${({$darkMode}) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
+  color: ${({$darkMode}) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
   cursor: pointer;
   align-items: center;
   display: flex;
@@ -115,17 +115,17 @@ export const IconButton = styled(Global.Button)`
   margin-top: 20px;
 `
 
-export const IconSun = styled(Sun)`
-  width: 24px;
-  height: 24px;
-  fill: ${COLORS.BLACK};
-`
+// export const IconSun = styled(Sun)`
+//   width: 24px;
+//   height: 24px;
+//   fill: ${COLORS.BLACK};
+// `
 
-export const IconMoon = styled(Moon)`
-  width: 20px;
-  height: 24px;
-  fill: ${COLORS.WHITE};
-`
+// export const IconMoon = styled(Moon)`
+//   width: 20px;
+//   height: 24px;
+//   fill: ${COLORS.WHITE};
+// `
 
 export const ButtonLabel = styled.label`
   border-radius: 40px;
@@ -246,7 +246,7 @@ export const SuccessContainer = styled.div`
   }
 `
 
-export const Description = styled(Global.P)`
+export const Description = styled(P)`
   font-size: 18px;
   margin: 24px 0;
   line-height: 1.4;
@@ -263,7 +263,7 @@ export const ProfilePic = styled.img`
   width: 280px;
   height: 280px;
   object-fit: cover;
-  border: 2px solid ${Colors.black};
+  border: 2px solid ${COLORS.BLACK};
   margin: 40px 80px 20px 0;
 
   @media (max-width: 900px) {
@@ -285,8 +285,8 @@ export const IntroContainer = styled(HeroContainer)`
 `
 
 export const PressContainer = styled.div`
-  background: ${Colors.black};
-  color: ${Colors.white};
+  background: ${COLORS.BLACK};
+  color: ${COLORS.WHITE};
   width: calc(100vw - 160px);
   margin-left: calc(50% - 50vw);
   padding: 80px;
@@ -302,7 +302,7 @@ export const PressArticleTitle = styled.a`
   font-weight: ${FONT_WEIGHTS.BOLD};
   font-size: 16px;
   text-decoration: none;
-  color: ${Colors.white};
+  color: ${COLORS.WHITE};
 `
 
 export const PressArticleContainer = styled.div`
@@ -310,7 +310,7 @@ export const PressArticleContainer = styled.div`
 `
 
 export const Container = styled.div`
-  border-left: 2px solid ${Colors.white};
+  border-left: 2px solid ${COLORS.WHITE};
   padding-left: 50px;
 
   @media (max-width: 900px) {
