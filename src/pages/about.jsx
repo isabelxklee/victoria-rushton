@@ -42,20 +42,19 @@ const About = () => {
       <PressContainer>
         <Container>
           <H2>Speaking and Writing</H2>
-          {press &&
-            press.map((object, index) => (
-              <PressArticleContainer key={index}>
-                <PressArticleTitle
-                  href={object.url}
-                  target="_blank"
-                  rel="no_referrer"
-                  $linkStyle={object.url && 'on'}
-                >
-                  {object.title}
-                </PressArticleTitle>
-                <Text>{object.description}</Text>
-              </PressArticleContainer>
-            ))}
+          {press.map((object, index) => (
+            <PressArticleContainer key={index}>
+              <PressArticleTitle
+                href={object.url}
+                target="_blank"
+                rel="no_referrer"
+                $linkStyle={object.url && 'on'}
+              >
+                {object.title}
+              </PressArticleTitle>
+              <Text>{object.description}</Text>
+            </PressArticleContainer>
+          ))}
         </Container>
       </PressContainer>
     </PageTemplate>
