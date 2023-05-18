@@ -1,6 +1,7 @@
 // import {ReactComponent as Sun} from '../assets/icons/icon-sun.svg'
 // import {ReactComponent as Moon} from '../assets/icons/icon-moon.svg'
 import styled from 'styled-components'
+import {COLORS} from '../styles'
 
 export const Slider = styled.input`
   -webkit-appearance: none;
@@ -58,8 +59,8 @@ export const TypeTesterContainer = styled.div`
 `
 
 export const PanelContainer = styled.div`
-  background: ${Global.Colors.black};
-  color: ${Global.Colors.white};
+  background: ${COLORS.BLACK};
+  color: ${COLORS.WHITE};
   padding: 80px;
   width: 500px;
   display: flex;
@@ -88,8 +89,8 @@ export const TextArea = styled.textarea.attrs(
   width: 100%;
   padding: 40px;
   resize: none;
-  border-top: 2px solid ${Global.Colors.black};
-  border-bottom: 2px solid ${Global.Colors.black};
+  border-top: 2px solid ${COLORS.BLACK};
+  border-bottom: 2px solid ${COLORS.BLACK};
   box-sizing: border-box;
   line-height: 1;
 
@@ -117,7 +118,7 @@ export const IconButton = styled(Global.Button)`
 export const IconSun = styled(Sun)`
   width: 24px;
   height: 24px;
-  fill: ${Global.Colors.black};
+  fill: ${COLORS.BLACK};
 `
 
 export const IconMoon = styled(Moon)`
@@ -129,8 +130,8 @@ export const IconMoon = styled(Moon)`
 export const ButtonLabel = styled.label`
   border-radius: 40px;
   background: ${Global.Colors.white};
-  color: ${Global.Colors.black};
-  border: 2px solid ${Global.Colors.black};
+  color: ${COLORS.BLACK};
+  border: 2px solid ${COLORS.BLACK};
   font-family: 'Cecilie Sans', 'sans-serif';
   font-weight: 400;
   font-size: 16px;
@@ -139,8 +140,8 @@ export const ButtonLabel = styled.label`
   margin-right: 20px;
 
   &:active {
-    background: ${Global.Colors.black};
-    color: ${Global.Colors.white};
+    background: ${COLORS.BLACK};
+    color: ${COLORS.WHITE};
   }
 `
 
@@ -181,13 +182,13 @@ export const ParentContainer = styled.div`
 `
 
 export const SelectionContainer = styled.div`
-  border-right: 2px solid ${Global.Colors.black};
+  border-right: 2px solid ${COLORS.BLACK};
   padding: 0 40px;
 
   @media (max-width: 900px) {
     padding: 20px 20px 40px 20px;
     border-right: unset;
-    border-bottom: 2px solid ${Global.Colors.black};
+    border-bottom: 2px solid ${COLORS.BLACK};
   }
 `
 
@@ -201,7 +202,7 @@ export const PriceContainer = styled.div`
 `
 
 export const FontHeroContainer = styled.div`
-  border-bottom: 2px solid ${Global.Colors.black};
+  border-bottom: 2px solid ${COLORS.BLACK};
 
   &:last-child {
     border-bottom: none;
@@ -230,8 +231,7 @@ export const PreviewText = styled.p`
 
 export const HeroContainer = styled.div`
   padding: 120px 0;
-  border-bottom: ${({$noBorderBottom}) =>
-    $noBorderBottom ? 'none' : `2px solid ${Global.Colors.black}`};
+  border-bottom: ${({$noBorderBottom}) => ($noBorderBottom ? 'none' : `2px solid ${COLORS.BLACK}`)};
 
   @media (max-width: 900px) {
     padding: 90px 0;
