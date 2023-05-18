@@ -8,7 +8,7 @@ export const Slider = styled.input`
   appearance: none;
   width: 100%;
   height: 2px;
-  background: ${Global.Colors.white};
+  background: ${COLORS.WHITE};
   outline: none;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
@@ -124,12 +124,12 @@ export const IconSun = styled(Sun)`
 export const IconMoon = styled(Moon)`
   width: 20px;
   height: 24px;
-  fill: ${Global.Colors.white};
+  fill: ${COLORS.WHITE};
 `
 
 export const ButtonLabel = styled.label`
   border-radius: 40px;
-  background: ${Global.Colors.white};
+  background: ${COLORS.WHITE};
   color: ${COLORS.BLACK};
   border: 2px solid ${COLORS.BLACK};
   font-family: 'Cecilie Sans', 'sans-serif';
