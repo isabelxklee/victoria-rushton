@@ -16,6 +16,8 @@ const About = () => {
   const about = data.allContentfulAbout.nodes[0]
   const press = data.allContentfulPress.nodes
 
+  console.log(about, press)
+
   return (
     <PageTemplate>
       <IntroContainer>
@@ -25,8 +27,8 @@ const About = () => {
           alt="A black and white portrait of a woman wearing glasses."
         />
         <div>
-          <H2>{about.greeting}</H2>
-          {/* <BlockContent blocks={about.bio} /> */}
+          <H2>{about.greeting.greeting}</H2>
+          <Text>{about.bio.bio}</Text>
           <Button style={{margin: '26px 0'}}>
             {/* <TextLink href={about.buttonLink} inputWeight="300" $light={true} target="_blank">
               {about.buttonText}
