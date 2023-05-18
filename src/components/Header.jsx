@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {Link} from 'gatsby'
 // import {NavLink} from 'react-router-dom'
 // import {ReactComponent as LogoSVG} from '../../assets/icons/logo-full.svg'
 import {COLORS} from '../styles'
@@ -19,18 +20,18 @@ export const HeaderContainer = styled.div`
   }
 `
 
-// export const HeaderLink = styled(NavLink)`
-//   font-weight: 400;
-//   color: ${COLORS.BLACK};
-//   text-decoration: none;
-//   margin-left: 40px;
-//   font-size: 14px;
-//   text-transform: uppercase;
+export const HeaderLink = styled.a`
+  font-weight: 400;
+  color: ${COLORS.BLACK};
+  text-decoration: none;
+  margin-left: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
 
-//   @media (max-width: 900px) {
-//     margin-left: 20px;
-//   }
-// `
+  @media (max-width: 900px) {
+    margin-left: 20px;
+  }
+`
 
 // export const LogoLink = styled(NavLink)`
 //   display: block;
@@ -54,6 +55,12 @@ const Header = () => {
       </LogoLink> */}
 
       <div>
+        <Link to="/" activeStyle={{color: 'blue'}}>
+          Home
+        </Link>
+        <Link to="/about" activeStyle={{color: 'blue'}}>
+          About
+        </Link>
         {/* <HeaderLink to="/about" className={({isActive}) => isActive && activeClassName}>
           About
         </HeaderLink> */}
