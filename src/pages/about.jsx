@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql, useStaticQuery} from 'gatsby'
 import PageTemplate from '../components/PageTemplate'
-import {H2, H3, Button, Text, TextLink, FONT_WEIGHTS} from '../styles'
+import {H2, Button, Text, TextLink, FONT_WEIGHTS} from '../styles'
 import {
   IntroContainer,
   ProfilePic,
@@ -15,8 +15,6 @@ const About = () => {
   const data = useStaticQuery(pageQuery)
   const about = data.allContentfulAbout.nodes[0]
   const press = data.allContentfulPress.nodes
-
-  console.log(about, press)
 
   return (
     <PageTemplate>
@@ -48,10 +46,10 @@ const About = () => {
             press.map((object, index) => (
               <PressArticleContainer key={index}>
                 <PressArticleTitle
-                  href={object.link}
+                  href={object.url}
                   target="_blank"
                   rel="no_referrer"
-                  $linkStyle={object.link && 'on'}
+                  $linkStyle={object.url && 'on'}
                 >
                   {object.title}
                 </PressArticleTitle>
@@ -60,25 +58,6 @@ const About = () => {
             ))}
         </Container>
       </PressContainer>
-      {/*         
-      <div>
-        <H2>{about.greeting.greeting}</H2>
-        <Text>{about.bio.bio}</Text>
-        <Button>
-          <a href={about.buttonURL}>{about.buttonLabel}</a>
-        </Button>
-      </div>
-      <div>
-        <H2>Speaking and Writing</H2>
-        {press.map((press, index) => (
-          <div key={index}>
-            <H3>
-              <a href={press.url}>{press.title}</a>
-            </H3>
-            <p>{press.description}</p>
-          </div>
-        ))}
-      </div> */}
     </PageTemplate>
   )
 }
