@@ -9,11 +9,10 @@ exports.createPages = async function ({actions, graphql}) {
     }
   `)
   data.allContentfulFont.nodes.forEach((node) => {
-    const slug = node.slug
     actions.createPage({
-      path: `/${slug}`,
+      path: `/${node.slug}`,
       component: require.resolve(`./src/templates/fontPageTemplate.jsx`),
-      context: {slug: slug},
+      context: {slug: node.slug},
     })
   })
 }

@@ -23,16 +23,16 @@ const FontHero = ({font}) => {
   })
 
   return (
-    <InvisibleLink to={`/${font.slug}`}>
-      <Wrapper>
+    <Wrapper>
+      <InvisibleLink to={`/${font.slug}`}>
         <StyledRowFlex>
           <Text>{font.name}</Text>
           <Text>{calculateStyles} available styles</Text>
         </StyledRowFlex>
         <h2>{font.heroCopy.heroCopy}</h2>
         <Text>View this font</Text>
-      </Wrapper>
-    </InvisibleLink>
+      </InvisibleLink>
+    </Wrapper>
   )
 }
 
