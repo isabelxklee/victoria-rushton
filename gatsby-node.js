@@ -8,10 +8,10 @@ exports.createPages = async function ({actions, graphql}) {
       }
     }
   `)
-  data.allMarkdownRemark.nodes.forEach((node) => {
+  data.allContentfulFont.nodes.forEach((node) => {
     const slug = node.slug
     actions.createPage({
-      path: slug,
+      path: `/${slug}`,
       component: require.resolve(`./src/templates/fontPageTemplate.jsx`),
       context: {slug: slug},
     })
