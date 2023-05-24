@@ -22,7 +22,7 @@ const About = () => {
         <ProfilePic
           src="https://images.ctfassets.net/6l1e28rigfdw/HbVTH1MqZNqlrM4Cowe1E/a3eeb7e19a38d51d07f9edd5603eceb8/victoria_profile_pic.png"
           rel="no_link referrer"
-          alt="A black and white portrait of a woman wearing glasses."
+          alt="Victoria Rushton"
         />
         <div>
           <H2>{about.greeting.greeting}</H2>
