@@ -15,6 +15,18 @@ export const FONT_WEIGHTS = {
   BLACK: 800,
 }
 
+const Flex = styled.div`
+  display: flex;
+`
+
+export const RowFlex = styled(Flex)`
+  flex-direction: row;
+`
+
+export const ColumnFlex = styled(Flex)`
+  flex-direction: column;
+`
+
 export const Wrapper = styled.div`
   padding: 80px;
 `
