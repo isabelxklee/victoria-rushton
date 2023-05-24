@@ -1,16 +1,7 @@
 import React, {useMemo} from 'react'
 import styled from 'styled-components'
+import {FontHeroWrapper} from './styles'
 import {Text, RowFlex, InvisibleLink, COLORS} from '../styles'
-
-const Wrapper = styled.div`
-  border-bottom: 2px solid ${COLORS.BLACK};
-  padding: 20px 0;
-
-  &:last-child {
-    border-bottom: none;
-    margin-bottom: 180px;
-  }
-`
 
 const StyledRowFlex = styled(RowFlex)`
   justify-content: space-between;
@@ -23,7 +14,7 @@ const FontHero = ({font}) => {
   })
 
   return (
-    <Wrapper>
+    <FontHeroWrapper>
       <InvisibleLink to={`/${font.slug}`}>
         <StyledRowFlex>
           <Text>{font.name}</Text>
@@ -32,7 +23,7 @@ const FontHero = ({font}) => {
         <h2>{font.heroCopy.heroCopy}</h2>
         <Text>View this font</Text>
       </InvisibleLink>
-    </Wrapper>
+    </FontHeroWrapper>
   )
 }
 

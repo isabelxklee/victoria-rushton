@@ -1,11 +1,20 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import PageTemplate from '../components/PageTemplate'
+import {FontHeroWrapper} from '../components/styles'
+import {Text} from '../styles'
 
 const FontPageTemplate = ({data}) => {
-  console.log(data.contentfulFont)
+  const font = data.contentfulFont
 
-  return <PageTemplate>hello world</PageTemplate>
+  return (
+    <PageTemplate>
+      <FontHeroWrapper>
+        <h1>{font.name}</h1>
+        <Text>{font.description}</Text>
+      </FontHeroWrapper>
+    </PageTemplate>
+  )
 }
 
 export default FontPageTemplate

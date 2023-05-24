@@ -201,15 +201,6 @@ export const PriceContainer = styled.div`
   }
 `
 
-export const FontHeroContainer = styled.div`
-  border-bottom: 2px solid ${COLORS.BLACK};
-
-  &:last-child {
-    border-bottom: none;
-    margin-bottom: 180px;
-  }
-`
-
 export const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -316,5 +307,15 @@ export const Container = styled.div`
   @media (max-width: 900px) {
     padding-left: 0;
     border-left: none;
+  }
+`
+
+export const FontHeroWrapper = styled.div`
+  border-bottom: 2px solid ${COLORS.BLACK};
+  padding: 20px 0;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 180px;
   }
 `
