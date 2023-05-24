@@ -1,7 +1,6 @@
 import React, {useMemo} from 'react'
-import {Link} from 'gatsby'
 import styled from 'styled-components'
-import {Text, RowFlex, COLORS} from '../styles'
+import {Text, RowFlex, InvisibleLink, COLORS} from '../styles'
 
 const Wrapper = styled.div`
   border-bottom: 2px solid ${COLORS.BLACK};
@@ -24,8 +23,7 @@ const FontHero = ({font}) => {
   })
 
   return (
-    <Link to="/blog">
-      Blog
+    <InvisibleLink to={`/${font.slug}`}>
       <Wrapper>
         <StyledRowFlex>
           <Text>{font.name}</Text>
@@ -34,7 +32,7 @@ const FontHero = ({font}) => {
         <h2>{font.heroCopy.heroCopy}</h2>
         <Text>View this font</Text>
       </Wrapper>
-    </Link>
+    </InvisibleLink>
   )
 }
 
