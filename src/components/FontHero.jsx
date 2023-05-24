@@ -1,4 +1,5 @@
 import React, {useMemo} from 'react'
+import {Link} from 'gatsby'
 import styled from 'styled-components'
 import {Text, RowFlex, COLORS} from '../styles'
 
@@ -22,17 +23,18 @@ const FontHero = ({font}) => {
     // * font.slants.length
   })
 
-  console.log(font)
-
   return (
-    <Wrapper>
-      <StyledRowFlex>
-        <Text>{font.name}</Text>
-        <Text>{calculateStyles} available styles</Text>
-      </StyledRowFlex>
-      <h2>{font.heroCopy.heroCopy}</h2>
-      <Text>View this font</Text>
-    </Wrapper>
+    <Link to="/blog">
+      Blog
+      <Wrapper>
+        <StyledRowFlex>
+          <Text>{font.name}</Text>
+          <Text>{calculateStyles} available styles</Text>
+        </StyledRowFlex>
+        <h2>{font.heroCopy.heroCopy}</h2>
+        <Text>View this font</Text>
+      </Wrapper>
+    </Link>
   )
 }
 

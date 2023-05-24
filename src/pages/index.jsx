@@ -19,7 +19,7 @@ const IndexPage = () => {
 export default IndexPage
 
 const pageQuery = graphql`
-  query HomePageQuery {
+  query {
     allContentfulFont {
       nodes {
         name
