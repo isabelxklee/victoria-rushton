@@ -11,7 +11,7 @@ const FontPageTemplate = ({ data }) => {
     <PageTemplate>
       <FontHeroWrapper>
         <h1>{font.name}</h1>
-        <Text>{font.description}</Text>
+        <Text>{font.description.description}</Text>
       </FontHeroWrapper>
       {/* preview texts */}
       {/* type tester */}
