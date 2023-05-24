@@ -1,20 +1,20 @@
-import React from 'react'
-import {graphql, useStaticQuery} from 'gatsby'
-import PageTemplate from '../components/PageTemplate'
-import {H2, Button, Text, TextLink, FONT_WEIGHTS} from '../styles'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import PageTemplate from '../components/PageTemplate';
+import { H2, Button, Text, TextLink, FONT_WEIGHTS } from '../styles';
 import {
   IntroContainer,
   ProfilePic,
   PressContainer,
   PressArticleContainer,
   PressArticleTitle,
-  Container,
-} from '../components/styles'
+  Container
+} from '../components/styles';
 
 const About = () => {
-  const data = useStaticQuery(pageQuery)
-  const about = data.allContentfulAbout.nodes[0]
-  const press = data.allContentfulPress.nodes
+  const data = useStaticQuery(pageQuery);
+  const about = data.allContentfulAbout.nodes[0];
+  const press = data.allContentfulPress.nodes;
 
   return (
     <PageTemplate>
@@ -27,7 +27,7 @@ const About = () => {
         <div>
           <H2>{about.greeting.greeting}</H2>
           <Text>{about.bio.bio}</Text>
-          <Button style={{margin: '26px 0'}}>
+          <Button style={{ margin: '26px 0' }}>
             <TextLink
               href={about.buttonURL}
               inputWeight={FONT_WEIGHTS.BOOK}
@@ -58,10 +58,10 @@ const About = () => {
         </Container>
       </PressContainer>
     </PageTemplate>
-  )
-}
+  );
+};
 
-export default About
+export default About;
 
 const pageQuery = graphql`
   query MyQuery {
@@ -85,4 +85,4 @@ const pageQuery = graphql`
       }
     }
   }
-`
+`;

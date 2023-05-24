@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import {Link} from 'gatsby'
-import {COLORS, FONT_WEIGHTS} from '../styles'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { COLORS, FONT_WEIGHTS } from '../styles';
 
 export const HeaderContainer = styled.div`
   color: ${COLORS.BLACK};
@@ -16,7 +16,7 @@ export const HeaderContainer = styled.div`
     width: 100%;
     padding: 40px 0;
   }
-`
+`;
 
 export const StyledLink = styled(Link)`
   font-weight: ${FONT_WEIGHTS.REGULAR};
@@ -29,7 +29,7 @@ export const StyledLink = styled(Link)`
   @media (max-width: 900px) {
     margin-left: 20px;
   }
-`
+`;
 
 export const Logo = styled.img`
   width: 300px;
@@ -37,7 +37,7 @@ export const Logo = styled.img`
   /* @media (max-width: 900px) {
     width: 80%;
   } */
-`
+`;
 
 const Header = () => {
   return (
@@ -50,15 +50,15 @@ const Header = () => {
       </Link>
 
       <div>
-        <StyledLink to="/" activeStyle={{fontWeight: FONT_WEIGHTS.BOLD}}>
+        <StyledLink to="/" activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }}>
           Home
         </StyledLink>
-        <StyledLink to="/about" activeStyle={{fontWeight: FONT_WEIGHTS.BOLD}}>
+        <StyledLink to="/about" activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }}>
           About
         </StyledLink>
       </div>
     </HeaderContainer>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

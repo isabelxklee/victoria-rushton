@@ -1,11 +1,11 @@
-import React from 'react'
-import {graphql, useStaticQuery} from 'gatsby'
-import PageTemplate from '../components/PageTemplate'
-import FontHero from '../components/FontHero'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import PageTemplate from '../components/PageTemplate';
+import FontHero from '../components/FontHero';
 
 const IndexPage = () => {
-  const data = useStaticQuery(pageQuery)
-  const fonts = data.allContentfulFont.nodes
+  const data = useStaticQuery(pageQuery);
+  const fonts = data.allContentfulFont.nodes;
 
   return (
     <PageTemplate>
@@ -13,10 +13,10 @@ const IndexPage = () => {
         <FontHero key={index} font={font} />
       ))}
     </PageTemplate>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
 const pageQuery = graphql`
   query {
@@ -37,4 +37,4 @@ const pageQuery = graphql`
       }
     }
   }
-`
+`;

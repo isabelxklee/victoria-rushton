@@ -1,7 +1,7 @@
 // import {ReactComponent as Sun} from '../assets/icons/icon-sun.svg'
 // import {ReactComponent as Moon} from '../assets/icons/icon-moon.svg'
-import styled from 'styled-components'
-import {Button, Text, COLORS, FONT_WEIGHTS} from '../styles'
+import styled from 'styled-components';
+import { Button, Text, COLORS, FONT_WEIGHTS } from '../styles';
 
 export const Slider = styled.input`
   -webkit-appearance: none;
@@ -13,11 +13,11 @@ export const Slider = styled.input`
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
   border-radius: 100px;
-`
+`;
 
 export const Select = styled.select`
   height: fit-content;
-  width: ${({$width}) => ($width === 'fixed' ? '170px' : '100%')};
+  width: ${({ $width }) => ($width === 'fixed' ? '170px' : '100%')};
   padding: 10px;
   font-family: 'Cecilie Sans', 'sans-serif';
   font-size: 16px;
@@ -25,7 +25,8 @@ export const Select = styled.select`
   border-radius: 4px;
   appearance: none;
   background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
   background-position: calc(100% - 20px), calc(100% - 15px), calc(100% - 2.5em);
   background-position-y: calc(50%);
   background-size: 5px 5px, 5px 5px, 1px 1.5em;
@@ -35,28 +36,28 @@ export const Select = styled.select`
   @media (max-width: 900px) {
     width: 100%;
   }
-`
+`;
 
 export const Label = styled.label`
   width: 100%;
-`
+`;
 
 export const LabelContainer = styled.div`
   display: flex;
   justify-content: space-between;
-`
+`;
 
 export const TypeTesterContainer = styled.div`
   display: flex;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  margin-top: ${({$marginTop}) => ($marginTop ? '100px' : '0px')};
+  margin-top: ${({ $marginTop }) => ($marginTop ? '100px' : '0px')};
 
   @media (max-width: 900px) {
     display: block;
     margin-top: 30px;
   }
-`
+`;
 
 export const PanelContainer = styled.div`
   background: ${COLORS.BLACK};
@@ -71,21 +72,21 @@ export const PanelContainer = styled.div`
     width: calc(100% - 80px);
     padding: 40px;
   }
-`
+`;
 
 export const TextArea = styled.textarea.attrs(
-  ({$weight, $size, $darkMode, $lightMode, $slant}) => ({
+  ({ $weight, $size, $darkMode, $lightMode, $slant }) => ({
     style: {
       fontWeight: `${$weight}`,
       fontSize: `${$size}px`,
       backgroundColor: `${$darkMode}`,
       color: `${$lightMode}`,
-      fontStyle: `${$slant === 'Roman' ? 'normal' : 'italic'}`,
-    },
+      fontStyle: `${$slant === 'Roman' ? 'normal' : 'italic'}`
+    }
   })
 )`
   border: none;
-  font-family: ${({$fontFamily}) => $fontFamily};
+  font-family: ${({ $fontFamily }) => $fontFamily};
   width: 100%;
   padding: 40px;
   resize: none;
@@ -95,25 +96,26 @@ export const TextArea = styled.textarea.attrs(
   line-height: 1;
 
   ::placeholder {
-    color: ${({$lightMode}) => $lightMode};
+    color: ${({ $lightMode }) => $lightMode};
   }
 
   @media (max-width: 900px) {
     height: 300px;
   }
-`
+`;
 
 export const IconButton = styled(Button)`
-  border: 2px solid ${({$darkMode}) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
-  background: ${({$darkMode}) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
-  color: ${({$darkMode}) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
+  border: 2px solid
+    ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
+  background: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
+  color: ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
   cursor: pointer;
   align-items: center;
   display: flex;
   justify-content: space-between;
   gap: 10px;
   margin-top: 20px;
-`
+`;
 
 // export const IconSun = styled(Sun)`
 //   width: 24px;
@@ -143,7 +145,7 @@ export const ButtonLabel = styled.label`
     background: ${COLORS.BLACK};
     color: ${COLORS.WHITE};
   }
-`
+`;
 
 export const LicenseContainer = styled.div`
   display: flex;
@@ -154,7 +156,7 @@ export const LicenseContainer = styled.div`
     display: block;
     padding: 0;
   }
-`
+`;
 
 export const ButtonGroup = styled.div`
   display: flex;
@@ -165,11 +167,11 @@ export const ButtonGroup = styled.div`
   @media (max-width: 950px) {
     width: 100%;
   }
-`
+`;
 
 export const Options = styled(ButtonGroup)`
   flex-direction: column;
-`
+`;
 
 export const ParentContainer = styled.div`
   display: grid;
@@ -179,7 +181,7 @@ export const ParentContainer = styled.div`
   @media (max-width: 900px) {
     display: block;
   }
-`
+`;
 
 export const SelectionContainer = styled.div`
   border-right: 2px solid ${COLORS.BLACK};
@@ -190,7 +192,7 @@ export const SelectionContainer = styled.div`
     border-right: unset;
     border-bottom: 2px solid ${COLORS.BLACK};
   }
-`
+`;
 
 export const PriceContainer = styled.div`
   margin: 40px 0;
@@ -199,35 +201,36 @@ export const PriceContainer = styled.div`
   @media (max-width: 900px) {
     padding: 0 20px;
   }
-`
+`;
 
 export const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
-`
+`;
 
 export const PreviewText = styled.p`
-  font-size: ${({$size}) => $size}px;
-  font-weight: ${({$weight}) => $weight};
-  font-style: ${({$slant}) => ($slant === 'Roman' ? 'normal' : 'italic')};
-  font-family: ${({$font}) => $font};
-  line-height: ${({$lineHeight}) => $lineHeight};
-  margin: ${({$margin}) => $margin};
+  font-size: ${({ $size }) => $size}px;
+  font-weight: ${({ $weight }) => $weight};
+  font-style: ${({ $slant }) => ($slant === 'Roman' ? 'normal' : 'italic')};
+  font-family: ${({ $font }) => $font};
+  line-height: ${({ $lineHeight }) => $lineHeight};
+  margin: ${({ $margin }) => $margin};
   max-width: 1000px;
 
   @media (max-width: 900px) {
-    font-size: ${({$size}) => $size * 0.7}px;
+    font-size: ${({ $size }) => $size * 0.7}px;
   }
-`
+`;
 
 export const HeroContainer = styled.div`
   padding: 120px 0;
-  border-bottom: ${({$noBorderBottom}) => ($noBorderBottom ? 'none' : `2px solid ${COLORS.BLACK}`)};
+  border-bottom: ${({ $noBorderBottom }) =>
+    $noBorderBottom ? 'none' : `2px solid ${COLORS.BLACK}`};
 
   @media (max-width: 900px) {
     padding: 90px 0;
   }
-`
+`;
 
 export const SuccessContainer = styled.div`
   padding: 100px 260px;
@@ -235,7 +238,7 @@ export const SuccessContainer = styled.div`
   @media (max-width: 1100px) {
     padding: 100px 0;
   }
-`
+`;
 
 export const Description = styled(Text)`
   font-size: 18px;
@@ -248,7 +251,7 @@ export const Description = styled(Text)`
     margin: 0 0 20px 0;
     width: 100%;
   }
-`
+`;
 export const ProfilePic = styled.img`
   border-radius: 100%;
   width: 280px;
@@ -262,7 +265,7 @@ export const ProfilePic = styled.img`
     width: 200px;
     height: 200px;
   }
-`
+`;
 
 export const IntroContainer = styled(HeroContainer)`
   display: flex;
@@ -273,7 +276,7 @@ export const IntroContainer = styled(HeroContainer)`
     padding: 60px 0;
     text-align: center;
   }
-`
+`;
 
 export const PressContainer = styled.div`
   background: ${COLORS.BLACK};
@@ -286,7 +289,7 @@ export const PressContainer = styled.div`
     padding: 40px;
     width: calc(100vw - 80px);
   }
-`
+`;
 
 export const PressArticleTitle = styled.a`
   text-transform: uppercase;
@@ -294,11 +297,11 @@ export const PressArticleTitle = styled.a`
   font-size: 16px;
   text-decoration: none;
   color: ${COLORS.WHITE};
-`
+`;
 
 export const PressArticleContainer = styled.div`
   margin: 48px 0;
-`
+`;
 
 export const Container = styled.div`
   border-left: 2px solid ${COLORS.WHITE};
@@ -308,7 +311,7 @@ export const Container = styled.div`
     padding-left: 0;
     border-left: none;
   }
-`
+`;
 
 export const FontHeroWrapper = styled.div`
   border-bottom: 2px solid ${COLORS.BLACK};
@@ -318,4 +321,4 @@ export const FontHeroWrapper = styled.div`
     border-bottom: none;
     margin-bottom: 180px;
   }
-`
+`;

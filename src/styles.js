@@ -1,10 +1,10 @@
-import styled, {createGlobalStyle} from 'styled-components'
-import {Link} from 'gatsby'
+import styled, { createGlobalStyle } from 'styled-components';
+import { Link } from 'gatsby';
 
 export const COLORS = {
   WHITE: '#F4F4F4',
-  BLACK: '#1E1E1E',
-}
+  BLACK: '#1E1E1E'
+};
 
 export const FONT_WEIGHTS = {
   LIGHT: 200,
@@ -13,48 +13,48 @@ export const FONT_WEIGHTS = {
   MEDIUM: 500,
   SEMIBOLD: 600,
   BOLD: 700,
-  BLACK: 800,
-}
+  BLACK: 800
+};
 
 const Flex = styled.div`
   display: flex;
-`
+`;
 
 export const RowFlex = styled(Flex)`
   flex-direction: row;
-`
+`;
 
 export const ColumnFlex = styled(Flex)`
   flex-direction: column;
-`
+`;
 
 export const Wrapper = styled.div`
   padding: 80px;
-`
+`;
 
 export const H1 = styled.h1`
   font-size: 100px;
   font-weight: ${FONT_WEIGHTS.REGULAR};
   line-height: 0.9;
-  margin: ${({$margin}) => $margin};
-  font-family: ${({$font}) => $font};
+  margin: ${({ $margin }) => $margin};
+  font-family: ${({ $font }) => $font};
 
   @media (max-width: 900px) {
     font-size: 60px;
   }
-`
+`;
 
 export const H2 = styled.h2`
   font-size: 32px;
   font-weight: ${FONT_WEIGHTS.BOLD};
   line-height: 1.1;
-`
+`;
 
 export const H3 = styled.h3`
   font-size: 18px;
   font-weight: ${FONT_WEIGHTS.BOLD};
   margin: 0 0 16px 0;
-`
+`;
 
 export const Text = styled.p`
   margin: 0;
@@ -65,13 +65,13 @@ export const Text = styled.p`
   @media (max-width: 900px) {
     font-size: 16px;
   }
-`
+`;
 
 export const TextLink = styled.a`
-  font-weight: ${(props) => props.inputWeight || FONT_WEIGHTS.BOLD};
-  color: ${({$light}) => ($light ? COLORS.WHITE : COLORS.BLACK)};
+  font-weight: ${props => props.inputWeight || FONT_WEIGHTS.BOLD};
+  color: ${({ $light }) => ($light ? COLORS.WHITE : COLORS.BLACK)};
   text-decoration: none;
-`
+`;
 
 export const Button = styled.button`
   border-radius: 40px;
@@ -84,7 +84,7 @@ export const Button = styled.button`
   padding: 10px 20px;
   pointer-events: auto;
   cursor: pointer;
-`
+`;
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -116,9 +116,9 @@ export const GlobalStyles = createGlobalStyle`
     background: ${COLORS.WHITE};
     color: ${COLORS.BLACK};
   }
-`
+`;
 
 export const InvisibleLink = styled(Link)`
   color: ${COLORS.BLACK};
   text-decoration: none;
-`
+`;

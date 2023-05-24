@@ -1,17 +1,17 @@
-import React, {useMemo} from 'react'
-import styled from 'styled-components'
-import {FontHeroWrapper} from './styles'
-import {Text, RowFlex, InvisibleLink, COLORS} from '../styles'
+import React, { useMemo } from 'react';
+import styled from 'styled-components';
+import { FontHeroWrapper } from './styles';
+import { Text, RowFlex, InvisibleLink } from '../styles';
 
 const StyledRowFlex = styled(RowFlex)`
   justify-content: space-between;
-`
+`;
 
-const FontHero = ({font}) => {
+const FontHero = ({ font }) => {
   const calculateStyles = useMemo(() => {
-    return font.weights.length
+    return font.weights.length;
     // * font.slants.length
-  })
+  });
 
   return (
     <FontHeroWrapper>
@@ -24,7 +24,7 @@ const FontHero = ({font}) => {
         <Text>View this font</Text>
       </InvisibleLink>
     </FontHeroWrapper>
-  )
-}
+  );
+};
 
-export default FontHero
+export default FontHero;

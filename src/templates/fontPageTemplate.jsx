@@ -1,11 +1,11 @@
-import React from 'react'
-import {graphql} from 'gatsby'
-import PageTemplate from '../components/PageTemplate'
-import {FontHeroWrapper} from '../components/styles'
-import {Text} from '../styles'
+import React from 'react';
+import { graphql } from 'gatsby';
+import PageTemplate from '../components/PageTemplate';
+import { FontHeroWrapper } from '../components/styles';
+import { Text } from '../styles';
 
-const FontPageTemplate = ({data}) => {
-  const font = data.contentfulFont
+const FontPageTemplate = ({ data }) => {
+  const font = data.contentfulFont;
 
   return (
     <PageTemplate>
@@ -18,14 +18,14 @@ const FontPageTemplate = ({data}) => {
       {/* supported langauges */}
       {/* license */}
     </PageTemplate>
-  )
-}
+  );
+};
 
-export default FontPageTemplate
+export default FontPageTemplate;
 
 export const pageQuery = graphql`
   query ($slug: String!) {
-    contentfulFont(slug: {eq: $slug}) {
+    contentfulFont(slug: { eq: $slug }) {
       id
       slug
       name
@@ -42,4 +42,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
