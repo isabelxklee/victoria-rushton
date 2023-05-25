@@ -5,20 +5,24 @@ import PageTemplate from '../components/PageTemplate';
 import { FontHeroWrapper } from '../components/styles';
 import { Button, Text } from '../styles';
 
+interface Font {
+  description: {
+    description: string
+  }
+  heroCopy: {
+    heroCopy: string;
+  };
+  name: string;
+  slug: string;
+  weights: {
+    name: string;
+    value: number;
+  }[]
+}
+
 interface FontPageTemplateProps {
   data: {
-    contentfulFont: {
-      description?: string | null;
-      heroCopy: {
-        heroCopy: string;
-      };
-      name: string;
-      slug: string;
-      weights: {
-        name: string;
-        value: number;
-      }[]
-    }
+    contentfulFont: Font
   }
 }
 
