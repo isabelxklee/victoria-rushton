@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReactNode } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
@@ -16,13 +17,13 @@ const StyledLink = styled(Link)`
 `;
 
 interface LinkProps {
-  children: string;
+  children: string | ReactNode;
   url: string;
 }
 
 export const InternalLink = ({ children, url }: LinkProps) => {
   return (
-    <StyledLink target="_blank" to={url}>
+    <StyledLink activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }} to={url}>
       {children}
     </StyledLink>
   );
@@ -35,6 +36,7 @@ export const ExternalLink = ({ children, url }: LinkProps) => {
       $light={true}
       href={url}
       rel="noreferrer noopener"
+      target="_blank"
     >
       {children}
     </A>

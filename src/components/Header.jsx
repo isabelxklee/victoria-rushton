@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { COLORS, FONT_WEIGHTS } from '../styles';
+import { COLORS } from '../styles';
+
+import { InternalLink } from './Links';
 
 export const HeaderContainer = styled.div`
   color: ${COLORS.BLACK};
@@ -19,18 +20,18 @@ export const HeaderContainer = styled.div`
   }
 `;
 
-export const StyledLink = styled(Link)`
-  font-weight: ${FONT_WEIGHTS.REGULAR};
-  color: ${COLORS.BLACK};
-  text-decoration: none;
-  margin-left: 40px;
-  font-size: 14px;
-  text-transform: uppercase;
+// export const StyledLink = styled(Link)`
+//   font-weight: ${FONT_WEIGHTS.REGULAR};
+//   color: ${COLORS.BLACK};
+//   text-decoration: none;
+//   margin-left: 40px;
+//   font-size: 14px;
+//   text-transform: uppercase;
 
-  @media (max-width: 900px) {
-    margin-left: 20px;
-  }
-`;
+//   @media (max-width: 900px) {
+//     margin-left: 20px;
+//   }
+// `;
 
 export const Logo = styled.img`
   width: 300px;
@@ -43,20 +44,19 @@ export const Logo = styled.img`
 const Header = () => {
   return (
     <HeaderContainer>
-      <Link to="/">
+      <InternalLink url="/">
         <Logo
           alt=""
           src="https://images.ctfassets.net/6l1e28rigfdw/4M73zAbJDT93lMBUrSnGC6/a063c57966eee5adcffb38e9ed564cee/logo-full.svg"
         />
-      </Link>
-
+      </InternalLink>
       <div>
-        <StyledLink activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }} to="/">
+        <InternalLink url="/">
           Home
-        </StyledLink>
-        <StyledLink activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }} to="/about">
+        </InternalLink>
+        <InternalLink url="/about">
           About
-        </StyledLink>
+        </InternalLink>
       </div>
     </HeaderContainer>
   );

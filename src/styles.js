@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const COLORS = {
@@ -116,9 +115,4 @@ export const GlobalStyles = createGlobalStyle`
     background: ${COLORS.WHITE};
     color: ${COLORS.BLACK};
   }
-`;
-
-export const InvisibleLink = styled(Link)`
-  color: ${COLORS.BLACK};
-  text-decoration: none;
 `;

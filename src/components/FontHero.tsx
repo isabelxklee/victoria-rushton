@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
-import { InvisibleLink, RowFlex, Text } from '../styles';
+import { RowFlex, Text } from '../styles';
 import { Font } from '../templates/fontPageTemplate';
 
+import { InternalLink } from './Links';
 import { FontHeroWrapper } from './styles';
 
 const StyledRowFlex = styled(RowFlex)`
@@ -22,14 +23,14 @@ const FontHero = ({ font }: FontHeroProps) => {
 
   return (
     <FontHeroWrapper>
-      <InvisibleLink to={`/${font.slug}`}>
+      <InternalLink url={`/${font.slug}`}>
         <StyledRowFlex>
           <Text>{font.name}</Text>
           <Text>{calculateStyles} available styles</Text>
         </StyledRowFlex>
         <h2>{font.heroCopy.heroCopy}</h2>
         <Text>View this font</Text>
-      </InvisibleLink>
+      </InternalLink>
     </FontHeroWrapper>
   );
 };
