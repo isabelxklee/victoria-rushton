@@ -5,7 +5,24 @@ import PageTemplate from '../components/PageTemplate';
 import { FontHeroWrapper } from '../components/styles';
 import { Button, Text } from '../styles';
 
-const FontPageTemplate = ({ data }) => {
+interface FontPageTemplateProps {
+  data: {
+    contentfulFont: {
+      description?: string | null;
+      heroCopy: {
+        heroCopy: string;
+      };
+      name: string;
+      slug: string;
+      weights: {
+        name: string;
+        value: number;
+      }[]
+    }
+  }
+}
+
+const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
 
   return (
@@ -15,6 +32,7 @@ const FontPageTemplate = ({ data }) => {
         <Text>{font.description && font.description.description}</Text>
         <Button style={{ margin: '26px 0' }}>License this font</Button>
       </FontHeroWrapper>
+      <div></div>
       {/* preview texts */}
       {/* type tester */}
       {/* supported langauges */}
@@ -28,11 +46,9 @@ export default FontPageTemplate;
 export const pageQuery = graphql`
   query ($slug: String!) {
     contentfulFont(slug: { eq: $slug }) {
-      id
       slug
       name
       weights {
-        id
         name
         value
       }
