@@ -1,15 +1,15 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+
 import PageTemplate from '../components/PageTemplate';
-import { H2, Button, Text, TextLink, FONT_WEIGHTS } from '../styles';
 import {
+  Container,
   IntroContainer,
-  ProfilePic,
-  PressContainer,
   PressArticleContainer,
   PressArticleTitle,
-  Container
-} from '../components/styles';
+  PressContainer,
+  ProfilePic} from '../components/styles';
+import { Button, FONT_WEIGHTS,H2, Text, TextLink } from '../styles';
 
 const About = () => {
   const data = useStaticQuery(pageQuery);
@@ -20,18 +20,18 @@ const About = () => {
     <PageTemplate>
       <IntroContainer>
         <ProfilePic
-          src="https://images.ctfassets.net/6l1e28rigfdw/HbVTH1MqZNqlrM4Cowe1E/a3eeb7e19a38d51d07f9edd5603eceb8/victoria_profile_pic.png"
-          rel="no_link referrer"
           alt="Victoria Rushton"
+          rel="no_link referrer"
+          src="https://images.ctfassets.net/6l1e28rigfdw/HbVTH1MqZNqlrM4Cowe1E/a3eeb7e19a38d51d07f9edd5603eceb8/victoria_profile_pic.png"
         />
         <div>
           <H2>{about.greeting.greeting}</H2>
           <Text>{about.bio.bio}</Text>
           <Button style={{ margin: '26px 0' }}>
             <TextLink
+              $light={true}
               href={about.buttonURL}
               inputWeight={FONT_WEIGHTS.BOOK}
-              $light={true}
               target="_blank"
             >
               {about.buttonLabel}
@@ -45,10 +45,10 @@ const About = () => {
           {press.map((object, index) => (
             <PressArticleContainer key={index}>
               <PressArticleTitle
-                href={object.url}
-                target="_blank"
-                rel="no_referrer"
                 $linkStyle={object.url && 'on'}
+                href={object.url}
+                rel="no_referrer"
+                target="_blank"
               >
                 {object.title}
               </PressArticleTitle>

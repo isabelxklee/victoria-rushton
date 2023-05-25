@@ -1,8 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+
 import PageTemplate from '../components/PageTemplate';
 import { FontHeroWrapper } from '../components/styles';
-import { Text } from '../styles';
+import { Button, Text } from '../styles';
 
 const FontPageTemplate = ({ data }) => {
   const font = data.contentfulFont;
@@ -11,7 +12,8 @@ const FontPageTemplate = ({ data }) => {
     <PageTemplate>
       <FontHeroWrapper>
         <h1>{font.name}</h1>
-        <Text>{font.description.description}</Text>
+        <Text>{font.description && font.description.description}</Text>
+        <Button style={{ margin: '26px 0' }}>License this font</Button>
       </FontHeroWrapper>
       {/* preview texts */}
       {/* type tester */}
