@@ -15,6 +15,10 @@ export const FONT_WEIGHTS = {
   BLACK: 800
 };
 
+export const BREAKPOINTS = {
+  MEDIUM: '900px'
+};
+
 const Flex = styled.div`
   display: flex;
 `;

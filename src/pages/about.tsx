@@ -6,13 +6,13 @@ import styled from 'styled-components';
 
 import { ExternalLink } from '../components/Links';
 import PageTemplate from '../components/PageTemplate';
-import { Container, FlexContainer } from '../components/styles';
-import { Button, COLORS, FONT_WEIGHTS, H2, Text } from '../styles';
+import { FlexContainer } from '../components/styles';
+import { BREAKPOINTS, Button, COLORS, FONT_WEIGHTS, H2, Text } from '../styles';
 
 const IntroWrapper = styled(FlexContainer)`
   padding: 120px 0;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     flex-direction: column;
     align-items: center;
     padding: 60px 0;
@@ -35,7 +35,7 @@ const ProfilePic = styled.img`
   }
 `;
 
-const PressContainer = styled.div`
+const PressWrapper = styled.div`
   background: ${COLORS.BLACK};
   color: ${COLORS.WHITE};
   width: calc(100vw - 160px);
@@ -48,12 +48,22 @@ const PressContainer = styled.div`
   }
 `;
 
-const PressArticleTitle = styled(ExternalLink)`
+const Border = styled.div`
+  border-left: 2px solid ${COLORS.WHITE};
+  padding-left: 50px;
+
+  @media (max-width: 900px) {
+    padding-left: 0;
+    border-left: none;
+  }
+`;
+
+const PressTitle = styled(ExternalLink)`
   text-transform: uppercase;
   font-size: 16px;
 `;
 
-const PressArticleContainer = styled.div`
+const PressItemWrapper = styled.div`
   margin: 48px 0;
 `;
 
@@ -83,22 +93,22 @@ const About = () => {
           </Button>
         </div>
       </IntroWrapper>
-      <PressContainer>
-        <Container>
+      <PressWrapper>
+        <Border>
           <H2>Speaking and Writing</H2>
           {press.map((object: any, index: number) => (
-            <PressArticleContainer key={index}>
-              <PressArticleTitle
+            <PressItemWrapper key={index}>
+              <PressTitle
                 inputWeight={FONT_WEIGHTS.BOLD}
                 light={true}
                 url={object.url}>
                 {object.title}
-              </PressArticleTitle>
+              </PressTitle>
               <Text>{object.description}</Text>
-            </PressArticleContainer>
+            </PressItemWrapper>
           ))}
-        </Container>
-      </PressContainer>
+        </Border>
+      </PressWrapper>
     </PageTemplate>
   );
 };

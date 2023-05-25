@@ -254,15 +254,15 @@ export const Description = styled(Text)`
   }
 `;
 
-export const Container = styled.div`
-  border-left: 2px solid ${COLORS.WHITE};
-  padding-left: 50px;
+// export const Container = styled.div`
+//   border-left: 2px solid ${COLORS.WHITE};
+//   padding-left: 50px;
 
-  @media (max-width: 900px) {
-    padding-left: 0;
-    border-left: none;
-  }
-`;
+//   @media (max-width: 900px) {
+//     padding-left: 0;
+//     border-left: none;
+//   }
+// `;
 
 export const FontHeroWrapper = styled.div`
   border-bottom: 2px solid ${COLORS.BLACK};
