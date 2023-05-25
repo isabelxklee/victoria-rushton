@@ -10,7 +10,12 @@ export const StyledA = styled.a<{$inputWeight: number, $light: boolean}>`
   text-decoration: none;
 `;
 
-export const TextLink = ({children, url}) => {
+interface InternalLinkProps {
+  children: string;
+  url: string
+}
+
+export const InternalLink = ({children, url}: InternalLinkProps) => {
   return (
     <StyledA
     $inputWeight={FONT_WEIGHTS.BOOK}
