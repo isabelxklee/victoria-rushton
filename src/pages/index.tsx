@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import FontHero from '../components/FontHero';
 import PageTemplate from '../components/PageTemplate';
+import { Font } from '../templates/fontPageTemplate';
 
 const IndexPage = () => {
   const data = useStaticQuery(pageQuery);
@@ -11,7 +12,7 @@ const IndexPage = () => {
 
   return (
     <PageTemplate>
-      {fonts.map((font, index) => (
+      {fonts.map((font: Font, index: number) => (
         <FontHero key={index} font={font} />
       ))}
     </PageTemplate>

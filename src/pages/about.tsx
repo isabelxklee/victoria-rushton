@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -43,7 +44,7 @@ const About = () => {
       <PressContainer>
         <Container>
           <H2>Speaking and Writing</H2>
-          {press.map((object, index) => (
+          {press.map((object: any, index: number) => (
             <PressArticleContainer key={index}>
               <PressArticleTitle
                 $linkStyle={object.url && 'on'}
