@@ -5,7 +5,7 @@ import PageTemplate from '../components/PageTemplate';
 import { FontHeroWrapper } from '../components/styles';
 import { Button, Text } from '../styles';
 
-interface Font {
+export interface Font {
   description: {
     description: string
   }

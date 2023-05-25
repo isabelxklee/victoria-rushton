@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import PageTemplate from '../components/PageTemplate';
+
 import FontHero from '../components/FontHero';
+import PageTemplate from '../components/PageTemplate';
 
 const IndexPage = () => {
   const data = useStaticQuery(pageQuery);
