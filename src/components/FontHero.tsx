@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { InvisibleLink, RowFlex, Text } from '../styles';
+import { Font } from '../templates/fontPageTemplate';
 
 import { FontHeroWrapper } from './styles';
 
@@ -9,7 +10,11 @@ const StyledRowFlex = styled(RowFlex)`
   justify-content: space-between;
 `;
 
-const FontHero = ({ font }) => {
+interface FontHeroProps {
+  font: Font;
+}
+
+const FontHero = ({ font }: FontHeroProps) => {
   const calculateStyles = useMemo(() => {
     return font.weights.length;
     // * font.slants.length
