@@ -24,10 +24,10 @@
     "gatsby-source-contentful": "^8.9.1",
     "gatsby-transformer-sharp": "^5.9.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "styled-components": "^5.0.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.59.7",
     "eslint": "^8.40.0",
     "eslint-plugin-flowtype": "^8.0.3",
@@ -38,6 +38,7 @@
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-typescript-sort-keys": "^2.1.0",
-    "prettier": "2.8.8"
+    "prettier": "2.8.8",
+    "styled-components": "^5.0.0"
   }
 }
