@@ -7,8 +7,8 @@ import { Button, Text } from '../styles';
 
 export interface Font {
   description: {
-    description: string
-  }
+    description: string;
+  };
   heroCopy: {
     heroCopy: string;
   };
@@ -17,13 +17,13 @@ export interface Font {
   weights: {
     name: string;
     value: number;
-  }[]
+  }[];
 }
 
 interface FontPageTemplateProps {
   data: {
-    contentfulFont: Font
-  }
+    contentfulFont: Font;
+  };
 }
 
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {

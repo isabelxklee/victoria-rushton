@@ -10,8 +10,9 @@ import {
   PressArticleContainer,
   PressArticleTitle,
   PressContainer,
-  ProfilePic} from '../components/styles';
-import { Button, FONT_WEIGHTS,H2, Text, TextLink } from '../styles';
+  ProfilePic
+} from '../components/styles';
+import { Button, FONT_WEIGHTS, H2, Text, TextLink } from '../styles';
 
 const About = () => {
   const data = useStaticQuery(pageQuery);

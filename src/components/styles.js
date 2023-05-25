@@ -2,7 +2,7 @@
 // import {ReactComponent as Moon} from '../assets/icons/icon-moon.svg'
 import styled from 'styled-components';
 
-import { Button, COLORS, FONT_WEIGHTS,Text } from '../styles';
+import { Button, COLORS, FONT_WEIGHTS, Text } from '../styles';
 
 export const Slider = styled.input`
   -webkit-appearance: none;
