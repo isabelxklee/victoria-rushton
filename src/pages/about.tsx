@@ -58,6 +58,7 @@ const Border = styled.div`
   }
 `;
 
+// figure out why this isn't working
 const PressTitle = styled(ExternalLink)`
   text-transform: uppercase;
   font-size: 16px;

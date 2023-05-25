@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS } from '../styles';
+import { BREAKPOINTS, COLORS } from '../styles';
 
 import { InternalLink } from './Links';
 
@@ -36,9 +36,9 @@ export const HeaderContainer = styled.div`
 export const Logo = styled.img`
   width: 300px;
 
-  /* @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     width: 80%;
-  } */
+  }
 `;
 
 const Header = () => {
