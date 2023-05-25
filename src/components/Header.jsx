@@ -51,12 +51,8 @@ const Header = () => {
         />
       </InternalLink>
       <div>
-        <InternalLink url="/">
-          Home
-        </InternalLink>
-        <InternalLink url="/about">
-          About
-        </InternalLink>
+        <InternalLink url="/">Home</InternalLink>
+        <InternalLink url="/about">About</InternalLink>
       </div>
     </HeaderContainer>
   );

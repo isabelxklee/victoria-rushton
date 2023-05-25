@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { COLORS, FONT_WEIGHTS } from '../styles';
 
-const A = styled.a<{ $inputWeight: number; $light: boolean }>`
+const A = styled.a<{ $inputWeight?: number; $light?: boolean }>`
   font-weight: ${({ $inputWeight }) => $inputWeight || FONT_WEIGHTS.BOLD};
   color: ${({ $light }) => ($light ? COLORS.WHITE : COLORS.BLACK)};
   text-decoration: none;
@@ -21,6 +21,11 @@ interface LinkProps {
   url: string;
 }
 
+interface ExternalLinkProps extends LinkProps {
+  inputWeight?: number;
+  light?: boolean;
+}
+
 export const InternalLink = ({ children, url }: LinkProps) => {
   return (
     <StyledLink activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }} to={url}>
@@ -29,11 +34,16 @@ export const InternalLink = ({ children, url }: LinkProps) => {
   );
 };
 
-export const ExternalLink = ({ children, url }: LinkProps) => {
+export const ExternalLink = ({
+  inputWeight,
+  light,
+  children,
+  url
+}: ExternalLinkProps) => {
   return (
     <A
-      $inputWeight={FONT_WEIGHTS.BOOK}
-      $light={true}
+      $inputWeight={inputWeight}
+      $light={light}
       href={url}
       rel="noreferrer noopener"
       target="_blank"
