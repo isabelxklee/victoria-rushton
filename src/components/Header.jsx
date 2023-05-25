@@ -20,19 +20,6 @@ export const HeaderContainer = styled.div`
   }
 `;
 
-// export const StyledLink = styled(Link)`
-//   font-weight: ${FONT_WEIGHTS.REGULAR};
-//   color: ${COLORS.BLACK};
-//   text-decoration: none;
-//   margin-left: 40px;
-//   font-size: 14px;
-//   text-transform: uppercase;
-
-//   @media (max-width: 900px) {
-//     margin-left: 20px;
-//   }
-// `;
-
 export const Logo = styled.img`
   width: 300px;
 
@@ -51,8 +38,12 @@ const Header = () => {
         />
       </InternalLink>
       <div>
-        <InternalLink url="/">Home</InternalLink>
-        <InternalLink url="/about">About</InternalLink>
+        <InternalLink textCase="uppercase" url="/">
+          Home
+        </InternalLink>
+        <InternalLink textCase="uppercase" url="/about">
+          About
+        </InternalLink>
       </div>
     </HeaderContainer>
   );

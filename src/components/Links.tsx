@@ -6,11 +6,11 @@ import styled from 'styled-components';
 import { COLORS, FONT_WEIGHTS } from '../styles';
 
 const A = styled.a<{
-  $inputWeight?: number;
+  $fontWeight?: number;
   $light?: boolean;
   $textCase?: string;
 }>`
-  font-weight: ${({ $inputWeight }) => $inputWeight || FONT_WEIGHTS.BOLD};
+  font-weight: ${({ $fontWeight }) => $fontWeight || FONT_WEIGHTS.BOLD};
   color: ${({ $light }) => ($light ? COLORS.WHITE : COLORS.BLACK)};
   text-decoration: none;
   text-transform: ${({ $textCase }) => $textCase};
@@ -18,6 +18,7 @@ const A = styled.a<{
 
 const StyledLink = styled(Link)<{ $textCase?: string }>`
   color: ${COLORS.BLACK};
+  font-weight: ${FONT_WEIGHTS.REGULAR};
   text-decoration: none;
   text-transform: ${({ $textCase }) => $textCase};
 `;
@@ -29,7 +30,7 @@ interface LinkProps {
 }
 
 interface ExternalLinkProps extends LinkProps {
-  inputWeight?: number;
+  fontWeight?: number;
   light?: boolean;
 }
 
@@ -45,7 +46,7 @@ export const InternalLink = ({ children, textCase, url }: LinkProps) => {
 };
 
 export const ExternalLink = ({
-  inputWeight,
+  fontWeight,
   light,
   children,
   textCase,
@@ -53,7 +54,7 @@ export const ExternalLink = ({
 }: ExternalLinkProps) => {
   return (
     <A
-      $inputWeight={inputWeight}
+      $fontWeight={fontWeight}
       $light={light}
       $textCase={textCase}
       href={url}

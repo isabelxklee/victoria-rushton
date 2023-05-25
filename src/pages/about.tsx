@@ -58,12 +58,6 @@ const Border = styled.div`
   }
 `;
 
-// figure out why this isn't working
-const PressTitle = styled(ExternalLink)`
-  text-transform: uppercase;
-  font-size: 16px;
-`;
-
 const PressItemWrapper = styled.div`
   margin: 48px 0;
 `;
@@ -86,7 +80,7 @@ const About = () => {
           <Text>{about.bio.bio}</Text>
           <Button style={{ margin: '26px 0' }}>
             <ExternalLink
-              inputWeight={FONT_WEIGHTS.BOOK}
+              fontWeight={FONT_WEIGHTS.BOOK}
               light={true}
               url={about.buttonURL}>
               {about.buttonLabel}
@@ -99,12 +93,13 @@ const About = () => {
           <H2>Speaking and Writing</H2>
           {press.map((object: any, index: number) => (
             <PressItemWrapper key={index}>
-              <PressTitle
-                inputWeight={FONT_WEIGHTS.BOLD}
+              <ExternalLink
+                fontWeight={FONT_WEIGHTS.BOLD}
                 light={true}
+                textCase="uppercase"
                 url={object.url}>
                 {object.title}
-              </PressTitle>
+              </ExternalLink>
               <Text>{object.description}</Text>
             </PressItemWrapper>
           ))}
