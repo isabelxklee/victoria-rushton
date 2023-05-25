@@ -82,7 +82,8 @@ const About = () => {
             <ExternalLink
               fontWeight={FONT_WEIGHTS.BOOK}
               light={true}
-              url={about.buttonURL}>
+              url={about.buttonURL}
+            >
               {about.buttonLabel}
             </ExternalLink>
           </Button>
@@ -97,7 +98,8 @@ const About = () => {
                 fontWeight={FONT_WEIGHTS.BOLD}
                 light={true}
                 textCase="uppercase"
-                url={object.url}>
+                url={object.url}
+              >
                 {object.title}
               </ExternalLink>
               <Text>{object.description}</Text>

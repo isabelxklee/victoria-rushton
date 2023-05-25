@@ -39,7 +39,8 @@ export const InternalLink = ({ children, textCase, url }: LinkProps) => {
     <StyledLink
       $textCase={textCase}
       activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }}
-      to={url}>
+      to={url}
+    >
       {children}
     </StyledLink>
   );
@@ -59,7 +60,8 @@ export const ExternalLink = ({
       $textCase={textCase}
       href={url}
       rel="noreferrer noopener"
-      target="_blank">
+      target="_blank"
+    >
       {children}
     </A>
   );
