@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components';
 import { Link } from 'gatsby';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const COLORS = {
   WHITE: '#F4F4F4',

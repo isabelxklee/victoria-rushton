@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
+
 import { COLORS, FONT_WEIGHTS } from '../styles';
 
 export const HeaderContainer = styled.div`
@@ -50,10 +51,10 @@ const Header = () => {
       </Link>
 
       <div>
-        <StyledLink to="/" activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }}>
+        <StyledLink activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }} to="/">
           Home
         </StyledLink>
-        <StyledLink to="/about" activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }}>
+        <StyledLink activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }} to="/about">
           About
         </StyledLink>
       </div>
