@@ -12,7 +12,9 @@ const TypeTester = ({ font }: TypeTesterProps) => {
   const [selectedWeight, setSelectedWeight] = useState('');
   const [selectedSlant, setSelectedSlant] = useState('');
 
-  console.log(selectedWeight, selectedSlant);
+  const handleColorModeChange = () => {
+    setDarkMode(darkMode => !darkMode);
+  };
 
   return (
     <>
@@ -34,6 +36,8 @@ const TypeTester = ({ font }: TypeTesterProps) => {
             </select>
           </>
         )}
+
+        <button onClick={handleColorModeChange}>Dark</button>
       </div>
       <div>
         <textarea>hello world</textarea>
