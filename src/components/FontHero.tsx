@@ -5,8 +5,7 @@ import { Font } from '../pages';
 import { RowFlex, Text } from '../styles';
 
 import { InternalLink } from './Links';
-import { HeroCopy } from './sharedStyles';
-import { FontHeroWrapper } from './styles';
+import { HeroCopy, SectionWrapper } from './sharedStyles';
 
 const StyledRowFlex = styled(RowFlex)`
   justify-content: space-between;
@@ -22,7 +21,7 @@ const FontHero = ({ font }: FontHeroProps) => {
   }, [font.slants.length, font.weights.length]);
 
   return (
-    <FontHeroWrapper>
+    <SectionWrapper>
       <InternalLink url={`/${font.slug}`}>
         <StyledRowFlex>
           <Text>{font.name}</Text>
@@ -38,7 +37,7 @@ const FontHero = ({ font }: FontHeroProps) => {
         </HeroCopy>
         <Text>View this font</Text>
       </InternalLink>
-    </FontHeroWrapper>
+    </SectionWrapper>
   );
 };
 
