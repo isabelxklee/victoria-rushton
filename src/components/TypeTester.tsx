@@ -41,7 +41,9 @@ const TypeTester = ({ font }: TypeTesterProps) => {
           </>
         )}
 
-        <button onClick={handleColorModeChange}>Dark</button>
+        <button onClick={handleColorModeChange}>
+          {darkMode ? 'Light' : 'Dark'}
+        </button>
       </div>
       <div>
         <textarea placeholder="Type something..." />
