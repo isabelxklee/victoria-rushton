@@ -31,9 +31,9 @@ const TextArea = styled.textarea<{
     color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
   }
 
-  @media (max-width: 900px) {
+  /* @media (max-width: 900px) {
     height: 300px;
-  }
+  } */
 `;
 
 const Wrapper = styled(RowFlex)`
@@ -48,7 +48,14 @@ const Left = styled(ColumnFlex)`
   gap: 20px;
 `;
 
-const Right = styled.div``;
+const Right = styled.div`
+  width: 100%;
+`;
+
+const SizeWrapper = styled(RowFlex)`
+  align-items: baseline;
+  justify-content: space-between;
+`;
 
 interface TypeTesterProps {
   font: Font;
@@ -91,12 +98,17 @@ const TypeTester = ({ font }: TypeTesterProps) => {
           </>
         )}
 
-        <label>Size</label>
-        <input
-          max="160"
-          min="8"
-          type="range"
-          onChange={event => setSelectedSize(event.target.value)}></input>
+        <SizeWrapper>
+          <div>
+            <label>Size</label>
+            <input
+              max="160"
+              min="8"
+              type="range"
+              onChange={event => setSelectedSize(event.target.value)}></input>
+          </div>
+          <p>{selectedSize}px</p>
+        </SizeWrapper>
 
         <button onClick={handleColorModeChange}>
           {darkMode ? 'Light' : 'Dark'}
