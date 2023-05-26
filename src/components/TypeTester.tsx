@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -42,9 +41,9 @@ interface TypeTesterProps {
 
 const TypeTester = ({ font }: TypeTesterProps) => {
   const [darkMode, setDarkMode] = useState(false);
-  const [selectedWeight, setSelectedWeight] = useState('');
-  const [selectedSlant, setSelectedSlant] = useState('');
-  const [selectedSize, setSelectedSize] = useState('32');
+  const [selectedWeight, setSelectedWeight] = useState('400');
+  const [selectedSlant, setSelectedSlant] = useState('Roman');
+  const [selectedSize, setSelectedSize] = useState('60');
 
   const handleColorModeChange = () => {
     setDarkMode(darkMode => !darkMode);
@@ -55,18 +54,20 @@ const TypeTester = ({ font }: TypeTesterProps) => {
       <div>
         <label>Weight</label>
         <select onChange={event => setSelectedWeight(event.target.value)}>
-          {font.weights.map((weight: any, index: number) => (
-            <option key={index} value={weight.value}>
-              {weight.title}
-            </option>
-          ))}
+          {font.weights.map(
+            (weight: { title: string; value: number }, index: number) => (
+              <option key={index} value={weight.value}>
+                {weight.title}
+              </option>
+            )
+          )}
         </select>
 
         {font.slants.length > 1 && (
           <>
             <label>Slant</label>
             <select onChange={event => setSelectedSlant(event.target.value)}>
-              {font.slants.map((slant: any, index: number) => (
+              {font.slants.map((slant: { title: string }, index: number) => (
                 <option key={index} value={slant.title}>
                   {slant.title}
                 </option>
