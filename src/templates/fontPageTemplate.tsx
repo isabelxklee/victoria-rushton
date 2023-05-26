@@ -2,14 +2,16 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import PageTemplate from '../components/PageTemplate';
-import { HeroCopy } from '../components/sharedStyles';
-import { FontHeroWrapper } from '../components/styles';
+import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
 import { Font } from '../pages';
 import { Button, Text } from '../styles';
 
 interface FontItem extends Font {
   description: {
     description: string;
+  };
+  supportedLanguages: {
+    supportedLanguages: string;
   };
 }
 
@@ -24,7 +26,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
 
   return (
     <PageTemplate>
-      <FontHeroWrapper>
+      <SectionWrapper>
         <HeroCopy
           $fontFamily={font.name}
           $lineHeight={font.heroCopyLineHeight}
@@ -35,11 +37,15 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         </HeroCopy>
         <Text>{font.description && font.description.description}</Text>
         <Button style={{ margin: '26px 0' }}>License this font</Button>
-      </FontHeroWrapper>
+      </SectionWrapper>
       <div></div>
       {/* preview texts */}
       {/* type tester */}
       {/* supported langauges */}
+      <SectionWrapper>
+        <h3>Supported Languages</h3>
+        <Text>{font.supportedLanguages.supportedLanguages}</Text>
+      </SectionWrapper>
       {/* license */}
     </PageTemplate>
   );
@@ -73,6 +79,9 @@ export const pageQuery = graphql`
       }
       slants {
         title
+      }
+      supportedLanguages {
+        supportedLanguages
       }
     }
   }

@@ -253,13 +253,3 @@ export const Description = styled(Text)`
     width: 100%;
   }
 `;
-
-export const FontHeroWrapper = styled.div`
-  border-bottom: 2px solid ${COLORS.BLACK};
-  padding: 20px 0;
-
-  &:last-child {
-    border-bottom: none;
-    margin-bottom: 180px;
-  }
-`;
