@@ -17,9 +17,8 @@ interface FontHeroProps {
 
 const FontHero = ({ font }: FontHeroProps) => {
   const calculateStyles = useMemo(() => {
-    return font.weights.length;
-    // * font.slants.length
-  }, [font.weights.length]);
+    return font.weights.length * font.slants.length;
+  }, [font.slants.length, font.weights.length]);
 
   console.log(font);
 
