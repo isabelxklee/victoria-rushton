@@ -27,13 +27,13 @@ const TextArea = styled.textarea<{
   box-sizing: border-box;
   line-height: 1;
 
-  /* ::placeholder {
-    color: ${({ $lightMode }) => $lightMode};
+  ::placeholder {
+    color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
   }
 
   @media (max-width: 900px) {
     height: 300px;
-  } */
+  }
 `;
 
 interface TypeTesterProps {
