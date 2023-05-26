@@ -36,6 +36,30 @@ const TextArea = styled.textarea<{
   } */
 `;
 
+const SizeWrapper = styled(RowFlex)`
+  align-items: baseline;
+  justify-content: space-between;
+`;
+
+const Slider = styled.input`
+  width: 139%;
+
+  &::-webkit-slider-runnable-track {
+    background-color: ${COLORS.WHITE};
+    height: 2px;
+    border-radius: 100px;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: ${COLORS.BLACK};
+  }
+`;
+
 const Wrapper = styled(RowFlex)`
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -50,11 +74,6 @@ const Left = styled(ColumnFlex)`
 
 const Right = styled.div`
   width: 100%;
-`;
-
-const SizeWrapper = styled(RowFlex)`
-  align-items: baseline;
-  justify-content: space-between;
 `;
 
 interface TypeTesterProps {
@@ -101,11 +120,12 @@ const TypeTester = ({ font }: TypeTesterProps) => {
         <SizeWrapper>
           <div>
             <label>Size</label>
-            <input
+            <Slider
               max="160"
               min="8"
               type="range"
-              onChange={event => setSelectedSize(event.target.value)}></input>
+              onChange={event => setSelectedSize(event.target.value)}
+            />
           </div>
           <p>{selectedSize}px</p>
         </SizeWrapper>
