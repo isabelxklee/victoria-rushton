@@ -10,8 +10,9 @@ interface TypeTesterProps {
 const TypeTester = ({ font }: TypeTesterProps) => {
   const [darkMode, setDarkMode] = useState(false);
   const [selectedWeight, setSelectedWeight] = useState('');
+  const [selectedSlant, setSelectedSlant] = useState('');
 
-  console.log(selectedWeight);
+  console.log(selectedWeight, selectedSlant);
 
   return (
     <>
@@ -23,7 +24,16 @@ const TypeTester = ({ font }: TypeTesterProps) => {
           ))}
         </select>
 
-        <p>Size</p>
+        {font.slants.length > 1 && (
+          <>
+            <label>Slant</label>
+            <select onChange={event => setSelectedSlant(event.target.value)}>
+              {font.slants.map((slant: any) => (
+                <option value={slant.title}>{slant.title}</option>
+              ))}
+            </select>
+          </>
+        )}
       </div>
       <div>
         <textarea>hello world</textarea>
