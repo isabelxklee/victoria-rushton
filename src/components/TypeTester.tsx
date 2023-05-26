@@ -21,8 +21,10 @@ const TypeTester = ({ font }: TypeTesterProps) => {
       <div>
         <label>Weight</label>
         <select onChange={event => setSelectedWeight(event.target.value)}>
-          {font.weights.map((weight: any) => (
-            <option value={weight.value}>{weight.title}</option>
+          {font.weights.map((weight: any, index: number) => (
+            <option key={index} value={weight.value}>
+              {weight.title}
+            </option>
           ))}
         </select>
 
@@ -30,8 +32,10 @@ const TypeTester = ({ font }: TypeTesterProps) => {
           <>
             <label>Slant</label>
             <select onChange={event => setSelectedSlant(event.target.value)}>
-              {font.slants.map((slant: any) => (
-                <option value={slant.title}>{slant.title}</option>
+              {font.slants.map((slant: any, index: number) => (
+                <option key={index} value={slant.title}>
+                  {slant.title}
+                </option>
               ))}
             </select>
           </>
@@ -40,7 +44,7 @@ const TypeTester = ({ font }: TypeTesterProps) => {
         <button onClick={handleColorModeChange}>Dark</button>
       </div>
       <div>
-        <textarea>hello world</textarea>
+        <textarea placeholder="Type something..." />
       </div>
     </>
   );
