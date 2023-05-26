@@ -41,7 +41,6 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
       <div></div>
       {/* preview texts */}
       {/* type tester */}
-      {/* supported langauges */}
       <SectionWrapper>
         <h3>Supported Languages</h3>
         <Text>{font.supportedLanguages.supportedLanguages}</Text>
