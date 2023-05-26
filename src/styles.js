@@ -115,21 +115,21 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Embury Text';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.REGULAR};
-    src: url('https://victoria-rushton-bucket/embury-text/400-embury-text-regular.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/400-embury-text-regular.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Marcia';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.REGULAR};
-    src: url('https://victoria-rushton-bucket/marcia/400-marcia-regular.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/400-marcia-regular.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Gautreaux';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.LIGHT};
-    src: url('https://victoria-rushton-bucket/gautreaux/200-gautreaux-light.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/gautreaux/200-gautreaux-light.woff') format('woff')
   }
 
   body {
