@@ -25,6 +25,7 @@ const TextArea = styled.textarea<{
   border-bottom: 2px solid ${COLORS.BLACK};
   box-sizing: border-box;
   line-height: 1;
+  height: 100%;
 
   ::placeholder {
     color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
@@ -36,7 +37,8 @@ const TextArea = styled.textarea<{
 `;
 
 const Wrapper = styled(RowFlex)`
-  margin: 100px 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 `;
 
 const Left = styled(ColumnFlex)`
