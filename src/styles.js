@@ -126,10 +126,31 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   @font-face {
+    font-family: 'Marcia';
+    font-style: normal;
+    font-weight: ${FONT_WEIGHTS.BOLD};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/700-marcia-bold.woff') format('woff')
+  }
+
+  @font-face {
     font-family: 'Gautreaux';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.LIGHT};
     src: url('https://victoria-rushton-bucket.storage.googleapis.com/gautreaux/200-gautreaux-light.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Gautreaux';
+    font-style: normal;
+    font-weight: ${FONT_WEIGHTS.MEDIUM};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/gautreaux/500-gautreaux-medium.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Gautreaux';
+    font-style: normal;
+    font-weight: ${FONT_WEIGHTS.BOLD};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/gautreaux/700-gautreaux-bold.woff') format('woff')
   }
 
   body {
