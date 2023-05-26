@@ -6,15 +6,17 @@ import { Font } from '../pages';
 import { COLORS } from '../styles';
 
 const TextArea = styled.textarea<{
+  $darkMode: boolean;
   $fontFamily: string;
   $size: string;
   $slant: string;
   $weight: string;
 }>`
-  font-weight: $weight;
-  /* font-size: $size; */
-  background-color: $darkMode;
-  color: $lightMode;
+  font-weight: ${({ $weight }) => $weight};
+  font-size: ${({ $size }) => `${$size}px`};
+  background-color: ${({ $darkMode }) =>
+    $darkMode ? COLORS.BLACK : COLORS.WHITE};
+  color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
   border: none;
   font-family: ${({ $fontFamily }) => $fontFamily};
   width: 100%;
@@ -47,8 +49,6 @@ const TypeTester = ({ font }: TypeTesterProps) => {
   const handleColorModeChange = () => {
     setDarkMode(darkMode => !darkMode);
   };
-
-  console.log(selectedSize);
 
   return (
     <>
@@ -88,6 +88,7 @@ const TypeTester = ({ font }: TypeTesterProps) => {
       </div>
       <div>
         <TextArea
+          $darkMode={darkMode}
           $fontFamily={font.name}
           $size={selectedSize}
           $slant={selectedSlant}
