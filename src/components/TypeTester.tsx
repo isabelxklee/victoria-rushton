@@ -1,7 +1,38 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 import { Font } from '../pages';
+import { COLORS } from '../styles';
+
+const TextArea = styled.textarea<{
+  $fontFamily: string;
+  $size: string;
+  $slant: string;
+  $weight: string;
+}>`
+  font-weight: $weight;
+  /* font-size: $size; */
+  background-color: $darkMode;
+  color: $lightMode;
+  border: none;
+  font-family: ${({ $fontFamily }) => $fontFamily};
+  width: 100%;
+  padding: 40px;
+  resize: none;
+  border-top: 2px solid ${COLORS.BLACK};
+  border-bottom: 2px solid ${COLORS.BLACK};
+  box-sizing: border-box;
+  line-height: 1;
+
+  /* ::placeholder {
+    color: ${({ $lightMode }) => $lightMode};
+  }
+
+  @media (max-width: 900px) {
+    height: 300px;
+  } */
+`;
 
 interface TypeTesterProps {
   font: Font;
@@ -56,7 +87,13 @@ const TypeTester = ({ font }: TypeTesterProps) => {
         </button>
       </div>
       <div>
-        <textarea placeholder="Type something..." />
+        <TextArea
+          $fontFamily={font.name}
+          $size={selectedSize}
+          $slant={selectedSlant}
+          $weight={selectedWeight}
+          placeholder="Type something..."
+        />
       </div>
     </>
   );
