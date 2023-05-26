@@ -15,12 +15,14 @@ const HeroCopy = styled.h2<{
   $fontFamily: string;
   $lineHeight: number;
   $size: number;
+  $slant: string;
   $weight: number;
 }>`
   font-family: ${({ $fontFamily }) => $fontFamily};
   font-size: ${({ $size }) => `${$size}px`};
   font-weight: ${({ $weight }) => $weight};
   line-height: ${({ $lineHeight }) => $lineHeight};
+  font-style: ${({ $slant }) => $slant};
 `;
 
 interface FontHeroProps {
@@ -45,6 +47,7 @@ const FontHero = ({ font }: FontHeroProps) => {
           $fontFamily={font.name}
           $lineHeight={font.heroCopyLineHeight}
           $size={font.heroCopyFontSize}
+          $slant={font.heroCopySlant.title}
           $weight={font.heroCopyWeight.value}>
           {font.heroCopy.heroCopy}
         </HeroCopy>
