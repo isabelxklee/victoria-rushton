@@ -11,10 +11,13 @@ const TypeTester = ({ font }: TypeTesterProps) => {
   const [darkMode, setDarkMode] = useState(false);
   const [selectedWeight, setSelectedWeight] = useState('');
   const [selectedSlant, setSelectedSlant] = useState('');
+  const [selectedSize, setSelectedSize] = useState('32');
 
   const handleColorModeChange = () => {
     setDarkMode(darkMode => !darkMode);
   };
+
+  console.log(selectedSize);
 
   return (
     <>
@@ -40,6 +43,13 @@ const TypeTester = ({ font }: TypeTesterProps) => {
             </select>
           </>
         )}
+
+        <label>Size</label>
+        <input
+          max="160"
+          min="8"
+          type="range"
+          onChange={event => setSelectedSize(event.target.value)}></input>
 
         <button onClick={handleColorModeChange}>
           {darkMode ? 'Light' : 'Dark'}
