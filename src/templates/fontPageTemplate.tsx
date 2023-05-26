@@ -42,6 +42,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
       <div></div>
       {/* preview texts */}
       {/* type tester */}
+      <h2>hello world</h2>
       <TypeTester font={font} />
       <SectionWrapper>
         <h3>Supported Languages</h3>

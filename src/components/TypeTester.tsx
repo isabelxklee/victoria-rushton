@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Font } from '../pages';
-import { COLORS } from '../styles';
+import { COLORS, ColumnFlex, RowFlex } from '../styles';
 
 const TextArea = styled.textarea<{
   $darkMode: boolean;
@@ -35,6 +35,19 @@ const TextArea = styled.textarea<{
   }
 `;
 
+const Wrapper = styled(RowFlex)`
+  margin: 100px 0;
+`;
+
+const Left = styled(ColumnFlex)`
+  background-color: ${COLORS.BLACK};
+  color: ${COLORS.WHITE};
+  padding: 80px;
+  gap: 20px;
+`;
+
+const Right = styled.div``;
+
 interface TypeTesterProps {
   font: Font;
 }
@@ -50,8 +63,8 @@ const TypeTester = ({ font }: TypeTesterProps) => {
   };
 
   return (
-    <>
-      <div>
+    <Wrapper>
+      <Left>
         <label>Weight</label>
         <select onChange={event => setSelectedWeight(event.target.value)}>
           {font.weights.map(
@@ -86,8 +99,8 @@ const TypeTester = ({ font }: TypeTesterProps) => {
         <button onClick={handleColorModeChange}>
           {darkMode ? 'Light' : 'Dark'}
         </button>
-      </div>
-      <div>
+      </Left>
+      <Right>
         <TextArea
           $darkMode={darkMode}
           $fontFamily={font.name}
@@ -96,8 +109,8 @@ const TypeTester = ({ font }: TypeTesterProps) => {
           $weight={selectedWeight}
           placeholder="Type something..."
         />
-      </div>
-    </>
+      </Right>
+    </Wrapper>
   );
 };
 
