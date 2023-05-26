@@ -19,6 +19,9 @@ export interface Font {
     value: number;
   };
   name: string;
+  slants: {
+    title: string;
+  }[];
   slug: string;
   weights: {
     title: string;
@@ -62,6 +65,9 @@ const pageQuery = graphql`
         weights {
           title
           value
+        }
+        slants {
+          title
         }
       }
     }

@@ -3,26 +3,18 @@ import { graphql } from 'gatsby';
 
 import PageTemplate from '../components/PageTemplate';
 import { FontHeroWrapper } from '../components/styles';
+import { Font } from '../pages';
 import { Button, Text } from '../styles';
 
-interface Font {
+interface FontItem extends Font {
   description: {
     description: string;
   };
-  heroCopy: {
-    heroCopy: string;
-  };
-  name: string;
-  slug: string;
-  weights: {
-    name: string;
-    value: number;
-  }[];
 }
 
 interface FontPageTemplateProps {
   data: {
-    contentfulFont: Font;
+    contentfulFont: FontItem;
   };
 }
 
@@ -56,11 +48,14 @@ export const pageQuery = graphql`
         title
         value
       }
-      heroCopy {
-        heroCopy
+      slants {
+        title
       }
       description {
         description
+      }
+      supportedLanguages {
+        supportedLanguages
       }
     }
   }
