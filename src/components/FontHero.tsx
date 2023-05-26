@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
+import { Font } from '../pages';
 import { RowFlex, Text } from '../styles';
-import { Font } from '../templates/fontPageTemplate';
 
 import { InternalLink } from './Links';
 import { FontHeroWrapper } from './styles';
@@ -20,6 +20,8 @@ const FontHero = ({ font }: FontHeroProps) => {
     return font.weights.length;
     // * font.slants.length
   }, [font.weights.length]);
+
+  console.log(font);
 
   return (
     <FontHeroWrapper>

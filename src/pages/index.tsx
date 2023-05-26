@@ -4,7 +4,27 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import FontHero from '../components/FontHero';
 import PageTemplate from '../components/PageTemplate';
-import { Font } from '../templates/fontPageTemplate';
+
+export interface Font {
+  heroCopy: {
+    heroCopy: string;
+  };
+  heroCopyFontSize: number;
+  heroCopyLineHeight: number;
+  heroCopySlant: {
+    title: string;
+  };
+  heroCopyWeight: {
+    title: string;
+    value: number;
+  };
+  name: string;
+  slug: string;
+  weights: {
+    title: string;
+    value: number;
+  }[];
+}
 
 const IndexPage = () => {
   const data = useStaticQuery(pageQuery);
@@ -27,11 +47,17 @@ const pageQuery = graphql`
       nodes {
         name
         slug
-        description {
-          description
-        }
         heroCopy {
           heroCopy
+        }
+        heroCopyFontSize
+        heroCopyLineHeight
+        heroCopySlant {
+          title
+        }
+        heroCopyWeight {
+          value
+          title
         }
         weights {
           title
