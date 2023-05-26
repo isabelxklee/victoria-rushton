@@ -34,7 +34,7 @@ const pageQuery = graphql`
           heroCopy
         }
         weights {
-          name
+          title
           value
         }
       }

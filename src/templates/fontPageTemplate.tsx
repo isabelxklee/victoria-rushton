@@ -53,7 +53,7 @@ export const pageQuery = graphql`
       slug
       name
       weights {
-        name
+        title
         value
       }
       heroCopy {
