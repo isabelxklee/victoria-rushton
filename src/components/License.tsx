@@ -87,10 +87,13 @@ const License = ({ font }: LicenseProps) => {
           {selectedLicense && (
             <>
               <Text>
-                {selectedLicense.desktopWorkstations} Desktop Workstations
+                {selectedLicense.desktopWorkstations.toLocaleString()} Desktop
+                Workstations
               </Text>
-              <Text>{selectedLicense.webVisitors} Web Visitors</Text>
-              <Text>{selectedLicense.eBooks} E-Books</Text>
+              <Text>
+                {selectedLicense.webVisitors.toLocaleString()} Web Visitors
+              </Text>
+              <Text>{selectedLicense.eBooks.toLocaleString()} E-Books</Text>
             </>
           )}
 
