@@ -67,10 +67,37 @@ const License = ({ font }: LicenseProps) => {
   const licenses = data.allContentfulLicense.nodes;
   const [selectedLicense, setSelectedLicense] = useState<LicenseItem>();
   const [selectedFonts, setSelectedFonts] = useState<FontWeight[]>([]);
+  const [availableFonts, setAvailableFonts] = useState([]);
 
   useEffect(() => {
     setSelectedLicense(licenses[0]);
-  }, [licenses]);
+
+    interface Item {
+      slant: string;
+      value: number;
+      weight: string;
+    }
+
+    const arr: Item[] = [];
+
+    font.weights.map((weight: FontWeight) => {
+      const item1 = {
+        slant: 'Roman',
+        weight: weight.title,
+        value: weight.value
+      };
+
+      const item2 = {
+        slant: 'Italic',
+        weight: weight.title,
+        value: weight.value
+      };
+
+      return arr.push(item1, item2);
+    });
+
+    console.log(arr);
+  }, [font.weights, licenses]);
 
   const handleClick = useCallback((weight: FontWeight) => {
     setSelectedFonts((selectedFonts: FontWeight[]) =>
