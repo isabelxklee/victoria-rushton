@@ -26,11 +26,6 @@ const StyledLink = styled(Link)<{ $textCase?: string }>`
   font-weight: ${FONT_WEIGHTS.REGULAR};
   text-decoration: none;
   text-transform: ${({ $textCase }) => $textCase};
-  transition: 0.2s;
-
-  &:hover {
-    opacity: 0.4;
-  }
 `;
 
 interface LinkProps {
