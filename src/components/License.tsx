@@ -9,12 +9,27 @@ interface LicenseProps {
   font: Font;
 }
 
+interface LicenseItem {
+  title: string;
+}
+
+interface FontWeight {
+  title: string;
+  value: number;
+}
+
 const License = ({ font }: LicenseProps) => {
-  const [selectedLicense, setSelectedLicense] = useState('');
-  const [selectedFonts, setSelectedFonts] = useState([]);
+  const [selectedLicense, setSelectedLicense] = useState<
+    LicenseItem | undefined
+  >(undefined);
+  const [selectedFonts, setSelectedFonts] = useState<FontWeight[]>([]);
 
   const handleClick = (weight: { title: string; value: number }) => {
-    setSelectedFonts(() => [...selectedFonts, weight]);
+    setSelectedFonts((selectedFonts: FontWeight[]) =>
+      selectedFonts.includes(weight)
+        ? selectedFonts.filter(font => font !== weight)
+        : [...selectedFonts, weight]
+    );
   };
 
   return (
