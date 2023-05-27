@@ -26,7 +26,10 @@ const PreviewText = ({ text }: PreviewTextProps) => {
   console.log(text);
   return (
     <div>
-      <Text>{text.font.name}</Text>
+      <Text>
+        {text.font.name} {text.weight.title}{' '}
+        {text.slant.title !== 'Roman' && text.slant.title}
+      </Text>
       <StyledText
         $fontFamily={text.font.name}
         $lineHeight={text.lineHeight}
