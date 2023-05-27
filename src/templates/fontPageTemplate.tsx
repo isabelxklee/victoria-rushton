@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
@@ -44,6 +45,10 @@ interface FontPageTemplateProps {
   };
 }
 
+const StyledSectionWrapper = styled(SectionWrapper)`
+  border-bottom: none;
+`;
+
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
   const previewTexts = data.allContentfulPreviewText.nodes;
@@ -62,10 +67,11 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <Text>{font.description && font.description.description}</Text>
         <Button style={{ margin: '26px 0' }}>License this font</Button>
       </SectionWrapper>
-      {previewTexts.map((text: PreviewTextItem, index: number) => (
-        <PreviewText key={index} previewText={text} />
-      ))}
-      {/* type tester */}
+      <StyledSectionWrapper>
+        {previewTexts.map((text: PreviewTextItem, index: number) => (
+          <PreviewText key={index} previewText={text} />
+        ))}
+      </StyledSectionWrapper>
       <TypeTester font={font} />
       <SectionWrapper>
         <h3>Supported Languages</h3>
