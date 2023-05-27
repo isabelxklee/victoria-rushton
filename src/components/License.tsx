@@ -59,7 +59,9 @@ const License = ({ font }: LicenseProps) => {
   }, []);
 
   const removeWeight = useCallback((weight: FontWeight) => {
-    console.log(weight);
+    setSelectedFonts((selectedFonts: FontWeight[]) =>
+      selectedFonts.filter(font => font !== weight)
+    );
   }, []);
 
   return (
