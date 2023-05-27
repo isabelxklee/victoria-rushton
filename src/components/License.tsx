@@ -45,6 +45,10 @@ const Right = styled.div`
   padding-left: 40px;
 `;
 
+const CartWrapper = styled(ColumnFlex)`
+  gap: 8px;
+`;
+
 const License = ({ font }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
@@ -118,16 +122,18 @@ const License = ({ font }: LicenseProps) => {
         </Left>
         <Right>
           <H3>Cart</H3>
-          {selectedLicense && <Text>{selectedLicense.title} License</Text>}
-          {selectedFonts.length > 0 &&
-            selectedFonts.map((weight: FontWeight, index: number) => (
-              <LineItem key={index} onClick={() => removeWeight(weight)}>
-                <Text>
-                  {font.name} {weight.title}
-                </Text>
-                <Text>${selectedLicense?.price}</Text>
-              </LineItem>
-            ))}
+          <CartWrapper>
+            {selectedLicense && <Text>{selectedLicense.title} License</Text>}
+            {selectedFonts.length > 0 &&
+              selectedFonts.map((weight: FontWeight, index: number) => (
+                <LineItem key={index} onClick={() => removeWeight(weight)}>
+                  <Text>
+                    {font.name} {weight.title}
+                  </Text>
+                  <Text>${selectedLicense?.price}</Text>
+                </LineItem>
+              ))}
+          </CartWrapper>
         </Right>
       </StyledRowFlex>
     </div>
