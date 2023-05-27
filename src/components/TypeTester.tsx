@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { Font } from '../pages';
 import { Button, COLORS, ColumnFlex, RowFlex } from '../styles';
 
+import { Select } from './sharedStyles';
+
 const TextArea = styled.textarea<{
   $darkMode: boolean;
   $fontFamily: string;
@@ -39,29 +41,6 @@ const TextArea = styled.textarea<{
 const SizeWrapper = styled(RowFlex)`
   align-items: baseline;
   justify-content: space-between;
-`;
-
-const Select = styled.select<{ $width?: string }>`
-  height: fit-content;
-  width: ${({ $width }) => ($width === 'fixed' ? '170px' : '100%')};
-  padding: 10px;
-  font-family: 'Cecilie Sans', 'sans-serif';
-  font-size: 16px;
-  font-weight: 300;
-  border-radius: 4px;
-  appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 20px), calc(100% - 15px), calc(100% - 2.5em);
-  background-position-y: calc(50%);
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
-  background-repeat: no-repeat;
-  cursor: pointer;
-
-  @media (max-width: 900px) {
-    width: 100%;
-  }
 `;
 
 const Slider = styled.input`
