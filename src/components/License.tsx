@@ -11,6 +11,11 @@ interface LicenseProps {
 
 const License = ({ font }: LicenseProps) => {
   const [selectedLicense, setSelectedLicense] = useState('');
+  const [selectedFonts, setSelectedFonts] = useState([]);
+
+  const handleClick = (weight: { title: string; value: number }) => {
+    setSelectedFonts(() => [...selectedFonts, weight]);
+  };
 
   return (
     <div>
@@ -37,13 +42,22 @@ const License = ({ font }: LicenseProps) => {
               .sort((a, b) => a.value - b.value)
               .map(
                 (weight: { title: string; value: number }, index: number) => (
-                  <button key={index}>{weight.title}</button>
+                  <button key={index} onClick={() => handleClick(weight)}>
+                    {weight.title}
+                  </button>
                 )
               )}
           </div>
         </div>
         <div>
           <Text>Cart</Text>
+          <Text>License: {selectedLicense}</Text>
+          {selectedFonts.length > 0 &&
+            selectedFonts.map(
+              (font: { title: string; value: number }, index: number) => (
+                <Text key={index}>{font.title}</Text>
+              )
+            )}
         </div>
       </RowFlex>
     </div>
