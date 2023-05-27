@@ -28,7 +28,7 @@ export const SectionWrapper = styled.div`
 
 export const Select = styled.select<{ $width?: string }>`
   height: fit-content;
-  width: ${({ $width }) => ($width === 'fixed' ? '170px' : '100%')};
+  width: ${({ $width }) => ($width === 'fixed' ? '240px' : '100%')};
   padding: 10px;
   font-family: 'Cecilie Sans', 'sans-serif';
   font-size: 16px;

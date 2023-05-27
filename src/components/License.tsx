@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import { Font } from '../pages';
-import { COLORS, RowFlex, Text } from '../styles';
+import { COLORS, ColumnFlex, RowFlex, Text } from '../styles';
 
 import { Select } from './sharedStyles';
 
@@ -27,15 +27,16 @@ interface FontWeight {
 
 const StyledRowFlex = styled(RowFlex)`
   justify-content: space-between;
-  gap: 40px;
 `;
 
-const Left = styled.div`
-  flex-grow: 1;
+const Left = styled(ColumnFlex)`
+  width: 50%;
+  padding-right: 40px;
+  gap: 20px;
 `;
 
 const Right = styled.div`
-  flex-grow: 1;
+  width: 50%;
   border-left: 2px solid ${COLORS.BLACK};
   padding-left: 40px;
 `;
@@ -61,7 +62,9 @@ const License = ({ font }: LicenseProps) => {
       <StyledRowFlex>
         <Left>
           <label>Select License</label>
-          <Select onChange={event => setSelectedLicense(event.target.value)}>
+          <Select
+            $width="fixed"
+            onChange={event => setSelectedLicense(event.target.value)}>
             {licenses.map((license: LicenseItem, index: number) => (
               <option key={index} value={license.title}>
                 {license.title}
