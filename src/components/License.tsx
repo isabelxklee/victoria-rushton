@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import React, { useState } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import { Font } from '../pages';
 import { RowFlex, Text } from '../styles';
@@ -19,6 +21,9 @@ interface FontWeight {
 }
 
 const License = ({ font }: LicenseProps) => {
+  const data = useStaticQuery(pageQuery);
+  const licenses = data.allContentfulLicense.nodes;
+
   const [selectedLicense, setSelectedLicense] = useState<
     LicenseItem | undefined
   >(undefined);
