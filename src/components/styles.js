@@ -75,19 +75,6 @@ export const PanelContainer = styled.div`
   }
 `;
 
-export const IconButton = styled(Button)`
-  border: 2px solid
-    ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
-  background: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
-  color: ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
-  cursor: pointer;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 20px;
-`;
-
 // export const IconSun = styled(Sun)`
 //   width: 24px;
 //   height: 24px;

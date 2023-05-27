@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Font } from '../pages';
-import { COLORS, ColumnFlex, RowFlex } from '../styles';
+import { Button, COLORS, ColumnFlex, RowFlex } from '../styles';
 
 const TextArea = styled.textarea<{
   $darkMode: boolean;
@@ -41,7 +41,7 @@ const SizeWrapper = styled(RowFlex)`
   justify-content: space-between;
 `;
 
-const Select = styled.select<{ $width: string }>`
+const Select = styled.select<{ $width?: string }>`
   height: fit-content;
   width: ${({ $width }) => ($width === 'fixed' ? '170px' : '100%')};
   padding: 10px;
@@ -100,6 +100,19 @@ const Right = styled.div`
   width: 100%;
 `;
 
+const IconButton = styled(Button)<{ $darkMode: boolean }>`
+  border: 2px solid
+    ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
+  background: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
+  color: ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+`;
+
 interface TypeTesterProps {
   font: Font;
 }
@@ -152,9 +165,9 @@ const TypeTester = ({ font }: TypeTesterProps) => {
           onChange={event => setSelectedSize(event.target.value)}
         />
 
-        <button onClick={handleColorModeChange}>
+        <IconButton $darkMode={darkMode} onClick={handleColorModeChange}>
           {darkMode ? 'Light' : 'Dark'}
-        </button>
+        </IconButton>
       </Left>
       <Right>
         <TextArea
