@@ -1,11 +1,31 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 
 import PageTemplate from '../components/PageTemplate';
+import PreviewText from '../components/PreviewText';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
 import TypeTester from '../components/TypeTester';
 import { Font } from '../pages';
 import { Button, Text } from '../styles';
+
+export interface PreviewTextItem {
+  font: {
+    name: string;
+  };
+  lineHeight: number;
+  size: number;
+  slant: {
+    title: string;
+  };
+  text: {
+    text: string;
+  };
+  weight: {
+    title: string;
+    value: number;
+  };
+}
 
 interface FontItem extends Font {
   description: {
@@ -18,12 +38,20 @@ interface FontItem extends Font {
 
 interface FontPageTemplateProps {
   data: {
+    allContentfulPreviewText: {
+      nodes: PreviewTextItem[];
+    };
     contentfulFont: FontItem;
   };
 }
 
+const StyledSectionWrapper = styled(SectionWrapper)`
+  border-bottom: none;
+`;
+
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
+  const previewTexts = data.allContentfulPreviewText.nodes;
 
   return (
     <PageTemplate>
@@ -39,10 +67,11 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <Text>{font.description && font.description.description}</Text>
         <Button style={{ margin: '26px 0' }}>License this font</Button>
       </SectionWrapper>
-      <div></div>
-      {/* preview texts */}
-      {/* type tester */}
-      <h2>hello world</h2>
+      <StyledSectionWrapper>
+        {previewTexts.map((text: PreviewTextItem, index: number) => (
+          <PreviewText key={index} previewText={text} />
+        ))}
+      </StyledSectionWrapper>
       <TypeTester font={font} />
       <SectionWrapper>
         <h3>Supported Languages</h3>
@@ -84,6 +113,25 @@ export const pageQuery = graphql`
       }
       supportedLanguages {
         supportedLanguages
+      }
+    }
+    allContentfulPreviewText(filter: { font: { slug: { eq: $slug } } }) {
+      nodes {
+        text {
+          text
+        }
+        font {
+          name
+        }
+        weight {
+          value
+          title
+        }
+        slant {
+          title
+        }
+        size
+        lineHeight
       }
     }
   }
