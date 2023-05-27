@@ -45,7 +45,9 @@ const License = ({ font }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
 
-  const [selectedLicense, setSelectedLicense] = useState('Mini');
+  const [selectedLicense, setSelectedLicense] = useState<
+    LicenseItem | undefined
+  >(undefined);
   const [selectedFonts, setSelectedFonts] = useState<FontWeight[]>([]);
 
   const handleClick = (weight: { title: string; value: number }) => {
@@ -91,7 +93,7 @@ const License = ({ font }: LicenseProps) => {
         </Left>
         <Right>
           <Text>Cart</Text>
-          <Text>License: {selectedLicense.title}</Text>
+          {selectedLicense && <Text>License: {selectedLicense.title}</Text>}
           {selectedFonts.length > 0 &&
             selectedFonts.map(
               (font: { title: string; value: number }, index: number) => (
