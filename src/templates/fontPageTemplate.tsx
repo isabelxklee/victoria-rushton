@@ -2,12 +2,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import PageTemplate from '../components/PageTemplate';
+import PreviewText from '../components/PreviewText';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
 import TypeTester from '../components/TypeTester';
 import { Font } from '../pages';
 import { Button, Text } from '../styles';
 
-interface PreviewTextItem {
+export interface PreviewTextItem {
   lineHeight: number;
   size: number;
   slant: {
@@ -58,10 +59,10 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <Text>{font.description && font.description.description}</Text>
         <Button style={{ margin: '26px 0' }}>License this font</Button>
       </SectionWrapper>
-      <div></div>
-      {/* preview texts */}
+      {previewTexts.map((text: PreviewTextItem, index: number) => (
+        <PreviewText key={index} text={text} />
+      ))}
       {/* type tester */}
-      <h2>hello world</h2>
       <TypeTester font={font} />
       <SectionWrapper>
         <h3>Supported Languages</h3>

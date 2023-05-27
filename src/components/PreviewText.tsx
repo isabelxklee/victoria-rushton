@@ -1,6 +1,9 @@
 import React from 'react';
 
-const PreviewText = ({ text }) => {
+import { PreviewTextItem } from '../templates/fontPageTemplate';
+
+const PreviewText = ({ text }: PreviewTextItem) => {
+  console.log(text);
   return <></>;
 };
 
