@@ -14,11 +14,6 @@ const A = styled.a<{
   color: ${({ $light }) => ($light ? COLORS.WHITE : COLORS.BLACK)};
   text-decoration: none;
   text-transform: ${({ $textCase }) => $textCase};
-  transition: 0.5s;
-
-  &:hover {
-    opacity: 0.4;
-  }
 `;
 
 const StyledLink = styled(Link)<{ $textCase?: string }>`

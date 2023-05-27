@@ -87,12 +87,6 @@ export const Button = styled.button`
   padding: 10px 20px;
   pointer-events: auto;
   cursor: pointer;
-  transition: 0.3s;
-
-  &:hover {
-    background: ${COLORS.WHITE};
-    color: ${COLORS.BLACK};
-  }
 `;
 
 export const GlobalStyles = createGlobalStyle`
