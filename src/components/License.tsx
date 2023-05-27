@@ -130,7 +130,13 @@ const License = ({ font }: LicenseProps) => {
                   <Text>
                     {font.name} {weight.title}
                   </Text>
-                  <Text>${selectedLicense?.price}</Text>
+                  <RowFlex style={{ gap: '16px' }}>
+                    <Text>${selectedLicense?.price}</Text>
+                    <img
+                      alt=""
+                      src="https://images.ctfassets.net/6l1e28rigfdw/4vHJUE4MABJFmeBhAoowDT/2aefe149687c6b52efe8185a49deb59a/icon-remove.svg"
+                    />
+                  </RowFlex>
                 </LineItem>
               ))}
           </CartWrapper>
