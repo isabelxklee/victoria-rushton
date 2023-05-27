@@ -56,7 +56,7 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-size: 18px;
   font-weight: ${FONT_WEIGHTS.BOLD};
-  margin: 0 0 16px 0;
+  margin: 0;
 `;
 
 export const Text = styled.p`

@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import { Font } from '../pages';
-import { Button, COLORS, ColumnFlex, RowFlex, Text } from '../styles';
+import { Button, COLORS, ColumnFlex, H3, RowFlex, Text } from '../styles';
 
 import { Select } from './sharedStyles';
 
@@ -70,7 +70,7 @@ const License = ({ font }: LicenseProps) => {
       <h2>License this font</h2>
       <StyledRowFlex>
         <Left>
-          <label>Select License</label>
+          <H3>Select License</H3>
           <Select
             $width="fixed"
             onChange={event =>
@@ -83,7 +83,7 @@ const License = ({ font }: LicenseProps) => {
             ))}
           </Select>
 
-          <Text>For uses, not exceeding:</Text>
+          <H3>For uses, not exceeding:</H3>
           {selectedLicense && (
             <>
               <Text>
@@ -98,7 +98,7 @@ const License = ({ font }: LicenseProps) => {
           )}
 
           <div>
-            <label>Select Fonts</label>
+            <H3>Select Fonts</H3>
             <ColumnFlex>
               {font.weights
                 .sort((a, b) => a.value - b.value)
