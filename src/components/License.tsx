@@ -31,6 +31,11 @@ const StyledRowFlex = styled(RowFlex)`
 
 const LineItem = styled(StyledRowFlex)`
   cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.4;
+  }
 `;
 
 const Left = styled(ColumnFlex)`
@@ -130,7 +135,7 @@ const License = ({ font }: LicenseProps) => {
                   <Text>
                     {font.name} {weight.title}
                   </Text>
-                  <RowFlex style={{ gap: '16px' }}>
+                  <RowFlex style={{ gap: '32px' }}>
                     <Text>${selectedLicense?.price}</Text>
                     <img
                       alt=""
