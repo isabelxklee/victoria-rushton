@@ -12,7 +12,11 @@ interface LicenseProps {
 }
 
 interface LicenseItem {
+  desktopWorkstations: number;
+  eBooks: number;
+  price: number;
   title: string;
+  webVisitors: number;
 }
 
 interface FontWeight {
@@ -24,9 +28,7 @@ const License = ({ font }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
 
-  const [selectedLicense, setSelectedLicense] = useState<
-    LicenseItem | undefined
-  >(undefined);
+  const [selectedLicense, setSelectedLicense] = useState('Mini');
   const [selectedFonts, setSelectedFonts] = useState<FontWeight[]>([]);
 
   const handleClick = (weight: { title: string; value: number }) => {
@@ -42,36 +44,30 @@ const License = ({ font }: LicenseProps) => {
       <h2>License this font</h2>
       <RowFlex>
         <div>
-          {/* <label>Select License</label>
+          <label>Select License</label>
           <Select onChange={event => setSelectedLicense(event.target.value)}>
-            {font.weights
-              .sort((a, b) => a.value - b.value)
-              .map(
-                (weight: { title: string; value: number }, index: number) => (
-                  <option key={index} value={weight.value}>
-                    {weight.title}
-                  </option>
-                )
-              )}
-          </Select> */}
+            {licenses.map((license: LicenseItem, index: number) => (
+              <option key={index} value={license.title}>
+                {license.title}
+              </option>
+            ))}
+          </Select>
           <Text>For uses, not exceeding:</Text>
 
           <div>
             <label>Select Fonts</label>
             {font.weights
               .sort((a, b) => a.value - b.value)
-              .map(
-                (weight: { title: string; value: number }, index: number) => (
-                  <button key={index} onClick={() => handleClick(weight)}>
-                    {weight.title}
-                  </button>
-                )
-              )}
+              .map((weight: FontWeight, index: number) => (
+                <button key={index} onClick={() => handleClick(weight)}>
+                  {weight.title}
+                </button>
+              ))}
           </div>
         </div>
         <div>
           <Text>Cart</Text>
-          <Text>License: {selectedLicense.title}</Text>
+          <Text>License: {selectedLicense}</Text>
           {selectedFonts.length > 0 &&
             selectedFonts.map(
               (font: { title: string; value: number }, index: number) => (
