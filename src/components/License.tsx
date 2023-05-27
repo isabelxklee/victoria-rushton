@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
@@ -85,6 +85,10 @@ const License = ({ font }: LicenseProps) => {
       selectedFonts.filter(font => font !== weight)
     );
   }, []);
+
+  const priceCalculation = useMemo(() => {
+    return selectedLicense ? selectedFonts.length * selectedLicense.price : 0;
+  }, [selectedFonts.length, selectedLicense]);
 
   return (
     <div>
@@ -174,7 +178,7 @@ const License = ({ font }: LicenseProps) => {
           </CartWrapper>
           <StyledRowFlex>
             <H3>Subtotal</H3>
-            <H3>$40</H3>
+            <H3>${priceCalculation}</H3>
           </StyledRowFlex>
         </Right>
       </StyledRowFlex>
