@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
@@ -44,11 +44,12 @@ const Right = styled.div`
 const License = ({ font }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
-
-  const [selectedLicense, setSelectedLicense] = useState<
-    LicenseItem | undefined
-  >(undefined);
+  const [selectedLicense, setSelectedLicense] = useState<LicenseItem>();
   const [selectedFonts, setSelectedFonts] = useState<FontWeight[]>([]);
+
+  useEffect(() => {
+    setSelectedLicense(licenses[0]);
+  }, [licenses]);
 
   const handleClick = useCallback((weight: FontWeight) => {
     setSelectedFonts((selectedFonts: FontWeight[]) =>
@@ -83,6 +84,15 @@ const License = ({ font }: LicenseProps) => {
           </Select>
 
           <Text>For uses, not exceeding:</Text>
+          {selectedLicense && (
+            <>
+              <Text>
+                {selectedLicense.desktopWorkstations} Desktop Workstations
+              </Text>
+              <Text>{selectedLicense.webVisitors} Web Visitors</Text>
+              <Text>{selectedLicense.eBooks} E-Books</Text>
+            </>
+          )}
 
           <div>
             <label>Select Fonts</label>
