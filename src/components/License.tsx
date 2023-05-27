@@ -40,14 +40,14 @@ const LineItem = styled(StyledRowFlex)`
 
 const Left = styled(ColumnFlex)`
   width: 50%;
-  padding-right: 40px;
+  padding-right: 60px;
   gap: 20px;
 `;
 
 const Right = styled.div`
   width: 50%;
   border-left: 2px solid ${COLORS.BLACK};
-  padding-left: 40px;
+  padding-left: 60px;
 `;
 
 const CartWrapper = styled(ColumnFlex)`
@@ -122,15 +122,32 @@ const License = ({ font }: LicenseProps) => {
           </div>
           <div>
             <H3>Select Fonts</H3>
-            <ColumnFlex style={{ gap: '8px' }}>
-              {font.weights
-                .sort((a, b) => a.value - b.value)
-                .map((weight: FontWeight, index: number) => (
-                  <StyledButton key={index} onClick={() => handleClick(weight)}>
-                    {weight.title}
-                  </StyledButton>
-                ))}
-            </ColumnFlex>
+            <StyledRowFlex style={{ gap: '16px' }}>
+              <ColumnFlex style={{ gap: '8px', width: '50%' }}>
+                {font.weights
+                  .sort((a, b) => a.value - b.value)
+                  .map((weight: FontWeight, index: number) => (
+                    <StyledButton
+                      key={index}
+                      onClick={() => handleClick(weight)}>
+                      {weight.title}
+                    </StyledButton>
+                  ))}
+              </ColumnFlex>
+              {font.slants.length > 1 && (
+                <ColumnFlex style={{ gap: '8px', width: '50%' }}>
+                  {font.weights
+                    .sort((a, b) => a.value - b.value)
+                    .map((weight: FontWeight, index: number) => (
+                      <StyledButton
+                        key={index}
+                        onClick={() => handleClick(weight)}>
+                        {weight.title} Italic
+                      </StyledButton>
+                    ))}
+                </ColumnFlex>
+              )}
+            </StyledRowFlex>
           </div>
         </Left>
         <Right>
