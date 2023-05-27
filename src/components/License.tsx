@@ -114,12 +114,15 @@ const License = ({ font }: LicenseProps) => {
         </Left>
         <Right>
           <H3>Cart</H3>
-          {selectedLicense && <Text>License: {selectedLicense.title}</Text>}
+          {selectedLicense && <Text>{selectedLicense.title} License</Text>}
           {selectedFonts.length > 0 &&
             selectedFonts.map((weight: FontWeight, index: number) => (
-              <Text key={index} onClick={() => removeWeight(weight)}>
-                {font.name} {weight.title}
-              </Text>
+              <StyledRowFlex key={index}>
+                <Text onClick={() => removeWeight(weight)}>
+                  {font.name} {weight.title}
+                </Text>
+                <Text>${selectedLicense?.price}</Text>
+              </StyledRowFlex>
             ))}
         </Right>
       </StyledRowFlex>
