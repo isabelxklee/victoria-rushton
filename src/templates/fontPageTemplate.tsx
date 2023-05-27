@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
+import License from '../components/License';
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
@@ -77,7 +78,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <h3>Supported Languages</h3>
         <Text>{font.supportedLanguages.supportedLanguages}</Text>
       </SectionWrapper>
-      {/* license */}
+      <License font={font} />
     </PageTemplate>
   );
 };
