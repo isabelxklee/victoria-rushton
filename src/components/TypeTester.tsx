@@ -166,7 +166,23 @@ const TypeTester = ({ font }: TypeTesterProps) => {
         />
 
         <IconButton $darkMode={darkMode} onClick={handleColorModeChange}>
-          {darkMode ? 'Light' : 'Dark'}
+          {darkMode ? (
+            <>
+              Light{' '}
+              <img
+                alt=""
+                src="https://images.ctfassets.net/6l1e28rigfdw/9yOSsDzz03WNEAKk9gj6d/471079ecc5ae1aa1483500197c29d4af/icon-sun.svg"
+              />
+            </>
+          ) : (
+            <>
+              Dark{' '}
+              <img
+                alt=""
+                src="https://images.ctfassets.net/6l1e28rigfdw/HpfZbGuPPV0KOHu6SSvxz/c6c5dd5faa177403975b61b11462047b/icon-moon.svg"
+              />
+            </>
+          )}
         </IconButton>
       </Left>
       <Right>
