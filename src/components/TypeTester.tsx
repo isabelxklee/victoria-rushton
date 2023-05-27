@@ -95,13 +95,13 @@ const TypeTester = ({ font }: TypeTesterProps) => {
       <Left>
         <label>Weight</label>
         <select onChange={event => setSelectedWeight(event.target.value)}>
-          {font.weights.map(
-            (weight: { title: string; value: number }, index: number) => (
+          {font.weights
+            .sort((a, b) => a.value - b.value)
+            .map((weight: { title: string; value: number }, index: number) => (
               <option key={index} value={weight.value}>
                 {weight.title}
               </option>
-            )
-          )}
+            ))}
         </select>
 
         {font.slants.length > 1 && (
