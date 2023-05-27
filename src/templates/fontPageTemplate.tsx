@@ -18,12 +18,14 @@ interface FontItem extends Font {
 
 interface FontPageTemplateProps {
   data: {
+    allContentfulPreviewText: any;
     contentfulFont: FontItem;
   };
 }
 
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
+  const previewTexts = data.allContentfulPreviewText;
 
   return (
     <PageTemplate>
@@ -84,6 +86,22 @@ export const pageQuery = graphql`
       }
       supportedLanguages {
         supportedLanguages
+      }
+    }
+    allContentfulPreviewText(filter: { font: { slug: { eq: $slug } } }) {
+      nodes {
+        text {
+          text
+        }
+        weight {
+          value
+          title
+        }
+        slant {
+          title
+        }
+        size
+        lineHeight
       }
     }
   }
