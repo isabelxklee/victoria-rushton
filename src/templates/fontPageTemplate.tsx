@@ -7,6 +7,21 @@ import TypeTester from '../components/TypeTester';
 import { Font } from '../pages';
 import { Button, Text } from '../styles';
 
+interface PreviewTextItem {
+  lineHeight: number;
+  size: number;
+  slant: {
+    title: string;
+  };
+  text: {
+    text: string;
+  };
+  weight: {
+    title: string;
+    value: number;
+  };
+}
+
 interface FontItem extends Font {
   description: {
     description: string;
@@ -18,14 +33,16 @@ interface FontItem extends Font {
 
 interface FontPageTemplateProps {
   data: {
-    allContentfulPreviewText: any;
+    allContentfulPreviewText: {
+      nodes: PreviewTextItem[];
+    };
     contentfulFont: FontItem;
   };
 }
 
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
-  const previewTexts = data.allContentfulPreviewText;
+  const previewTexts = data.allContentfulPreviewText.nodes;
 
   return (
     <PageTemplate>
