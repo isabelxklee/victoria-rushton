@@ -70,33 +70,35 @@ const License = ({ font }: LicenseProps) => {
       <h2>License this font</h2>
       <StyledRowFlex>
         <Left>
-          <H3>Select License</H3>
-          <Select
-            $width="fixed"
-            onChange={event =>
-              setSelectedLicense(JSON.parse(event.target.value))
-            }>
-            {licenses.map((license: LicenseItem, index: number) => (
-              <option key={index} value={JSON.stringify(license)}>
-                {license.title}
-              </option>
-            ))}
-          </Select>
-
-          <H3>For uses, not exceeding:</H3>
-          {selectedLicense && (
-            <>
-              <Text>
-                {selectedLicense.desktopWorkstations.toLocaleString()} Desktop
-                Workstations
-              </Text>
-              <Text>
-                {selectedLicense.webVisitors.toLocaleString()} Web Visitors
-              </Text>
-              <Text>{selectedLicense.eBooks.toLocaleString()} E-Books</Text>
-            </>
-          )}
-
+          <div>
+            <H3>Select License</H3>
+            <Select
+              $width="fixed"
+              onChange={event =>
+                setSelectedLicense(JSON.parse(event.target.value))
+              }>
+              {licenses.map((license: LicenseItem, index: number) => (
+                <option key={index} value={JSON.stringify(license)}>
+                  {license.title}
+                </option>
+              ))}
+            </Select>
+          </div>
+          <div>
+            <H3>For uses, not exceeding:</H3>
+            {selectedLicense && (
+              <>
+                <Text>
+                  {selectedLicense.desktopWorkstations.toLocaleString()} Desktop
+                  Workstations
+                </Text>
+                <Text>
+                  {selectedLicense.webVisitors.toLocaleString()} Web Visitors
+                </Text>
+                <Text>{selectedLicense.eBooks.toLocaleString()} E-Books</Text>
+              </>
+            )}
+          </div>
           <div>
             <H3>Select Fonts</H3>
             <ColumnFlex>
@@ -111,12 +113,12 @@ const License = ({ font }: LicenseProps) => {
           </div>
         </Left>
         <Right>
-          <Text>Cart</Text>
+          <H3>Cart</H3>
           {selectedLicense && <Text>License: {selectedLicense.title}</Text>}
           {selectedFonts.length > 0 &&
-            selectedFonts.map((font: FontWeight, index: number) => (
-              <Text key={index} onClick={() => removeWeight(font)}>
-                {font.title}
+            selectedFonts.map((weight: FontWeight, index: number) => (
+              <Text key={index} onClick={() => removeWeight(weight)}>
+                {font.name} {weight.title}
               </Text>
             ))}
         </Right>
