@@ -90,6 +90,11 @@ const IconButton = styled(Button)<{ $darkMode: boolean }>`
   justify-content: space-between;
   gap: 10px;
   margin-top: 20px;
+
+  &:hover {
+    background: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
+    color: ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
+  }
 `;
 
 interface TypeTesterProps {
