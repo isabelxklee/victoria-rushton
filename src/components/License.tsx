@@ -54,6 +54,14 @@ const CartWrapper = styled(ColumnFlex)`
   gap: 8px;
 `;
 
+const StyledButton = styled(Button)`
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 const License = ({ font }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
@@ -118,9 +126,9 @@ const License = ({ font }: LicenseProps) => {
               {font.weights
                 .sort((a, b) => a.value - b.value)
                 .map((weight: FontWeight, index: number) => (
-                  <Button key={index} onClick={() => handleClick(weight)}>
+                  <StyledButton key={index} onClick={() => handleClick(weight)}>
                     {weight.title}
-                  </Button>
+                  </StyledButton>
                 ))}
             </ColumnFlex>
           </div>
