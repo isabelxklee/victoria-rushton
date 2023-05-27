@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import { Font } from '../pages';
-import { COLORS, ColumnFlex, RowFlex, Text } from '../styles';
+import { Button, COLORS, ColumnFlex, RowFlex, Text } from '../styles';
 
 import { Select } from './sharedStyles';
 
@@ -75,13 +75,15 @@ const License = ({ font }: LicenseProps) => {
 
           <div>
             <label>Select Fonts</label>
-            {font.weights
-              .sort((a, b) => a.value - b.value)
-              .map((weight: FontWeight, index: number) => (
-                <button key={index} onClick={() => handleClick(weight)}>
-                  {weight.title}
-                </button>
-              ))}
+            <ColumnFlex>
+              {font.weights
+                .sort((a, b) => a.value - b.value)
+                .map((weight: FontWeight, index: number) => (
+                  <Button key={index} onClick={() => handleClick(weight)}>
+                    {weight.title}
+                  </Button>
+                ))}
+            </ColumnFlex>
           </div>
         </Left>
         <Right>
