@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
 
 import { Font } from '../pages';
-import { RowFlex, Text } from '../styles';
+import { COLORS, RowFlex, Text } from '../styles';
 
 import { Select } from './sharedStyles';
 
@@ -24,6 +25,21 @@ interface FontWeight {
   value: number;
 }
 
+const StyledRowFlex = styled(RowFlex)`
+  justify-content: space-between;
+  gap: 40px;
+`;
+
+const Left = styled.div`
+  flex-grow: 1;
+`;
+
+const Right = styled.div`
+  flex-grow: 1;
+  border-left: 2px solid ${COLORS.BLACK};
+  padding-left: 40px;
+`;
+
 const License = ({ font }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
@@ -42,8 +58,8 @@ const License = ({ font }: LicenseProps) => {
   return (
     <div>
       <h2>License this font</h2>
-      <RowFlex>
-        <div>
+      <StyledRowFlex>
+        <Left>
           <label>Select License</label>
           <Select onChange={event => setSelectedLicense(event.target.value)}>
             {licenses.map((license: LicenseItem, index: number) => (
@@ -64,8 +80,8 @@ const License = ({ font }: LicenseProps) => {
                 </button>
               ))}
           </div>
-        </div>
-        <div>
+        </Left>
+        <Right>
           <Text>Cart</Text>
           <Text>License: {selectedLicense}</Text>
           {selectedFonts.length > 0 &&
@@ -74,8 +90,8 @@ const License = ({ font }: LicenseProps) => {
                 <Text key={index}>{font.title}</Text>
               )
             )}
-        </div>
-      </RowFlex>
+        </Right>
+      </StyledRowFlex>
     </div>
   );
 };
