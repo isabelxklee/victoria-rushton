@@ -63,7 +63,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <Button style={{ margin: '26px 0' }}>License this font</Button>
       </SectionWrapper>
       {previewTexts.map((text: PreviewTextItem, index: number) => (
-        <PreviewText key={index} text={text} />
+        <PreviewText key={index} previewText={text} />
       ))}
       {/* type tester */}
       <TypeTester font={font} />

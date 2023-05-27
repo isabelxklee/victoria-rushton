@@ -5,7 +5,7 @@ import { Text } from '../styles';
 import { PreviewTextItem } from '../templates/fontPageTemplate';
 
 interface PreviewTextProps {
-  text: PreviewTextItem;
+  previewText: PreviewTextItem;
 }
 
 const StyledText = styled.p<{
@@ -22,21 +22,21 @@ const StyledText = styled.p<{
   line-height: ${({ $lineHeight }) => $lineHeight};
 `;
 
-const PreviewText = ({ text }: PreviewTextProps) => {
-  console.log(text);
+const PreviewText = ({ previewText }: PreviewTextProps) => {
+  console.log(previewText);
   return (
     <div>
       <Text>
-        {text.font.name} {text.weight.title}{' '}
-        {text.slant.title !== 'Roman' && text.slant.title}
+        {previewText.font.name} {previewText.weight.title}{' '}
+        {previewText.slant.title !== 'Roman' && previewText.slant.title}
       </Text>
       <StyledText
-        $fontFamily={text.font.name}
-        $lineHeight={text.lineHeight}
-        $size={text.size}
-        $slant={text.slant.title}
-        $weight={text.weight.value}>
-        {text.text.text}
+        $fontFamily={previewText.font.name}
+        $lineHeight={previewText.lineHeight}
+        $size={previewText.size}
+        $slant={previewText.slant.title}
+        $weight={previewText.weight.value}>
+        {previewText.text.text}
       </StyledText>
     </div>
   );
