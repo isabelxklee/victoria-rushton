@@ -73,7 +73,7 @@ const License = ({ font }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
   const [selectedLicense, setSelectedLicense] = useState<LicenseItem>();
-  const [selectedFonts, setSelectedFonts] = useState<FontWeight[]>([]);
+  const [selectedFonts, setSelectedFonts] = useState<Item[]>([]);
   const [availableFonts, setAvailableFonts] = useState<Item[]>([]);
 
   useEffect(() => {
@@ -104,17 +104,17 @@ const License = ({ font }: LicenseProps) => {
     setAvailableFonts(arr);
   }, [font.slants.length, font.weights, licenses]);
 
-  const handleClick = useCallback((weight: FontWeight) => {
-    setSelectedFonts((selectedFonts: FontWeight[]) =>
-      selectedFonts.includes(weight)
-        ? selectedFonts.filter(font => font !== weight)
-        : [...selectedFonts, weight]
+  const handleClick = useCallback((item: Item) => {
+    setSelectedFonts((selectedFonts: Item[]) =>
+      selectedFonts.includes(item)
+        ? selectedFonts.filter(font => font !== item)
+        : [...selectedFonts, item]
     );
   }, []);
 
-  const removeWeight = useCallback((weight: FontWeight) => {
-    setSelectedFonts((selectedFonts: FontWeight[]) =>
-      selectedFonts.filter(font => font !== weight)
+  const removeWeight = useCallback((item: Item) => {
+    setSelectedFonts((selectedFonts: Item[]) =>
+      selectedFonts.filter(font => font !== item)
     );
   }, []);
 
@@ -160,31 +160,12 @@ const License = ({ font }: LicenseProps) => {
             <H3>Select Fonts</H3>
             <StyledRowFlex style={{ gap: '16px' }}>
               <ColumnFlex style={{ gap: '8px', width: '50%' }}>
-                {font.weights
-                  .sort((a, b) => a.value - b.value)
-                  .map((weight: FontWeight, index: number) => (
-                    <StyledButton
-                      key={index}
-                      onClick={() => handleClick(weight)}>
-                      {weight.title}
-                    </StyledButton>
-                  ))}
+                {availableFonts.map((font: Item, index: number) => (
+                  <StyledButton key={index} onClick={() => handleClick(font)}>
+                    {font.weight} {font.slant === 'Italic' && 'Italic'}
+                  </StyledButton>
+                ))}
               </ColumnFlex>
-
-              {/* figure out logic for adding italic fonts to selectedFonts array */}
-              {font.slants.length > 1 && (
-                <ColumnFlex style={{ gap: '8px', width: '50%' }}>
-                  {font.weights
-                    .sort((a, b) => a.value - b.value)
-                    .map((weight: FontWeight, index: number) => (
-                      <StyledButton
-                        key={index}
-                        onClick={() => handleClick(weight)}>
-                        {weight.title} Italic
-                      </StyledButton>
-                    ))}
-                </ColumnFlex>
-              )}
             </StyledRowFlex>
           </div>
         </Left>
@@ -193,10 +174,11 @@ const License = ({ font }: LicenseProps) => {
           <CartWrapper>
             {selectedLicense && <Text>{selectedLicense.title} License</Text>}
             {selectedFonts.length > 0 &&
-              selectedFonts.map((weight: FontWeight, index: number) => (
-                <LineItem key={index} onClick={() => removeWeight(weight)}>
+              selectedFonts.map((item: Item, index: number) => (
+                <LineItem key={index} onClick={() => removeWeight(item)}>
                   <Text>
-                    {font.name} {weight.title}
+                    {font.name} {item.weight}{' '}
+                    {item.slant === 'Italic' && 'Italic'}
                   </Text>
                   <RowFlex style={{ gap: '32px' }}>
                     <Text>${selectedLicense?.price}</Text>
