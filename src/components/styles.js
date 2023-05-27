@@ -75,36 +75,6 @@ export const PanelContainer = styled.div`
   }
 `;
 
-export const TextArea = styled.textarea.attrs(
-  ({ $weight, $size, $darkMode, $lightMode, $slant }) => ({
-    style: {
-      fontWeight: `${$weight}`,
-      fontSize: `${$size}px`,
-      backgroundColor: `${$darkMode}`,
-      color: `${$lightMode}`,
-      fontStyle: `${$slant === 'Roman' ? 'normal' : 'italic'}`
-    }
-  })
-)`
-  border: none;
-  font-family: ${({ $fontFamily }) => $fontFamily};
-  width: 100%;
-  padding: 40px;
-  resize: none;
-  border-top: 2px solid ${COLORS.BLACK};
-  border-bottom: 2px solid ${COLORS.BLACK};
-  box-sizing: border-box;
-  line-height: 1;
-
-  ::placeholder {
-    color: ${({ $lightMode }) => $lightMode};
-  }
-
-  @media (max-width: 900px) {
-    height: 300px;
-  }
-`;
-
 export const IconButton = styled(Button)`
   border: 2px solid
     ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};

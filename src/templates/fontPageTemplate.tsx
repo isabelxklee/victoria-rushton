@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import PageTemplate from '../components/PageTemplate';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
+import TypeTester from '../components/TypeTester';
 import { Font } from '../pages';
 import { Button, Text } from '../styles';
 
@@ -41,6 +42,8 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
       <div></div>
       {/* preview texts */}
       {/* type tester */}
+      <h2>hello world</h2>
+      <TypeTester font={font} />
       <SectionWrapper>
         <h3>Supported Languages</h3>
         <Text>{font.supportedLanguages.supportedLanguages}</Text>
