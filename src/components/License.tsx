@@ -134,6 +134,8 @@ const License = ({ font }: LicenseProps) => {
                     </StyledButton>
                   ))}
               </ColumnFlex>
+
+              {/* figure out logic for adding italic fonts to selectedFonts array */}
               {font.slants.length > 1 && (
                 <ColumnFlex style={{ gap: '8px', width: '50%' }}>
                   {font.weights
@@ -170,6 +172,10 @@ const License = ({ font }: LicenseProps) => {
                 </LineItem>
               ))}
           </CartWrapper>
+          <StyledRowFlex>
+            <H3>Subtotal</H3>
+            <H3>$40</H3>
+          </StyledRowFlex>
         </Right>
       </StyledRowFlex>
     </div>
