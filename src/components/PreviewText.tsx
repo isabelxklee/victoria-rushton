@@ -1,10 +1,19 @@
 import React from 'react';
 
+import { Text } from '../styles';
 import { PreviewTextItem } from '../templates/fontPageTemplate';
 
-const PreviewText = ({ text }: PreviewTextItem) => {
+interface PreviewTextProps {
+  text: PreviewTextItem;
+}
+
+const PreviewText = ({ text }: PreviewTextProps) => {
   console.log(text);
-  return <></>;
+  return (
+    <div>
+      <Text>{text.font.name}</Text>
+    </div>
+  );
 };
 
 export default PreviewText;

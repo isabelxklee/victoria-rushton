@@ -9,6 +9,9 @@ import { Font } from '../pages';
 import { Button, Text } from '../styles';
 
 export interface PreviewTextItem {
+  font: {
+    name: string;
+  };
   lineHeight: number;
   size: number;
   slant: {
@@ -110,6 +113,9 @@ export const pageQuery = graphql`
       nodes {
         text {
           text
+        }
+        font {
+          name
         }
         weight {
           value
