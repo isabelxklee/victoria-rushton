@@ -29,6 +29,10 @@ const StyledRowFlex = styled(RowFlex)`
   justify-content: space-between;
 `;
 
+const LineItem = styled(StyledRowFlex)`
+  cursor: pointer;
+`;
+
 const Left = styled(ColumnFlex)`
   width: 50%;
   padding-right: 40px;
@@ -117,12 +121,12 @@ const License = ({ font }: LicenseProps) => {
           {selectedLicense && <Text>{selectedLicense.title} License</Text>}
           {selectedFonts.length > 0 &&
             selectedFonts.map((weight: FontWeight, index: number) => (
-              <StyledRowFlex key={index}>
-                <Text onClick={() => removeWeight(weight)}>
+              <LineItem key={index} onClick={() => removeWeight(weight)}>
+                <Text>
                   {font.name} {weight.title}
                 </Text>
                 <Text>${selectedLicense?.price}</Text>
-              </StyledRowFlex>
+              </LineItem>
             ))}
         </Right>
       </StyledRowFlex>
