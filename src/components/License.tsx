@@ -64,13 +64,16 @@ const License = ({ font }: LicenseProps) => {
           <label>Select License</label>
           <Select
             $width="fixed"
-            onChange={event => setSelectedLicense(event.target.value)}>
+            onChange={event =>
+              setSelectedLicense(JSON.parse(event.target.value))
+            }>
             {licenses.map((license: LicenseItem, index: number) => (
-              <option key={index} value={license.title}>
+              <option key={index} value={JSON.stringify(license)}>
                 {license.title}
               </option>
             ))}
           </Select>
+
           <Text>For uses, not exceeding:</Text>
 
           <div>
@@ -88,7 +91,7 @@ const License = ({ font }: LicenseProps) => {
         </Left>
         <Right>
           <Text>Cart</Text>
-          <Text>License: {selectedLicense}</Text>
+          <Text>License: {selectedLicense.title}</Text>
           {selectedFonts.length > 0 &&
             selectedFonts.map(
               (font: { title: string; value: number }, index: number) => (
