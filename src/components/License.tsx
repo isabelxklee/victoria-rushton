@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -23,6 +24,12 @@ interface LicenseItem {
 interface FontWeight {
   title: string;
   value: number;
+}
+
+interface Item {
+  slant: string;
+  value: number;
+  weight: string;
 }
 
 const StyledRowFlex = styled(RowFlex)`
@@ -67,16 +74,10 @@ const License = ({ font }: LicenseProps) => {
   const licenses = data.allContentfulLicense.nodes;
   const [selectedLicense, setSelectedLicense] = useState<LicenseItem>();
   const [selectedFonts, setSelectedFonts] = useState<FontWeight[]>([]);
-  const [availableFonts, setAvailableFonts] = useState([]);
+  const [availableFonts, setAvailableFonts] = useState<Item[]>([]);
 
   useEffect(() => {
     setSelectedLicense(licenses[0]);
-
-    interface Item {
-      slant: string;
-      value: number;
-      weight: string;
-    }
 
     const arr: Item[] = [];
 
@@ -87,17 +88,21 @@ const License = ({ font }: LicenseProps) => {
         value: weight.value
       };
 
-      const item2 = {
-        slant: 'Italic',
-        weight: weight.title,
-        value: weight.value
-      };
+      arr.push(item1);
 
-      return arr.push(item1, item2);
+      if (font.slants.length > 1) {
+        const item2 = {
+          slant: 'Italic',
+          weight: weight.title,
+          value: weight.value
+        };
+
+        arr.push(item2);
+      }
     });
 
-    console.log(arr);
-  }, [font.weights, licenses]);
+    setAvailableFonts(arr);
+  }, [font.slants.length, font.weights, licenses]);
 
   const handleClick = useCallback((weight: FontWeight) => {
     setSelectedFonts((selectedFonts: FontWeight[]) =>
