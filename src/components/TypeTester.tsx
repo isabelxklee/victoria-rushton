@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Font } from '../pages';
@@ -9,7 +9,7 @@ const TextArea = styled.textarea<{
   $fontFamily: string;
   $size: string;
   $slant: string;
-  $weight: string;
+  $weight: number;
 }>`
   font-weight: ${({ $weight }) => $weight};
   font-size: ${({ $size }) => `${$size}px`};
@@ -119,7 +119,7 @@ interface TypeTesterProps {
 
 const TypeTester = ({ font }: TypeTesterProps) => {
   const [darkMode, setDarkMode] = useState(false);
-  const [selectedWeight, setSelectedWeight] = useState('400');
+  const [selectedWeight, setSelectedWeight] = useState(0);
   const [selectedSlant, setSelectedSlant] = useState('Roman');
   const [selectedSize, setSelectedSize] = useState('60');
 
@@ -127,11 +127,16 @@ const TypeTester = ({ font }: TypeTesterProps) => {
     setDarkMode(darkMode => !darkMode);
   };
 
+  useEffect(() => {
+    setSelectedWeight(font.weights[0].value);
+  }, [font.weights]);
+
   return (
     <Wrapper>
       <Left>
         <label>Weight</label>
-        <Select onChange={event => setSelectedWeight(event.target.value)}>
+        <Select
+          onChange={event => setSelectedWeight(parseInt(event.target.value))}>
           {font.weights
             .sort((a, b) => a.value - b.value)
             .map((weight: { title: string; value: number }, index: number) => (
