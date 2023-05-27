@@ -2,7 +2,7 @@
 // import {ReactComponent as Moon} from '../assets/icons/icon-moon.svg'
 import styled from 'styled-components';
 
-import { Button, COLORS, FONT_WEIGHTS, Text } from '../styles';
+import { COLORS, FONT_WEIGHTS, Text } from '../styles';
 
 export const Slider = styled.input`
   -webkit-appearance: none;
@@ -74,31 +74,6 @@ export const PanelContainer = styled.div`
     padding: 40px;
   }
 `;
-
-export const IconButton = styled(Button)`
-  border: 2px solid
-    ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
-  background: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
-  color: ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
-  cursor: pointer;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 20px;
-`;
-
-// export const IconSun = styled(Sun)`
-//   width: 24px;
-//   height: 24px;
-//   fill: ${COLORS.BLACK};
-// `
-
-// export const IconMoon = styled(Moon)`
-//   width: 20px;
-//   height: 24px;
-//   fill: ${COLORS.WHITE};
-// `
 
 export const ButtonLabel = styled.label`
   border-radius: 40px;

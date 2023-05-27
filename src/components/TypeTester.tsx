@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Font } from '../pages';
-import { COLORS, ColumnFlex, RowFlex } from '../styles';
+import { Button, COLORS, ColumnFlex, RowFlex } from '../styles';
 
 const TextArea = styled.textarea<{
   $darkMode: boolean;
@@ -41,8 +41,31 @@ const SizeWrapper = styled(RowFlex)`
   justify-content: space-between;
 `;
 
+const Select = styled.select<{ $width?: string }>`
+  height: fit-content;
+  width: ${({ $width }) => ($width === 'fixed' ? '170px' : '100%')};
+  padding: 10px;
+  font-family: 'Cecilie Sans', 'sans-serif';
+  font-size: 16px;
+  font-weight: 300;
+  border-radius: 4px;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 20px), calc(100% - 15px), calc(100% - 2.5em);
+  background-position-y: calc(50%);
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+`;
+
 const Slider = styled.input`
-  width: 139%;
+  width: 100%;
 
   &::-webkit-slider-runnable-track {
     background-color: ${COLORS.WHITE};
@@ -70,10 +93,24 @@ const Left = styled(ColumnFlex)`
   color: ${COLORS.WHITE};
   padding: 80px;
   gap: 20px;
+  width: 500px;
 `;
 
 const Right = styled.div`
   width: 100%;
+`;
+
+const IconButton = styled(Button)<{ $darkMode: boolean }>`
+  border: 2px solid
+    ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
+  background: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
+  color: ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
 `;
 
 interface TypeTesterProps {
@@ -94,45 +131,59 @@ const TypeTester = ({ font }: TypeTesterProps) => {
     <Wrapper>
       <Left>
         <label>Weight</label>
-        <select onChange={event => setSelectedWeight(event.target.value)}>
-          {font.weights.map(
-            (weight: { title: string; value: number }, index: number) => (
+        <Select onChange={event => setSelectedWeight(event.target.value)}>
+          {font.weights
+            .sort((a, b) => a.value - b.value)
+            .map((weight: { title: string; value: number }, index: number) => (
               <option key={index} value={weight.value}>
                 {weight.title}
               </option>
-            )
-          )}
-        </select>
+            ))}
+        </Select>
 
         {font.slants.length > 1 && (
           <>
             <label>Slant</label>
-            <select onChange={event => setSelectedSlant(event.target.value)}>
+            <Select onChange={event => setSelectedSlant(event.target.value)}>
               {font.slants.map((slant: { title: string }, index: number) => (
                 <option key={index} value={slant.title}>
                   {slant.title}
                 </option>
               ))}
-            </select>
+            </Select>
           </>
         )}
 
         <SizeWrapper>
-          <div>
-            <label>Size</label>
-            <Slider
-              max="160"
-              min="8"
-              type="range"
-              onChange={event => setSelectedSize(event.target.value)}
-            />
-          </div>
+          <label>Size</label>
           <p>{selectedSize}px</p>
         </SizeWrapper>
+        <Slider
+          max="160"
+          min="8"
+          type="range"
+          onChange={event => setSelectedSize(event.target.value)}
+        />
 
-        <button onClick={handleColorModeChange}>
-          {darkMode ? 'Light' : 'Dark'}
-        </button>
+        <IconButton $darkMode={darkMode} onClick={handleColorModeChange}>
+          {darkMode ? (
+            <>
+              Light{' '}
+              <img
+                alt=""
+                src="https://images.ctfassets.net/6l1e28rigfdw/9yOSsDzz03WNEAKk9gj6d/471079ecc5ae1aa1483500197c29d4af/icon-sun.svg"
+              />
+            </>
+          ) : (
+            <>
+              Dark{' '}
+              <img
+                alt=""
+                src="https://images.ctfassets.net/6l1e28rigfdw/HpfZbGuPPV0KOHu6SSvxz/c6c5dd5faa177403975b61b11462047b/icon-moon.svg"
+              />
+            </>
+          )}
+        </IconButton>
       </Left>
       <Right>
         <TextArea
