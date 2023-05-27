@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
@@ -50,13 +50,17 @@ const License = ({ font }: LicenseProps) => {
   >(undefined);
   const [selectedFonts, setSelectedFonts] = useState<FontWeight[]>([]);
 
-  const handleClick = (weight: { title: string; value: number }) => {
+  const handleClick = useCallback((weight: FontWeight) => {
     setSelectedFonts((selectedFonts: FontWeight[]) =>
       selectedFonts.includes(weight)
         ? selectedFonts.filter(font => font !== weight)
         : [...selectedFonts, weight]
     );
-  };
+  }, []);
+
+  const removeWeight = useCallback((weight: FontWeight) => {
+    console.log(weight);
+  }, []);
 
   return (
     <div>
@@ -95,11 +99,11 @@ const License = ({ font }: LicenseProps) => {
           <Text>Cart</Text>
           {selectedLicense && <Text>License: {selectedLicense.title}</Text>}
           {selectedFonts.length > 0 &&
-            selectedFonts.map(
-              (font: { title: string; value: number }, index: number) => (
-                <Text key={index}>{font.title}</Text>
-              )
-            )}
+            selectedFonts.map((font: FontWeight, index: number) => (
+              <Text key={index} onClick={() => removeWeight(font)}>
+                {font.title}
+              </Text>
+            ))}
         </Right>
       </StyledRowFlex>
     </div>
