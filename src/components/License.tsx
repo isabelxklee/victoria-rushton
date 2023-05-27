@@ -37,7 +37,7 @@ const License = ({ font }: LicenseProps) => {
       <h2>License this font</h2>
       <RowFlex>
         <div>
-          <label>Select License</label>
+          {/* <label>Select License</label>
           <Select onChange={event => setSelectedLicense(event.target.value)}>
             {font.weights
               .sort((a, b) => a.value - b.value)
@@ -48,7 +48,7 @@ const License = ({ font }: LicenseProps) => {
                   </option>
                 )
               )}
-          </Select>
+          </Select> */}
           <Text>For uses, not exceeding:</Text>
 
           <div>
@@ -66,7 +66,7 @@ const License = ({ font }: LicenseProps) => {
         </div>
         <div>
           <Text>Cart</Text>
-          <Text>License: {selectedLicense}</Text>
+          <Text>License: {selectedLicense.title}</Text>
           {selectedFonts.length > 0 &&
             selectedFonts.map(
               (font: { title: string; value: number }, index: number) => (
@@ -80,3 +80,17 @@ const License = ({ font }: LicenseProps) => {
 };
 
 export default License;
+
+const pageQuery = graphql`
+  query {
+    allContentfulLicense(sort: { price: ASC }) {
+      nodes {
+        title
+        price
+        desktopWorkstations
+        eBooks
+        webVisitors
+      }
+    }
+  }
+`;
