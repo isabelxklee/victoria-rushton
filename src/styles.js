@@ -80,13 +80,19 @@ export const Button = styled.button`
   border-radius: 40px;
   background: ${COLORS.BLACK};
   color: ${COLORS.WHITE};
-  border: 2px solid rgb(244, 244, 244);
+  border: 2px solid ${COLORS.BLACK};
   font-family: 'Cecilie Sans', 'sans-serif';
   font-weight: ${FONT_WEIGHTS.BOOK};
   font-size: 16px;
   padding: 10px 20px;
   pointer-events: auto;
   cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: ${COLORS.WHITE};
+    color: ${COLORS.BLACK};
+  }
 `;
 
 export const GlobalStyles = createGlobalStyle`

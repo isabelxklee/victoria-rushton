@@ -114,7 +114,7 @@ const License = ({ font }: LicenseProps) => {
           </div>
           <div>
             <H3>Select Fonts</H3>
-            <ColumnFlex>
+            <ColumnFlex style={{ gap: '8px' }}>
               {font.weights
                 .sort((a, b) => a.value - b.value)
                 .map((weight: FontWeight, index: number) => (
