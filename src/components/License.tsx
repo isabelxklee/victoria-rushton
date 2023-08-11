@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { Font } from '../pages';
 import { Button, COLORS, ColumnFlex, H3, RowFlex, Text } from '../styles';
 
+import Checkout from './Checkout';
 import { Select } from './sharedStyles';
 
 interface LicenseProps {
@@ -193,6 +194,7 @@ const License = ({ font }: LicenseProps) => {
           <StyledRowFlex>
             <H3>Subtotal</H3>
             <H3>${priceCalculation}</H3>
+            <Checkout />
           </StyledRowFlex>
         </Right>
       </StyledRowFlex>
