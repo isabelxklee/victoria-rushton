@@ -3,7 +3,14 @@ import React, { useEffect, useState } from 'react';
 
 import { Button } from '../styles';
 
-const Checkout = () => {
+import { LicenseType, SimpleFontType } from './License';
+
+interface CheckoutProps {
+  fonts?: SimpleFontType[];
+  license?: LicenseType;
+}
+
+const Checkout = ({ fonts, license }: CheckoutProps) => {
   const [buttonLabel, setButtonLabel] = useState('Checkout');
 
   useEffect(() => {

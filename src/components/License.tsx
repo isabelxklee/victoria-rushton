@@ -4,17 +4,17 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
-import { Font } from '../pages';
+import { FontType } from '../pages';
 import { Button, COLORS, ColumnFlex, H3, RowFlex, Text } from '../styles';
 
 import Checkout from './Checkout';
 import { Select } from './sharedStyles';
 
 interface LicenseProps {
-  font: Font;
+  font: FontType;
 }
 
-interface LicenseItem {
+export interface LicenseType {
   desktopWorkstations: number;
   eBooks: number;
   price: number;
@@ -27,7 +27,7 @@ interface FontWeight {
   value: number;
 }
 
-interface Item {
+export interface SimpleFontType {
   slant: string;
   value: number;
   weight: string;
@@ -73,14 +73,14 @@ const StyledButton = styled(Button)`
 const License = ({ font }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
-  const [selectedLicense, setSelectedLicense] = useState<LicenseItem>();
-  const [selectedFonts, setSelectedFonts] = useState<Item[]>([]);
-  const [availableFonts, setAvailableFonts] = useState<Item[]>([]);
+  const [selectedLicense, setSelectedLicense] = useState<LicenseType>();
+  const [selectedFonts, setSelectedFonts] = useState<SimpleFontType[]>([]);
+  const [availableFonts, setAvailableFonts] = useState<SimpleFontType[]>([]);
 
   useEffect(() => {
     setSelectedLicense(licenses[0]);
 
-    const arr: Item[] = [];
+    const arr: SimpleFontType[] = [];
 
     font.weights.map((weight: FontWeight) => {
       const item1 = {
@@ -105,16 +105,16 @@ const License = ({ font }: LicenseProps) => {
     setAvailableFonts(arr);
   }, [font.slants.length, font.weights, licenses]);
 
-  const handleClick = useCallback((item: Item) => {
-    setSelectedFonts((selectedFonts: Item[]) =>
+  const handleClick = useCallback((item: SimpleFontType) => {
+    setSelectedFonts((selectedFonts: SimpleFontType[]) =>
       selectedFonts.includes(item)
         ? selectedFonts.filter(font => font !== item)
         : [...selectedFonts, item]
     );
   }, []);
 
-  const removeWeight = useCallback((item: Item) => {
-    setSelectedFonts((selectedFonts: Item[]) =>
+  const removeWeight = useCallback((item: SimpleFontType) => {
+    setSelectedFonts((selectedFonts: SimpleFontType[]) =>
       selectedFonts.filter(font => font !== item)
     );
   }, []);
@@ -135,7 +135,7 @@ const License = ({ font }: LicenseProps) => {
               onChange={event =>
                 setSelectedLicense(JSON.parse(event.target.value))
               }>
-              {licenses.map((license: LicenseItem, index: number) => (
+              {licenses.map((license: LicenseType, index: number) => (
                 <option key={index} value={JSON.stringify(license)}>
                   {license.title}
                 </option>
@@ -161,7 +161,7 @@ const License = ({ font }: LicenseProps) => {
             <H3>Select Fonts</H3>
             <StyledRowFlex style={{ gap: '16px' }}>
               <ColumnFlex style={{ gap: '8px', width: '50%' }}>
-                {availableFonts.map((font: Item, index: number) => (
+                {availableFonts.map((font: SimpleFontType, index: number) => (
                   <StyledButton key={index} onClick={() => handleClick(font)}>
                     {font.weight} {font.slant === 'Italic' && 'Italic'}
                   </StyledButton>
@@ -175,7 +175,7 @@ const License = ({ font }: LicenseProps) => {
           <CartWrapper>
             {selectedLicense && <Text>{selectedLicense.title} License</Text>}
             {selectedFonts.length > 0 &&
-              selectedFonts.map((item: Item, index: number) => (
+              selectedFonts.map((item: SimpleFontType, index: number) => (
                 <LineItem key={index} onClick={() => removeWeight(item)}>
                   <Text>
                     {font.name} {item.weight}{' '}
@@ -194,7 +194,7 @@ const License = ({ font }: LicenseProps) => {
           <StyledRowFlex>
             <H3>Subtotal</H3>
             <H3>${priceCalculation}</H3>
-            <Checkout />
+            <Checkout fonts={selectedFonts} license={selectedLicense} />
           </StyledRowFlex>
         </Right>
       </StyledRowFlex>
