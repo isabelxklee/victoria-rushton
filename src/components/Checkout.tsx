@@ -6,20 +6,19 @@ import { Button } from '../styles';
 import { LicenseType, SimpleFontType } from './License';
 
 interface CheckoutProps {
+  fontTitle: string;
   fonts?: SimpleFontType[];
   license?: LicenseType;
 }
 
-const Checkout = ({ fonts, license }: CheckoutProps) => {
+const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
   const [buttonLabel, setButtonLabel] = useState('Checkout');
 
   useEffect(() => {
     setButtonLabel(
-      selectedLicense && selectedLicense.title === 'Trial'
-        ? 'Download'
-        : 'Checkout'
+      license && license.title === 'Trial' ? 'Download' : 'Checkout'
     );
-  }, [selectedLicense]);
+  }, [license]);
 
   const handleSubmit = async (event: any) => {
     setButtonLabel('Loading...');
@@ -33,9 +32,9 @@ const Checkout = ({ fonts, license }: CheckoutProps) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          font: currentFont.title,
-          selectedFonts: selectedFonts,
-          license: selectedLicense
+          font: fontTitle,
+          selectedFonts: fonts,
+          license: license
         })
       }
     )

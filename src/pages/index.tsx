@@ -35,7 +35,7 @@ const IndexPage = () => {
 
   return (
     <PageTemplate>
-      {fonts.map((font: Font, index: number) => (
+      {fonts.map((font: FontType, index: number) => (
         <FontHero key={index} font={font} />
       ))}
     </PageTemplate>

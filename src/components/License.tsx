@@ -194,7 +194,11 @@ const License = ({ font }: LicenseProps) => {
           <StyledRowFlex>
             <H3>Subtotal</H3>
             <H3>${priceCalculation}</H3>
-            <Checkout fonts={selectedFonts} license={selectedLicense} />
+            <Checkout
+              fontTitle={font.name}
+              fonts={selectedFonts}
+              license={selectedLicense}
+            />
           </StyledRowFlex>
         </Right>
       </StyledRowFlex>
