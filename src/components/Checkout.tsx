@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
+import { loadStripe } from '@stripe/stripe-js';
 
 import { Button } from '../styles';
 
