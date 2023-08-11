@@ -21,12 +21,14 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
     );
   }, [license]);
 
+  console.log(process.env.GATSBY_STRIPE_SECRET);
+
   const handleSubmit = async (event: any) => {
     setButtonLabel('Loading...');
 
     event.preventDefault();
 
-    const stripe = await loadStripe(process.env.REACT_APP_STRIPE_SECRET);
+    const stripe: any = await loadStripe(process.env.GATSBY_STRIPE_SECRET);
     const response = await fetch(
       `${process.env.REACT_APP_SERVER_URL}/create-checkout-session`,
       {
