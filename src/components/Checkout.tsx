@@ -21,8 +21,6 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
     );
   }, [license]);
 
-  console.log(process.env.GATSBY_STRIPE_SECRET);
-
   const handleSubmit = async (event: any) => {
     setButtonLabel('Loading...');
 
@@ -30,7 +28,7 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
 
     const stripe: any = await loadStripe(process.env.GATSBY_STRIPE_SECRET);
     const response = await fetch(
-      `${process.env.REACT_APP_SERVER_URL}/create-checkout-session`,
+      `${process.env.GATSBY_SERVER_URL}/create-checkout-session`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
