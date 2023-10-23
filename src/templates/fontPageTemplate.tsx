@@ -50,6 +50,10 @@ const StyledSectionWrapper = styled(SectionWrapper)`
   border-bottom: none;
 `;
 
+const SupportedLanguagesWrapper = styled(SectionWrapper)`
+  padding: 120px 0;
+`;
+
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
   const previewTexts = data.allContentfulPreviewText.nodes;
@@ -87,10 +91,10 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         ))}
       </StyledSectionWrapper>
       <TypeTester font={font} />
-      <SectionWrapper>
+      <SupportedLanguagesWrapper>
         <h3>Supported Languages</h3>
         <Text>{font.supportedLanguages.supportedLanguages}</Text>
-      </SectionWrapper>
+      </SupportedLanguagesWrapper>
       <div ref={divRef} />
       <License font={font} />
     </PageTemplate>
