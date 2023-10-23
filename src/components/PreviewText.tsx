@@ -23,7 +23,6 @@ const StyledText = styled.p<{
 `;
 
 const PreviewText = ({ previewText }: PreviewTextProps) => {
-  console.log(previewText);
   return (
     <div>
       <Text>

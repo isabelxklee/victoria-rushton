@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import FontHero from '../components/FontHero';
 import PageTemplate from '../components/PageTemplate';
 
-export interface Font {
+export interface FontType {
   heroCopy: {
     heroCopy: string;
   };
@@ -35,7 +35,7 @@ const IndexPage = () => {
 
   return (
     <PageTemplate>
-      {fonts.map((font: Font, index: number) => (
+      {fonts.map((font: FontType, index: number) => (
         <FontHero key={index} font={font} />
       ))}
     </PageTemplate>

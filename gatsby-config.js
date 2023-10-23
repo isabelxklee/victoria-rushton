@@ -1,6 +1,8 @@
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
+/* eslint-disable @typescript-eslint/no-var-requires */
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
 module.exports = {
   siteMetadata: {
     title: `victoria-rushton`,

@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Font } from '../pages';
 import { Button, COLORS, ColumnFlex, RowFlex } from '../styles';
+
+import { Select } from './sharedStyles';
 
 const TextArea = styled.textarea<{
   $darkMode: boolean;
   $fontFamily: string;
   $size: string;
   $slant: string;
-  $weight: string;
+  $weight: number;
 }>`
   font-weight: ${({ $weight }) => $weight};
   font-size: ${({ $size }) => `${$size}px`};
@@ -39,29 +41,6 @@ const TextArea = styled.textarea<{
 const SizeWrapper = styled(RowFlex)`
   align-items: baseline;
   justify-content: space-between;
-`;
-
-const Select = styled.select<{ $width?: string }>`
-  height: fit-content;
-  width: ${({ $width }) => ($width === 'fixed' ? '170px' : '100%')};
-  padding: 10px;
-  font-family: 'Cecilie Sans', 'sans-serif';
-  font-size: 16px;
-  font-weight: 300;
-  border-radius: 4px;
-  appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 20px), calc(100% - 15px), calc(100% - 2.5em);
-  background-position-y: calc(50%);
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
-  background-repeat: no-repeat;
-  cursor: pointer;
-
-  @media (max-width: 900px) {
-    width: 100%;
-  }
 `;
 
 const Slider = styled.input`
@@ -111,6 +90,11 @@ const IconButton = styled(Button)<{ $darkMode: boolean }>`
   justify-content: space-between;
   gap: 10px;
   margin-top: 20px;
+
+  &:hover {
+    background: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
+    color: ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
+  }
 `;
 
 interface TypeTesterProps {
@@ -119,7 +103,7 @@ interface TypeTesterProps {
 
 const TypeTester = ({ font }: TypeTesterProps) => {
   const [darkMode, setDarkMode] = useState(false);
-  const [selectedWeight, setSelectedWeight] = useState('400');
+  const [selectedWeight, setSelectedWeight] = useState(0);
   const [selectedSlant, setSelectedSlant] = useState('Roman');
   const [selectedSize, setSelectedSize] = useState('60');
 
@@ -127,11 +111,16 @@ const TypeTester = ({ font }: TypeTesterProps) => {
     setDarkMode(darkMode => !darkMode);
   };
 
+  useEffect(() => {
+    setSelectedWeight(font.weights[0].value);
+  }, [font.weights]);
+
   return (
     <Wrapper>
       <Left>
         <label>Weight</label>
-        <Select onChange={event => setSelectedWeight(event.target.value)}>
+        <Select
+          onChange={event => setSelectedWeight(parseInt(event.target.value))}>
           {font.weights
             .sort((a, b) => a.value - b.value)
             .map((weight: { title: string; value: number }, index: number) => (

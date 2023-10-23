@@ -56,7 +56,7 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-size: 18px;
   font-weight: ${FONT_WEIGHTS.BOLD};
-  margin: 0 0 16px 0;
+  margin: 0;
 `;
 
 export const Text = styled.p`
@@ -80,7 +80,7 @@ export const Button = styled.button`
   border-radius: 40px;
   background: ${COLORS.BLACK};
   color: ${COLORS.WHITE};
-  border: 2px solid rgb(244, 244, 244);
+  border: 2px solid ${COLORS.BLACK};
   font-family: 'Cecilie Sans', 'sans-serif';
   font-weight: ${FONT_WEIGHTS.BOOK};
   font-size: 16px;

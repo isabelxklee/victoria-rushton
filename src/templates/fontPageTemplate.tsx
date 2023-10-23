@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
+import License from '../components/License';
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
@@ -52,6 +53,17 @@ const StyledSectionWrapper = styled(SectionWrapper)`
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
   const previewTexts = data.allContentfulPreviewText.nodes;
+  const divRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSection = useCallback(() => {
+    const current = divRef.current;
+
+    window.scrollTo({
+      top: current?.offsetTop,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }, []);
 
   return (
     <PageTemplate>
@@ -65,7 +77,9 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
           {font.name}
         </HeroCopy>
         <Text>{font.description && font.description.description}</Text>
-        <Button style={{ margin: '26px 0' }}>License this font</Button>
+        <Button style={{ margin: '26px 0' }} onClick={scrollToSection}>
+          License this font
+        </Button>
       </SectionWrapper>
       <StyledSectionWrapper>
         {previewTexts.map((text: PreviewTextItem, index: number) => (
@@ -77,7 +91,8 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <h3>Supported Languages</h3>
         <Text>{font.supportedLanguages.supportedLanguages}</Text>
       </SectionWrapper>
-      {/* license */}
+      <div ref={divRef} />
+      <License font={font} />
     </PageTemplate>
   );
 };
