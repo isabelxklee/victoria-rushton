@@ -7,7 +7,7 @@ import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
 import TypeTester from '../components/TypeTester';
-import { Font } from '../pages';
+import { FontType } from '../pages';
 import { Button, Text } from '../styles';
 
 export interface PreviewTextItem {
@@ -28,7 +28,7 @@ export interface PreviewTextItem {
   };
 }
 
-interface FontItem extends Font {
+interface FontItem extends FontType {
   description: {
     description: string;
   };
@@ -72,7 +72,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
           $fontFamily={font.name}
           $lineHeight={font.heroCopyLineHeight}
           $size={font.heroCopyFontSize}
-          $slant={font.heroCopySlant.title}
+          $slant="regular"
           $weight={font.heroCopyWeight.value}>
           {font.name}
         </HeroCopy>
