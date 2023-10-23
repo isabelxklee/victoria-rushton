@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
-import { Font } from '../pages';
+import { FontType } from '../pages';
 import { RowFlex, Text } from '../styles';
 
 import { InternalLink } from './Links';
@@ -12,7 +12,7 @@ const StyledRowFlex = styled(RowFlex)`
 `;
 
 interface FontHeroProps {
-  font: Font;
+  font: FontType;
 }
 
 const FontHero = ({ font }: FontHeroProps) => {
@@ -35,7 +35,6 @@ const FontHero = ({ font }: FontHeroProps) => {
           $weight={font.heroCopyWeight.value}>
           {font.heroCopy.heroCopy}
         </HeroCopy>
-        <Text>View this font</Text>
       </InternalLink>
     </SectionWrapper>
   );
