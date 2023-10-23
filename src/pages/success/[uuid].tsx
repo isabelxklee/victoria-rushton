@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-use-before-define */
 import React, { useEffect, useState } from 'react';
 
 // import { ExternalLink } from '../components/Links';
-import PageTemplate from '../components/PageTemplate';
+import PageTemplate from '../../components/PageTemplate';
 // import { FlexContainer } from '../components/styles';
 // import { BREAKPOINTS, Button, COLORS, FONT_WEIGHTS, H2, Text } from '../styles';
 
@@ -23,13 +21,16 @@ const Success = () => {
     };
 
     fetchData();
-  }, []);
+  }, [uuid]);
 
-  console.log(uuid);
+  const handleDownload = () => {
+    console.log(uuid);
+  };
 
   return (
     <PageTemplate>
       <p>Congratulations on your purchase!</p>
+      <button onClick={() => handleDownload()}>Download files</button>
     </PageTemplate>
   );
 };

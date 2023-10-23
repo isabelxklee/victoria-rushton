@@ -1,4 +1,4 @@
-exports.createPages = async function ({ actions, graphql }) {
+export async function createPages({ actions, graphql }) {
   const { data } = await graphql(`
     query {
       allContentfulFont {
@@ -15,4 +15,4 @@ exports.createPages = async function ({ actions, graphql }) {
       context: { slug: node.slug }
     });
   });
-};
+}
