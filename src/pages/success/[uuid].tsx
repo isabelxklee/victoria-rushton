@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { createClient } from 'contentful-management';
 
 // import { ExternalLink } from '../components/Links';
 import PageTemplate from '../../components/PageTemplate';
@@ -21,6 +22,30 @@ const Success = () => {
     };
 
     fetchData();
+
+    const createEntry = () => {
+      const client = createClient({
+        accessToken: 'CFPAT-9gSmzdu2f4ioLPkjvUGimqjrwfFmzEPUlqbjyGqOFb4'
+      });
+
+      client.getSpace('6l1e28rigfdw').then(space => {
+        space
+          .getEnvironment('master')
+          .then(environment => {
+            environment.createEntry('customerLink', {
+              fields: {
+                customerName: 'testing',
+                customerEmail: 'testing@gmail.com',
+                url: uuid
+              }
+            });
+          })
+          .then(entry => console.log(entry))
+          .catch(console.error);
+      });
+    };
+
+    createEntry();
   }, [uuid]);
 
   // save UUID to contentful
