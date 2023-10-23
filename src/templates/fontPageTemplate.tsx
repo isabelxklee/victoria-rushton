@@ -46,10 +46,8 @@ interface FontPageTemplateProps {
   };
 }
 
-const StyledSectionWrapper = styled(SectionWrapper)<{
-  $hideBottomBorder?: boolean;
-}>`
-  ${({ $hideBottomBorder }) => $hideBottomBorder && `border-bottom: none`}
+const StyledSectionWrapper = styled(SectionWrapper)`
+  border-bottom: none;
 `;
 
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
@@ -69,7 +67,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
 
   return (
     <PageTemplate>
-      <StyledSectionWrapper $hideBottomBorder={!font.description}>
+      <SectionWrapper>
         <HeroCopy
           $fontFamily={font.name}
           $lineHeight={font.heroCopyLineHeight}
@@ -82,7 +80,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <Button style={{ margin: '26px 0' }} onClick={scrollToSection}>
           License this font
         </Button>
-      </StyledSectionWrapper>
+      </SectionWrapper>
       <StyledSectionWrapper>
         {previewTexts.map((text: PreviewTextItem, index: number) => (
           <PreviewText key={index} previewText={text} />
