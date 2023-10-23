@@ -23,6 +23,8 @@ const Success = () => {
     fetchData();
   }, [uuid]);
 
+  // save UUID to contentful
+
   const handleDownload = () => {
     console.log(uuid);
   };
