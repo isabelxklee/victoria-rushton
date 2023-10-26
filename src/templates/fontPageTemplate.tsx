@@ -2,11 +2,10 @@ import React, { useCallback, useRef } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import License from '../components/License';
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
+import PurchaseFlow from '../components/PurchaseFlow';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
-import TypeTesterInput from '../components/type-tester/TypeTesterInput';
 import { FontType } from '../pages';
 import { Button, Text } from '../styles';
 
@@ -96,8 +95,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <Text>{font.supportedLanguages.supportedLanguages}</Text>
       </SupportedLanguagesWrapper>
       <div ref={divRef} />
-      <TypeTesterInput font={font} />
-      <License font={font} />
+      <PurchaseFlow font={font} />
     </PageTemplate>
   );
 };
