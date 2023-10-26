@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
@@ -7,10 +7,13 @@ import { FontType } from '../pages';
 import { COLORS, ColumnFlex, H3, RowFlex, Text } from '../styles';
 
 import Checkout from './Checkout';
+import { SimpleFontType } from './PurchaseFlow';
 import { Select } from './sharedStyles';
 
 interface LicenseProps {
   font: FontType;
+  removeFont: (arg0: SimpleFontType) => void;
+  selectedFonts: SimpleFontType[];
 }
 
 export interface LicenseType {
@@ -19,12 +22,6 @@ export interface LicenseType {
   price: number;
   title: string;
   webVisitors: number;
-}
-
-export interface SimpleFontType {
-  slant: string;
-  value: number;
-  weight: string;
 }
 
 const StyledRowFlex = styled(RowFlex)`
@@ -56,27 +53,12 @@ const CartWrapper = styled(ColumnFlex)`
   gap: 8px;
 `;
 
-const License = ({ font }: LicenseProps) => {
+const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
   const [selectedLicense, setSelectedLicense] = useState<LicenseType>(
     licenses[0]
   );
-  const [selectedFonts, setSelectedFonts] = useState<SimpleFontType[]>([]);
-
-  const handleClick = useCallback((item: SimpleFontType) => {
-    setSelectedFonts((selectedFonts: SimpleFontType[]) =>
-      selectedFonts.includes(item)
-        ? selectedFonts.filter(font => font !== item)
-        : [...selectedFonts, item]
-    );
-  }, []);
-
-  const removeWeight = useCallback((item: SimpleFontType) => {
-    setSelectedFonts((selectedFonts: SimpleFontType[]) =>
-      selectedFonts.filter(font => font !== item)
-    );
-  }, []);
 
   const priceCalculation = useMemo(() => {
     return selectedLicense ? selectedFonts.length * selectedLicense.price : 0;
@@ -116,18 +98,6 @@ const License = ({ font }: LicenseProps) => {
               </>
             )}
           </div>
-          {/* <div>
-            <H3>Select Fonts</H3>
-            <StyledRowFlex style={{ gap: '16px' }}>
-              <ColumnFlex style={{ gap: '8px', width: '50%' }}>
-                {availableFonts.map((font: SimpleFontType, index: number) => (
-                  <StyledButton key={index} onClick={() => handleClick(font)}>
-                    {font.weight} {font.slant === 'Italic' && 'Italic'}
-                  </StyledButton>
-                ))}
-              </ColumnFlex>
-            </StyledRowFlex>
-          </div> */}
         </Left>
         <Right>
           <H3>Cart</H3>
@@ -135,7 +105,7 @@ const License = ({ font }: LicenseProps) => {
             {selectedLicense && <Text>{selectedLicense.title} License</Text>}
             {selectedFonts.length > 0 &&
               selectedFonts.map((item: SimpleFontType, index: number) => (
-                <LineItem key={index} onClick={() => removeWeight(item)}>
+                <LineItem key={index} onClick={() => removeFont(item)}>
                   <Text>
                     {font.name} {item.weight}{' '}
                     {item.slant === 'Italic' && 'Italic'}
