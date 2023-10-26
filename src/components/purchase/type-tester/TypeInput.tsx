@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS, Flex, H2, RowFlex } from '../../../styles';
+import { COLORS, Flex, RowFlex } from '../../../styles';
 
 const TextInput = styled.input`
   color: ${COLORS.BLACK};
@@ -67,10 +67,9 @@ const TypeInput = ({ setPreviewText, setSize }: TypeInputProps) => {
   return (
     <>
       <div>
-        <H2>Type something here</H2>
         <ActionWrapper>
           <TextInput
-            placeholder="Your preview text goes here"
+            placeholder="Type something here..."
             onChange={event => handleChange(event)}
           />
           <SizeWrapper>

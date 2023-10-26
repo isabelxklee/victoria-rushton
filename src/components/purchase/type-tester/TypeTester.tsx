@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FontType } from '../../../pages';
 import { SimpleFontType } from '../PurchaseFlow';
@@ -25,6 +25,12 @@ const TypeTester = ({
   const [previewText, setPreviewText] = useState<string>(
     'Hello world, this is Victoria Rushton.'
   );
+
+  useEffect(() => {
+    if (previewText.length < 1) {
+      setPreviewText('Hello world, this is Victoria Rushton.');
+    }
+  }, [previewText.length]);
 
   return (
     <>
