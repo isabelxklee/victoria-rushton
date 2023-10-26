@@ -2,35 +2,36 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { FontType } from '../pages';
-import { Button, COLORS, RowFlex } from '../styles';
+import { Button, COLORS, H2, RowFlex } from '../styles';
 
-import { Select } from './sharedStyles';
-
-const TextArea = styled.input<{
+const TextInput = styled.input<{
   $darkMode: boolean;
   $fontFamily: string;
   $size: string;
   $slant: string;
   $weight: number;
 }>`
-  font-weight: ${({ $weight }) => $weight};
-  font-size: ${({ $size }) => `${$size}px`};
-  background-color: ${({ $darkMode }) =>
-    $darkMode ? COLORS.BLACK : COLORS.WHITE};
-  color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
+  /* font-weight: ${({ $weight }) => $weight}; */
+  /* font-size: ${({ $size }) => `${$size}px`}; */
+  /* font-family: ${({ $fontFamily }) => $fontFamily}; */
+  /* background-color: ${({ $darkMode }) =>
+    $darkMode ? COLORS.BLACK : COLORS.WHITE}; */
+  /* color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)}; */
+  color: ${COLORS.BLACK};
+  background: ${COLORS.WHITE};
   border: none;
-  font-family: ${({ $fontFamily }) => $fontFamily};
+  font-family: 'Cecilie Sans', 'sans-serif';
+  font-size: 18px;
+  border: 2px solid ${COLORS.BLACK};
   width: 100%;
-  padding: 40px;
+  padding: 20px;
   resize: none;
-  border-top: 2px solid ${COLORS.BLACK};
-  border-bottom: 2px solid ${COLORS.BLACK};
   box-sizing: border-box;
   line-height: 1;
   height: 100%;
 
   ::placeholder {
-    color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
+    color: rgba(${COLORS.BLACK}, 0.3);
   }
 
   /* @media (max-width: 900px) {
@@ -100,13 +101,14 @@ const TypeTester = ({ font }: TypeTesterProps) => {
 
   return (
     <div>
-      <TextArea
+      <H2>Type something here</H2>
+      <TextInput
         $darkMode={darkMode}
         $fontFamily={font.name}
         $size={selectedSize}
         $slant={selectedSlant}
         $weight={selectedWeight}
-        placeholder="Type something..."
+        placeholder="Your preview text goes here"
       />
       <div>
         <SizeWrapper>

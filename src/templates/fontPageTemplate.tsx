@@ -52,6 +52,7 @@ const StyledSectionWrapper = styled(SectionWrapper)`
 
 const SupportedLanguagesWrapper = styled(SectionWrapper)`
   padding: 120px 0;
+  border-bottom: none;
 `;
 
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
