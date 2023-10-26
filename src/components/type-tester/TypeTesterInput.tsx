@@ -78,7 +78,7 @@ export interface TypeTesterProps {
 
 const TypeTesterInput = ({ font }: TypeTesterProps) => {
   const [darkMode, setDarkMode] = useState(false);
-  const [size, setSize] = useState<number>(40);
+  const [size, setSize] = useState<string>('40');
   const [previewText, setPreviewText] = useState<string>(
     'Hello world, this is Victoria Rushton.'
   );

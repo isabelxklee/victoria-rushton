@@ -19,7 +19,7 @@ const StyledRowFlex = styled(RowFlex)`
 const PreviewText = styled.p<{
   $darkMode: boolean;
   $fontFamily: string;
-  $size: number;
+  $size: string;
   $weight: number;
 }>`
   font-weight: ${({ $weight }) => $weight};
@@ -28,12 +28,13 @@ const PreviewText = styled.p<{
   background-color: ${({ $darkMode }) =>
     $darkMode ? COLORS.BLACK : COLORS.WHITE};
   color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
+  margin: 0;
 `;
 
 interface TypeTesterPreviewProps {
   font: FontType;
   previewText: string;
-  size: number;
+  size: string;
 }
 
 const TypeTesterPreview = ({
