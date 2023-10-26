@@ -50,9 +50,7 @@ export const Select = styled.select<{ $width?: string }>`
 `;
 
 export const StyledButton = styled(Button)<{ $status?: boolean }>`
-  transition: 0.3s;
-  height: 40px;
-  padding: 0 12px;
+  height: 100%;
   color: ${({ $status }) => ($status ? COLORS.BLACK : COLORS.WHITE)};
   background: ${({ $status }) => ($status ? COLORS.WHITE : COLORS.BLACK)};
 `;

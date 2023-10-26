@@ -24,6 +24,14 @@ export interface LicenseType {
   webVisitors: number;
 }
 
+const Wrapper = styled.div`
+  background: ${COLORS.BLACK};
+  color: ${COLORS.WHITE};
+  border-radius: 20px;
+  padding: 60px;
+  margin-top: 60px;
+`;
+
 const StyledRowFlex = styled(RowFlex)`
   justify-content: space-between;
 `;
@@ -38,19 +46,21 @@ const LineItem = styled(StyledRowFlex)`
 `;
 
 const Left = styled(ColumnFlex)`
-  width: 50%;
+  width: 60%;
   padding-right: 60px;
   gap: 20px;
 `;
 
 const Right = styled.div`
-  width: 50%;
-  border-left: 2px solid ${COLORS.BLACK};
-  padding-left: 60px;
+  width: 40%;
 `;
 
 const CartWrapper = styled(ColumnFlex)`
   gap: 8px;
+`;
+
+const BulletPointText = styled(Text)`
+  line-height: 1.8;
 `;
 
 const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
@@ -65,36 +75,35 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
   }, [selectedFonts.length, selectedLicense]);
 
   return (
-    <div>
-      <h2>License this font</h2>
+    <Wrapper>
       <StyledRowFlex>
         <Left>
+          <H3>Select a license</H3>
+          <Select
+            $width="fixed"
+            onChange={event =>
+              setSelectedLicense(JSON.parse(event.target.value))
+            }>
+            {licenses.map((license: LicenseType, index: number) => (
+              <option key={index} value={JSON.stringify(license)}>
+                {license.title}
+              </option>
+            ))}
+          </Select>
           <div>
-            <H3>Select License</H3>
-            <Select
-              $width="fixed"
-              onChange={event =>
-                setSelectedLicense(JSON.parse(event.target.value))
-              }>
-              {licenses.map((license: LicenseType, index: number) => (
-                <option key={index} value={JSON.stringify(license)}>
-                  {license.title}
-                </option>
-              ))}
-            </Select>
-          </div>
-          <div>
-            <H3>For uses, not exceeding:</H3>
+            <Text>For uses, not exceeding:</Text>
             {selectedLicense && (
               <>
-                <Text>
-                  {selectedLicense.desktopWorkstations.toLocaleString()} Desktop
-                  Workstations
-                </Text>
-                <Text>
-                  {selectedLicense.webVisitors.toLocaleString()} Web Visitors
-                </Text>
-                <Text>{selectedLicense.eBooks.toLocaleString()} E-Books</Text>
+                <BulletPointText>
+                  • {selectedLicense.desktopWorkstations.toLocaleString()}{' '}
+                  Desktop Workstations
+                </BulletPointText>
+                <BulletPointText>
+                  • {selectedLicense.webVisitors.toLocaleString()} Web Visitors
+                </BulletPointText>
+                <BulletPointText>
+                  • {selectedLicense.eBooks.toLocaleString()} E-Books
+                </BulletPointText>
               </>
             )}
           </div>
@@ -130,7 +139,7 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
           </StyledRowFlex>
         </Right>
       </StyledRowFlex>
-    </div>
+    </Wrapper>
   );
 };
 
