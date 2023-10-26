@@ -46,6 +46,7 @@ const TypeTester = ({
   const [previewText, setPreviewText] = useState<string>(
     'Hello world, this is Victoria Rushton.'
   );
+  const [status, setStatus] = useState<boolean>(false);
 
   useEffect(() => {
     if (previewText.length < 1) {
@@ -54,7 +55,13 @@ const TypeTester = ({
   }, [previewText.length]);
 
   const handleClick = () => {
-    setSelectedFonts(availableFonts);
+    if (selectedFonts.length === availableFonts.length) {
+      setSelectedFonts([]);
+    } else {
+      setSelectedFonts(availableFonts);
+    }
+
+    setStatus(status => !status);
   };
 
   return (
@@ -71,7 +78,7 @@ const TypeTester = ({
       />
       <ButtonContainer>
         <StyledButton onClick={() => handleClick()}>
-          Purchase family
+          {status ? 'Unselect all' : 'Select all'}
         </StyledButton>
       </ButtonContainer>
     </>

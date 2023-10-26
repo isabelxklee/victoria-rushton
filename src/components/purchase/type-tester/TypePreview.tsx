@@ -96,7 +96,7 @@ const TypeTesterPreview = ({
               {previewText}
             </PreviewText>
             <StyledButton onClick={() => handleClick(fontOption)}>
-              {status(fontOption) ? 'Remove' : 'Add to cart'}
+              {status(fontOption) ? 'Remove font' : 'Select font'}
             </StyledButton>
           </StyledRowFlex>
         </LineItem>
