@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { FontType } from '../../pages';
 import { COLORS, Flex, H2, RowFlex } from '../../styles';
+import { SimpleFontType } from '../PurchaseFlow';
 
 import TypeTesterPreview from './TypeTesterPreview';
 
@@ -58,7 +59,9 @@ const Slider = styled.input`
 `;
 
 export interface TypeTesterProps {
+  addFont: (arg0: SimpleFontType) => void;
   font: FontType;
+  removeFont: (arg0: SimpleFontType) => void;
 }
 
 const TypeTesterInput = ({ font }: TypeTesterProps) => {

@@ -34,7 +34,7 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
 
   return (
     <>
-      <TypeTesterInput font={font} addFont={addFont} removeFont={removeFont} />
+      <TypeTesterInput addFont={addFont} font={font} removeFont={removeFont} />
       <License
         font={font}
         removeFont={removeFont}
