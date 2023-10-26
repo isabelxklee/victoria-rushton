@@ -8,17 +8,22 @@ import PageTemplate from '../../components/PageTemplate';
 
 const Success = () => {
   const [uuid, setUuid] = useState<string>('');
+  const [customerEmail, setCustomerEmail] = useState<string>('');
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${process.env.GATSBY_SERVER_URL}/uuid`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-      });
+      const response = await fetch(
+        `${process.env.GATSBY_SERVER_URL}/purchase-info`,
+        {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
 
       const data = await response.json();
 
-      setUuid(data.message);
+      setUuid(data.uuid);
+      setCustomerEmail(data.customerEmail);
     };
 
     fetchData();
@@ -34,9 +39,15 @@ const Success = () => {
           .then(environment => {
             environment.createEntry('customerLink', {
               fields: {
-                customerName: 'testing',
-                customerEmail: 'testing@gmail.com',
-                url: uuid
+                customerName: {
+                  'en-US': 'testing'
+                },
+                customerEmail: {
+                  'en-US': 'testing@gmail.com'
+                },
+                url: {
+                  'en-US': `${process.env.GATSBY_SERVER_URL}/success/${uuid}`
+                }
               }
             });
           })
@@ -51,7 +62,7 @@ const Success = () => {
   // save UUID to contentful
 
   const handleDownload = () => {
-    console.log(uuid);
+    console.log(uuid, customerEmail);
   };
 
   return (
