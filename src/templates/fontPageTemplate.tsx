@@ -99,8 +99,8 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
           <PreviewText key={index} previewText={text} />
         ))}
       </StyledSectionWrapper>
-      <div ref={divRef} />
       <PurchaseFlow font={font} sortedWeights={sortedWeights} />
+      <div ref={divRef} />
       <SupportedLanguagesWrapper>
         <H3>Supported Languages</H3>
         <SmallText>{font.supportedLanguages.supportedLanguages}</SmallText>
