@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { FontType } from '../pages';
-import { Button, COLORS, H2, RowFlex } from '../styles';
+import { FontType } from '../../pages';
+import { Button, COLORS, H2, RowFlex } from '../../styles';
 
 const TextInput = styled.input<{
   $darkMode: boolean;
@@ -85,7 +85,7 @@ interface TypeTesterProps {
   font: FontType;
 }
 
-const TypeTester = ({ font }: TypeTesterProps) => {
+const TypeTesterInput = ({ font }: TypeTesterProps) => {
   const [darkMode, setDarkMode] = useState(false);
   const [selectedWeight, setSelectedWeight] = useState(0);
   const [selectedSlant, setSelectedSlant] = useState('Roman');
@@ -144,4 +144,4 @@ const TypeTester = ({ font }: TypeTesterProps) => {
   );
 };
 
-export default TypeTester;
+export default TypeTesterInput;

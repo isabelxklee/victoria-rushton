@@ -6,7 +6,7 @@ import License from '../components/License';
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
-import TypeTester from '../components/TypeTester';
+import TypeTesterInput from '../components/type-tester/TypeTesterInput';
 import { FontType } from '../pages';
 import { Button, Text } from '../styles';
 
@@ -96,7 +96,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <Text>{font.supportedLanguages.supportedLanguages}</Text>
       </SupportedLanguagesWrapper>
       <div ref={divRef} />
-      <TypeTester font={font} />
+      <TypeTesterInput font={font} />
       <License font={font} />
     </PageTemplate>
   );
