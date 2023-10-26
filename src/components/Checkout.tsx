@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
@@ -26,7 +27,7 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
 
     event.preventDefault();
 
-    const stripe: any = await loadStripe(process.env.GATSBY_STRIPE_SECRET);
+    const stripe: any = await loadStripe(process.env.GATSBY_STRIPE_SECRET!);
     const response = await fetch(
       `${process.env.GATSBY_SERVER_URL}/create-checkout-session`,
       {
