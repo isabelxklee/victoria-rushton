@@ -19,7 +19,7 @@ export const BREAKPOINTS = {
   MEDIUM: '900px'
 };
 
-const Flex = styled.div`
+export const Flex = styled.div`
   display: flex;
 `;
 
@@ -87,6 +87,11 @@ export const Button = styled.button`
   padding: 10px 20px;
   pointer-events: auto;
   cursor: pointer;
+`;
+
+export const SecondaryButton = styled(Button)`
+  background: ${COLORS.WHITE};
+  color: ${COLORS.BLACK};
 `;
 
 export const GlobalStyles = createGlobalStyle`

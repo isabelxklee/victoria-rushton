@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { FontType } from '../../pages';
-import { Button, COLORS, H2, RowFlex } from '../../styles';
+import { Button, COLORS, Flex, H2, RowFlex } from '../../styles';
 
 import TypeTesterPreview from './TypeTesterPreview';
 
@@ -20,19 +20,22 @@ const TextInput = styled.input`
   box-sizing: border-box;
   line-height: 1;
   height: 100%;
+  flex: 1;
 
   ::placeholder {
     color: rgba(${COLORS.BLACK}, 0.3);
   }
 `;
 
-const SizeWrapper = styled(RowFlex)`
-  align-items: baseline;
-  gap: 20px;
+const ActionWrapper = styled(RowFlex)`
+  justify-content: space-between;
+  gap: 40px;
+  padding: 30px 0;
 `;
 
-const ActionWrapper = styled(SizeWrapper)`
-  justify-content: space-between;
+const SizeWrapper = styled(Flex)`
+  align-items: center;
+  gap: 20px;
 `;
 
 const Slider = styled.input`
@@ -54,38 +57,15 @@ const Slider = styled.input`
   }
 `;
 
-const IconButton = styled(Button)<{ $darkMode: boolean }>`
-  border: 2px solid
-    ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
-  background: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
-  color: ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
-  cursor: pointer;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 20px;
-
-  &:hover {
-    background: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
-    color: ${({ $darkMode }) => ($darkMode ? COLORS.BLACK : COLORS.WHITE)};
-  }
-`;
-
 export interface TypeTesterProps {
   font: FontType;
 }
 
 const TypeTesterInput = ({ font }: TypeTesterProps) => {
-  const [darkMode, setDarkMode] = useState(false);
   const [size, setSize] = useState<string>('40');
   const [previewText, setPreviewText] = useState<string>(
     'Hello world, this is Victoria Rushton.'
   );
-
-  const handleColorModeChange = () => {
-    setDarkMode(darkMode => !darkMode);
-  };
 
   const handleChange = (event: any) => {
     setPreviewText(event.target.value);
@@ -95,11 +75,11 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
     <>
       <div>
         <H2>Type something here</H2>
-        <TextInput
-          placeholder="Your preview text goes here"
-          onChange={event => handleChange(event)}
-        />
         <ActionWrapper>
+          <TextInput
+            placeholder="Your preview text goes here"
+            onChange={event => handleChange(event)}
+          />
           <SizeWrapper>
             <label>Size</label>
             <Slider
@@ -109,25 +89,6 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
               onChange={event => setSize(event.target.value)}
             />
           </SizeWrapper>
-          <IconButton $darkMode={darkMode} onClick={handleColorModeChange}>
-            {darkMode ? (
-              <>
-                Light{' '}
-                <img
-                  alt=""
-                  src="https://images.ctfassets.net/6l1e28rigfdw/9yOSsDzz03WNEAKk9gj6d/471079ecc5ae1aa1483500197c29d4af/icon-sun.svg"
-                />
-              </>
-            ) : (
-              <>
-                Dark{' '}
-                <img
-                  alt=""
-                  src="https://images.ctfassets.net/6l1e28rigfdw/HpfZbGuPPV0KOHu6SSvxz/c6c5dd5faa177403975b61b11462047b/icon-moon.svg"
-                />
-              </>
-            )}
-          </IconButton>
         </ActionWrapper>
       </div>
       <TypeTesterPreview font={font} previewText={previewText} size={size} />

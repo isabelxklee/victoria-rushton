@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { FontType } from '../../pages';
-import { COLORS, RowFlex } from '../../styles';
+import { Button, COLORS, RowFlex, SecondaryButton } from '../../styles';
 
 const Wrapper = styled.div`
   padding: 40px 0 100px 0;
@@ -29,6 +29,17 @@ const PreviewText = styled.p<{
     $darkMode ? COLORS.BLACK : COLORS.WHITE};
   color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
   margin: 0 0 20px 0;
+  width: 80%;
+  line-break: anywhere;
+`;
+
+const StyledButton = styled(Button)`
+  transition: 0.3s;
+  height: 100%;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 interface TypeTesterPreviewProps {
@@ -50,13 +61,18 @@ const TypeTesterPreview = ({
             <p>{weight.title}</p>
             <p>{weight.value}</p>
           </StyledRowFlex>
-          <PreviewText
-            $darkMode={false}
-            $fontFamily={font.name}
-            $size={size}
-            $weight={weight.value}>
-            {previewText}
-          </PreviewText>
+          <StyledRowFlex>
+            <PreviewText
+              $darkMode={false}
+              $fontFamily={font.name}
+              $size={size}
+              $weight={weight.value}>
+              {previewText}
+            </PreviewText>
+            <StyledButton onClick={() => handleClick(font)}>
+              Purchase
+            </StyledButton>
+          </StyledRowFlex>
         </LineItem>
       ))}
     </Wrapper>

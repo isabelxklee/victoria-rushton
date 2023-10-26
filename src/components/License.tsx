@@ -157,7 +157,7 @@ const License = ({ font }: LicenseProps) => {
               </>
             )}
           </div>
-          <div>
+          {/* <div>
             <H3>Select Fonts</H3>
             <StyledRowFlex style={{ gap: '16px' }}>
               <ColumnFlex style={{ gap: '8px', width: '50%' }}>
@@ -168,7 +168,7 @@ const License = ({ font }: LicenseProps) => {
                 ))}
               </ColumnFlex>
             </StyledRowFlex>
-          </div>
+          </div> */}
         </Left>
         <Right>
           <H3>Cart</H3>
