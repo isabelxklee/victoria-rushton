@@ -10,7 +10,7 @@ interface PurchaseFlowProps {
 }
 
 export interface SimpleFontType {
-  slant?: string;
+  slant: string;
   weightTitle: string;
   weightValue: number;
 }
@@ -22,7 +22,13 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
     const arr: SimpleFontType[] = [];
 
     if (font.slants.length < 2) {
-      return font.weights;
+      return font.weights.map(fontOption => {
+        return {
+          slant: 'Roman',
+          weightTitle: fontOption.title,
+          weightValue: fontOption.value
+        };
+      });
     } else {
       for (let i = 0; i < font.weights.length; i++) {
         for (let y = 0; y < font.slants.length; y++) {
