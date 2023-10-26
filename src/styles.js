@@ -89,7 +89,7 @@ export const Button = styled.button`
   font-family: 'Cecilie Sans', 'sans-serif';
   font-weight: ${FONT_WEIGHTS.BOOK};
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 4px 16px;
   pointer-events: auto;
   cursor: pointer;
 `;
