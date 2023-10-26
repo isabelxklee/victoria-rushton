@@ -70,6 +70,11 @@ export const Text = styled.p`
   }
 `;
 
+export const SmallText = styled(Text)`
+  font-size: 14px;
+  line-height: unset;
+`;
+
 export const TextLink = styled.a`
   font-weight: ${props => props.inputWeight || FONT_WEIGHTS.BOLD};
   color: ${({ $light }) => ($light ? COLORS.WHITE : COLORS.BLACK)};

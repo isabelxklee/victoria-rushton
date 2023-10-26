@@ -7,7 +7,7 @@ import PreviewText from '../components/PreviewText';
 import PurchaseFlow from '../components/purchase/PurchaseFlow';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
 import { FontType } from '../pages';
-import { Button, Text } from '../styles';
+import { Button, H3, SmallText, Text } from '../styles';
 
 export interface PreviewTextItem {
   font: {
@@ -49,9 +49,9 @@ const StyledSectionWrapper = styled(SectionWrapper)`
   border-bottom: none;
 `;
 
-const SupportedLanguagesWrapper = styled(SectionWrapper)`
-  padding-bottom: 120px;
-  border-bottom: none;
+const SupportedLanguagesWrapper = styled.div`
+  margin-top: 100px;
+  padding: 40px 0;
 `;
 
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
@@ -92,12 +92,12 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
           <PreviewText key={index} previewText={text} />
         ))}
       </StyledSectionWrapper>
-      <SupportedLanguagesWrapper>
-        <h3>Supported Languages</h3>
-        <Text>{font.supportedLanguages.supportedLanguages}</Text>
-      </SupportedLanguagesWrapper>
       <div ref={divRef} />
       <PurchaseFlow font={font} />
+      <SupportedLanguagesWrapper>
+        <H3>Supported Languages</H3>
+        <SmallText>{font.supportedLanguages.supportedLanguages}</SmallText>
+      </SupportedLanguagesWrapper>
     </PageTemplate>
   );
 };
