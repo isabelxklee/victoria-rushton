@@ -12,6 +12,10 @@ const Wrapper = styled.div`
 
 const LineItem = styled.div`
   border-top: 2px solid ${COLORS.BLACK};
+
+  &:first-child {
+    border-top: none;
+  }
 `;
 
 const StyledRowFlex = styled(RowFlex)`

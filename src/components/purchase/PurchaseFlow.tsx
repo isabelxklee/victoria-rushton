@@ -1,12 +1,14 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
 import { FontType } from '../../pages';
+import { FontWeightType } from '../../templates/fontPageTemplate';
 
 import TypeTester from './type-tester/TypeTester';
 import License from './License';
 
 interface PurchaseFlowProps {
   font: FontType;
+  sortedWeights: FontWeightType[];
 }
 
 export interface SimpleFontType {
@@ -15,14 +17,14 @@ export interface SimpleFontType {
   weightValue: number;
 }
 
-const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
+const PurchaseFlow = ({ font, sortedWeights }: PurchaseFlowProps) => {
   const [selectedFonts, setSelectedFonts] = useState<SimpleFontType[]>([]);
 
   const availableFonts = useMemo(() => {
     const arr: SimpleFontType[] = [];
 
     if (font.slants.length < 2) {
-      return font.weights.map(fontOption => {
+      return sortedWeights.map(fontOption => {
         return {
           slant: 'Roman',
           weightTitle: fontOption.title,
@@ -30,12 +32,12 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
         };
       });
     } else {
-      for (let i = 0; i < font.weights.length; i++) {
+      for (let i = 0; i < sortedWeights.length; i++) {
         for (let y = 0; y < font.slants.length; y++) {
           const obj = {
             slant: font.slants[y].title,
-            weightTitle: font.weights[i].title,
-            weightValue: font.weights[i].value
+            weightTitle: sortedWeights[i].title,
+            weightValue: sortedWeights[i].value
           };
           arr.push(obj);
         }
@@ -43,7 +45,7 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
     }
 
     return arr;
-  }, [font.slants, font.weights]);
+  }, [font.slants, sortedWeights]);
 
   const addFont = useCallback((item: SimpleFontType) => {
     setSelectedFonts((selectedFonts: SimpleFontType[]) =>

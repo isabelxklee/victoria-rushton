@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
@@ -25,6 +25,11 @@ export interface PreviewTextItem {
     title: string;
     value: number;
   };
+}
+
+export interface FontWeightType {
+  title: string;
+  value: number;
 }
 
 interface FontItem extends FontType {
@@ -59,7 +64,9 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const previewTexts = data.allContentfulPreviewText.nodes;
   const divRef = useRef<HTMLDivElement>(null);
 
-  font.weights = font.weights.sort((a, b) => a.value - b.value);
+  const sortedWeights = useMemo(() => {
+    return font.weights.sort((a, b) => a.value - b.value);
+  }, [font.weights]);
 
   const scrollToSection = useCallback(() => {
     const current = divRef.current;
@@ -93,7 +100,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         ))}
       </StyledSectionWrapper>
       <div ref={divRef} />
-      <PurchaseFlow font={font} />
+      <PurchaseFlow font={font} sortedWeights={sortedWeights} />
       <SupportedLanguagesWrapper>
         <H3>Supported Languages</H3>
         <SmallText>{font.supportedLanguages.supportedLanguages}</SmallText>
