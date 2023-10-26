@@ -5,7 +5,7 @@ import { FontType } from '../../pages';
 import { COLORS, RowFlex } from '../../styles';
 
 const Wrapper = styled.div`
-  padding: 100px 0;
+  padding: 40px 0 100px 0;
 `;
 
 const LineItem = styled.div`
@@ -28,7 +28,7 @@ const PreviewText = styled.p<{
   background-color: ${({ $darkMode }) =>
     $darkMode ? COLORS.BLACK : COLORS.WHITE};
   color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
-  margin: 0;
+  margin: 0 0 20px 0;
 `;
 
 interface TypeTesterPreviewProps {

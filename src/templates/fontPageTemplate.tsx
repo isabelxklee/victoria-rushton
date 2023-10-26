@@ -51,7 +51,7 @@ const StyledSectionWrapper = styled(SectionWrapper)`
 `;
 
 const SupportedLanguagesWrapper = styled(SectionWrapper)`
-  padding: 120px 0;
+  padding-bottom: 120px;
   border-bottom: none;
 `;
 
