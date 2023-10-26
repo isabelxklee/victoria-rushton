@@ -53,6 +53,9 @@ const Left = styled(ColumnFlex)`
 
 const Right = styled.div`
   width: 40%;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const CartWrapper = styled(ColumnFlex)`
@@ -111,7 +114,9 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
         <Right>
           <H3>Cart</H3>
           <CartWrapper>
-            {selectedLicense && <Text>{selectedLicense.title} License</Text>}
+            {selectedLicense && (
+              <Text>License size - {selectedLicense.title}</Text>
+            )}
             {selectedFonts.map((fontOption: SimpleFontType, index) => (
               <LineItem key={index} onClick={() => removeFont(fontOption)}>
                 <Text>
@@ -120,10 +125,6 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
                 </Text>
                 <RowFlex style={{ gap: '32px' }}>
                   <Text>${selectedLicense?.price}</Text>
-                  <img
-                    alt=""
-                    src="https://images.ctfassets.net/6l1e28rigfdw/4vHJUE4MABJFmeBhAoowDT/2aefe149687c6b52efe8185a49deb59a/icon-remove.svg"
-                  />
                 </RowFlex>
               </LineItem>
             ))}
@@ -131,12 +132,12 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
           <StyledRowFlex>
             <H3>Subtotal</H3>
             <H3>${priceCalculation}</H3>
-            <Checkout
-              fontTitle={font.name}
-              fonts={selectedFonts}
-              license={selectedLicense}
-            />
           </StyledRowFlex>
+          <Checkout
+            fontTitle={font.name}
+            fonts={selectedFonts}
+            license={selectedLicense}
+          />
         </Right>
       </StyledRowFlex>
     </Wrapper>
