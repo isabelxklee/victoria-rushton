@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import { FontType } from '../../../pages';
 import { COLORS, Flex, H2, RowFlex } from '../../../styles';
-import { SimpleFontType } from '../PurchaseFlow';
-
-import TypeTesterPreview from './TypePreview';
 
 const TextInput = styled.input`
   color: ${COLORS.BLACK};
@@ -58,26 +54,13 @@ const Slider = styled.input`
   }
 `;
 
-export interface TypeTesterProps {
-  addFont: (arg0: SimpleFontType) => void;
-  availableFonts: SimpleFontType[];
-  font: FontType;
-  removeFont: (arg0: SimpleFontType) => void;
-  selectedFonts: SimpleFontType[];
+interface TypeInputProps {
+  setPreviewText: (arg0: string) => void;
+  setSize: (arg0: string) => void;
+  size: string;
 }
 
-const TypeTesterInput = ({
-  addFont,
-  availableFonts,
-  font,
-  removeFont,
-  selectedFonts
-}: TypeTesterProps) => {
-  const [size, setSize] = useState<string>('40');
-  const [previewText, setPreviewText] = useState<string>(
-    'Hello world, this is Victoria Rushton.'
-  );
-
+const TypeInput = ({ setPreviewText, setSize }: TypeInputProps) => {
   const handleChange = (event: any) => {
     setPreviewText(event.target.value);
   };
@@ -102,17 +85,8 @@ const TypeTesterInput = ({
           </SizeWrapper>
         </ActionWrapper>
       </div>
-      <TypeTesterPreview
-        addFont={addFont}
-        availableFonts={availableFonts}
-        font={font}
-        previewText={previewText}
-        removeFont={removeFont}
-        selectedFonts={selectedFonts}
-        size={size}
-      />
     </>
   );
 };
 
-export default TypeTesterInput;
+export default TypeInput;

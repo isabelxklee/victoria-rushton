@@ -28,7 +28,7 @@ const TypeTester = ({
 
   return (
     <>
-      <TypeTesterInput />
+      <TypeTesterInput setPreviewText={setPreviewText} setSize={setSize} />
       <TypeTesterPreview
         addFont={addFont}
         availableFonts={availableFonts}
