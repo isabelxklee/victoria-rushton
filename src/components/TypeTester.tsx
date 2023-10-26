@@ -33,15 +33,15 @@ const TextInput = styled.input<{
   ::placeholder {
     color: rgba(${COLORS.BLACK}, 0.3);
   }
-
-  /* @media (max-width: 900px) {
-    height: 300px;
-  } */
 `;
 
 const SizeWrapper = styled(RowFlex)`
   align-items: baseline;
   gap: 20px;
+`;
+
+const ActionWrapper = styled(SizeWrapper)`
+  justify-content: space-between;
 `;
 
 const Slider = styled.input`
@@ -110,7 +110,7 @@ const TypeTester = ({ font }: TypeTesterProps) => {
         $weight={selectedWeight}
         placeholder="Your preview text goes here"
       />
-      <div>
+      <ActionWrapper>
         <SizeWrapper>
           <label>Size</label>
           <Slider
@@ -120,7 +120,6 @@ const TypeTester = ({ font }: TypeTesterProps) => {
             onChange={event => setSelectedSize(event.target.value)}
           />
         </SizeWrapper>
-
         <IconButton $darkMode={darkMode} onClick={handleColorModeChange}>
           {darkMode ? (
             <>
@@ -140,7 +139,7 @@ const TypeTester = ({ font }: TypeTesterProps) => {
             </>
           )}
         </IconButton>
-      </div>
+      </ActionWrapper>
     </div>
   );
 };
