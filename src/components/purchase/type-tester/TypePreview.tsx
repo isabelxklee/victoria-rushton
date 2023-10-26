@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
-import { Button, COLORS, RowFlex } from '../../../styles';
+import { COLORS, RowFlex } from '../../../styles';
 import { SimpleFontType } from '../PurchaseFlow';
 
-import { TypeTesterProps } from './TypeTester';
+import { StyledButton, TypeTesterProps } from './TypeTester';
 
 const Wrapper = styled.div`
   padding: 40px 0;
@@ -15,6 +15,10 @@ const LineItem = styled.div`
 
   &:first-child {
     border-top: none;
+  }
+
+  &:last-child {
+    border-bottom: 2px solid ${COLORS.BLACK};
   }
 `;
 
@@ -38,18 +42,8 @@ const PreviewText = styled.p<{
   color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
   margin: 0 0 10px 0;
   width: 80%;
-  line-break: anywhere;
+  line-break: normal;
   line-height: 1.4;
-`;
-
-const StyledButton = styled(Button)`
-  transition: 0.3s;
-  height: 40px;
-  padding: 0 12px;
-
-  &:hover {
-    opacity: 0.8;
-  }
 `;
 
 interface TypeTesterPreviewProps extends TypeTesterProps {
