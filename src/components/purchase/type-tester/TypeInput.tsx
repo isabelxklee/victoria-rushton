@@ -75,8 +75,8 @@ const TypeInput = ({ setPreviewText, setSize }: TypeInputProps) => {
           <SizeWrapper>
             <label>Size</label>
             <Slider
-              max="160"
-              min="8"
+              max="100"
+              min="14"
               type="range"
               onChange={event => setSize(event.target.value)}
             />
