@@ -57,7 +57,6 @@ const Slider = styled.input`
 interface TypeInputProps {
   setPreviewText: (arg0: string) => void;
   setSize: (arg0: string) => void;
-  size: string;
 }
 
 const TypeInput = ({ setPreviewText, setSize }: TypeInputProps) => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import { FontType } from '../../../pages';
-
-import TypeTesterInput from './TypeInput';
-import TypeTesterPreview from './TypePreview';
 import { SimpleFontType } from '../PurchaseFlow';
+
+import TypeInput from './TypeInput';
+import TypePreview from './TypePreview';
 
 export interface TypeTesterProps {
   addFont: (arg0: SimpleFontType) => void;
@@ -28,8 +28,8 @@ const TypeTester = ({
 
   return (
     <>
-      <TypeTesterInput setPreviewText={setPreviewText} setSize={setSize} />
-      <TypeTesterPreview
+      <TypeInput setPreviewText={setPreviewText} setSize={setSize} />
+      <TypePreview
         addFont={addFont}
         availableFonts={availableFonts}
         font={font}

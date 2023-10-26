@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Button, COLORS, RowFlex } from '../../../styles';
 import { SimpleFontType } from '../PurchaseFlow';
 
-import { TypeTesterProps } from './TypeInput';
+import { TypeTesterProps } from './TypeTester';
 
 const Wrapper = styled.div`
   padding: 40px 0 100px 0;
@@ -65,8 +65,6 @@ const TypeTesterPreview = ({
       addFont(fontOption);
     }
   };
-
-  console.log();
 
   return (
     <Wrapper>
