@@ -78,7 +78,7 @@ export interface TypeTesterProps {
 
 const TypeTesterInput = ({ font }: TypeTesterProps) => {
   const [darkMode, setDarkMode] = useState(false);
-  const [selectedSize, setSelectedSize] = useState('60');
+  const [size, setSize] = useState<number>(40);
   const [previewText, setPreviewText] = useState<string>(
     'Hello world, this is Victoria Rushton.'
   );
@@ -106,7 +106,7 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
               max="160"
               min="8"
               type="range"
-              onChange={event => setSelectedSize(event.target.value)}
+              onChange={event => setSize(event.target.value)}
             />
           </SizeWrapper>
           <IconButton $darkMode={darkMode} onClick={handleColorModeChange}>
@@ -130,7 +130,7 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
           </IconButton>
         </ActionWrapper>
       </div>
-      <TypeTesterPreview font={font} previewText={previewText} />
+      <TypeTesterPreview font={font} previewText={previewText} size={size} />
     </>
   );
 };

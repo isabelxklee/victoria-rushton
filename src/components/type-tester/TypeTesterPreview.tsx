@@ -16,9 +16,14 @@ const StyledRowFlex = styled(RowFlex)`
   justify-content: space-between;
 `;
 
-const PreviewText = styled.p<{ $darkMode: boolean; $fontFamily: string }>`
-  /* font-weight: ${({ $weight }) => $weight}; */
-  /* font-size: ${({ $size }) => `${$size}px`}; */
+const PreviewText = styled.p<{
+  $darkMode: boolean;
+  $fontFamily: string;
+  $size: number;
+  $weight: number;
+}>`
+  font-weight: ${({ $weight }) => $weight};
+  font-size: ${({ $size }) => `${$size}px`};
   font-family: ${({ $fontFamily }) => $fontFamily};
   background-color: ${({ $darkMode }) =>
     $darkMode ? COLORS.BLACK : COLORS.WHITE};
@@ -28,9 +33,14 @@ const PreviewText = styled.p<{ $darkMode: boolean; $fontFamily: string }>`
 interface TypeTesterPreviewProps {
   font: FontType;
   previewText: string;
+  size: number;
 }
 
-const TypeTesterPreview = ({ font, previewText }: TypeTesterPreviewProps) => {
+const TypeTesterPreview = ({
+  font,
+  previewText,
+  size
+}: TypeTesterPreviewProps) => {
   return (
     <Wrapper>
       {font.weights.map((weight, index) => (
@@ -39,7 +49,11 @@ const TypeTesterPreview = ({ font, previewText }: TypeTesterPreviewProps) => {
             <p>{weight.title}</p>
             <p>{weight.value}</p>
           </StyledRowFlex>
-          <PreviewText $darkMode={false} $fontFamily={font.name}>
+          <PreviewText
+            $darkMode={false}
+            $fontFamily={font.name}
+            $size={size}
+            $weight={weight.value}>
             {previewText}
           </PreviewText>
         </LineItem>
