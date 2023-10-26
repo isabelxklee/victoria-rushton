@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { FontType } from '../pages';
-import { Button, COLORS, ColumnFlex, RowFlex } from '../styles';
+import { Button, COLORS, RowFlex } from '../styles';
 
 import { Select } from './sharedStyles';
 
-const TextArea = styled.textarea<{
+const TextArea = styled.input<{
   $darkMode: boolean;
   $fontFamily: string;
   $size: string;
@@ -40,14 +40,14 @@ const TextArea = styled.textarea<{
 
 const SizeWrapper = styled(RowFlex)`
   align-items: baseline;
-  justify-content: space-between;
+  gap: 20px;
 `;
 
 const Slider = styled.input`
-  width: 100%;
+  width: 200px;
 
   &::-webkit-slider-runnable-track {
-    background-color: ${COLORS.WHITE};
+    background-color: ${COLORS.BLACK};
     height: 2px;
     border-radius: 100px;
   }
@@ -58,25 +58,8 @@ const Slider = styled.input`
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    background-color: ${COLORS.BLACK};
+    background-color: ${COLORS.WHITE};
   }
-`;
-
-const Wrapper = styled(RowFlex)`
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-`;
-
-const Left = styled(ColumnFlex)`
-  background-color: ${COLORS.BLACK};
-  color: ${COLORS.WHITE};
-  padding: 80px;
-  gap: 20px;
-  width: 500px;
-`;
-
-const Right = styled.div`
-  width: 100%;
 `;
 
 const IconButton = styled(Button)<{ $darkMode: boolean }>`
@@ -116,43 +99,25 @@ const TypeTester = ({ font }: TypeTesterProps) => {
   }, [font.weights]);
 
   return (
-    <Wrapper>
-      <Left>
-        <label>Weight</label>
-        <Select
-          onChange={event => setSelectedWeight(parseInt(event.target.value))}>
-          {font.weights
-            .sort((a, b) => a.value - b.value)
-            .map((weight: { title: string; value: number }, index: number) => (
-              <option key={index} value={weight.value}>
-                {weight.title}
-              </option>
-            ))}
-        </Select>
-
-        {font.slants.length > 1 && (
-          <>
-            <label>Slant</label>
-            <Select onChange={event => setSelectedSlant(event.target.value)}>
-              {font.slants.map((slant: { title: string }, index: number) => (
-                <option key={index} value={slant.title}>
-                  {slant.title}
-                </option>
-              ))}
-            </Select>
-          </>
-        )}
-
+    <div>
+      <TextArea
+        $darkMode={darkMode}
+        $fontFamily={font.name}
+        $size={selectedSize}
+        $slant={selectedSlant}
+        $weight={selectedWeight}
+        placeholder="Type something..."
+      />
+      <div>
         <SizeWrapper>
           <label>Size</label>
-          <p>{selectedSize}px</p>
+          <Slider
+            max="160"
+            min="8"
+            type="range"
+            onChange={event => setSelectedSize(event.target.value)}
+          />
         </SizeWrapper>
-        <Slider
-          max="160"
-          min="8"
-          type="range"
-          onChange={event => setSelectedSize(event.target.value)}
-        />
 
         <IconButton $darkMode={darkMode} onClick={handleColorModeChange}>
           {darkMode ? (
@@ -173,18 +138,8 @@ const TypeTester = ({ font }: TypeTesterProps) => {
             </>
           )}
         </IconButton>
-      </Left>
-      <Right>
-        <TextArea
-          $darkMode={darkMode}
-          $fontFamily={font.name}
-          $size={selectedSize}
-          $slant={selectedSlant}
-          $weight={selectedWeight}
-          placeholder="Type something..."
-        />
-      </Right>
-    </Wrapper>
+      </div>
+    </div>
   );
 };
 
