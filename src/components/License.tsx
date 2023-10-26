@@ -1,11 +1,10 @@
-/* eslint-disable array-callback-return */
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import { FontType } from '../pages';
-import { Button, COLORS, ColumnFlex, H3, RowFlex, Text } from '../styles';
+import { COLORS, ColumnFlex, H3, RowFlex, Text } from '../styles';
 
 import Checkout from './Checkout';
 import { Select } from './sharedStyles';
@@ -20,11 +19,6 @@ export interface LicenseType {
   price: number;
   title: string;
   webVisitors: number;
-}
-
-interface FontWeight {
-  title: string;
-  value: number;
 }
 
 export interface SimpleFontType {
@@ -62,48 +56,13 @@ const CartWrapper = styled(ColumnFlex)`
   gap: 8px;
 `;
 
-const StyledButton = styled(Button)`
-  transition: 0.3s;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
 const License = ({ font }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
-  const [selectedLicense, setSelectedLicense] = useState<LicenseType>();
+  const [selectedLicense, setSelectedLicense] = useState<LicenseType>(
+    licenses[0]
+  );
   const [selectedFonts, setSelectedFonts] = useState<SimpleFontType[]>([]);
-  const [availableFonts, setAvailableFonts] = useState<SimpleFontType[]>([]);
-
-  useEffect(() => {
-    setSelectedLicense(licenses[0]);
-
-    const arr: SimpleFontType[] = [];
-
-    font.weights.map((weight: FontWeight) => {
-      const item1 = {
-        slant: 'Roman',
-        weight: weight.title,
-        value: weight.value
-      };
-
-      arr.push(item1);
-
-      if (font.slants.length > 1) {
-        const item2 = {
-          slant: 'Italic',
-          weight: weight.title,
-          value: weight.value
-        };
-
-        arr.push(item2);
-      }
-    });
-
-    setAvailableFonts(arr);
-  }, [font.slants.length, font.weights, licenses]);
 
   const handleClick = useCallback((item: SimpleFontType) => {
     setSelectedFonts((selectedFonts: SimpleFontType[]) =>

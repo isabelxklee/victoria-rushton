@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { FontType } from '../../pages';
-import { Button, COLORS, RowFlex, SecondaryButton } from '../../styles';
+import { Button, COLORS, RowFlex } from '../../styles';
 
 const Wrapper = styled.div`
   padding: 40px 0 100px 0;

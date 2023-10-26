@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { FontType } from '../../pages';
-import { Button, COLORS, Flex, H2, RowFlex } from '../../styles';
+import { COLORS, Flex, H2, RowFlex } from '../../styles';
 
 import TypeTesterPreview from './TypeTesterPreview';
 
