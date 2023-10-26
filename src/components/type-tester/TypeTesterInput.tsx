@@ -63,13 +63,15 @@ export interface TypeTesterProps {
   availableFonts: SimpleFontType[];
   font: FontType;
   removeFont: (arg0: SimpleFontType) => void;
+  selectedFonts: SimpleFontType[];
 }
 
 const TypeTesterInput = ({
   addFont,
   availableFonts,
   font,
-  removeFont
+  removeFont,
+  selectedFonts
 }: TypeTesterProps) => {
   const [size, setSize] = useState<string>('40');
   const [previewText, setPreviewText] = useState<string>(
@@ -106,6 +108,7 @@ const TypeTesterInput = ({
         font={font}
         previewText={previewText}
         removeFont={removeFont}
+        selectedFonts={selectedFonts}
         size={size}
       />
     </>

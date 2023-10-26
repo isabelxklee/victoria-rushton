@@ -66,6 +66,7 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
         availableFonts={availableFonts}
         font={font}
         removeFont={removeFont}
+        selectedFonts={selectedFonts}
       />
       <License
         font={font}

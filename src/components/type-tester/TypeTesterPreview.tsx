@@ -55,11 +55,18 @@ const TypeTesterPreview = ({
   font,
   previewText,
   removeFont,
+  selectedFonts,
   size
 }: TypeTesterPreviewProps) => {
-  const handleClick = (weight: SimpleFontType) => {
-    addFont(weight);
+  const handleClick = (fontOption: SimpleFontType) => {
+    if (selectedFonts.includes(fontOption)) {
+      removeFont(fontOption);
+    } else {
+      addFont(fontOption);
+    }
   };
+
+  console.log();
 
   return (
     <Wrapper>
