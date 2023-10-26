@@ -44,7 +44,8 @@ const PreviewText = styled.p<{
 
 const StyledButton = styled(Button)`
   transition: 0.3s;
-  height: 100%;
+  height: 40px;
+  padding: 0 12px;
 
   &:hover {
     opacity: 0.8;
