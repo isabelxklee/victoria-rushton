@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { FontType } from '../../pages';
@@ -7,19 +7,7 @@ import { Button, COLORS, H2, RowFlex } from '../../styles';
 
 import TypeTesterPreview from './TypeTesterPreview';
 
-const TextInput = styled.input<{
-  $darkMode: boolean;
-  $fontFamily: string;
-  $size: string;
-  $slant: string;
-  $weight: number;
-}>`
-  /* font-weight: ${({ $weight }) => $weight}; */
-  /* font-size: ${({ $size }) => `${$size}px`}; */
-  /* font-family: ${({ $fontFamily }) => $fontFamily}; */
-  /* background-color: ${({ $darkMode }) =>
-    $darkMode ? COLORS.BLACK : COLORS.WHITE}; */
-  /* color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)}; */
+const TextInput = styled.input`
   color: ${COLORS.BLACK};
   background: ${COLORS.WHITE};
   border: none;
@@ -90,8 +78,6 @@ export interface TypeTesterProps {
 
 const TypeTesterInput = ({ font }: TypeTesterProps) => {
   const [darkMode, setDarkMode] = useState(false);
-  const [selectedWeight, setSelectedWeight] = useState(0);
-  const [selectedSlant, setSelectedSlant] = useState('Roman');
   const [selectedSize, setSelectedSize] = useState('60');
   const [previewText, setPreviewText] = useState<string>(
     'Hello world, this is Victoria Rushton.'
@@ -100,10 +86,6 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
   const handleColorModeChange = () => {
     setDarkMode(darkMode => !darkMode);
   };
-
-  useEffect(() => {
-    setSelectedWeight(font.weights[0].value);
-  }, [font.weights]);
 
   const handleChange = (event: any) => {
     setPreviewText(event.target.value);
@@ -114,11 +96,6 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
       <div>
         <H2>Type something here</H2>
         <TextInput
-          $darkMode={darkMode}
-          $fontFamily={font.name}
-          $size={selectedSize}
-          $slant={selectedSlant}
-          $weight={selectedWeight}
           placeholder="Your preview text goes here"
           onChange={event => handleChange(event)}
         />
