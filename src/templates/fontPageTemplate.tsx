@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
-import PurchaseFlow from '../components/PurchaseFlow';
+import PurchaseFlow from '../components/purchase/PurchaseFlow';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
 import { FontType } from '../pages';
 import { Button, Text } from '../styles';

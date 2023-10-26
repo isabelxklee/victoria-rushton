@@ -2,8 +2,8 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 import { FontType } from '../../pages';
 
-import License from './License';
 import TypeTester from './type-tester/TypeTester';
+import License from './License';
 
 interface PurchaseFlowProps {
   font: FontType;

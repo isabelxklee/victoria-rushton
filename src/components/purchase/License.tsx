@@ -5,10 +5,10 @@ import styled from 'styled-components';
 
 import { FontType } from '../../pages';
 import { COLORS, ColumnFlex, H3, RowFlex, Text } from '../../styles';
+import { Select } from '../sharedStyles';
 
 import Checkout from './Checkout';
 import { SimpleFontType } from './PurchaseFlow';
-import { Select } from '../sharedStyles';
 
 interface LicenseProps {
   font: FontType;
