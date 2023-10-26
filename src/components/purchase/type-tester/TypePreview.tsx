@@ -7,7 +7,7 @@ import { SimpleFontType } from '../PurchaseFlow';
 import { TypeTesterProps } from './TypeTester';
 
 const Wrapper = styled.div`
-  padding: 40px 0 100px 0;
+  padding: 40px 0;
 `;
 
 const LineItem = styled.div`
