@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import { FontType } from '../pages';
 
@@ -10,13 +10,36 @@ interface PurchaseFlowProps {
 }
 
 export interface SimpleFontType {
-  slant: string;
-  value: number;
-  weight: string;
+  slant?: string;
+  weightTitle: string;
+  weightValue: number;
 }
 
 const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
   const [selectedFonts, setSelectedFonts] = useState<SimpleFontType[]>([]);
+
+  const availableFonts = useMemo(() => {
+    const arr: SimpleFontType[] = [];
+
+    if (font.slants.length < 2) {
+      return font.weights;
+    } else {
+      for (let i = 0; i < font.weights.length; i++) {
+        for (let y = 0; y < font.slants.length; y++) {
+          const obj = {
+            slant: font.slants[y].title,
+            weightTitle: font.weights[i].title,
+            weightValue: font.weights[i].value
+          };
+          arr.push(obj);
+        }
+      }
+    }
+
+    return arr;
+  }, [font.slants, font.weights]);
+
+  console.log(font, availableFonts);
 
   const addFont = useCallback((item: SimpleFontType) => {
     setSelectedFonts((selectedFonts: SimpleFontType[]) =>
@@ -34,7 +57,12 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
 
   return (
     <>
-      <TypeTesterInput addFont={addFont} font={font} removeFont={removeFont} />
+      <TypeTesterInput
+        addFont={addFont}
+        availableFonts={availableFonts}
+        font={font}
+        removeFont={removeFont}
+      />
       <License
         font={font}
         removeFont={removeFont}

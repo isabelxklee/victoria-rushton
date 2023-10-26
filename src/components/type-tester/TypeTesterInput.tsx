@@ -60,11 +60,17 @@ const Slider = styled.input`
 
 export interface TypeTesterProps {
   addFont: (arg0: SimpleFontType) => void;
+  availableFonts: SimpleFontType[];
   font: FontType;
   removeFont: (arg0: SimpleFontType) => void;
 }
 
-const TypeTesterInput = ({ font }: TypeTesterProps) => {
+const TypeTesterInput = ({
+  addFont,
+  availableFonts,
+  font,
+  removeFont
+}: TypeTesterProps) => {
   const [size, setSize] = useState<string>('40');
   const [previewText, setPreviewText] = useState<string>(
     'Hello world, this is Victoria Rushton.'
@@ -94,7 +100,14 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
           </SizeWrapper>
         </ActionWrapper>
       </div>
-      <TypeTesterPreview font={font} previewText={previewText} size={size} />
+      <TypeTesterPreview
+        addFont={addFont}
+        availableFonts={availableFonts}
+        font={font}
+        previewText={previewText}
+        removeFont={removeFont}
+        size={size}
+      />
     </>
   );
 };

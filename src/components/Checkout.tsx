@@ -5,7 +5,8 @@ import { loadStripe } from '@stripe/stripe-js';
 
 import { Button } from '../styles';
 
-import { LicenseType, SimpleFontType } from './License';
+import { LicenseType } from './License';
+import { SimpleFontType } from './PurchaseFlow';
 
 interface CheckoutProps {
   fontTitle: string;

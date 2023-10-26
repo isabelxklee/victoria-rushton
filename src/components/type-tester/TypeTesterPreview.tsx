@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { FontType } from '../../pages';
 import { Button, COLORS, RowFlex } from '../../styles';
+import { SimpleFontType } from '../PurchaseFlow';
+
+import { TypeTesterProps } from './TypeTesterInput';
 
 const Wrapper = styled.div`
   padding: 40px 0 100px 0;
@@ -42,34 +44,40 @@ const StyledButton = styled(Button)`
   }
 `;
 
-interface TypeTesterPreviewProps {
-  font: FontType;
+interface TypeTesterPreviewProps extends TypeTesterProps {
   previewText: string;
   size: string;
 }
 
 const TypeTesterPreview = ({
+  addFont,
+  availableFonts,
   font,
   previewText,
+  removeFont,
   size
 }: TypeTesterPreviewProps) => {
+  const handleClick = (weight: SimpleFontType) => {
+    addFont(weight);
+  };
+
   return (
     <Wrapper>
-      {font.weights.map((weight, index) => (
+      {availableFonts.map((fontOption, index) => (
         <LineItem key={index}>
           <StyledRowFlex>
-            <p>{weight.title}</p>
-            <p>{weight.value}</p>
+            <p>{fontOption.weightTitle}</p>
+            <p>{fontOption.weightValue}</p>
           </StyledRowFlex>
           <StyledRowFlex>
             <PreviewText
               $darkMode={false}
               $fontFamily={font.name}
               $size={size}
-              $weight={weight.value}>
+              $weight={fontOption.weightValue}>
               {previewText}
             </PreviewText>
-            <StyledButton onClick={() => handleClick(font)}>
+            <StyledButton onClick={() => handleClick(fontOption)}>
               Purchase
             </StyledButton>
           </StyledRowFlex>
