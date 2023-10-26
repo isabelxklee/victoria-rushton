@@ -26,11 +26,13 @@ const PreviewText = styled.p<{
   $darkMode: boolean;
   $fontFamily: string;
   $size: string;
+  $slant: string;
   $weight: number;
 }>`
   font-weight: ${({ $weight }) => $weight};
   font-size: ${({ $size }) => `${$size}px`};
   font-family: ${({ $fontFamily }) => $fontFamily};
+  font-style: ${({ $slant }) => ($slant === 'Roman' ? 'normal' : 'italic')};
   background-color: ${({ $darkMode }) =>
     $darkMode ? COLORS.BLACK : COLORS.WHITE};
   color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
@@ -90,6 +92,7 @@ const TypeTesterPreview = ({
               $darkMode={false}
               $fontFamily={font.name}
               $size={size}
+              $slant={fontOption.slant}
               $weight={fontOption.weightValue}>
               {previewText}
             </PreviewText>
