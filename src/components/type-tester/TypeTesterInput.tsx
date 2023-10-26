@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { FontType } from '../../pages';
 import { Button, COLORS, H2, RowFlex } from '../../styles';
 
+import TypeTesterPreview from './TypeTesterPreview';
+
 const TextInput = styled.input<{
   $darkMode: boolean;
   $fontFamily: string;
@@ -81,7 +83,7 @@ const IconButton = styled(Button)<{ $darkMode: boolean }>`
   }
 `;
 
-interface TypeTesterProps {
+export interface TypeTesterProps {
   font: FontType;
 }
 
@@ -100,47 +102,50 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
   }, [font.weights]);
 
   return (
-    <div>
-      <H2>Type something here</H2>
-      <TextInput
-        $darkMode={darkMode}
-        $fontFamily={font.name}
-        $size={selectedSize}
-        $slant={selectedSlant}
-        $weight={selectedWeight}
-        placeholder="Your preview text goes here"
-      />
-      <ActionWrapper>
-        <SizeWrapper>
-          <label>Size</label>
-          <Slider
-            max="160"
-            min="8"
-            type="range"
-            onChange={event => setSelectedSize(event.target.value)}
-          />
-        </SizeWrapper>
-        <IconButton $darkMode={darkMode} onClick={handleColorModeChange}>
-          {darkMode ? (
-            <>
-              Light{' '}
-              <img
-                alt=""
-                src="https://images.ctfassets.net/6l1e28rigfdw/9yOSsDzz03WNEAKk9gj6d/471079ecc5ae1aa1483500197c29d4af/icon-sun.svg"
-              />
-            </>
-          ) : (
-            <>
-              Dark{' '}
-              <img
-                alt=""
-                src="https://images.ctfassets.net/6l1e28rigfdw/HpfZbGuPPV0KOHu6SSvxz/c6c5dd5faa177403975b61b11462047b/icon-moon.svg"
-              />
-            </>
-          )}
-        </IconButton>
-      </ActionWrapper>
-    </div>
+    <>
+      <div>
+        <H2>Type something here</H2>
+        <TextInput
+          $darkMode={darkMode}
+          $fontFamily={font.name}
+          $size={selectedSize}
+          $slant={selectedSlant}
+          $weight={selectedWeight}
+          placeholder="Your preview text goes here"
+        />
+        <ActionWrapper>
+          <SizeWrapper>
+            <label>Size</label>
+            <Slider
+              max="160"
+              min="8"
+              type="range"
+              onChange={event => setSelectedSize(event.target.value)}
+            />
+          </SizeWrapper>
+          <IconButton $darkMode={darkMode} onClick={handleColorModeChange}>
+            {darkMode ? (
+              <>
+                Light{' '}
+                <img
+                  alt=""
+                  src="https://images.ctfassets.net/6l1e28rigfdw/9yOSsDzz03WNEAKk9gj6d/471079ecc5ae1aa1483500197c29d4af/icon-sun.svg"
+                />
+              </>
+            ) : (
+              <>
+                Dark{' '}
+                <img
+                  alt=""
+                  src="https://images.ctfassets.net/6l1e28rigfdw/HpfZbGuPPV0KOHu6SSvxz/c6c5dd5faa177403975b61b11462047b/icon-moon.svg"
+                />
+              </>
+            )}
+          </IconButton>
+        </ActionWrapper>
+      </div>
+      <TypeTesterPreview font={font} />
+    </>
   );
 };
 
