@@ -90,12 +90,12 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
           <PreviewText key={index} previewText={text} />
         ))}
       </StyledSectionWrapper>
-      <TypeTester font={font} />
       <SupportedLanguagesWrapper>
         <h3>Supported Languages</h3>
         <Text>{font.supportedLanguages.supportedLanguages}</Text>
       </SupportedLanguagesWrapper>
       <div ref={divRef} />
+      <TypeTester font={font} />
       <License font={font} />
     </PageTemplate>
   );

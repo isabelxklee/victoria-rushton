@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { Font } from '../pages';
+import { FontType } from '../pages';
 import { Button, COLORS, ColumnFlex, RowFlex } from '../styles';
 
 import { Select } from './sharedStyles';
@@ -98,7 +98,7 @@ const IconButton = styled(Button)<{ $darkMode: boolean }>`
 `;
 
 interface TypeTesterProps {
-  font: Font;
+  font: FontType;
 }
 
 const TypeTester = ({ font }: TypeTesterProps) => {
