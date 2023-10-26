@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { FontType } from '../../../pages';
-import { Button, Flex } from '../../../styles';
+import { Flex } from '../../../styles';
+import { StyledButton } from '../../sharedStyles';
 import { SimpleFontType } from '../PurchaseFlow';
 
 import TypeInput from './TypeInput';
@@ -10,16 +11,6 @@ import TypePreview from './TypePreview';
 
 const ButtonContainer = styled(Flex)`
   justify-content: end;
-`;
-
-export const StyledButton = styled(Button)`
-  transition: 0.3s;
-  height: 40px;
-  padding: 0 12px;
-
-  &:hover {
-    opacity: 0.8;
-  }
 `;
 
 export interface TypeTesterProps {
@@ -77,7 +68,7 @@ const TypeTester = ({
         size={size}
       />
       <ButtonContainer>
-        <StyledButton onClick={() => handleClick()}>
+        <StyledButton $status={status} onClick={() => handleClick()}>
           {status ? 'Unselect all' : 'Select all'}
         </StyledButton>
       </ButtonContainer>

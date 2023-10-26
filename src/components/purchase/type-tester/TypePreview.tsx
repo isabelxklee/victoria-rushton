@@ -2,9 +2,10 @@ import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
 import { COLORS, RowFlex } from '../../../styles';
+import { StyledButton } from '../../sharedStyles';
 import { SimpleFontType } from '../PurchaseFlow';
 
-import { StyledButton, TypeTesterProps } from './TypeTester';
+import { TypeTesterProps } from './TypeTester';
 
 const Wrapper = styled.div`
   padding: 40px 0;
@@ -95,7 +96,9 @@ const TypeTesterPreview = ({
               $weight={fontOption.weightValue}>
               {previewText}
             </PreviewText>
-            <StyledButton onClick={() => handleClick(fontOption)}>
+            <StyledButton
+              $status={status(fontOption)}
+              onClick={() => handleClick(fontOption)}>
               {status(fontOption) ? 'Remove font' : 'Select font'}
             </StyledButton>
           </StyledRowFlex>
