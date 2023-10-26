@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -92,6 +93,9 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
   const [selectedWeight, setSelectedWeight] = useState(0);
   const [selectedSlant, setSelectedSlant] = useState('Roman');
   const [selectedSize, setSelectedSize] = useState('60');
+  const [previewText, setPreviewText] = useState<string>(
+    'Hello world, this is Victoria Rushton.'
+  );
 
   const handleColorModeChange = () => {
     setDarkMode(darkMode => !darkMode);
@@ -100,6 +104,10 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
   useEffect(() => {
     setSelectedWeight(font.weights[0].value);
   }, [font.weights]);
+
+  const handleChange = (event: any) => {
+    setPreviewText(event.target.value);
+  };
 
   return (
     <>
@@ -112,6 +120,7 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
           $slant={selectedSlant}
           $weight={selectedWeight}
           placeholder="Your preview text goes here"
+          onChange={event => handleChange(event)}
         />
         <ActionWrapper>
           <SizeWrapper>
@@ -144,7 +153,7 @@ const TypeTesterInput = ({ font }: TypeTesterProps) => {
           </IconButton>
         </ActionWrapper>
       </div>
-      <TypeTesterPreview font={font} />
+      <TypeTesterPreview font={font} previewText={previewText} />
     </>
   );
 };

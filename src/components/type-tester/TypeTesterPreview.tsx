@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { FontType } from '../../pages';
 import { COLORS, RowFlex } from '../../styles';
-
-import { TypeTesterProps } from './TypeTesterInput';
 
 const Wrapper = styled.div`
   padding: 100px 0;
@@ -17,9 +16,12 @@ const StyledRowFlex = styled(RowFlex)`
   justify-content: space-between;
 `;
 
-const TypeTesterPreview = ({ font }: TypeTesterProps) => {
-  console.log(font);
+interface TypeTesterPreviewProps {
+  font: FontType;
+  previewText: string;
+}
 
+const TypeTesterPreview = ({ font, previewText }: TypeTesterPreviewProps) => {
   return (
     <Wrapper>
       {font.weights.map((weight, index) => (
@@ -28,7 +30,7 @@ const TypeTesterPreview = ({ font }: TypeTesterProps) => {
             <p>{weight.title}</p>
             <p>{weight.value}</p>
           </StyledRowFlex>
-          <p>hello world</p>
+          <p>{previewText}</p>
         </LineItem>
       ))}
     </Wrapper>
