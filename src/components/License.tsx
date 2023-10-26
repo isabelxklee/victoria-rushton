@@ -103,22 +103,21 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
           <H3>Cart</H3>
           <CartWrapper>
             {selectedLicense && <Text>{selectedLicense.title} License</Text>}
-            {selectedFonts.length > 0 &&
-              selectedFonts.map((item: SimpleFontType, index: number) => (
-                <LineItem key={index} onClick={() => removeFont(item)}>
-                  <Text>
-                    {font.name} {item.weight}{' '}
-                    {item.slant === 'Italic' && 'Italic'}
-                  </Text>
-                  <RowFlex style={{ gap: '32px' }}>
-                    <Text>${selectedLicense?.price}</Text>
-                    <img
-                      alt=""
-                      src="https://images.ctfassets.net/6l1e28rigfdw/4vHJUE4MABJFmeBhAoowDT/2aefe149687c6b52efe8185a49deb59a/icon-remove.svg"
-                    />
-                  </RowFlex>
-                </LineItem>
-              ))}
+            {selectedFonts.map((fontOption: SimpleFontType, index) => (
+              <LineItem key={index} onClick={() => removeFont(fontOption)}>
+                <Text>
+                  {font.name} {fontOption.weightTitle}{' '}
+                  {fontOption.slant !== 'Roman' && fontOption.slant}
+                </Text>
+                <RowFlex style={{ gap: '32px' }}>
+                  <Text>${selectedLicense?.price}</Text>
+                  <img
+                    alt=""
+                    src="https://images.ctfassets.net/6l1e28rigfdw/4vHJUE4MABJFmeBhAoowDT/2aefe149687c6b52efe8185a49deb59a/icon-remove.svg"
+                  />
+                </RowFlex>
+              </LineItem>
+            ))}
           </CartWrapper>
           <StyledRowFlex>
             <H3>Subtotal</H3>
