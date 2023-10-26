@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
 import { Button, COLORS, RowFlex } from '../../../styles';
@@ -58,8 +58,15 @@ const TypeTesterPreview = ({
   selectedFonts,
   size
 }: TypeTesterPreviewProps) => {
+  const status = useCallback(
+    (fontOption: SimpleFontType) => {
+      return selectedFonts.includes(fontOption);
+    },
+    [selectedFonts]
+  );
+
   const handleClick = (fontOption: SimpleFontType) => {
-    if (selectedFonts.includes(fontOption)) {
+    if (status(fontOption)) {
       removeFont(fontOption);
     } else {
       addFont(fontOption);
@@ -83,7 +90,7 @@ const TypeTesterPreview = ({
               {previewText}
             </PreviewText>
             <StyledButton onClick={() => handleClick(fontOption)}>
-              Purchase
+              {status(fontOption) ? 'Remove' : 'Add to cart'}
             </StyledButton>
           </StyledRowFlex>
         </LineItem>
