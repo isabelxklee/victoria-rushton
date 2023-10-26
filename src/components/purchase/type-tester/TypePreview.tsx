@@ -36,9 +36,10 @@ const PreviewText = styled.p<{
   background-color: ${({ $darkMode }) =>
     $darkMode ? COLORS.BLACK : COLORS.WHITE};
   color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   width: 80%;
   line-break: anywhere;
+  line-height: 1.4;
 `;
 
 const StyledButton = styled(Button)`
@@ -84,7 +85,10 @@ const TypeTesterPreview = ({
       {availableFonts.map((fontOption, index) => (
         <LineItem key={index}>
           <StyledRowFlex>
-            <p>{fontOption.weightTitle}</p>
+            <p>
+              {fontOption.weightTitle}{' '}
+              {fontOption.slant !== 'Roman' && fontOption.slant}
+            </p>
             <p>{fontOption.weightValue}</p>
           </StyledRowFlex>
           <StyledRowFlex>
