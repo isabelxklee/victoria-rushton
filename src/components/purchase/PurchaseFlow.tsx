@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
-import { FontType } from '../pages';
+import { FontType } from '../../pages';
 
-import TypeTesterInput from './type-tester/TypeTesterInput';
 import License from './License';
+import TypeTester from './type-tester/TypeTester';
 
 interface PurchaseFlowProps {
   font: FontType;
@@ -61,7 +61,7 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
 
   return (
     <>
-      <TypeTesterInput
+      <TypeTester
         addFont={addFont}
         availableFonts={availableFonts}
         font={font}

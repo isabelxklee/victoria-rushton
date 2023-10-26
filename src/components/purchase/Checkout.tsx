@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 
-import { Button } from '../styles';
+import { Button } from '../../styles';
 
 import { LicenseType } from './License';
 import { SimpleFontType } from './PurchaseFlow';

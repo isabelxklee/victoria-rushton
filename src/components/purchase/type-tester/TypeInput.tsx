@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { FontType } from '../../pages';
-import { COLORS, Flex, H2, RowFlex } from '../../styles';
+import { FontType } from '../../../pages';
+import { COLORS, Flex, H2, RowFlex } from '../../../styles';
 import { SimpleFontType } from '../PurchaseFlow';
 
-import TypeTesterPreview from './TypeTesterPreview';
+import TypeTesterPreview from './TypePreview';
 
 const TextInput = styled.input`
   color: ${COLORS.BLACK};

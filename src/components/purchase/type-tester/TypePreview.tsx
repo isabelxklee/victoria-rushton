@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button, COLORS, RowFlex } from '../../styles';
+import { Button, COLORS, RowFlex } from '../../../styles';
 import { SimpleFontType } from '../PurchaseFlow';
 
-import { TypeTesterProps } from './TypeTesterInput';
+import { TypeTesterProps } from './TypeInput';
 
 const Wrapper = styled.div`
   padding: 40px 0 100px 0;
