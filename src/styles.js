@@ -102,7 +102,7 @@ export const SecondaryButton = styled(Button)`
 
 export const GlobalStyles = createGlobalStyle`
   /* cecilie sans */
-  
+
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: normal;
@@ -178,9 +178,46 @@ export const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Embury Text';
     font-style: normal;
+    font-weight: ${FONT_WEIGHTS.BOOK};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/300-embury-text-book.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Embury Text';
+    font-style: italic;
+    font-weight: ${FONT_WEIGHTS.BOOK};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/300-embury-text-book-italic.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Embury Text';
+    font-style: normal;
     font-weight: ${FONT_WEIGHTS.REGULAR};
     src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/400-embury-text-regular.woff') format('woff')
   }
+
+  @font-face {
+    font-family: 'Embury Text';
+    font-style: italic;
+    font-weight: ${FONT_WEIGHTS.REGULAR};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/400-embury-text-italic.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Embury Text';
+    font-style: normal;
+    font-weight: ${FONT_WEIGHTS.BOLD};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/700-embury-text-bold.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Embury Text';
+    font-style: italic;
+    font-weight: ${FONT_WEIGHTS.BOLD};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/700-embury-text-bold-italic.woff') format('woff')
+  }
+
+  /* marcia */
 
   @font-face {
     font-family: 'Marcia';
@@ -191,10 +228,26 @@ export const GlobalStyles = createGlobalStyle`
 
   @font-face {
     font-family: 'Marcia';
+    font-style: italic;
+    font-weight: ${FONT_WEIGHTS.REGULAR};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/400-marcia-regular-italic.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Marcia';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.BOLD};
     src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/700-marcia-bold.woff') format('woff')
   }
+
+  @font-face {
+    font-family: 'Marcia';
+    font-style: italic;
+    font-weight: ${FONT_WEIGHTS.BOLD};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/700-marcia-bold-italic.woff') format('woff')
+  }
+
+  /* gautreaux */
 
   @font-face {
     font-family: 'Gautreaux';
