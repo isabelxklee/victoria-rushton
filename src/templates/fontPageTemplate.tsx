@@ -1,14 +1,13 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import License from '../components/License';
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
+import PurchaseFlow from '../components/purchase/PurchaseFlow';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
-import TypeTester from '../components/TypeTester';
 import { FontType } from '../pages';
-import { Button, Text } from '../styles';
+import { Button, H3, SmallText, Text } from '../styles';
 
 export interface PreviewTextItem {
   font: {
@@ -26,6 +25,11 @@ export interface PreviewTextItem {
     title: string;
     value: number;
   };
+}
+
+export interface FontWeightType {
+  title: string;
+  value: number;
 }
 
 interface FontItem extends FontType {
@@ -50,14 +54,19 @@ const StyledSectionWrapper = styled(SectionWrapper)`
   border-bottom: none;
 `;
 
-const SupportedLanguagesWrapper = styled(SectionWrapper)`
-  padding: 120px 0;
+const SupportedLanguagesWrapper = styled.div`
+  margin-top: 100px;
+  padding: 40px 0;
 `;
 
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
   const previewTexts = data.allContentfulPreviewText.nodes;
   const divRef = useRef<HTMLDivElement>(null);
+
+  const sortedWeights = useMemo(() => {
+    return font.weights.sort((a, b) => a.value - b.value);
+  }, [font.weights]);
 
   const scrollToSection = useCallback(() => {
     const current = divRef.current;
@@ -90,13 +99,12 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
           <PreviewText key={index} previewText={text} />
         ))}
       </StyledSectionWrapper>
-      <TypeTester font={font} />
-      <SupportedLanguagesWrapper>
-        <h3>Supported Languages</h3>
-        <Text>{font.supportedLanguages.supportedLanguages}</Text>
-      </SupportedLanguagesWrapper>
+      <PurchaseFlow font={font} sortedWeights={sortedWeights} />
       <div ref={divRef} />
-      <License font={font} />
+      <SupportedLanguagesWrapper>
+        <H3>Supported Languages</H3>
+        <SmallText>{font.supportedLanguages.supportedLanguages}</SmallText>
+      </SupportedLanguagesWrapper>
     </PageTemplate>
   );
 };

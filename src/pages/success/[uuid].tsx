@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 // import { ExternalLink } from '../components/Links';
 import PageTemplate from '../../components/PageTemplate';
+import { Button } from '../../styles';
 // import { FlexContainer } from '../components/styles';
 // import { BREAKPOINTS, Button, COLORS, FONT_WEIGHTS, H2, Text } from '../styles';
 
@@ -30,7 +31,7 @@ const Success = () => {
   return (
     <PageTemplate>
       <p>Congratulations on your purchase!</p>
-      <button onClick={() => handleDownload()}>Download files</button>
+      <Button onClick={() => handleDownload()}>Download files</Button>
     </PageTemplate>
   );
 };

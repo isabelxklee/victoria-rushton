@@ -2,10 +2,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
+import styled from 'styled-components';
 
-import { Button } from '../styles';
+import { StyledButton } from '../sharedStyles';
 
-import { LicenseType, SimpleFontType } from './License';
+import { LicenseType } from './License';
+import { SimpleFontType } from './PurchaseFlow';
+
+const CheckoutButton = styled(StyledButton)<{ $active: boolean }>`
+  opacity: ${({ $active }) => ($active ? 1 : 0.5)};
+  cursor: ${({ $active }) => ($active ? 'pointer' : 'default')};
+  pointer-events: ${({ $active }) => ($active ? 'auto' : 'none')};
+`;
 
 interface CheckoutProps {
   fontTitle: string;
@@ -48,15 +56,17 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
     }
   };
 
+  console.log(license, fonts);
+
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <Button
-          type="submit"
-          // $disabled={!selectedLicense || selectedFonts.length < 1}
-        >
+        <CheckoutButton
+          $active={!fonts.length < 1}
+          $status={true}
+          type="submit">
           {buttonLabel}
-        </Button>
+        </CheckoutButton>
       </form>
       {/* {selectedLicense && selectedLicense.title === 'Trial' ? (
         <FormikForm
@@ -67,7 +77,7 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
         <form onSubmit={handleSubmit}>
           <Button
             type="submit"
-            $disabled={!selectedLicense || selectedFonts.length < 1}>
+            $active={!selectedLicense || selectedFonts.length < 1}>
             {buttonLabel}
           </Button>
         </form>

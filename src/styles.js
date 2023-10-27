@@ -19,7 +19,7 @@ export const BREAKPOINTS = {
   MEDIUM: '900px'
 };
 
-const Flex = styled.div`
+export const Flex = styled.div`
   display: flex;
 `;
 
@@ -70,6 +70,11 @@ export const Text = styled.p`
   }
 `;
 
+export const SmallText = styled(Text)`
+  font-size: 14px;
+  line-height: unset;
+`;
+
 export const TextLink = styled.a`
   font-weight: ${props => props.inputWeight || FONT_WEIGHTS.BOLD};
   color: ${({ $light }) => ($light ? COLORS.WHITE : COLORS.BLACK)};
@@ -84,9 +89,14 @@ export const Button = styled.button`
   font-family: 'Cecilie Sans', 'sans-serif';
   font-weight: ${FONT_WEIGHTS.BOOK};
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 4px 16px;
   pointer-events: auto;
   cursor: pointer;
+`;
+
+export const SecondaryButton = styled(Button)`
+  background: ${COLORS.WHITE};
+  color: ${COLORS.BLACK};
 `;
 
 export const GlobalStyles = createGlobalStyle`

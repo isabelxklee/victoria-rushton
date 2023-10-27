@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { COLORS } from '../styles';
+import { Button, COLORS } from '../styles';
 
 export const HeroCopy = styled.h2<{
   $fontFamily: string;
@@ -47,4 +47,10 @@ export const Select = styled.select<{ $width?: string }>`
   @media (max-width: 900px) {
     width: 100%;
   }
+`;
+
+export const StyledButton = styled(Button)<{ $status?: boolean }>`
+  height: 100%;
+  color: ${({ $status }) => ($status ? COLORS.BLACK : COLORS.WHITE)};
+  background: ${({ $status }) => ($status ? COLORS.WHITE : COLORS.BLACK)};
 `;
