@@ -63,7 +63,7 @@ export const Text = styled.p`
   margin: 0;
   font-size: 18px;
   font-weight: ${FONT_WEIGHTS.BOOK};
-  line-height: 1.4;
+  line-height: 1.6;
 
   @media (max-width: 900px) {
     font-size: 16px;
@@ -76,7 +76,7 @@ export const SmallText = styled(Text)`
 `;
 
 export const TextLink = styled.a`
-  font-weight: ${props => props.inputWeight || FONT_WEIGHTS.BOLD};
+  font-weight: ${props => props.inputWeight || FONT_WEIGHTS.SEMIBOLD};
   color: ${({ $light }) => ($light ? COLORS.WHITE : COLORS.BLACK)};
   text-decoration: none;
   font-size: 18px;

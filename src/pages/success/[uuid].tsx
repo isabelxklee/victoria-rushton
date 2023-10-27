@@ -4,9 +4,13 @@ import styled from 'styled-components';
 import PageTemplate from '../../components/PageTemplate';
 import { Button, ColumnFlex, H2, Text, TextLink } from '../../styles';
 
+const Wrapper = styled.div`
+  padding: 120px 160px;
+`;
+
 const TextWrapper = styled(ColumnFlex)`
-  gap: 40px;
-  margin-top: 40px;
+  gap: 20px;
+  margin-bottom: 40px;
 `;
 
 const Success = () => {
@@ -37,23 +41,28 @@ const Success = () => {
 
   return (
     <PageTemplate>
-      <H2>Thank you for your purchase!</H2>
-      <Button onClick={() => handleDownload()}>Download files</Button>
-      <TextWrapper>
-        <Text>Here is your unique purchase link:</Text>{' '}
-        <TextLink href={URL} target="_blank">
-          {' '}
-          {URL}
-        </TextLink>
-        <Text>
-          You can always come back to this link and download your font files.
-          Feel free to email Victoria at{' '}
-          <TextLink href="mailto:hello@victoriarushton.com">
-            hello@victoriarushton.com
-          </TextLink>{' '}
-          if you have any questions.
-        </Text>
-      </TextWrapper>
+      <Wrapper>
+        <H2>Thank you for your purchase!</H2>
+        <TextWrapper>
+          <Text>
+            Here is your unique purchase link:
+            <TextLink href={URL} target="_blank">
+              {' '}
+              {URL}
+            </TextLink>
+            .
+          </Text>
+          <Text>
+            You can always come back to this link and download your font files.
+            Feel free to email Victoria at{' '}
+            <TextLink href="mailto:hello@victoriarushton.com">
+              hello@victoriarushton.com
+            </TextLink>{' '}
+            if you have any questions!
+          </Text>
+        </TextWrapper>
+        <Button onClick={() => handleDownload()}>Download font files</Button>
+      </Wrapper>
     </PageTemplate>
   );
 };
