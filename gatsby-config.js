@@ -1,19 +1,14 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
-});
-
 module.exports = {
   siteMetadata: {
-    title: `victoria-rushton`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: 'victoria-rushton',
+    siteUrl: 'https://victoria-rushton.netlify.app'
   },
   plugins: [
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
-        spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID
+        accessToken: 'hBGJYw7pEwG4qZn7cYJon0dHshXjrq3tmHxZd-fFNUc',
+        spaceId: '6l1e28rigfdw'
       }
     },
     'gatsby-plugin-image',
