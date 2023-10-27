@@ -79,6 +79,7 @@ export const TextLink = styled.a`
   font-weight: ${props => props.inputWeight || FONT_WEIGHTS.BOLD};
   color: ${({ $light }) => ($light ? COLORS.WHITE : COLORS.BLACK)};
   text-decoration: none;
+  font-size: 18px;
 `;
 
 export const Button = styled.button`

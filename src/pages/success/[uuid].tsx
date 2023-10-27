@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import styled from 'styled-components';
 
-// import { ExternalLink } from '../components/Links';
 import PageTemplate from '../../components/PageTemplate';
-import { Button } from '../../styles';
-// import { FlexContainer } from '../components/styles';
-// import { BREAKPOINTS, Button, COLORS, FONT_WEIGHTS, H2, Text } from '../styles';
+import { Button, ColumnFlex, H2, Text, TextLink } from '../../styles';
+
+const TextWrapper = styled(ColumnFlex)`
+  gap: 40px;
+  margin-top: 40px;
+`;
 
 const Success = () => {
   const [uuid, setUuid] = useState<string>('');
@@ -28,10 +31,23 @@ const Success = () => {
     console.log(uuid);
   };
 
+  const URL = useMemo(() => {
+    return `${process.env.GATSBY_LINK}/success/${uuid}`;
+  }, [uuid]);
+
   return (
     <PageTemplate>
-      <p>Congratulations on your purchase!</p>
+      <H2>Thank you for your purchase!</H2>
       <Button onClick={() => handleDownload()}>Download files</Button>
+      <TextWrapper>
+        <Text>Here is your unique purchase link:</Text>{' '}
+        <TextLink href={URL}> {URL}</TextLink>
+        <Text>
+          You can always come back to this link and download your font files.
+          Feel free to email Victoria at hello@victoriarushton.com if you have
+          any questions.
+        </Text>
+      </TextWrapper>
     </PageTemplate>
   );
 };
