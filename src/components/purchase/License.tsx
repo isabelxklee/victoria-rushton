@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ import { Select, StyledRowFlex } from '../sharedStyles';
 import Cart from './Cart';
 import { SimpleFontType } from './PurchaseFlow';
 
-interface LicenseProps {
+export interface LicenseProps {
   font: FontType;
   removeFont: (arg0: SimpleFontType) => void;
   selectedFonts: SimpleFontType[];
@@ -56,10 +56,6 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
     licenses[0]
   );
 
-  const priceCalculation = useMemo(() => {
-    return selectedLicense ? selectedFonts.length * selectedLicense.price : 0;
-  }, [selectedFonts.length, selectedLicense]);
-
   return (
     <Wrapper>
       <StyledRowFlex>
@@ -98,7 +94,12 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
           </div>
         </Left>
         <Right>
-          <Cart />
+          <Cart
+            font={font}
+            removeFont={removeFont}
+            selectedFonts={selectedFonts}
+            selectedLicense={selectedLicense}
+          />
         </Right>
       </StyledRowFlex>
     </Wrapper>

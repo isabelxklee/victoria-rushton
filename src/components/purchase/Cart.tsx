@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { ColumnFlex, H3, RowFlex, Text } from '../../styles';
 import { StyledRowFlex } from '../sharedStyles';
 
+import Checkout from './Checkout';
+import { LicenseProps, LicenseType } from './License';
 import { SimpleFontType } from './PurchaseFlow';
 
 const LineItem = styled(StyledRowFlex)`
@@ -19,7 +21,20 @@ const CartWrapper = styled(ColumnFlex)`
   gap: 8px;
 `;
 
-const Cart = () => {
+interface CartProps extends LicenseProps {
+  selectedLicense: LicenseType;
+}
+
+const Cart = ({
+  font,
+  removeFont,
+  selectedFonts,
+  selectedLicense
+}: CartProps) => {
+  const priceCalculation = useMemo(() => {
+    return selectedLicense ? selectedFonts.length * selectedLicense.price : 0;
+  }, [selectedFonts.length, selectedLicense]);
+
   return (
     <>
       <H3>Cart</H3>
