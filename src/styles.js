@@ -101,11 +101,34 @@ export const SecondaryButton = styled(Button)`
 `;
 
 export const GlobalStyles = createGlobalStyle`
+  /* cecilie sans */
+  
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: normal;
+    font-weight: ${FONT_WEIGHTS.LIGHT};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Light.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: italic;
+    font-weight: ${FONT_WEIGHTS.LIGHT};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Light-Italic.woff') format('woff')
+  }
+
   @font-face {
     font-family: 'Cecilie Sans';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.BOOK};
     src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Book.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: italic;
+    font-weight: ${FONT_WEIGHTS.BOOK};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Book-Italic.woff') format('woff')
   }
 
   @font-face {
@@ -117,10 +140,40 @@ export const GlobalStyles = createGlobalStyle`
 
   @font-face {
     font-family: 'Cecilie Sans';
+    font-style: italic;
+    font-weight: ${FONT_WEIGHTS.REGULAR};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Regular-Italic.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Cecilie Sans';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.BOLD};
     src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Bold.woff') format('woff')
   }
+
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: italic;
+    font-weight: ${FONT_WEIGHTS.BOLD};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Bold-Italic.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: normal;
+    font-weight: ${FONT_WEIGHTS.BLACK};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Black.woff') format('woff')
+  }
+
+  @font-face {
+    font-family: 'Cecilie Sans';
+    font-style: italic;
+    font-weight: ${FONT_WEIGHTS.BLACK};
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/cecilie-sans/Cecilie-Black-Italic.woff') format('woff')
+  }
+
+  /* embury text */
 
   @font-face {
     font-family: 'Embury Text';
