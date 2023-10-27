@@ -41,11 +41,17 @@ const Success = () => {
       <Button onClick={() => handleDownload()}>Download files</Button>
       <TextWrapper>
         <Text>Here is your unique purchase link:</Text>{' '}
-        <TextLink href={URL}> {URL}</TextLink>
+        <TextLink href={URL} target="_blank">
+          {' '}
+          {URL}
+        </TextLink>
         <Text>
           You can always come back to this link and download your font files.
-          Feel free to email Victoria at hello@victoriarushton.com if you have
-          any questions.
+          Feel free to email Victoria at{' '}
+          <TextLink href="mailto:hello@victoriarushton.com">
+            hello@victoriarushton.com
+          </TextLink>{' '}
+          if you have any questions.
         </Text>
       </TextWrapper>
     </PageTemplate>
