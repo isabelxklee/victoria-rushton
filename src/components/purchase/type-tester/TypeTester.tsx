@@ -52,9 +52,7 @@ const TypeTester = ({
       selectedFonts.length > 0 &&
       selectedFonts.length < availableFonts.length
     ) {
-      if (selectAllStatus === true) {
-        setSelectAllStatus(false);
-      }
+      setSelectAllStatus(false);
     }
   }, [
     availableFonts.length,
