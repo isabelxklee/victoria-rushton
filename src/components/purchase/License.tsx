@@ -57,6 +57,11 @@ const BulletPointText = styled(Text)`
 const StyledTextLink = styled(TextLink)`
   color: ${COLORS.WHITE};
   font-weight: 300;
+  font-size: 14px;
+`;
+
+const ResourcesWrapper = styled.div`
+  margin-top: 40px;
 `;
 
 const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
@@ -100,8 +105,8 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
               </>
             )}
           </div>
-          <div>
-            <H3>Resources</H3>
+          <ResourcesWrapper>
+            <Text>Resources</Text>
             {checkoutResources.map(
               (resource: CheckoutResource, index: number) => (
                 <StyledTextLink key={index} href={resource.url} target="_blank">
@@ -109,7 +114,7 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
                 </StyledTextLink>
               )
             )}
-          </div>
+          </ResourcesWrapper>
         </Left>
         <Right>
           <Cart
