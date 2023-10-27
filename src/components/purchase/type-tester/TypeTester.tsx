@@ -43,7 +43,25 @@ const TypeTester = ({
     if (previewText.length < 1) {
       setPreviewText('Hello world, this is Victoria Rushton.');
     }
-  }, [previewText.length]);
+
+    if (selectedFonts.length === availableFonts.length) {
+      setSelectAllStatus(true);
+    }
+
+    if (
+      selectedFonts.length > 0 &&
+      selectedFonts.length < availableFonts.length
+    ) {
+      if (selectAllStatus === true) {
+        setSelectAllStatus(false);
+      }
+    }
+  }, [
+    availableFonts.length,
+    previewText.length,
+    selectAllStatus,
+    selectedFonts.length
+  ]);
 
   const handleClick = () => {
     if (selectedFonts.length === availableFonts.length) {

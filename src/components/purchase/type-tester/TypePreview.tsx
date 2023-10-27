@@ -99,7 +99,7 @@ const TypeTesterPreview = ({
             <StyledButton
               $status={status(fontOption)}
               onClick={() => handleClick(fontOption)}>
-              {status(fontOption) ? 'Remove font' : 'Select font'}
+              {status(fontOption) ? '- Remove font' : '+ Select font'}
             </StyledButton>
           </StyledRowFlex>
         </LineItem>
