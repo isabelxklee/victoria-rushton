@@ -4,11 +4,16 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import { FontType } from '../../pages';
-import { COLORS, ColumnFlex, H3, Text } from '../../styles';
+import { COLORS, ColumnFlex, H3, Text, TextLink } from '../../styles';
 import { Select, StyledRowFlex } from '../sharedStyles';
 
 import Cart from './Cart';
 import { SimpleFontType } from './PurchaseFlow';
+
+interface CheckoutResource {
+  linkText: string;
+  url: string;
+}
 
 export interface LicenseProps {
   font: FontType;
@@ -49,9 +54,15 @@ const BulletPointText = styled(Text)`
   line-height: 1.8;
 `;
 
+const StyledTextLink = styled(TextLink)`
+  color: ${COLORS.WHITE};
+  font-weight: 300;
+`;
+
 const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
+  const checkoutResources = data.allContentfulCheckoutResource.nodes;
   const [selectedLicense, setSelectedLicense] = useState<LicenseType>(
     licenses[0]
   );
@@ -91,6 +102,13 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
           </div>
           <div>
             <H3>Resources</H3>
+            {checkoutResources.map(
+              (resource: CheckoutResource, index: number) => (
+                <StyledTextLink key={index} href={resource.url} target="_blank">
+                  {resource.linkText}
+                </StyledTextLink>
+              )
+            )}
           </div>
         </Left>
         <Right>
@@ -110,6 +128,12 @@ export default License;
 
 const pageQuery = graphql`
   query {
+    allContentfulCheckoutResource {
+      nodes {
+        linkText
+        url
+      }
+    }
     allContentfulLicense(sort: { price: ASC }) {
       nodes {
         title
