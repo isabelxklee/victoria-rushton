@@ -22,10 +22,10 @@
     "dotenv": "^16.3.1",
     "gatsby": "^5.9.1",
     "gatsby-plugin-image": "^3.9.0",
-    "gatsby-plugin-sharp": "^5.9.0",
+    "gatsby-plugin-sharp": "^5.12.3",
     "gatsby-plugin-styled-components": "^6.9.0",
     "gatsby-source-contentful": "^8.9.1",
-    "gatsby-transformer-sharp": "^5.9.0",
+    "gatsby-transformer-sharp": "^5.12.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "0.30.7"
