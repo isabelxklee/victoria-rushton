@@ -37,7 +37,7 @@ const TypeTester = ({
   const [previewText, setPreviewText] = useState<string>(
     'Hello world, this is Victoria Rushton.'
   );
-  const [status, setStatus] = useState<boolean>(false);
+  const [selectAllStatus, setSelectAllStatus] = useState<boolean>(false);
 
   useEffect(() => {
     if (previewText.length < 1) {
@@ -52,7 +52,7 @@ const TypeTester = ({
       setSelectedFonts(availableFonts);
     }
 
-    setStatus(status => !status);
+    setSelectAllStatus(selectAllStatus => !selectAllStatus);
   };
 
   return (
@@ -68,8 +68,8 @@ const TypeTester = ({
         size={size}
       />
       <ButtonContainer>
-        <StyledButton $status={status} onClick={() => handleClick()}>
-          {status ? 'Unselect all' : 'Select all'}
+        <StyledButton $status={selectAllStatus} onClick={() => handleClick()}>
+          {selectAllStatus ? 'Unselect all' : 'Select all'}
         </StyledButton>
       </ButtonContainer>
     </>
