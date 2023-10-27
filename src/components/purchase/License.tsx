@@ -4,8 +4,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import { FontType } from '../../pages';
-import { COLORS, ColumnFlex, H3, Text, TextLink } from '../../styles';
-import { Select, StyledRowFlex } from '../sharedStyles';
+import { COLORS, ColumnFlex, Flex, H3, Text, TextLink } from '../../styles';
+import { Select } from '../sharedStyles';
 
 import Cart from './Cart';
 import { SimpleFontType } from './PurchaseFlow';
@@ -29,7 +29,7 @@ export interface LicenseType {
   webVisitors: number;
 }
 
-const Wrapper = styled.div`
+const Card = styled.div`
   background: ${COLORS.BLACK};
   color: ${COLORS.WHITE};
   border-radius: 20px;
@@ -37,17 +37,25 @@ const Wrapper = styled.div`
   margin-top: 60px;
 `;
 
-const Left = styled(ColumnFlex)`
-  width: 60%;
-  padding-right: 60px;
+const Wrapper = styled(Flex)`
   gap: 20px;
 `;
 
-const Right = styled.div`
-  width: 40%;
+const LeftWrapper = styled(Card)`
+  width: 30%;
+  height: 100%;
+`;
+
+const RightWrapper = styled(Card)`
+  flex: 1;
+`;
+
+const Left = styled(ColumnFlex)`
+  gap: 20px;
+`;
+
+const Right = styled(ColumnFlex)`
   gap: 10px;
-  display: flex;
-  flex-direction: column;
 `;
 
 const BulletPointText = styled(Text)`
@@ -61,7 +69,7 @@ const StyledTextLink = styled(TextLink)`
 `;
 
 const ResourcesWrapper = styled.div`
-  margin-top: 40px;
+  margin-top: 20px;
 `;
 
 const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
@@ -74,7 +82,7 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
 
   return (
     <Wrapper>
-      <StyledRowFlex>
+      <LeftWrapper>
         <Left>
           <H3>Select a license</H3>
           <Select
@@ -116,6 +124,8 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
             )}
           </ResourcesWrapper>
         </Left>
+      </LeftWrapper>
+      <RightWrapper>
         <Right>
           <Cart
             font={font}
@@ -124,7 +134,7 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
             selectedLicense={selectedLicense}
           />
         </Right>
-      </StyledRowFlex>
+      </RightWrapper>
     </Wrapper>
   );
 };
