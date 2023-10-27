@@ -105,7 +105,7 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
             {checkoutResources.map(
               (resource: CheckoutResource, index: number) => (
                 <StyledTextLink key={index} href={resource.url} target="_blank">
-                  {resource.linkText}
+                  {resource.linkText} <br />
                 </StyledTextLink>
               )
             )}
