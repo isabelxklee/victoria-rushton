@@ -4,15 +4,24 @@ import React, { useEffect, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import styled from 'styled-components';
 
+import { Flex, FONT_WEIGHTS } from '../../styles';
 import { StyledButton } from '../sharedStyles';
 
 import { LicenseType } from './License';
 import { SimpleFontType } from './PurchaseFlow';
 
+const Wrapper = styled(Flex)`
+  justify-content: flex-end;
+  margin-top: 10px;
+`;
+
 const CheckoutButton = styled(StyledButton)<{ $active: boolean }>`
   opacity: ${({ $active }) => ($active ? 1 : 0.5)};
   cursor: ${({ $active }) => ($active ? 'pointer' : 'default')};
   pointer-events: ${({ $active }) => ($active ? 'auto' : 'none')};
+  width: 100%;
+  font-size: 20px;
+  font-weight: ${FONT_WEIGHTS.MEDIUM};
 `;
 
 interface CheckoutProps {
@@ -56,10 +65,8 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
     }
   };
 
-  console.log(license, fonts);
-
   return (
-    <>
+    <Wrapper>
       <form onSubmit={handleSubmit}>
         <CheckoutButton
           $active={!fonts.length < 1}
@@ -82,7 +89,7 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
           </Button>
         </form>
       )} */}
-    </>
+    </Wrapper>
   );
 };
 
