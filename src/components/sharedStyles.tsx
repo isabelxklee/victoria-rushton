@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Button, COLORS } from '../styles';
+import { Button, COLORS, RowFlex } from '../styles';
 
 export const HeroCopy = styled.h2<{
   $fontFamily: string;
@@ -53,4 +53,8 @@ export const StyledButton = styled(Button)<{ $status?: boolean }>`
   height: 100%;
   color: ${({ $status }) => ($status ? COLORS.BLACK : COLORS.WHITE)};
   background: ${({ $status }) => ($status ? COLORS.WHITE : COLORS.BLACK)};
+`;
+
+export const StyledRowFlex = styled(RowFlex)`
+  justify-content: space-between;
 `;
