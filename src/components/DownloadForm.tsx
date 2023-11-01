@@ -13,6 +13,12 @@ interface DownloadFormProps {
   allFonts: { name: string }[];
 }
 
+const Error = styled(Text)`
+  font-size: 14px;
+  color: red;
+  margin-bottom: 12px;
+`;
+
 const FormWrapper = styled(ColumnFlex)`
   gap: 20px;
   width: 300px;
@@ -111,7 +117,7 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
               <InputWrapper>
                 <label>Email address</label>
                 <InputField autoComplete="off" name="email" type="email" />
-                {errors.email && touched.email && <Text>{errors.email}</Text>}
+                {errors.email && touched.email && <Error>{errors.email}</Error>}
               </InputWrapper>
               <CheckboxWrapper>
                 <Checkbox type="checkbox" onClick={() => handleClick()} />
