@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, useRef } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
+import { InternalLink } from '../components/Links';
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
 import PurchaseFlow from '../components/purchase/PurchaseFlow';
@@ -62,6 +63,7 @@ const SupportedLanguagesWrapper = styled.div`
 const ButtonGroup = styled.div`
   gap: 16px;
   display: flex;
+  margin-top: 26px;
 `;
 
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
@@ -96,13 +98,11 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         </HeroCopy>
         <Text>{font.description && font.description.description}</Text>
         <ButtonGroup>
-          <Button style={{ margin: '26px 0' }} onClick={scrollToSection}>
-            License this font
-          </Button>
-          <SecondaryButton
-            style={{ margin: '26px 0' }}
-            onClick={scrollToSection}>
-            Download trial
+          <Button onClick={scrollToSection}>License this font</Button>
+          <SecondaryButton>
+            <InternalLink url={`/${font.slug}/download-trial`}>
+              Download trial
+            </InternalLink>
           </SecondaryButton>
         </ButtonGroup>
       </SectionWrapper>

@@ -14,5 +14,11 @@ exports.createPages = async function ({ actions, graphql }) {
       component: require.resolve(`./src/templates/fontPageTemplate.tsx`),
       context: { slug: node.slug }
     });
+
+    actions.createPage({
+      path: `/${node.slug}/download-trial`,
+      component: require.resolve(`./src/templates/downloadTrialTemplate.tsx`),
+      context: { slug: node.slug }
+    });
   });
 };
