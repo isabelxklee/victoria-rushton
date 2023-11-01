@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 
 const DownloadTrialTemplate = ({ data }) => {
   const font = data.contentfulFont.name;
+  const allFonts = data.allContentfulFont.nodes;
 
   return (
     <PageTemplate>
@@ -21,7 +22,7 @@ const DownloadTrialTemplate = ({ data }) => {
           You will receive an email containing all trial font files once you’ve
           submitted the form.
         </Text>
-        <DownloadForm font={font} />
+        <DownloadForm allFonts={allFonts} thisFont={font} />
       </Wrapper>
     </PageTemplate>
   );
@@ -33,6 +34,11 @@ export const pageQuery = graphql`
   query ($slug: String!) {
     contentfulFont(slug: { eq: $slug }) {
       name
+    }
+    allContentfulFont {
+      nodes {
+        name
+      }
     }
   }
 `;

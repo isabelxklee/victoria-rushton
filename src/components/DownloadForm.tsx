@@ -1,13 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React, { useState } from 'react';
 import { Field, Form, Formik } from 'formik';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
 import { Button, COLORS, ColumnFlex } from '../styles';
 
+import { Select } from './styles';
+
 interface DownloadFormProps {
-  font: string;
+  allFonts: { name: string }[];
+  thisFont: string;
 }
 
 const FormWrapper = styled(ColumnFlex)`
@@ -30,7 +33,8 @@ const InputField = styled(Field)`
   font-weight: 300;
 `;
 
-const DownloadForm = ({ font }: DownloadFormProps) => {
+const DownloadForm = ({ allFonts, thisFont }: DownloadFormProps) => {
+  const [selectedFont, setSelectedFont] = useState<string>(allFonts[0].name);
   const formSchema = Yup.object().shape({
     name: Yup.string().required('This is a required field.'),
     email: Yup.string()
@@ -45,7 +49,7 @@ const DownloadForm = ({ font }: DownloadFormProps) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          font: font,
+          font: thisFont,
           customerName: values.name,
           customerEmail: values.email
         })
@@ -61,6 +65,8 @@ const DownloadForm = ({ font }: DownloadFormProps) => {
     // }, 900);
   };
 
+  console.log(selectedFont);
+
   return (
     <>
       <Formik
@@ -72,6 +78,16 @@ const DownloadForm = ({ font }: DownloadFormProps) => {
         {({ errors, touched, isValid, dirty }) => (
           <Form>
             <FormWrapper>
+              <InputWrapper>
+                <label>Font</label>
+                <Select onChange={event => setSelectedFont(event.target.value)}>
+                  {allFonts.map((font: { name: string }, index: number) => (
+                    <option key={index} value={font.name}>
+                      {font.name}
+                    </option>
+                  ))}
+                </Select>
+              </InputWrapper>
               <InputWrapper>
                 <label>Name</label>
                 <InputField autoComplete="off" name="name" type="name" />
