@@ -179,42 +179,42 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Embury Text';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.BOOK};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/300-embury-text-book.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/Embury-Text-Book.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Embury Text';
     font-style: italic;
     font-weight: ${FONT_WEIGHTS.BOOK};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/300-embury-text-book-italic.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/Embury-Text-Book-Italic.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Embury Text';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.REGULAR};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/400-embury-text-regular.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/Embury-Text-Regular.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Embury Text';
     font-style: italic;
     font-weight: ${FONT_WEIGHTS.REGULAR};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/400-embury-text-italic.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/Embury-Text-Regular-Italic.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Embury Text';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.BOLD};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/700-embury-text-bold.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/Embury-Text-Bold.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Embury Text';
     font-style: italic;
     font-weight: ${FONT_WEIGHTS.BOLD};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/700-embury-text-bold-italic.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/embury-text/Embury-Text-Bold-Italic.woff') format('woff')
   }
 
   /* marcia */

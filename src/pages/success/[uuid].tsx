@@ -32,7 +32,10 @@ const Success = () => {
   }, [uuid]);
 
   const handleDownload = () => {
-    console.log(uuid);
+    fetch(`${process.env.GATSBY_SERVER_URL}/download-font-files`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    });
   };
 
   const URL = useMemo(() => {
