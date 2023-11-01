@@ -25,7 +25,7 @@ const InputWrapper = styled(ColumnFlex)`
 const InputField = styled(Field)`
   font-family: 'Cecilie Sans', sans-serif;
   font-size: 16px;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 4px;
   border: 1px solid ${COLORS.BLACK};
   margin-bottom: 4px;
@@ -35,6 +35,7 @@ const InputField = styled(Field)`
 const DownloadForm = ({ allFonts }: DownloadFormProps) => {
   const [selectedFont, setSelectedFont] = useState<string>(allFonts[0].name);
   const formSchema = Yup.object().shape({
+    font: Yup.string().required('This is a required field.'),
     name: Yup.string().required('This is a required field.'),
     email: Yup.string()
       .email('Please enter a valid email address.')
@@ -69,7 +70,7 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
   return (
     <>
       <Formik
-        initialValues={{ name: '', email: '' }}
+        initialValues={{ font: allFonts[0].name, name: '', email: '' }}
         validationSchema={formSchema}
         onSubmit={values => {
           handleSubmit(values);
