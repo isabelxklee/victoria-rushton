@@ -4,7 +4,7 @@ import { Field, Form, Formik } from 'formik';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
-import { Button, COLORS, ColumnFlex } from '../styles';
+import { Button, COLORS, ColumnFlex, RowFlex, Text } from '../styles';
 
 import { Select } from './styles';
 
@@ -30,6 +30,14 @@ const InputField = styled(Field)`
   border: 1px solid ${COLORS.BLACK};
   margin-bottom: 4px;
   font-weight: 300;
+`;
+
+const Checkbox = styled.input`
+  width: 25px;
+`;
+
+const CheckboxWrapper = styled(RowFlex)`
+  gap: 10px;
 `;
 
 const DownloadForm = ({ allFonts }: DownloadFormProps) => {
@@ -102,6 +110,10 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
                   <Error name="email">{errors.email}</Error>
                 )} */}
               </InputWrapper>
+              <CheckboxWrapper>
+                <Checkbox type="checkbox" />
+                <Text>I accept the trial fonts EULA</Text>
+              </CheckboxWrapper>
               <Button style={{ width: 'fit-content' }} type="submit">
                 Email trial fonts
               </Button>
