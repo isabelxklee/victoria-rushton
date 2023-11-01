@@ -7,7 +7,7 @@ import PreviewText from '../components/PreviewText';
 import PurchaseFlow from '../components/purchase/PurchaseFlow';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
 import { FontType } from '../pages';
-import { Button, H3, SmallText, Text } from '../styles';
+import { Button, H3, SecondaryButton, SmallText, Text } from '../styles';
 
 export interface PreviewTextItem {
   font: {
@@ -59,6 +59,11 @@ const SupportedLanguagesWrapper = styled.div`
   padding: 40px 0;
 `;
 
+const ButtonGroup = styled.div`
+  gap: 16px;
+  display: flex;
+`;
+
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
   const previewTexts = data.allContentfulPreviewText.nodes;
@@ -90,9 +95,16 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
           {font.name}
         </HeroCopy>
         <Text>{font.description && font.description.description}</Text>
-        <Button style={{ margin: '26px 0' }} onClick={scrollToSection}>
-          License this font
-        </Button>
+        <ButtonGroup>
+          <Button style={{ margin: '26px 0' }} onClick={scrollToSection}>
+            License this font
+          </Button>
+          <SecondaryButton
+            style={{ margin: '26px 0' }}
+            onClick={scrollToSection}>
+            Download trial
+          </SecondaryButton>
+        </ButtonGroup>
       </SectionWrapper>
       <StyledSectionWrapper>
         {previewTexts.map((text: PreviewTextItem, index: number) => (
