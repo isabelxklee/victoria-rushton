@@ -223,28 +223,28 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Marcia';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.REGULAR};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/400-marcia-regular.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/Marcia-Regular.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Marcia';
     font-style: italic;
     font-weight: ${FONT_WEIGHTS.REGULAR};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/400-marcia-regular-italic.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/Marcia-Regular-Italic.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Marcia';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.BOLD};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/700-marcia-bold.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/Marcia-Bold.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Marcia';
     font-style: italic;
     font-weight: ${FONT_WEIGHTS.BOLD};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/700-marcia-bold-italic.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/marcia/Marcia-Bold.woff') format('woff')
   }
 
   /* gautreaux */
@@ -253,21 +253,21 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Gautreaux';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.LIGHT};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/gautreaux/200-gautreaux-light.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/gautreaux/Gautreaux-Light.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Gautreaux';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.MEDIUM};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/gautreaux/500-gautreaux-medium.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/gautreaux/Gautreaux-Medium.woff') format('woff')
   }
 
   @font-face {
     font-family: 'Gautreaux';
     font-style: normal;
     font-weight: ${FONT_WEIGHTS.BOLD};
-    src: url('https://victoria-rushton-bucket.storage.googleapis.com/gautreaux/700-gautreaux-bold.woff') format('woff')
+    src: url('https://victoria-rushton-bucket.storage.googleapis.com/gautreaux/Gautreaux-Bold.woff') format('woff')
   }
 
   body {
