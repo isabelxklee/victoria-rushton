@@ -10,6 +10,12 @@ interface DownloadFormProps {
   font: string;
 }
 
+const FormWrapper = styled(ColumnFlex)`
+  gap: 20px;
+  width: 300px;
+  margin-top: 40px;
+`;
+
 const InputWrapper = styled(ColumnFlex)`
   gap: 4px;
 `;
@@ -22,11 +28,6 @@ const InputField = styled(Field)`
   border: 1px solid ${COLORS.BLACK};
   margin-bottom: 4px;
   font-weight: 300;
-`;
-
-const FormWrapper = styled(ColumnFlex)`
-  gap: 20px;
-  width: 300px;
 `;
 
 const DownloadForm = ({ font }: DownloadFormProps) => {
