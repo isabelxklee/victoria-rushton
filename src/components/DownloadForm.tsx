@@ -25,7 +25,7 @@ const InputWrapper = styled(ColumnFlex)`
 const InputField = styled(Field)`
   font-family: 'Cecilie Sans', sans-serif;
   font-size: 16px;
-  padding: 4px 10px;
+  padding: 8px 10px;
   border-radius: 4px;
   border: 1px solid ${COLORS.BLACK};
   margin-bottom: 4px;
