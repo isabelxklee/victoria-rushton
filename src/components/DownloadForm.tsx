@@ -16,7 +16,7 @@ interface DownloadFormProps {
 const FormWrapper = styled(ColumnFlex)`
   gap: 20px;
   width: 300px;
-  margin-top: 40px;
+  margin-top: 20px;
 `;
 
 const InputWrapper = styled(ColumnFlex)`

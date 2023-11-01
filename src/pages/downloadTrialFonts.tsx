@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   padding: 60px 0;
 `;
 
-const DownloadTrialTemplate = ({ data }) => {
+const DownloadTrialFonts = ({ data }) => {
   const font = data.contentfulFont.name;
   const allFonts = data.allContentfulFont.nodes;
 
@@ -28,7 +28,7 @@ const DownloadTrialTemplate = ({ data }) => {
   );
 };
 
-export default DownloadTrialTemplate;
+export default DownloadTrialFonts;
 
 export const pageQuery = graphql`
   query ($slug: String!) {
