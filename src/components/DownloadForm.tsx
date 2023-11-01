@@ -10,7 +10,6 @@ import { Select } from './styles';
 
 interface DownloadFormProps {
   allFonts: { name: string }[];
-  thisFont: string;
 }
 
 const FormWrapper = styled(ColumnFlex)`
@@ -33,7 +32,7 @@ const InputField = styled(Field)`
   font-weight: 300;
 `;
 
-const DownloadForm = ({ allFonts, thisFont }: DownloadFormProps) => {
+const DownloadForm = ({ allFonts }: DownloadFormProps) => {
   const [selectedFont, setSelectedFont] = useState<string>(allFonts[0].name);
   const formSchema = Yup.object().shape({
     name: Yup.string().required('This is a required field.'),
@@ -49,7 +48,7 @@ const DownloadForm = ({ allFonts, thisFont }: DownloadFormProps) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          font: thisFont,
+          font: selectedFont,
           customerName: values.name,
           customerEmail: values.email
         })

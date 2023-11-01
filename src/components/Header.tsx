@@ -48,6 +48,9 @@ const Header = () => {
         <InternalLink textCase="uppercase" url="/about">
           About
         </InternalLink>
+        <InternalLink textCase="uppercase" url="/download-trial-fonts">
+          Download trial fonts
+        </InternalLink>
       </Right>
     </HeaderWrapper>
   );
