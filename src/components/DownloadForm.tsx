@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import { Button, COLORS, ColumnFlex, RowFlex, Text } from '../styles';
 
 import { Select } from './styles';
+import { ExternalLink } from './Links';
 
 interface DownloadFormProps {
   allFonts: { name: string }[];
@@ -112,7 +113,13 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
               </InputWrapper>
               <CheckboxWrapper>
                 <Checkbox type="checkbox" />
-                <Text>I accept the trial fonts EULA</Text>
+                <Text>
+                  I accept the{' '}
+                  <ExternalLink url="https://assets.ctfassets.net/6l1e28rigfdw/5dBCDrmnwFBDBeyogYwCif/b6624fe679eb41119ab29ff2b9a3f481/VRushton-EULA-TRIAL.pdf">
+                    {' '}
+                    Trial EULA
+                  </ExternalLink>{' '}
+                </Text>
               </CheckboxWrapper>
               <Button style={{ width: 'fit-content' }} type="submit">
                 Email trial fonts
