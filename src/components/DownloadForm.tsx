@@ -53,7 +53,6 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
   const [trialAgreement, setTrialAgreement] = useState<boolean>(false);
   const formSchema = Yup.object().shape({
     font: Yup.string().required('This is a required field.'),
-    name: Yup.string().required('This is a required field.'),
     email: Yup.string()
       .email('Please enter a valid email address.')
       .required('This is a required field.')
@@ -71,7 +70,6 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           font: selectedFont,
-          customerName: values.name,
           customerEmail: values.email
         })
       }
@@ -91,7 +89,6 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
       <Formik
         initialValues={{
           font: allFonts[0].name,
-          name: '',
           email: ''
         }}
         validationSchema={formSchema}
@@ -110,11 +107,6 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
                     </option>
                   ))}
                 </Select>
-              </InputWrapper>
-              <InputWrapper>
-                <label>Name</label>
-                <InputField autoComplete="off" name="name" type="name" />
-                {errors.name && touched.name && <Text>{errors.name}</Text>}
               </InputWrapper>
               <InputWrapper>
                 <label>Email address</label>
