@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { BREAKPOINTS, COLORS, RowFlex } from '../styles';
+import { BREAKPOINTS, COLORS, RowFlex, SecondaryButton } from '../styles';
 
 import { InternalLink } from './Links';
 import { FlexContainer } from './styles';
@@ -48,9 +48,11 @@ const Header = () => {
         <InternalLink textCase="uppercase" url="/about">
           About
         </InternalLink>
-        <InternalLink textCase="uppercase" url="/download-trial-fonts">
-          Download trial fonts
-        </InternalLink>
+        <SecondaryButton>
+          <InternalLink hideActive={true} url="/download-trial-fonts">
+            Download trial
+          </InternalLink>
+        </SecondaryButton>
       </Right>
     </HeaderWrapper>
   );

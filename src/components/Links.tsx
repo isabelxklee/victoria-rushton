@@ -25,6 +25,7 @@ const StyledLink = styled(Link)<{ $textCase?: string }>`
 
 interface LinkProps {
   children: string | ReactNode;
+  hideActive?: boolean;
   textCase?: string;
   url: string;
 }
@@ -34,11 +35,18 @@ interface ExternalLinkProps extends LinkProps {
   light?: boolean;
 }
 
-export const InternalLink = ({ children, textCase, url }: LinkProps) => {
+export const InternalLink = ({
+  children,
+  hideActive,
+  textCase,
+  url
+}: LinkProps) => {
   return (
     <StyledLink
       $textCase={textCase}
-      activeStyle={{ fontWeight: FONT_WEIGHTS.BOLD }}
+      activeStyle={{
+        fontWeight: hideActive ? FONT_WEIGHTS.REGULAR : FONT_WEIGHTS.BOLD
+      }}
       to={url}>
       {children}
     </StyledLink>

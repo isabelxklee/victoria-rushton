@@ -2,13 +2,12 @@ import React, { useCallback, useMemo, useRef } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import { InternalLink } from '../components/Links';
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
 import PurchaseFlow from '../components/purchase/PurchaseFlow';
 import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
 import { FontType } from '../pages';
-import { Button, H3, SecondaryButton, SmallText, Text } from '../styles';
+import { Button, H3, SmallText, Text } from '../styles';
 
 export interface PreviewTextItem {
   font: {
@@ -99,11 +98,6 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <Text>{font.description && font.description.description}</Text>
         <ButtonGroup>
           <Button onClick={scrollToSection}>License this font</Button>
-          <SecondaryButton>
-            <InternalLink url={`/${font.slug}/download-trial`}>
-              Download trial
-            </InternalLink>
-          </SecondaryButton>
         </ButtonGroup>
       </SectionWrapper>
       <StyledSectionWrapper>
