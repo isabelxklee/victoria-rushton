@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { Field, Form, Formik } from 'formik';
+import { navigate } from 'gatsby';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
@@ -85,9 +86,9 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
       console.log(response.error);
     }
 
-    // setTimeout(() => {
-    //   navigate('/success');
-    // }, 900);
+    setTimeout(() => {
+      navigate('/');
+    }, 900);
   };
 
   return (
