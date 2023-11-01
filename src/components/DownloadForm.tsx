@@ -1,18 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
-import { Button, ColumnFlex } from '../styles';
+import { Button, COLORS, ColumnFlex } from '../styles';
 
 interface DownloadFormProps {
   font: string;
 }
 
+const InputWrapper = styled(ColumnFlex)`
+  gap: 4px;
+`;
+
+const InputField = styled(Field)`
+  font-family: 'Cecilie Sans', sans-serif;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid ${COLORS.BLACK};
+  margin-bottom: 4px;
+  font-weight: 300;
+`;
+
 const FormWrapper = styled(ColumnFlex)`
   gap: 20px;
-  width: 250px;
+  width: 300px;
 `;
 
 const DownloadForm = ({ font }: DownloadFormProps) => {
@@ -57,17 +71,23 @@ const DownloadForm = ({ font }: DownloadFormProps) => {
         {({ errors, touched, isValid, dirty }) => (
           <Form>
             <FormWrapper>
-              <label>Name</label>
-              <input autoComplete="off" name="name" type="name" />
-              {/* {errors.name && touched.name && (
+              <InputWrapper>
+                <label>Name</label>
+                <InputField autoComplete="off" name="name" type="name" />
+                {/* {errors.name && touched.name && (
                   <Error name="name">{errors.name}</Error>
                 )} */}
-              <label>Email address</label>
-              <input autoComplete="off" name="email" type="email" />
-              {/* {errors.email && touched.email && (
+              </InputWrapper>
+              <InputWrapper>
+                <label>Email address</label>
+                <InputField autoComplete="off" name="email" type="email" />
+                {/* {errors.email && touched.email && (
                   <Error name="email">{errors.email}</Error>
                 )} */}
-              <Button type="submit">Email trial fonts</Button>
+              </InputWrapper>
+              <Button style={{ width: 'fit-content' }} type="submit">
+                Email trial fonts
+              </Button>
             </FormWrapper>
           </Form>
         )}
