@@ -22,6 +22,7 @@ const HeaderWrapper = styled(FlexContainer)`
 
 const Right = styled(RowFlex)`
   gap: 30px;
+  align-items: center;
 `;
 
 const Logo = styled.img`
@@ -50,7 +51,7 @@ const Header = () => {
         </InternalLink>
         <SecondaryButton>
           <InternalLink hideActive={true} url="/download-trial-fonts">
-            Download trial
+            Download trial fonts
           </InternalLink>
         </SecondaryButton>
       </Right>
