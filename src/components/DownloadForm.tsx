@@ -86,8 +86,6 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
     // }, 900);
   };
 
-  console.log(trialAgreement);
-
   return (
     <>
       <Formik
@@ -133,7 +131,9 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
                   </ExternalLink>{' '}
                 </Text>
               </CheckboxWrapper>
-              <SubmitButton $disabled={!(isValid && dirty)} type="submit">
+              <SubmitButton
+                $disabled={!(isValid && dirty && trialAgreement)}
+                type="submit">
                 Email trial fonts
               </SubmitButton>
             </FormWrapper>
