@@ -6,8 +6,8 @@ import * as Yup from 'yup';
 
 import { Button, COLORS, ColumnFlex, RowFlex, Text } from '../styles';
 
-import { Select } from './styles';
 import { ExternalLink } from './Links';
+import { Select } from './styles';
 
 interface DownloadFormProps {
   allFonts: { name: string }[];
@@ -41,8 +41,16 @@ const CheckboxWrapper = styled(RowFlex)`
   gap: 10px;
 `;
 
+const SubmitButton = styled(Button)<{ $disabled: boolean }>`
+  width: fit-content;
+  pointer-events: ${({ $disabled }) => ($disabled ? 'none' : 'auto')};
+  cursor: ${({ $disabled }) => ($disabled ? 'default' : 'pointer')};
+  opacity: ${({ $disabled }) => ($disabled ? 0.3 : 1)};
+`;
+
 const DownloadForm = ({ allFonts }: DownloadFormProps) => {
   const [selectedFont, setSelectedFont] = useState<string>(allFonts[0].name);
+  const [trialAgreement, setTrialAgreement] = useState<boolean>(false);
   const formSchema = Yup.object().shape({
     font: Yup.string().required('This is a required field.'),
     name: Yup.string().required('This is a required field.'),
@@ -50,6 +58,10 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
       .email('Please enter a valid email address.')
       .required('This is a required field.')
   });
+
+  const handleClick = () => {
+    setTrialAgreement(trialAgreement => !trialAgreement);
+  };
 
   const handleSubmit = async (values: any) => {
     const response: any = await fetch(
@@ -74,12 +86,16 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
     // }, 900);
   };
 
-  console.log(selectedFont);
+  console.log(trialAgreement);
 
   return (
     <>
       <Formik
-        initialValues={{ font: allFonts[0].name, name: '', email: '' }}
+        initialValues={{
+          font: allFonts[0].name,
+          name: '',
+          email: ''
+        }}
         validationSchema={formSchema}
         onSubmit={values => {
           handleSubmit(values);
@@ -100,19 +116,15 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
               <InputWrapper>
                 <label>Name</label>
                 <InputField autoComplete="off" name="name" type="name" />
-                {/* {errors.name && touched.name && (
-                  <Error name="name">{errors.name}</Error>
-                )} */}
+                {errors.name && touched.name && <Text>{errors.name}</Text>}
               </InputWrapper>
               <InputWrapper>
                 <label>Email address</label>
                 <InputField autoComplete="off" name="email" type="email" />
-                {/* {errors.email && touched.email && (
-                  <Error name="email">{errors.email}</Error>
-                )} */}
+                {errors.email && touched.email && <Text>{errors.email}</Text>}
               </InputWrapper>
               <CheckboxWrapper>
-                <Checkbox type="checkbox" />
+                <Checkbox type="checkbox" onClick={() => handleClick()} />
                 <Text>
                   I accept the{' '}
                   <ExternalLink url="https://assets.ctfassets.net/6l1e28rigfdw/5dBCDrmnwFBDBeyogYwCif/b6624fe679eb41119ab29ff2b9a3f481/VRushton-EULA-TRIAL.pdf">
@@ -121,9 +133,9 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
                   </ExternalLink>{' '}
                 </Text>
               </CheckboxWrapper>
-              <Button style={{ width: 'fit-content' }} type="submit">
+              <SubmitButton $disabled={!(isValid && dirty)} type="submit">
                 Email trial fonts
-              </Button>
+              </SubmitButton>
             </FormWrapper>
           </Form>
         )}
