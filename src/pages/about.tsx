@@ -112,7 +112,7 @@ const About = () => {
 export default About;
 
 const pageQuery = graphql`
-  query MyQuery {
+  query {
     allContentfulAbout {
       nodes {
         buttonURL

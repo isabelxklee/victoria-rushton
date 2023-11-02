@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Field, Form, Formik } from 'formik';
-import { navigate } from 'gatsby';
+import { graphql, navigate, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
@@ -56,8 +57,23 @@ const SubmitButton = styled(Button)<{ $disabled: boolean }>`
 `;
 
 const DownloadForm = ({ allFonts }: DownloadFormProps) => {
+  const data = useStaticQuery(pageQuery);
+  const assets = data.allContentfulAsset.nodes;
+
   const [selectedFont, setSelectedFont] = useState<string>(allFonts[0].name);
   const [trialAgreement, setTrialAgreement] = useState<boolean>(false);
+
+  const zipFolder = useMemo(() => {
+    const filename = selectedFont.split(' ').join('-');
+    return assets.find(
+      (asset: any) =>
+        asset.filename.includes(filename) &&
+        asset.mimeType === 'application/zip'
+    );
+  }, [assets, selectedFont]);
+
+  console.log(zipFolder);
+
   const formSchema = Yup.object().shape({
     font: Yup.string().required('This is a required field.'),
     email: Yup.string()
@@ -77,7 +93,7 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           font: selectedFont,
-          customerEmail: values.email
+          email: values.email
         })
       }
     );
@@ -144,3 +160,15 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
 };
 
 export default DownloadForm;
+
+const pageQuery = graphql`
+  query {
+    allContentfulAsset {
+      nodes {
+        mimeType
+        filename
+        url
+      }
+    }
+  }
+`;
