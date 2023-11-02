@@ -102,7 +102,7 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
     }
 
     setTimeout(() => {
-      navigate('/');
+      navigate('/download-trial-fonts/confirmation');
     }, 900);
   };
 
