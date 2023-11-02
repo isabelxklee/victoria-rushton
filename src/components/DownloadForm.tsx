@@ -72,8 +72,6 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
     );
   }, [assets, selectedFont]);
 
-  console.log(zipFolder);
-
   const formSchema = Yup.object().shape({
     font: Yup.string().required('This is a required field.'),
     email: Yup.string()
@@ -93,7 +91,8 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           font: selectedFont,
-          email: values.email
+          email: values.email,
+          zip: zipFolder.url
         })
       }
     );

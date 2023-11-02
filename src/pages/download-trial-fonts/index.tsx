@@ -2,9 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import DownloadForm from '../components/DownloadForm';
-import PageTemplate from '../components/PageTemplate';
-import { H2, Text } from '../styles';
+import DownloadForm from '../../components/DownloadForm';
+import PageTemplate from '../../components/PageTemplate';
+import { H2, Text } from '../../styles';
 
 const Wrapper = styled.div`
   padding: 60px 0;
