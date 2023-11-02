@@ -14,9 +14,13 @@ const ButtonWrapper = styled.div`
 `;
 
 const Confirmation = () => {
-  const email = useMemo(() => {
-    return localStorage.getItem('email');
-  }, []);
+  const isBrowser = typeof window !== 'undefined';
+
+  let email = '';
+
+  if (isBrowser) {
+    email = window.localStorage.getItem('email');
+  }
 
   return (
     <PageTemplate>

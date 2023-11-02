@@ -83,6 +83,8 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
     setTrialAgreement(trialAgreement => !trialAgreement);
   };
 
+  const isBrowser = typeof window !== 'undefined';
+
   const handleSubmit = async (values: any) => {
     const response: any = await fetch(
       `${process.env.GATSBY_SERVER_URL}/download-trial-fonts`,
@@ -101,7 +103,9 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
       console.log(response.error);
     }
 
-    localStorage.setItem('email', values.email);
+    if (isBrowser) {
+      window.localStorage.setItem('email', values.email);
+    }
 
     setTimeout(() => {
       navigate('/download-trial-fonts/confirmation');
