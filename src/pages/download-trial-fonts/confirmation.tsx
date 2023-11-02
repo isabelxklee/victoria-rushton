@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { InternalLink } from '../../components/Links';
@@ -14,11 +14,27 @@ const ButtonWrapper = styled.div`
 `;
 
 const Confirmation = () => {
+  const email = useMemo(() => {
+    return localStorage.getItem('email');
+  }, []);
+
   return (
     <PageTemplate>
       <Wrapper>
-        <H2>Thank you!</H2>
-        <Text>An email has been sent containing your trial font files.</Text>
+        {email ? (
+          <>
+            {' '}
+            <H2>Thank you!</H2>
+            <Text>
+              An email has been sent to <strong>{email}</strong> containing your
+              trial font files.
+            </Text>
+          </>
+        ) : (
+          <>
+            <H2>Oops, looks like you're not supposed to be here!</H2>
+          </>
+        )}
         <ButtonWrapper>
           <SecondaryButton>
             <InternalLink hideActive={true} url="/">

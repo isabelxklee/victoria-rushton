@@ -101,9 +101,15 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
       console.log(response.error);
     }
 
+    localStorage.setItem('email', values.email);
+
     setTimeout(() => {
       navigate('/download-trial-fonts/confirmation');
     }, 900);
+
+    setTimeout(() => {
+      localStorage.clear();
+    }, 300000);
   };
 
   return (
