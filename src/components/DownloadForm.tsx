@@ -86,6 +86,8 @@ const DownloadForm = ({ font }: DownloadFormProps) => {
   };
 
   const handleSubmit = async (values: any) => {
+    // create contentful entry
+
     const response: any = await fetch(
       `${process.env.GATSBY_SERVER_URL}/download-trial-fonts`,
       {
