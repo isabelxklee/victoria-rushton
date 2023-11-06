@@ -102,13 +102,14 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
               <>
                 <BulletPointText>
                   • {selectedLicense.desktopWorkstations.toLocaleString()}{' '}
-                  Desktop Workstations
+                  desktop workstations
                 </BulletPointText>
                 <BulletPointText>
-                  • {selectedLicense.webVisitors.toLocaleString()} Web Visitors
+                  • {selectedLicense.webVisitors.toLocaleString()} web visitors
+                  per month
                 </BulletPointText>
                 <BulletPointText>
-                  • {selectedLicense.eBooks.toLocaleString()} E-Books
+                  • {selectedLicense.eBooks.toLocaleString()} e-books
                 </BulletPointText>
               </>
             )}
