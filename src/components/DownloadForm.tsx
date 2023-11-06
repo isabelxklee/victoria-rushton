@@ -2,7 +2,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo, useState } from 'react';
 import { Field, Form, Formik } from 'formik';
-import { graphql, navigate, useStaticQuery } from 'gatsby';
+import {
+  graphql,
+  // navigate,
+  useStaticQuery
+} from 'gatsby';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
@@ -100,9 +104,9 @@ const DownloadForm = ({ font }: DownloadFormProps) => {
       console.log(response.error);
     }
 
-    setTimeout(() => {
-      navigate('/download-trial-fonts/confirmation');
-    }, 900);
+    // setTimeout(() => {
+    //   navigate('/download-trial-fonts/confirmation');
+    // }, 900);
   };
 
   return (
