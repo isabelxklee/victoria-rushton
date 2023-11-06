@@ -9,11 +9,6 @@ import * as Yup from 'yup';
 import { Button, COLORS, ColumnFlex, RowFlex, Text } from '../styles';
 
 import { ExternalLink } from './Links';
-import { Select } from './styles';
-
-interface DownloadFormProps {
-  allFonts: { name: string }[];
-}
 
 const Error = styled(Text)`
   font-size: 14px;
@@ -56,27 +51,30 @@ const SubmitButton = styled(Button)<{ $disabled: boolean }>`
   opacity: ${({ $disabled }) => ($disabled ? 0.3 : 1)};
 `;
 
-const DownloadForm = ({ allFonts }: DownloadFormProps) => {
+interface DownloadFormProps {
+  font: string;
+}
+
+const DownloadForm = ({ font }: DownloadFormProps) => {
   const data = useStaticQuery(pageQuery);
   const assets = data.allContentfulAsset.nodes;
 
-  const [selectedFont, setSelectedFont] = useState<string>(allFonts[0].name);
   const [trialAgreement, setTrialAgreement] = useState<boolean>(false);
 
   const zipFolder = useMemo(() => {
-    const filename = selectedFont.split(' ').join('-');
+    const filename = font.split(' ').join('-');
     return assets.find(
       (asset: any) =>
         asset.filename.includes(filename) &&
         asset.mimeType === 'application/zip'
     );
-  }, [assets, selectedFont]);
+  }, [assets, font]);
 
   const formSchema = Yup.object().shape({
-    font: Yup.string().required('This is a required field.'),
     email: Yup.string()
       .email('Please enter a valid email address.')
-      .required('This is a required field.')
+      .required('This is a required field.'),
+    name: Yup.string().required('This is a required field.')
   });
 
   const handleClick = () => {
@@ -90,8 +88,9 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          font: selectedFont,
+          font: font,
           email: values.email,
+          name: values.name,
           zip: zipFolder.url
         })
       }
@@ -110,8 +109,8 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
     <>
       <Formik
         initialValues={{
-          font: allFonts[0].name,
-          email: ''
+          email: '',
+          name: ''
         }}
         validationSchema={formSchema}
         onSubmit={values => {
@@ -121,14 +120,9 @@ const DownloadForm = ({ allFonts }: DownloadFormProps) => {
           <Form>
             <FormWrapper>
               <InputWrapper>
-                <label>Font</label>
-                <Select onChange={event => setSelectedFont(event.target.value)}>
-                  {allFonts.map((font: { name: string }, index: number) => (
-                    <option key={index} value={font.name}>
-                      {font.name}
-                    </option>
-                  ))}
-                </Select>
+                <label>Name</label>
+                <InputField autoComplete="off" name="name" type="name" />
+                {errors.name && touched.name && <Error>{errors.name}</Error>}
               </InputWrapper>
               <InputWrapper>
                 <label>Email address</label>

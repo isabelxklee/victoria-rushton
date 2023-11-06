@@ -3,6 +3,7 @@ exports.createPages = async function ({ actions, graphql }) {
     query {
       allContentfulFont {
         nodes {
+          name
           slug
         }
       }
@@ -13,6 +14,11 @@ exports.createPages = async function ({ actions, graphql }) {
       path: `/${node.slug}`,
       component: require.resolve(`./src/templates/fontPageTemplate.tsx`),
       context: { slug: node.slug }
+    });
+    actions.createPage({
+      path: `/${node.slug}/download-trial-font`,
+      component: require.resolve(`./src/templates/downloadPageTemplate.tsx`),
+      context: { name: node.name }
     });
   });
 };

@@ -85,6 +85,10 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
     });
   }, []);
 
+  const url = useMemo(() => {
+    return `/${font.slug}/download-trial-font`;
+  }, [font.slug]);
+
   return (
     <PageTemplate>
       <SectionWrapper>
@@ -100,7 +104,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         <ButtonGroup>
           <Button onClick={scrollToSection}>License this font</Button>
           <SecondaryButton>
-            <InternalLink hideActive={true} url="/download-trial-fonts">
+            <InternalLink hideActive={true} url={url}>
               Download trial fonts
             </InternalLink>
           </SecondaryButton>
