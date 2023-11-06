@@ -120,6 +120,9 @@ const DownloadForm = ({ font }: DownloadFormProps) => {
           <Form>
             <FormWrapper>
               <InputWrapper>
+                <label>Font: {font} </label>
+              </InputWrapper>
+              <InputWrapper>
                 <label>Name</label>
                 <InputField autoComplete="off" name="name" type="name" />
                 {errors.name && touched.name && <Error>{errors.name}</Error>}

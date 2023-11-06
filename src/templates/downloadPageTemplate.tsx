@@ -22,12 +22,10 @@ interface DownloadTrialFontsProps {
 const DownloadTrialFonts = ({ data }: DownloadTrialFontsProps) => {
   const font = data.contentfulFont;
 
-  console.log(font);
-
   return (
     <PageTemplate>
       <Wrapper>
-        <H2>Download trial fonts</H2>
+        <H2>Download trial font</H2>
         <Text>
           You will receive an email containing all trial font files once you’ve
           submitted the form.
