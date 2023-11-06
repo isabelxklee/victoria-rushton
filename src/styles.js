@@ -278,7 +278,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: ${FONT_WEIGHTS.BOOK};
     background: ${COLORS.WHITE};
     color: ${COLORS.BLACK};
-    line-height: 1.4;
+    line-height: 1.6;
   }
 
   a {

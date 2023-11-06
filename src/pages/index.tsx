@@ -5,10 +5,19 @@ import { GlobalStyles } from '../styles.js';
 
 const Wrapper = styled.div`
   padding: 120px 260px;
+  display: flex;
+
+  @media (max-width: 1000px) {
+    padding: 120px 40px;
+  }
 `;
 
 const Text = styled.p`
   width: 600px;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 const Index = () => {
