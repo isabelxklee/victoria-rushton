@@ -19,7 +19,7 @@ const Error = styled(Text)`
 const FormWrapper = styled(ColumnFlex)`
   gap: 20px;
   width: 300px;
-  margin-top: 20px;
+  margin-top: 60px;
 `;
 
 const InputWrapper = styled(ColumnFlex)`
@@ -120,7 +120,7 @@ const DownloadForm = ({ font }: DownloadFormProps) => {
           <Form>
             <FormWrapper>
               <InputWrapper>
-                <label>Font: {font} </label>
+                <label>Font: {font}</label>
               </InputWrapper>
               <InputWrapper>
                 <label>Name</label>
