@@ -66,6 +66,11 @@ const StyledTextLink = styled(TextLink)`
   color: ${COLORS.WHITE};
   font-weight: 300;
   font-size: 14px;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.5;
+  }
 `;
 
 const ResourcesWrapper = styled.div`
