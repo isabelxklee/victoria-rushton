@@ -273,9 +273,11 @@ export const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Cecilie Sans', sans-serif;
+    font-family: 'Embury Text', sans-serif;
+    font-size: 16px;
     font-weight: ${FONT_WEIGHTS.BOOK};
     background: ${COLORS.WHITE};
     color: ${COLORS.BLACK};
+    line-height: 1.4;
   }
 `;
