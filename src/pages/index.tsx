@@ -17,8 +17,24 @@ const Index = () => {
       <GlobalStyles />
       <Wrapper>
         <Text>
-          Victoria designs typefaces and lettering. Check them out on Type
-          Network, Future Fonts, or get in touch: hello@victoriarushton.com
+          Victoria designs typefaces and lettering. Check them out on{' '}
+          <a
+            href="https://typenetwork.com/type-foundries/victoria-rushton"
+            rel="noreferrer"
+            target="_blank">
+            Type Network
+          </a>
+          ,{' '}
+          <a
+            href="https://www.futurefonts.xyz/victoria-rushton"
+            rel="noreferrer"
+            target="_blank">
+            Future Fonts
+          </a>
+          , or get in touch:{' '}
+          <a href="mailto:hello@victoriarushton.com">
+            hello@victoriarushton.com
+          </a>
         </Text>
       </Wrapper>
     </>

@@ -280,4 +280,8 @@ export const GlobalStyles = createGlobalStyle`
     color: ${COLORS.BLACK};
     line-height: 1.4;
   }
+
+  a {
+    color: ${COLORS.BLACK};
+  }
 `;
