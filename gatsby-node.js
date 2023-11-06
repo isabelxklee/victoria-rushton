@@ -18,7 +18,7 @@ exports.createPages = async function ({ actions, graphql }) {
     actions.createPage({
       path: `/${node.slug}/download-trial-font`,
       component: require.resolve(`./src/templates/downloadPageTemplate.tsx`),
-      context: { name: node.name }
+      context: { slug: node.slug }
     });
   });
 };
