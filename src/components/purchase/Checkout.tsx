@@ -75,20 +75,6 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
           {buttonLabel}
         </CheckoutButton>
       </form>
-      {/* {selectedLicense && selectedLicense.title === 'Trial' ? (
-        <FormikForm
-          selectedLicense={selectedLicense}
-          selectedFonts={selectedFonts}
-        />
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <Button
-            type="submit"
-            $active={!selectedLicense || selectedFonts.length < 1}>
-            {buttonLabel}
-          </Button>
-        </form>
-      )} */}
     </Wrapper>
   );
 };
