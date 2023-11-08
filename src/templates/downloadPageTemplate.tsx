@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Confirmation from '../components/Confirmation';
 import DownloadForm from '../components/DownloadForm';
 import PageTemplate from '../components/PageTemplate';
-import { H2, Text } from '../styles';
 
 const Wrapper = styled.div`
   padding: 60px 0;
@@ -27,8 +26,6 @@ const DownloadTrialFonts = ({ data }: DownloadTrialFontsProps) => {
   useEffect(() => {
     setEmailSent(false);
   }, []);
-
-  console.log(emailSent);
 
   return (
     <PageTemplate>
