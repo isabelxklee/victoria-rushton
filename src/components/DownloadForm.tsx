@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo, useState } from 'react';
 import { Field, Form, Formik } from 'formik';
-import { graphql, navigate, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 
-import { Button, COLORS, ColumnFlex, RowFlex, Text } from '../styles';
+import { Button, COLORS, ColumnFlex, H2, RowFlex, Text } from '../styles';
 
 import { ExternalLink } from './Links';
 
@@ -19,7 +19,7 @@ const Error = styled(Text)`
 const FormWrapper = styled(ColumnFlex)`
   gap: 20px;
   width: 300px;
-  margin-top: 60px;
+  margin-top: 30px;
 `;
 
 const InputWrapper = styled(ColumnFlex)`
@@ -53,13 +53,14 @@ const SubmitButton = styled(Button)<{ $disabled: boolean }>`
 
 interface DownloadFormProps {
   font: string;
+  setEmailSent: (arg0: boolean) => void;
 }
 
-const DownloadForm = ({ font }: DownloadFormProps) => {
+const DownloadForm = ({ font, setEmailSent }: DownloadFormProps) => {
+  const [trialAgreement, setTrialAgreement] = useState<boolean>(false);
+
   const data = useStaticQuery(pageQuery);
   const assets = data.allContentfulAsset.nodes;
-
-  const [trialAgreement, setTrialAgreement] = useState<boolean>(false);
 
   const zipFolder = useMemo(() => {
     const filename = font.split(' ').join('-');
@@ -82,29 +83,29 @@ const DownloadForm = ({ font }: DownloadFormProps) => {
   };
 
   const handleSubmit = async (values: any) => {
-    const response: any = await fetch(
-      `${process.env.GATSBY_SERVER_URL}/download-trial-fonts`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          font: font,
-          email: values.email,
-          name: values.name,
-          zip: zipFolder.url
-        })
-      }
-    );
+    // const response: any = await fetch(
+    //   `${process.env.GATSBY_SERVER_URL}/download-trial-fonts`,
+    //   {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({
+    //       font: font,
+    //       email: values.email,
+    //       name: values.name,
+    //       zip: zipFolder.url
+    //     })
+    //   }
+    // );
 
-    if (!response) {
-      console.log(response.error);
-    }
+    // if (!response) {
+    //   console.log(response.error);
+    // }
 
-    setTimeout(() => {
-      navigate('/');
-    }, 900);
+    setEmailSent(true);
 
-    // change copy to confirmation message
+    // setTimeout(() => {
+    //   navigate('/');
+    // }, 900);
   };
 
   return (
@@ -120,10 +121,12 @@ const DownloadForm = ({ font }: DownloadFormProps) => {
         }}>
         {({ errors, touched, isValid, dirty }) => (
           <Form>
+            <H2>Download trial font</H2>
+            <Text>
+              You will receive an email containing all trial font files for{' '}
+              <strong>{font}</strong> once you’ve submitted the form.
+            </Text>
             <FormWrapper>
-              <InputWrapper>
-                <label>Font: {font}</label>
-              </InputWrapper>
               <InputWrapper>
                 <label>Name</label>
                 <InputField autoComplete="off" name="name" type="name" />

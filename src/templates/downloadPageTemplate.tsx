@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
+import Confirmation from '../components/Confirmation';
 import DownloadForm from '../components/DownloadForm';
 import PageTemplate from '../components/PageTemplate';
 import { H2, Text } from '../styles';
@@ -20,17 +21,23 @@ interface DownloadTrialFontsProps {
 }
 
 const DownloadTrialFonts = ({ data }: DownloadTrialFontsProps) => {
+  const [emailSent, setEmailSent] = useState(false);
   const font = data.contentfulFont;
+
+  useEffect(() => {
+    setEmailSent(false);
+  }, []);
+
+  console.log(emailSent);
 
   return (
     <PageTemplate>
       <Wrapper>
-        <H2>Download trial font</H2>
-        <Text>
-          You will receive an email containing all trial font files once you’ve
-          submitted the form.
-        </Text>
-        <DownloadForm font={font.name} />
+        {emailSent ? (
+          <Confirmation />
+        ) : (
+          <DownloadForm font={font.name} setEmailSent={setEmailSent} />
+        )}
       </Wrapper>
     </PageTemplate>
   );
