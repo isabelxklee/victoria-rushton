@@ -83,23 +83,23 @@ const DownloadForm = ({ font, setEmailSent }: DownloadFormProps) => {
   };
 
   const handleSubmit = async (values: any) => {
-    // const response: any = await fetch(
-    //   `${process.env.GATSBY_SERVER_URL}/download-trial-fonts`,
-    //   {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({
-    //       font: font,
-    //       email: values.email,
-    //       name: values.name,
-    //       zip: zipFolder.url
-    //     })
-    //   }
-    // );
+    const response: any = await fetch(
+      `${process.env.GATSBY_SERVER_URL}/download-trial-fonts`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          font: font,
+          email: values.email,
+          name: values.name,
+          zip: zipFolder.url
+        })
+      }
+    );
 
-    // if (!response) {
-    //   console.log(response.error);
-    // }
+    if (!response) {
+      console.log(response.error);
+    }
 
     setEmailSent(true);
   };

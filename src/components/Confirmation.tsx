@@ -16,7 +16,7 @@ const ButtonWrapper = styled.div`
 const Confirmation = () => {
   return (
     <Wrapper>
-      <H2>Thank you for downloading...!</H2>
+      <H2>Thank you for downloading.</H2>
       <Text>
         Your trial font files have been sent to your email. Delivery may take a
         couple minutes.
