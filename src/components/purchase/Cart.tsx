@@ -62,33 +62,23 @@ const FontsWrapper = styled.div`
 
 interface CartProps extends LicenseProps {
   selectedLicense: LicenseType;
-  setSelectedFonts: (value: any) => void;
 }
 
 const Cart = ({
   font,
   removeFont,
   selectedFonts,
-  selectedLicense,
-  setSelectedFonts
+  selectedLicense
 }: CartProps) => {
   const [variableFont, setVariableFont] = useState<boolean>(false);
 
-  const variableFontObj = useMemo(() => {
-    return {
-      slant: 'Variable',
-      weightTitle: 'Variable',
-      weightValue: 0
-    };
-  }, []);
-
   useEffect(() => {
-    if (selectedFonts.length > 4) {
+    if (font.slug === 'cecilie-sans' && selectedFonts.length > 4) {
       setVariableFont(true);
     } else {
       setVariableFont(false);
     }
-  }, [selectedFonts]);
+  }, [font.slug, selectedFonts]);
 
   const priceCalculation = useMemo(() => {
     return selectedLicense ? selectedFonts.length * selectedLicense.price : 0;

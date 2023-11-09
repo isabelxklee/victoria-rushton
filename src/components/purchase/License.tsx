@@ -27,7 +27,6 @@ export interface LicenseProps {
   font: FontType;
   removeFont: (arg0: SimpleFontType) => void;
   selectedFonts: SimpleFontType[];
-  setSelectedFonts: (arg0: SimpleFontType[]) => void;
 }
 
 export interface LicenseType {
@@ -78,12 +77,7 @@ const StyledTextLink = styled(TextLink)`
   }
 `;
 
-const License = ({
-  font,
-  removeFont,
-  selectedFonts,
-  setSelectedFonts
-}: LicenseProps) => {
+const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
   const data = useStaticQuery(pageQuery);
   const licenses = data.allContentfulLicense.nodes;
   const checkoutResources = data.allContentfulCheckoutResource.nodes;
@@ -148,7 +142,6 @@ const License = ({
             removeFont={removeFont}
             selectedFonts={selectedFonts}
             selectedLicense={selectedLicense}
-            setSelectedFonts={setSelectedFonts}
           />
         </Card>
       </Right>
