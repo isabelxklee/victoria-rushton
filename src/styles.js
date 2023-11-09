@@ -65,7 +65,7 @@ export const H3 = styled.h3`
 `;
 
 export const H4 = styled.h4`
-  font-size: 14px;
+  font-size: 16px;
   font-weight: ${FONT_WEIGHTS.BOLD};
   margin: 0;
 `;
@@ -77,7 +77,7 @@ export const Text = styled.p`
   line-height: 1.6;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
 

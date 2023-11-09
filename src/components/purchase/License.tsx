@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { FontType } from '../../pages';
 import {
   BREAKPOINTS,
-  COLORS,
   ColumnFlex,
   Flex,
   H4,
@@ -70,7 +69,7 @@ const BulletPointText = styled(Text)`
 
 const StyledTextLink = styled(TextLink)`
   font-weight: 300;
-  font-size: 14px;
+  font-size: 16px;
   transition: 0.2s;
 
   &:hover {

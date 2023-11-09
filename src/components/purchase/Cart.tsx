@@ -40,8 +40,7 @@ const Cart = ({
   return (
     <Wrapper>
       <CartWrapper>
-        <H3>License size:</H3>
-        {selectedLicense && <Text>License size - {selectedLicense.title}</Text>}
+        <Text>License size: {selectedLicense && selectedLicense.title}</Text>
         {selectedFonts.map((fontOption: SimpleFontType, index) => (
           <LineItem key={index} onClick={() => removeFont(fontOption)}>
             <Text>
