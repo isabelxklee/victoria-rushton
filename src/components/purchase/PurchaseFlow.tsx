@@ -82,6 +82,7 @@ const PurchaseFlow = ({ font, sortedWeights }: PurchaseFlowProps) => {
         font={font}
         removeFont={removeFont}
         selectedFonts={selectedFonts}
+        setSelectedFonts={setSelectedFonts}
       />
     </Wrapper>
   );

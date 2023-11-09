@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 
 import SVG from '../../assets/icon-close.svg';
@@ -61,14 +62,28 @@ const FontsWrapper = styled.div`
 
 interface CartProps extends LicenseProps {
   selectedLicense: LicenseType;
+  setSelectedFonts: (value: any) => void;
 }
 
 const Cart = ({
   font,
   removeFont,
   selectedFonts,
-  selectedLicense
+  selectedLicense,
+  setSelectedFonts
 }: CartProps) => {
+  useEffect(() => {
+    if (selectedFonts.length >= 5) {
+      const obj = {
+        slant: 'Variable',
+        weightTitle: 'Variable',
+        weightValue: 0
+      };
+
+      setSelectedFonts((selectedFonts: any) => [...selectedFonts, obj]);
+    }
+  }, [selectedFonts.length, setSelectedFonts]);
+
   const priceCalculation = useMemo(() => {
     return selectedLicense ? selectedFonts.length * selectedLicense.price : 0;
   }, [selectedFonts.length, selectedLicense]);
