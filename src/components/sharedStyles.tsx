@@ -20,20 +20,6 @@ export const HeroCopy = styled.h2<{
   }
 `;
 
-export const SectionWrapper = styled.div`
-  border-bottom: 2px solid ${COLORS.BLACK};
-  padding: 20px 0;
-
-  &:last-child {
-    border-bottom: none;
-    margin-bottom: 180px;
-  }
-
-  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
-    padding: 10px 0;
-  }
-`;
-
 export const Select = styled.select<{ $width?: string }>`
   height: fit-content;
   width: ${({ $width }) => ($width === 'fixed' ? '240px' : '100%')};

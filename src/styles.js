@@ -98,6 +98,11 @@ export const Button = styled.button`
   padding: 4px 16px;
   pointer-events: auto;
   cursor: pointer;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    font-size: 14px;
+    width: fit-content;
+  }
 `;
 
 export const SecondaryButton = styled(Button)`

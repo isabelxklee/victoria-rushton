@@ -2,10 +2,24 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { FontType } from '../pages';
-import { RowFlex, Text } from '../styles';
+import { BREAKPOINTS, COLORS, RowFlex, Text } from '../styles';
 
 import { InternalLink } from './Links';
-import { HeroCopy, SectionWrapper } from './sharedStyles';
+import { HeroCopy } from './sharedStyles';
+
+const Wrapper = styled.div`
+  border-bottom: 2px solid ${COLORS.BLACK};
+  padding: 20px 0;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 180px;
+  }
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 10px 0;
+  }
+`;
 
 const StyledRowFlex = styled(RowFlex)`
   justify-content: space-between;
@@ -21,7 +35,7 @@ const FontHero = ({ font }: FontHeroProps) => {
   }, [font.slants.length, font.weights.length]);
 
   return (
-    <SectionWrapper>
+    <Wrapper>
       <InternalLink url={`/${font.slug}`}>
         <StyledRowFlex>
           <Text>{font.name}</Text>
@@ -36,7 +50,7 @@ const FontHero = ({ font }: FontHeroProps) => {
           {font.heroCopy.heroCopy}
         </HeroCopy>
       </InternalLink>
-    </SectionWrapper>
+    </Wrapper>
   );
 };
 
