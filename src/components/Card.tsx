@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import styled from 'styled-components';
 
@@ -12,7 +13,6 @@ const Wrapper = styled.div`
   background: ${COLORS.WHITE};
   color: ${COLORS.BLACK};
   border-radius: 20px;
-  padding: 40px;
   margin-top: 60px;
   border: 3px solid ${COLORS.BLACK};
 
@@ -21,11 +21,24 @@ const Wrapper = styled.div`
   }
 `;
 
+const Header = styled.div`
+  background: ${COLORS.BLACK};
+  color: ${COLORS.WHITE};
+  padding: 30px 40px;
+  border-radius: 14px 14px 0 0;
+`;
+
+const Body = styled.div`
+  padding: 30px 40px;
+`;
+
 const Card = ({ children, title }: CardProps) => {
   return (
     <Wrapper>
-      <H3>{title}</H3>
-      {children}
+      <Header>
+        <H3>{title}</H3>
+      </Header>
+      <Body>{children}</Body>
     </Wrapper>
   );
 };
