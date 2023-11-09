@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   color: ${COLORS.BLACK};
   border-radius: 20px;
   margin-top: 60px;
-  border: 3px solid ${COLORS.BLACK};
+  border: 2px solid ${COLORS.BLACK};
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     margin-top: 0;
@@ -26,10 +26,18 @@ const Header = styled.div`
   color: ${COLORS.WHITE};
   padding: 30px 40px;
   border-radius: 14px 14px 0 0;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 20px;
+  }
 `;
 
 const Body = styled.div`
   padding: 30px 40px;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 20px;
+  }
 `;
 
 const Card = ({ children, title }: CardProps) => {

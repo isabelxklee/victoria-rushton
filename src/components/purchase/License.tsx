@@ -4,7 +4,15 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import { FontType } from '../../pages';
-import { BREAKPOINTS, COLORS, Flex, Text, TextLink } from '../../styles';
+import {
+  BREAKPOINTS,
+  COLORS,
+  ColumnFlex,
+  Flex,
+  H4,
+  Text,
+  TextLink
+} from '../../styles';
 import Card from '../Card';
 import { Select } from '../sharedStyles';
 
@@ -39,6 +47,10 @@ const Wrapper = styled(Flex)`
   }
 `;
 
+const LicenseWrapper = styled(ColumnFlex)`
+  gap: 18px;
+`;
+
 const LeftWrapper = styled.div`
   width: 30%;
   height: 100%;
@@ -57,7 +69,6 @@ const BulletPointText = styled(Text)`
 `;
 
 const StyledTextLink = styled(TextLink)`
-  color: ${COLORS.WHITE};
   font-weight: 300;
   font-size: 14px;
   transition: 0.2s;
@@ -65,10 +76,6 @@ const StyledTextLink = styled(TextLink)`
   &:hover {
     opacity: 0.5;
   }
-`;
-
-const ResourcesWrapper = styled.div`
-  margin-top: 20px;
 `;
 
 const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
@@ -83,7 +90,7 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
     <Wrapper>
       <LeftWrapper>
         <Card title="Select a license">
-          <div>
+          <LicenseWrapper>
             <Select
               $width="fixed"
               onChange={event =>
@@ -96,7 +103,7 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
               ))}
             </Select>
             <div>
-              <Text>For uses, not exceeding:</Text>
+              <H4>For uses, not exceeding:</H4>
               {selectedLicense && (
                 <>
                   <BulletPointText>
@@ -113,8 +120,8 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
                 </>
               )}
             </div>
-            <ResourcesWrapper>
-              <Text>Resources</Text>
+            <div>
+              <H4>Resources</H4>
               {checkoutResources.map(
                 (resource: CheckoutResource, index: number) => (
                   <StyledTextLink
@@ -125,8 +132,8 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
                   </StyledTextLink>
                 )
               )}
-            </ResourcesWrapper>
-          </div>
+            </div>
+          </LicenseWrapper>
         </Card>
       </LeftWrapper>
       <Right>

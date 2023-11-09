@@ -64,6 +64,12 @@ export const H3 = styled.h3`
   margin: 0;
 `;
 
+export const H4 = styled.h4`
+  font-size: 14px;
+  font-weight: ${FONT_WEIGHTS.BOLD};
+  margin: 0;
+`;
+
 export const Text = styled.p`
   margin: 0;
   font-size: 18px;
