@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { H2, SecondaryButton, Text } from '../styles';
+import { Button, H2, Text } from '../styles';
 
 import { InternalLink } from './Links';
 
@@ -22,11 +22,11 @@ const Confirmation = () => {
         couple minutes.
       </Text>
       <ButtonWrapper>
-        <SecondaryButton>
-          <InternalLink hideActive={true} url="/">
+        <Button>
+          <InternalLink hideActive={true} light={true} url="/">
             Go back to fonts
           </InternalLink>
-        </SecondaryButton>
+        </Button>
       </ButtonWrapper>
     </Wrapper>
   );

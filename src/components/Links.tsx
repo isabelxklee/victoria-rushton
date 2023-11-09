@@ -16,8 +16,8 @@ const A = styled.a<{
   text-transform: ${({ $textCase }) => $textCase};
 `;
 
-const StyledLink = styled(Link)<{ $textCase?: string }>`
-  color: ${COLORS.BLACK};
+const StyledLink = styled(Link)<{ $light?: boolean; $textCase?: string }>`
+  color: ${({ $light }) => ($light ? COLORS.WHITE : COLORS.BLACK)};
   font-weight: ${FONT_WEIGHTS.REGULAR};
   text-decoration: none;
   text-transform: ${({ $textCase }) => $textCase};
@@ -26,6 +26,7 @@ const StyledLink = styled(Link)<{ $textCase?: string }>`
 interface LinkProps {
   children: string | ReactNode;
   hideActive?: boolean;
+  light?: boolean;
   textCase?: string;
   url: string;
 }
@@ -38,11 +39,13 @@ interface ExternalLinkProps extends LinkProps {
 export const InternalLink = ({
   children,
   hideActive,
+  light,
   textCase,
   url
 }: LinkProps) => {
   return (
     <StyledLink
+      $light={light}
       $textCase={textCase}
       activeStyle={{
         fontWeight: hideActive ? FONT_WEIGHTS.REGULAR : FONT_WEIGHTS.BOLD

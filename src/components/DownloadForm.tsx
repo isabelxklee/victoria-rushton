@@ -102,10 +102,6 @@ const DownloadForm = ({ font, setEmailSent }: DownloadFormProps) => {
     // }
 
     setEmailSent(true);
-
-    // setTimeout(() => {
-    //   navigate('/');
-    // }, 900);
   };
 
   return (
