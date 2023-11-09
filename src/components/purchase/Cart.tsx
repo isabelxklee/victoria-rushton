@@ -2,11 +2,13 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { ColumnFlex, H3, RowFlex, Text } from '../../styles';
-import { StyledRowFlex } from '../sharedStyles';
+import { Card, StyledRowFlex } from '../sharedStyles';
 
 import Checkout from './Checkout';
 import { LicenseProps, LicenseType } from './License';
 import { SimpleFontType } from './PurchaseFlow';
+
+const Wrapper = styled(Card)``;
 
 const LineItem = styled(StyledRowFlex)`
   cursor: pointer;
@@ -36,9 +38,9 @@ const Cart = ({
   }, [selectedFonts.length, selectedLicense]);
 
   return (
-    <>
-      <H3>Cart</H3>
+    <Wrapper>
       <CartWrapper>
+        <H3>License size:</H3>
         {selectedLicense && <Text>License size - {selectedLicense.title}</Text>}
         {selectedFonts.map((fontOption: SimpleFontType, index) => (
           <LineItem key={index} onClick={() => removeFont(fontOption)}>
@@ -61,7 +63,7 @@ const Cart = ({
         fonts={selectedFonts}
         license={selectedLicense}
       />
-    </>
+    </Wrapper>
   );
 };
 

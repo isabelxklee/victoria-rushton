@@ -13,7 +13,7 @@ import {
   Text,
   TextLink
 } from '../../styles';
-import { Select } from '../sharedStyles';
+import { Card, Select } from '../sharedStyles';
 
 import Cart from './Cart';
 import { SimpleFontType } from './PurchaseFlow';
@@ -37,16 +37,10 @@ export interface LicenseType {
   webVisitors: number;
 }
 
-const Card = styled.div`
+const CardHeader = styled.div`
   background: ${COLORS.BLACK};
   color: ${COLORS.WHITE};
   border-radius: 20px;
-  padding: 60px;
-  margin-top: 60px;
-
-  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
-    margin-top: 0;
-  }
 `;
 
 const Wrapper = styled(Flex)`
@@ -67,16 +61,12 @@ const LeftWrapper = styled(Card)`
   }
 `;
 
-const RightWrapper = styled(Card)`
+const CartWrapper = styled.div`
   flex: 1;
 `;
 
 const Left = styled(ColumnFlex)`
   gap: 20px;
-`;
-
-const Right = styled(ColumnFlex)`
-  gap: 10px;
 `;
 
 const BulletPointText = styled(Text)`
@@ -152,16 +142,15 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
           </ResourcesWrapper>
         </Left>
       </LeftWrapper>
-      <RightWrapper>
-        <Right>
-          <Cart
-            font={font}
-            removeFont={removeFont}
-            selectedFonts={selectedFonts}
-            selectedLicense={selectedLicense}
-          />
-        </Right>
-      </RightWrapper>
+      <CartWrapper>
+        <CardHeader>Cart</CardHeader>
+        <Cart
+          font={font}
+          removeFont={removeFont}
+          selectedFonts={selectedFonts}
+          selectedLicense={selectedLicense}
+        />
+      </CartWrapper>
     </Wrapper>
   );
 };
