@@ -16,6 +16,7 @@ export const FONT_WEIGHTS = {
 };
 
 export const BREAKPOINTS = {
+  SMALL: '400px',
   MEDIUM: '1000px'
 };
 
@@ -70,7 +71,7 @@ export const Text = styled.p`
   line-height: 1.6;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 

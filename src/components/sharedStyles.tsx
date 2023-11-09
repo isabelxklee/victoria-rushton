@@ -28,6 +28,10 @@ export const SectionWrapper = styled.div`
     border-bottom: none;
     margin-bottom: 180px;
   }
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 10px 0;
+  }
 `;
 
 export const Select = styled.select<{ $width?: string }>`
