@@ -50,8 +50,8 @@ const LicenseWrapper = styled(ColumnFlex)`
   gap: 18px;
 `;
 
-const LeftWrapper = styled.div`
-  width: 30%;
+const Left = styled.div`
+  width: 40%;
   height: 100%;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
@@ -87,7 +87,7 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
 
   return (
     <Wrapper>
-      <LeftWrapper>
+      <Left>
         <Card title="Select a license">
           <LicenseWrapper>
             <Select
@@ -134,7 +134,7 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
             </div>
           </LicenseWrapper>
         </Card>
-      </LeftWrapper>
+      </Left>
       <Right>
         <Card title="Cart">
           <Cart
