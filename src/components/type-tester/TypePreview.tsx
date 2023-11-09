@@ -17,6 +17,7 @@ const Wrapper = styled.div`
 
 const LineItem = styled.div`
   border-top: 2px solid ${COLORS.BLACK};
+  padding-bottom: 10px;
 
   &:first-child {
     border-top: none;
@@ -24,6 +25,10 @@ const LineItem = styled.div`
 
   &:last-child {
     border-bottom: 2px solid ${COLORS.BLACK};
+  }
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding-bottom: 20px;
   }
 `;
 
@@ -37,7 +42,6 @@ const Bottom = styled(Flex)`
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     flex-direction: column;
-    margin-bottom: 20px;
   }
 `;
 
@@ -55,7 +59,7 @@ const PreviewText = styled.p<{
   background-color: ${({ $darkMode }) =>
     $darkMode ? COLORS.BLACK : COLORS.WHITE};
   color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
-  margin: 0 0 10px 0;
+  margin: 0;
   width: 80%;
   line-break: normal;
   line-height: 1.4;
