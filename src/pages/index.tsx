@@ -46,10 +46,11 @@ export default IndexPage;
 
 const pageQuery = graphql`
   query {
-    allContentfulFont {
+    allContentfulFont(sort: { order: ASC }) {
       nodes {
         name
         slug
+        order
         heroCopy {
           heroCopy
         }
