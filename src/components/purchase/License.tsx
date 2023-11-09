@@ -4,16 +4,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import { FontType } from '../../pages';
-import {
-  BREAKPOINTS,
-  COLORS,
-  ColumnFlex,
-  Flex,
-  H3,
-  Text,
-  TextLink
-} from '../../styles';
-import { Card, Select } from '../sharedStyles';
+import { BREAKPOINTS, COLORS, Flex, Text, TextLink } from '../../styles';
+import Card from '../Card';
+import { Select } from '../sharedStyles';
 
 import Cart from './Cart';
 import { SimpleFontType } from './PurchaseFlow';
@@ -37,12 +30,6 @@ export interface LicenseType {
   webVisitors: number;
 }
 
-const CardHeader = styled.div`
-  background: ${COLORS.BLACK};
-  color: ${COLORS.WHITE};
-  border-radius: 20px;
-`;
-
 const Wrapper = styled(Flex)`
   gap: 20px;
 
@@ -52,7 +39,7 @@ const Wrapper = styled(Flex)`
   }
 `;
 
-const LeftWrapper = styled(Card)`
+const LeftWrapper = styled.div`
   width: 30%;
   height: 100%;
 
@@ -61,12 +48,8 @@ const LeftWrapper = styled(Card)`
   }
 `;
 
-const CartWrapper = styled.div`
+const Right = styled.div`
   flex: 1;
-`;
-
-const Left = styled(ColumnFlex)`
-  gap: 20px;
 `;
 
 const BulletPointText = styled(Text)`
@@ -99,58 +82,63 @@ const License = ({ font, removeFont, selectedFonts }: LicenseProps) => {
   return (
     <Wrapper>
       <LeftWrapper>
-        <Left>
-          <H3>Select a license</H3>
-          <Select
-            $width="fixed"
-            onChange={event =>
-              setSelectedLicense(JSON.parse(event.target.value))
-            }>
-            {licenses.map((license: LicenseType, index: number) => (
-              <option key={index} value={JSON.stringify(license)}>
-                {license.title}
-              </option>
-            ))}
-          </Select>
+        <Card title="Select a license">
           <div>
-            <Text>For uses, not exceeding:</Text>
-            {selectedLicense && (
-              <>
-                <BulletPointText>
-                  • {selectedLicense.desktopWorkstations.toLocaleString()}{' '}
-                  desktop workstations
-                </BulletPointText>
-                <BulletPointText>
-                  • {selectedLicense.webVisitors.toLocaleString()} web visitors
-                  per month
-                </BulletPointText>
-                <BulletPointText>
-                  • {selectedLicense.eBooks.toLocaleString()} e-books
-                </BulletPointText>
-              </>
-            )}
+            <Select
+              $width="fixed"
+              onChange={event =>
+                setSelectedLicense(JSON.parse(event.target.value))
+              }>
+              {licenses.map((license: LicenseType, index: number) => (
+                <option key={index} value={JSON.stringify(license)}>
+                  {license.title}
+                </option>
+              ))}
+            </Select>
+            <div>
+              <Text>For uses, not exceeding:</Text>
+              {selectedLicense && (
+                <>
+                  <BulletPointText>
+                    • {selectedLicense.desktopWorkstations.toLocaleString()}{' '}
+                    desktop workstations
+                  </BulletPointText>
+                  <BulletPointText>
+                    • {selectedLicense.webVisitors.toLocaleString()} web
+                    visitors per month
+                  </BulletPointText>
+                  <BulletPointText>
+                    • {selectedLicense.eBooks.toLocaleString()} e-books
+                  </BulletPointText>
+                </>
+              )}
+            </div>
+            <ResourcesWrapper>
+              <Text>Resources</Text>
+              {checkoutResources.map(
+                (resource: CheckoutResource, index: number) => (
+                  <StyledTextLink
+                    key={index}
+                    href={resource.url}
+                    target="_blank">
+                    {resource.linkText} <br />
+                  </StyledTextLink>
+                )
+              )}
+            </ResourcesWrapper>
           </div>
-          <ResourcesWrapper>
-            <Text>Resources</Text>
-            {checkoutResources.map(
-              (resource: CheckoutResource, index: number) => (
-                <StyledTextLink key={index} href={resource.url} target="_blank">
-                  {resource.linkText} <br />
-                </StyledTextLink>
-              )
-            )}
-          </ResourcesWrapper>
-        </Left>
+        </Card>
       </LeftWrapper>
-      <CartWrapper>
-        <CardHeader>Cart</CardHeader>
-        <Cart
-          font={font}
-          removeFont={removeFont}
-          selectedFonts={selectedFonts}
-          selectedLicense={selectedLicense}
-        />
-      </CartWrapper>
+      <Right>
+        <Card title="Cart">
+          <Cart
+            font={font}
+            removeFont={removeFont}
+            selectedFonts={selectedFonts}
+            selectedLicense={selectedLicense}
+          />
+        </Card>
+      </Right>
     </Wrapper>
   );
 };

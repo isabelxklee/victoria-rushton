@@ -2,13 +2,13 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { ColumnFlex, H3, RowFlex, Text } from '../../styles';
-import { Card, StyledRowFlex } from '../sharedStyles';
+import { StyledRowFlex } from '../sharedStyles';
 
 import Checkout from './Checkout';
 import { LicenseProps, LicenseType } from './License';
 import { SimpleFontType } from './PurchaseFlow';
 
-const Wrapper = styled(Card)``;
+const Wrapper = styled.div``;
 
 const LineItem = styled(StyledRowFlex)`
   cursor: pointer;

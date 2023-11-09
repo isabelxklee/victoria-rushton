@@ -2,19 +2,6 @@ import styled from 'styled-components';
 
 import { BREAKPOINTS, Button, COLORS, RowFlex } from '../styles';
 
-export const Card = styled.div`
-  background: ${COLORS.WHITE};
-  color: ${COLORS.BLACK};
-  border-radius: 20px;
-  padding: 40px;
-  margin-top: 60px;
-  border: 3px solid ${COLORS.BLACK};
-
-  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
-    margin-top: 0;
-  }
-`;
-
 export const HeroCopy = styled.h2<{
   $fontFamily: string;
   $lineHeight: number;
