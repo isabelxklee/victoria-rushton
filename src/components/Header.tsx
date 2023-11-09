@@ -5,7 +5,7 @@ import { BREAKPOINTS, COLORS, Flex, RowFlex } from '../styles';
 
 import { InternalLink } from './Links';
 
-const HeaderWrapper = styled(Flex)`
+const Wrapper = styled(Flex)`
   color: ${COLORS.BLACK};
   padding: 20px 0;
   border-bottom: 2px solid ${COLORS.BLACK};
@@ -28,7 +28,7 @@ const Logo = styled.img`
 
 const Header = () => {
   return (
-    <HeaderWrapper>
+    <Wrapper>
       <InternalLink url="/">
         <Logo
           alt=""
@@ -39,7 +39,7 @@ const Header = () => {
         <InternalLink url="/">Home</InternalLink>
         <InternalLink url="/about">About</InternalLink>
       </Right>
-    </HeaderWrapper>
+    </Wrapper>
   );
 };
 

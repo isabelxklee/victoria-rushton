@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
   &:last-child {
     border-bottom: none;
-    margin-bottom: 180px;
+    margin-bottom: 40px;
   }
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
