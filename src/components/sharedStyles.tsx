@@ -14,6 +14,10 @@ export const HeroCopy = styled.h2<{
   font-weight: ${({ $weight }) => $weight};
   line-height: ${({ $lineHeight }) => $lineHeight};
   font-style: ${({ $slant }) => $slant};
+
+  @media (max-width: 1000px) {
+    font-size: ${({ $size }) => `${$size * 0.6}px`};
+  }
 `;
 
 export const SectionWrapper = styled.div`

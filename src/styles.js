@@ -33,6 +33,10 @@ export const ColumnFlex = styled(Flex)`
 
 export const Wrapper = styled.div`
   padding: 80px;
+
+  @media (max-width: 1000px) {
+    padding: 40px;
+  }
 `;
 
 export const H1 = styled.h1`
