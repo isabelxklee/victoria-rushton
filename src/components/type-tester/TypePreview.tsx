@@ -66,6 +66,7 @@ const PreviewText = styled.p<{
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     margin: 0 0 20px 0;
+    width: 100%;
   }
 `;
 
