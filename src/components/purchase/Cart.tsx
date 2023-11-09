@@ -2,7 +2,15 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import SVG from '../../assets/icon-close.svg';
-import { COLORS, ColumnFlex, H3, H4, RowFlex, Text } from '../../styles';
+import {
+  BREAKPOINTS,
+  COLORS,
+  ColumnFlex,
+  H3,
+  H4,
+  RowFlex,
+  Text
+} from '../../styles';
 
 import Checkout from './Checkout';
 import { LicenseProps, LicenseType } from './License';
@@ -41,6 +49,10 @@ const SubtotalWrapper = styled(RowFlex)`
   margin: 40px 0;
   border-top: 2px solid ${COLORS.BLACK};
   padding: 10px 0;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    margin: 40px 0 0 0;
+  }
 `;
 
 const FontsWrapper = styled.div`

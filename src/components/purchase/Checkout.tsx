@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import styled from 'styled-components';
 
-import { Flex, FONT_WEIGHTS } from '../../styles';
-import { StyledButton } from '../sharedStyles';
+import { Button, Flex, FONT_WEIGHTS } from '../../styles';
 
 import { LicenseType } from './License';
 import { SimpleFontType } from './PurchaseFlow';
@@ -15,12 +14,11 @@ const Wrapper = styled(Flex)`
   margin-top: 10px;
 `;
 
-const CheckoutButton = styled(StyledButton)<{ $active: boolean }>`
+const CheckoutButton = styled(Button)<{ $active: boolean }>`
   opacity: ${({ $active }) => ($active ? 1 : 0.5)};
   cursor: ${({ $active }) => ($active ? 'pointer' : 'default')};
   pointer-events: ${({ $active }) => ($active ? 'auto' : 'none')};
   width: 100%;
-  font-size: 20px;
   font-weight: ${FONT_WEIGHTS.MEDIUM};
 `;
 
@@ -31,17 +29,7 @@ interface CheckoutProps {
 }
 
 const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
-  const [buttonLabel, setButtonLabel] = useState('Checkout');
-
-  useEffect(() => {
-    setButtonLabel(
-      license && license.title === 'Trial' ? 'Download' : 'Checkout'
-    );
-  }, [license]);
-
   const handleSubmit = async (event: any) => {
-    setButtonLabel('Loading...');
-
     event.preventDefault();
 
     const stripe: any = await loadStripe(process.env.GATSBY_STRIPE_SECRET!);
@@ -68,11 +56,8 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
   return (
     <Wrapper>
       <form onSubmit={handleSubmit}>
-        <CheckoutButton
-          $active={!fonts.length < 1}
-          $status={true}
-          type="submit">
-          {buttonLabel}
+        <CheckoutButton $active={!fonts.length < 1} type="submit">
+          Checkout
         </CheckoutButton>
       </form>
     </Wrapper>
