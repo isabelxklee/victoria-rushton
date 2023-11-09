@@ -1,7 +1,16 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
-import { COLORS, ColumnFlex, H3, H4, RowFlex, Text } from '../../styles';
+import { ReactComponent as SVG } from '../../assets/icon-close.svg';
+import {
+  Button,
+  COLORS,
+  ColumnFlex,
+  H3,
+  H4,
+  RowFlex,
+  Text
+} from '../../styles';
 
 import Checkout from './Checkout';
 import { LicenseProps, LicenseType } from './License';
@@ -60,6 +69,9 @@ const Cart = ({
             <RowFlex style={{ gap: '32px' }}>
               <Text>${selectedLicense?.price}</Text>
             </RowFlex>
+            <Button>
+              <SVG />
+            </Button>
           </LineItem>
         ))}
       </CartWrapper>
