@@ -6,10 +6,17 @@ import styled from 'styled-components';
 
 import { ExternalLink } from '../components/Links';
 import PageTemplate from '../components/PageTemplate';
-import { FlexContainer } from '../components/styles';
-import { BREAKPOINTS, Button, COLORS, FONT_WEIGHTS, H2, Text } from '../styles';
+import {
+  BREAKPOINTS,
+  Button,
+  COLORS,
+  Flex,
+  FONT_WEIGHTS,
+  H2,
+  Text
+} from '../styles';
 
-const IntroWrapper = styled(FlexContainer)`
+const IntroWrapper = styled(Flex)`
   padding: 120px 0;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {

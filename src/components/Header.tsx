@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { BREAKPOINTS, COLORS, RowFlex } from '../styles';
+import { BREAKPOINTS, COLORS, Flex, RowFlex } from '../styles';
 
 import { InternalLink } from './Links';
-import { FlexContainer } from './styles';
 
-const HeaderWrapper = styled(FlexContainer)`
+const HeaderWrapper = styled(Flex)`
   color: ${COLORS.BLACK};
   padding-bottom: 40px;
   width: calc(100vw - 160px);
