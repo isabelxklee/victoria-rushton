@@ -76,6 +76,10 @@ const SupportedLanguagesWrapper = styled.div`
 
 const TextWrapper = styled.div`
   padding: 100px 0 120px 0;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 40px 0 60px 0;
+  }
 `;
 
 const ButtonGroup = styled.div`

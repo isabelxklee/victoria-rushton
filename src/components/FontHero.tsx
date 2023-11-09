@@ -5,7 +5,6 @@ import { FontType } from '../pages';
 import { BREAKPOINTS, COLORS, RowFlex, Text } from '../styles';
 
 import { InternalLink } from './Links';
-import { HeroCopy } from './sharedStyles';
 
 const Wrapper = styled.div`
   border-bottom: 2px solid ${COLORS.BLACK};
@@ -18,6 +17,26 @@ const Wrapper = styled.div`
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     padding: 10px 0;
+  }
+`;
+
+const HeroCopy = styled.h2<{
+  $fontFamily: string;
+  $lineHeight: number;
+  $size: number;
+  $slant: string;
+  $weight: number;
+}>`
+  font-family: ${({ $fontFamily }) => $fontFamily};
+  font-size: ${({ $size }) => `${$size}px`};
+  font-weight: ${({ $weight }) => $weight};
+  line-height: ${({ $lineHeight }) => $lineHeight};
+  font-style: ${({ $slant }) => $slant};
+  margin: 100px 0;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    font-size: ${({ $size }) => `${$size * 0.6}px`};
+    margin: 40px 0;
   }
 `;
 
@@ -46,8 +65,7 @@ const FontHero = ({ font }: FontHeroProps) => {
           $lineHeight={font.heroCopyLineHeight}
           $size={font.heroCopyFontSize}
           $slant={font.heroCopySlant.title}
-          $weight={font.heroCopyWeight.value}
-          margin="100px 0">
+          $weight={font.heroCopyWeight.value}>
           {font.heroCopy.heroCopy}
         </HeroCopy>
       </InternalLink>
