@@ -64,8 +64,9 @@ const Wrapper = styled.div`
   padding: 20px 0;
 `;
 
-const StyledSectionWrapper = styled.div`
-  padding: 30px 0;
+const PreviewWrapper = styled.div`
+  padding: 100px 0;
+  border-bottom: 2px solid ${COLORS.BLACK};
 `;
 
 const SupportedLanguagesWrapper = styled.div`
@@ -134,11 +135,11 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
           </SecondaryButton>
         </ButtonGroup>
       </Wrapper>
-      <StyledSectionWrapper>
+      <PreviewWrapper>
         {previewTexts.map((text: PreviewTextItem, index: number) => (
           <PreviewText key={index} previewText={text} />
         ))}
-      </StyledSectionWrapper>
+      </PreviewWrapper>
       <div ref={divRef} />
       <PurchaseFlow font={font} sortedWeights={sortedWeights} />
       <SupportedLanguagesWrapper>
