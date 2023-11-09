@@ -61,7 +61,7 @@ interface FontPageTemplateProps {
 
 const Wrapper = styled.div`
   border-bottom: 2px solid ${COLORS.BLACK};
-  padding: 0 0 30px 0;
+  padding: 20px 0;
 `;
 
 const StyledSectionWrapper = styled.div`
@@ -73,10 +73,13 @@ const SupportedLanguagesWrapper = styled.div`
   padding: 40px 0;
 `;
 
+const TextWrapper = styled.div`
+  padding: 100px 0 120px 0;
+`;
+
 const ButtonGroup = styled.div`
   gap: 16px;
   display: flex;
-  margin-top: 26px;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     flex-direction: column;
@@ -110,15 +113,18 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   return (
     <PageTemplate>
       <Wrapper>
-        <HeroCopy
-          $fontFamily={font.name}
-          $lineHeight={font.heroCopyLineHeight}
-          $size={font.heroCopyFontSize}
-          $slant="regular"
-          $weight={font.heroCopyWeight.value}>
-          {font.name}
-        </HeroCopy>
-        <Text>{font.description && font.description.description}</Text>
+        <TextWrapper>
+          <HeroCopy
+            $fontFamily={font.name}
+            $lineHeight={font.heroCopyLineHeight}
+            $size={font.heroCopyFontSize}
+            $slant="regular"
+            $weight={font.heroCopyWeight.value}
+            margin="20px 0">
+            {font.name}
+          </HeroCopy>
+          <Text>{font.description && font.description.description}</Text>
+        </TextWrapper>
         <ButtonGroup>
           <Button onClick={scrollToSection}>License this font</Button>
           <SecondaryButton>
