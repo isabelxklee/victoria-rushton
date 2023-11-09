@@ -50,7 +50,3 @@ export const StyledButton = styled(Button)<{ $status?: boolean }>`
   color: ${({ $status }) => ($status ? COLORS.BLACK : COLORS.WHITE)};
   background: ${({ $status }) => ($status ? COLORS.WHITE : COLORS.BLACK)};
 `;
-
-export const StyledRowFlex = styled(RowFlex)`
-  justify-content: space-between;
-`;

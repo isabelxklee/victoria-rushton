@@ -61,7 +61,7 @@ const PreviewText = styled.p<{
   color: ${({ $darkMode }) => ($darkMode ? COLORS.WHITE : COLORS.BLACK)};
   margin: 0;
   width: 80%;
-  line-break: normal;
+  line-break: anywhere;
   line-height: 1.4;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
