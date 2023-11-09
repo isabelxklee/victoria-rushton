@@ -4,7 +4,15 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import { FontType } from '../../pages';
-import { COLORS, ColumnFlex, Flex, H3, Text, TextLink } from '../../styles';
+import {
+  BREAKPOINTS,
+  COLORS,
+  ColumnFlex,
+  Flex,
+  H3,
+  Text,
+  TextLink
+} from '../../styles';
 import { Select } from '../sharedStyles';
 
 import Cart from './Cart';
@@ -35,15 +43,28 @@ const Card = styled.div`
   border-radius: 20px;
   padding: 60px;
   margin-top: 60px;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    margin-top: 0;
+  }
 `;
 
 const Wrapper = styled(Flex)`
   gap: 20px;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    flex-direction: column;
+    margin-top: 60px;
+  }
 `;
 
 const LeftWrapper = styled(Card)`
   width: 30%;
   height: 100%;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    width: auto;
+  }
 `;
 
 const RightWrapper = styled(Card)`

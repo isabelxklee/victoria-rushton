@@ -89,8 +89,6 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const previewTexts = data.allContentfulPreviewText.nodes;
   const divRef = useRef<HTMLDivElement>(null);
 
-  console.log(previewTexts);
-
   const sortedWeights = useMemo(() => {
     return font.weights.sort((a, b) => a.value - b.value);
   }, [font.weights]);
