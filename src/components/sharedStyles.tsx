@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BREAKPOINTS, Button, COLORS, RowFlex } from '../styles';
+import { BREAKPOINTS, Button, COLORS } from '../styles';
 
 export const HeroCopy = styled.h2<{
   $fontFamily: string;

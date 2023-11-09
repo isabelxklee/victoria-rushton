@@ -39,10 +39,11 @@ const Top = styled(RowFlex)`
 const Bottom = styled(Flex)`
   justify-content: space-between;
   flex-direction: row;
-
+  align-items: flex-end;
+  /* 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     flex-direction: column;
-  }
+  } */
 `;
 
 const PreviewText = styled.p<{
@@ -63,6 +64,7 @@ const PreviewText = styled.p<{
   width: 80%;
   line-break: anywhere;
   line-height: 1.4;
+  flex: 1;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     margin: 0 0 20px 0;
