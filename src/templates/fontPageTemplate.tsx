@@ -117,6 +117,14 @@ const HeroCopy = styled.h2<{
   }
 `;
 
+const GIF = styled.img`
+  width: 100%;
+`;
+
+const GIFWrapper = styled.div`
+  margin-top: 20px;
+`;
+
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
   const previewTexts = data.allContentfulPreviewText.nodes;
@@ -167,6 +175,24 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         {previewTexts.map((text: PreviewTextItem, index: number) => (
           <PreviewText key={index} previewText={text} />
         ))}
+        {font.slug === 'cecilie-sans' && (
+          <>
+            <Text>
+              Cecilie Sans is also available as a variable font! Purchase 5
+              styles to receive it along with your order.
+            </Text>
+            <GIFWrapper>
+              <GIF
+                alt="gif"
+                src="https://images.ctfassets.net/6l1e28rigfdw/2jgBsoLCbB04g4Tmi4Jnix/e890c19df671f6fe26ec127a22495c01/Cecilie-sans-Variable-1.gif"
+              />
+              <GIF
+                alt="gif"
+                src="https://images.ctfassets.net/6l1e28rigfdw/6wA9uD4YPng337IhT6sd1F/6affd334aaacd03637efa4b66a292738/Cecilie-sans-Variable-2.gif"
+              />
+            </GIFWrapper>
+          </>
+        )}
       </PreviewWrapper>
       <div ref={divRef} />
       <PurchaseFlow font={font} sortedWeights={sortedWeights} />
