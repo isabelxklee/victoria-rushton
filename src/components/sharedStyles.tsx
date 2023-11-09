@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Button, COLORS, RowFlex } from '../styles';
+import { BREAKPOINTS, Button, COLORS, RowFlex } from '../styles';
 
 export const HeroCopy = styled.h2<{
   $fontFamily: string;
@@ -15,7 +15,7 @@ export const HeroCopy = styled.h2<{
   line-height: ${({ $lineHeight }) => $lineHeight};
   font-style: ${({ $slant }) => $slant};
 
-  @media (max-width: 1000px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     font-size: ${({ $size }) => `${$size * 0.6}px`};
   }
 `;
@@ -48,7 +48,7 @@ export const Select = styled.select<{ $width?: string }>`
   background-repeat: no-repeat;
   cursor: pointer;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     width: 100%;
   }
 `;

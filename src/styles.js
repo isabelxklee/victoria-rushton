@@ -16,7 +16,7 @@ export const FONT_WEIGHTS = {
 };
 
 export const BREAKPOINTS = {
-  MEDIUM: '900px'
+  MEDIUM: '1000px'
 };
 
 export const Flex = styled.div`
@@ -34,8 +34,8 @@ export const ColumnFlex = styled(Flex)`
 export const Wrapper = styled.div`
   padding: 80px;
 
-  @media (max-width: 1000px) {
-    padding: 40px;
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 20px;
   }
 `;
 
@@ -46,7 +46,7 @@ export const H1 = styled.h1`
   margin: ${({ $margin }) => $margin};
   font-family: ${({ $font }) => $font};
 
-  @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     font-size: 60px;
   }
 `;
@@ -69,7 +69,7 @@ export const Text = styled.p`
   font-weight: ${FONT_WEIGHTS.BOOK};
   line-height: 1.6;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     font-size: 16px;
   }
 `;

@@ -28,7 +28,7 @@ const Logo = styled.img`
   width: 300px;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
-    width: 80%;
+    width: 85%;
   }
 `;
 

@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { COLORS, FONT_WEIGHTS } from '../styles';
+import { BREAKPOINTS, COLORS, FONT_WEIGHTS } from '../styles';
 
 const A = styled.a<{
   $fontWeight?: number;
@@ -21,6 +21,10 @@ const StyledLink = styled(Link)<{ $light?: boolean; $textCase?: string }>`
   font-weight: ${FONT_WEIGHTS.REGULAR};
   text-decoration: none;
   text-transform: ${({ $textCase }) => $textCase};
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    font-size: 14px;
+  }
 `;
 
 interface LinkProps {

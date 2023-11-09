@@ -35,7 +35,7 @@ const ProfilePic = styled.img`
   border: 2px solid ${COLORS.BLACK};
   margin: 40px 80px 20px 0;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     margin: 0;
     width: 200px;
     height: 200px;
@@ -49,7 +49,7 @@ const PressWrapper = styled.div`
   margin-left: calc(50% - 50vw);
   padding: 80px;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     padding: 40px;
     width: calc(100vw - 80px);
   }
@@ -59,7 +59,7 @@ const Border = styled.div`
   border-left: 2px solid ${COLORS.WHITE};
   padding-left: 50px;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     padding-left: 0;
     border-left: none;
   }
