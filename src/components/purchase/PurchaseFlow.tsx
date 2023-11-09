@@ -1,6 +1,8 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import styled from 'styled-components';
 
 import { FontType } from '../../pages';
+import { H2 } from '../../styles';
 import { FontWeightType } from '../../templates/fontPageTemplate';
 import TypeTester from '../type-tester/TypeTester';
 
@@ -16,6 +18,10 @@ export interface SimpleFontType {
   weightTitle: string;
   weightValue: number;
 }
+
+const Wrapper = styled.div`
+  padding: 40px 0;
+`;
 
 const PurchaseFlow = ({ font, sortedWeights }: PurchaseFlowProps) => {
   const [selectedFonts, setSelectedFonts] = useState<SimpleFontType[]>([]);
@@ -62,7 +68,8 @@ const PurchaseFlow = ({ font, sortedWeights }: PurchaseFlowProps) => {
   }, []);
 
   return (
-    <>
+    <Wrapper>
+      <H2>Font styles</H2>
       <TypeTester
         addFont={addFont}
         availableFonts={availableFonts}
@@ -76,7 +83,7 @@ const PurchaseFlow = ({ font, sortedWeights }: PurchaseFlowProps) => {
         removeFont={removeFont}
         selectedFonts={selectedFonts}
       />
-    </>
+    </Wrapper>
   );
 };
 

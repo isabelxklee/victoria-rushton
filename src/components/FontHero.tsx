@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
   &:last-child {
     border-bottom: none;
-    margin-bottom: 180px;
+    margin-bottom: 40px;
   }
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
@@ -46,7 +46,8 @@ const FontHero = ({ font }: FontHeroProps) => {
           $lineHeight={font.heroCopyLineHeight}
           $size={font.heroCopyFontSize}
           $slant={font.heroCopySlant.title}
-          $weight={font.heroCopyWeight.value}>
+          $weight={font.heroCopyWeight.value}
+          margin="100px 0">
           {font.heroCopy.heroCopy}
         </HeroCopy>
       </InternalLink>

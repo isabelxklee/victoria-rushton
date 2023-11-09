@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
-import { ColumnFlex, H3, RowFlex, Text } from '../../styles';
-import { StyledRowFlex } from '../sharedStyles';
+import SVG from '../../assets/icon-close.svg';
+import { COLORS, ColumnFlex, H3, H4, RowFlex, Text } from '../../styles';
 
 import Checkout from './Checkout';
 import { LicenseProps, LicenseType } from './License';
@@ -10,9 +10,22 @@ import { SimpleFontType } from './PurchaseFlow';
 
 const Wrapper = styled.div``;
 
-const LineItem = styled(StyledRowFlex)`
+const Icon = styled(SVG)`
+  width: 24px;
+  height: 24px;
+  opacity: 0.3;
+`;
+
+const TextWrapper = styled(RowFlex)`
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 20px;
+`;
+
+const LineItem = styled(RowFlex)`
   cursor: pointer;
   transition: 0.2s;
+  justify-content: space-between;
 
   &:hover {
     opacity: 0.4;
@@ -21,6 +34,17 @@ const LineItem = styled(StyledRowFlex)`
 
 const CartWrapper = styled(ColumnFlex)`
   gap: 8px;
+`;
+
+const SubtotalWrapper = styled(RowFlex)`
+  justify-content: space-between;
+  margin: 40px 0;
+  border-top: 2px solid ${COLORS.BLACK};
+  padding: 10px 0;
+`;
+
+const FontsWrapper = styled.div`
+  margin-top: 20px;
 `;
 
 interface CartProps extends LicenseProps {
@@ -40,23 +64,31 @@ const Cart = ({
   return (
     <Wrapper>
       <CartWrapper>
-        <Text>License size: {selectedLicense && selectedLicense.title}</Text>
-        {selectedFonts.map((fontOption: SimpleFontType, index) => (
-          <LineItem key={index} onClick={() => removeFont(fontOption)}>
-            <Text>
-              {font.name} {fontOption.weightTitle}{' '}
-              {fontOption.slant !== 'Roman' && fontOption.slant}
-            </Text>
-            <RowFlex style={{ gap: '32px' }}>
-              <Text>${selectedLicense?.price}</Text>
-            </RowFlex>
-          </LineItem>
-        ))}
+        <H4>License size</H4>
+        <Text>{selectedLicense && selectedLicense.title}</Text>
+        <FontsWrapper>
+          <H4>Fonts</H4>
+          {selectedFonts.length < 1 && <Text>No fonts selected yet.</Text>}
+          {selectedFonts.map((fontOption: SimpleFontType, index) => (
+            <LineItem key={index} onClick={() => removeFont(fontOption)}>
+              <TextWrapper>
+                <Text>
+                  {font.name} {fontOption.weightTitle}{' '}
+                  {fontOption.slant !== 'Roman' && fontOption.slant}
+                </Text>
+                <RowFlex style={{ gap: '32px' }}>
+                  <Text>${selectedLicense?.price}</Text>
+                </RowFlex>
+              </TextWrapper>
+              <Icon />
+            </LineItem>
+          ))}
+        </FontsWrapper>
       </CartWrapper>
-      <StyledRowFlex>
+      <SubtotalWrapper>
         <H3>Subtotal</H3>
         <H3>${priceCalculation}</H3>
-      </StyledRowFlex>
+      </SubtotalWrapper>
       <Checkout
         fontTitle={font.name}
         fonts={selectedFonts}

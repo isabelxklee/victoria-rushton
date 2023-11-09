@@ -24,10 +24,9 @@ const TextInput = styled.input`
   }
 `;
 
-const ActionWrapper = styled(Flex)`
+const Wrapper = styled(Flex)`
   justify-content: space-between;
   gap: 40px;
-  padding: 30px 0;
   flex-direction: row;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
@@ -83,7 +82,7 @@ const TypeInput = ({ setPreviewText, setSize }: TypeInputProps) => {
   };
 
   return (
-    <ActionWrapper>
+    <Wrapper>
       <TextInput
         placeholder="Type something here..."
         onChange={event => handleChange(event)}
@@ -97,7 +96,7 @@ const TypeInput = ({ setPreviewText, setSize }: TypeInputProps) => {
           onChange={event => setSize(event.target.value)}
         />
       </SizeWrapper>
-    </ActionWrapper>
+    </Wrapper>
   );
 };
 
