@@ -13,6 +13,13 @@ const Wrapper = styled.div``;
 const Icon = styled(SVG)`
   width: 24px;
   height: 24px;
+  opacity: 0.3;
+`;
+
+const TextWrapper = styled(RowFlex)`
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 20px;
 `;
 
 const LineItem = styled(RowFlex)`
@@ -59,13 +66,15 @@ const Cart = ({
         {selectedFonts.length < 1 && <Text>No fonts selected yet.</Text>}
         {selectedFonts.map((fontOption: SimpleFontType, index) => (
           <LineItem key={index} onClick={() => removeFont(fontOption)}>
-            <Text>
-              {font.name} {fontOption.weightTitle}{' '}
-              {fontOption.slant !== 'Roman' && fontOption.slant}
-            </Text>
-            <RowFlex style={{ gap: '32px' }}>
-              <Text>${selectedLicense?.price}</Text>
-            </RowFlex>
+            <TextWrapper>
+              <Text>
+                {font.name} {fontOption.weightTitle}{' '}
+                {fontOption.slant !== 'Roman' && fontOption.slant}
+              </Text>
+              <RowFlex style={{ gap: '32px' }}>
+                <Text>${selectedLicense?.price}</Text>
+              </RowFlex>
+            </TextWrapper>
             <Icon />
           </LineItem>
         ))}
