@@ -6,7 +6,6 @@ import { InternalLink } from '../components/Links';
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
 import PurchaseFlow from '../components/purchase/PurchaseFlow';
-import { HeroCopy } from '../components/sharedStyles';
 import { FontType } from '../pages';
 import {
   BREAKPOINTS,
@@ -92,6 +91,25 @@ const ButtonGroup = styled.div`
   }
 `;
 
+const HeroCopy = styled.h2<{
+  $fontFamily: string;
+  $lineHeight: number;
+  $size: number;
+  $slant: string;
+  $weight: number;
+}>`
+  font-family: ${({ $fontFamily }) => $fontFamily};
+  font-size: ${({ $size }) => `${$size}px`};
+  font-weight: ${({ $weight }) => $weight};
+  line-height: ${({ $lineHeight }) => $lineHeight};
+  font-style: ${({ $slant }) => $slant};
+  margin: 10px 0;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    font-size: 48px;
+  }
+`;
+
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const font = data.contentfulFont;
   const previewTexts = data.allContentfulPreviewText.nodes;
@@ -124,8 +142,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
             $lineHeight={font.heroCopyLineHeight}
             $size={font.heroCopyFontSize}
             $slant="regular"
-            $weight={font.heroCopyWeight.value}
-            margin="20px 0">
+            $weight={font.heroCopyWeight.value}>
             {font.name}
           </HeroCopy>
           <Text>{font.description && font.description.description}</Text>
