@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
 import SVG from '../../assets/icon-close.svg';
@@ -31,13 +31,13 @@ const TextWrapper = styled(RowFlex)`
   padding-right: 20px;
 `;
 
-const LineItem = styled(RowFlex)`
-  cursor: pointer;
+const LineItem = styled(RowFlex)<{ $disableHover?: boolean }>`
+  cursor: ${({ $disableHover }) => ($disableHover ? 'default' : 'pointer')};
   transition: 0.2s;
   justify-content: space-between;
 
   &:hover {
-    opacity: 0.4;
+    opacity: ${({ $disableHover }) => ($disableHover ? 1 : 0.4)};
   }
 `;
 
@@ -72,17 +72,23 @@ const Cart = ({
   selectedLicense,
   setSelectedFonts
 }: CartProps) => {
-  useEffect(() => {
-    if (selectedFonts.length >= 5) {
-      const obj = {
-        slant: 'Variable',
-        weightTitle: 'Variable',
-        weightValue: 0
-      };
+  const [variableFont, setVariableFont] = useState<boolean>(false);
 
-      setSelectedFonts((selectedFonts: any) => [...selectedFonts, obj]);
+  const variableFontObj = useMemo(() => {
+    return {
+      slant: 'Variable',
+      weightTitle: 'Variable',
+      weightValue: 0
+    };
+  }, []);
+
+  useEffect(() => {
+    if (selectedFonts.length > 4) {
+      setVariableFont(true);
+    } else {
+      setVariableFont(false);
     }
-  }, [selectedFonts.length, setSelectedFonts]);
+  }, [selectedFonts]);
 
   const priceCalculation = useMemo(() => {
     return selectedLicense ? selectedFonts.length * selectedLicense.price : 0;
@@ -103,13 +109,21 @@ const Cart = ({
                   {font.name} {fontOption.weightTitle}{' '}
                   {fontOption.slant !== 'Roman' && fontOption.slant}
                 </Text>
-                <RowFlex style={{ gap: '32px' }}>
-                  <Text>${selectedLicense?.price}</Text>
-                </RowFlex>
+                <Text>${selectedLicense?.price}</Text>
               </TextWrapper>
               <Icon />
             </LineItem>
           ))}
+          {variableFont && (
+            <LineItem $disableHover={true}>
+              <TextWrapper>
+                <Text>Variable Font</Text>
+                <Text>
+                  <strong>FREE</strong>
+                </Text>
+              </TextWrapper>
+            </LineItem>
+          )}
         </FontsWrapper>
       </CartWrapper>
       <SubtotalWrapper>
