@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
-import { COLORS, RowFlex } from '../../styles';
+import { BREAKPOINTS, COLORS, Flex, RowFlex } from '../../styles';
 import { SimpleFontType } from '../purchase/PurchaseFlow';
 import { StyledButton } from '../sharedStyles';
 
@@ -9,6 +9,10 @@ import { TypeTesterProps } from './TypeTester';
 
 const Wrapper = styled.div`
   padding: 40px 0;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 10px 0;
+  }
 `;
 
 const LineItem = styled.div`
@@ -23,8 +27,18 @@ const LineItem = styled.div`
   }
 `;
 
-const StyledRowFlex = styled(RowFlex)`
+const Top = styled(RowFlex)`
   justify-content: space-between;
+`;
+
+const Bottom = styled(Flex)`
+  justify-content: space-between;
+  flex-direction: row;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
 `;
 
 const PreviewText = styled.p<{
@@ -45,6 +59,10 @@ const PreviewText = styled.p<{
   width: 80%;
   line-break: normal;
   line-height: 1.4;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    margin: 0 0 20px 0;
+  }
 `;
 
 interface TypeTesterPreviewProps extends TypeTesterProps {
@@ -80,14 +98,14 @@ const TypeTesterPreview = ({
     <Wrapper>
       {availableFonts.map((fontOption, index) => (
         <LineItem key={index}>
-          <StyledRowFlex>
+          <Top>
             <p>
               {fontOption.weightTitle}{' '}
               {fontOption.slant !== 'Roman' && fontOption.slant}
             </p>
             <p>{fontOption.weightValue}</p>
-          </StyledRowFlex>
-          <StyledRowFlex>
+          </Top>
+          <Bottom>
             <PreviewText
               $darkMode={false}
               $fontFamily={font.name}
@@ -101,7 +119,7 @@ const TypeTesterPreview = ({
               onClick={() => handleClick(fontOption)}>
               {status(fontOption) ? '- Remove font' : '+ Select font'}
             </StyledButton>
-          </StyledRowFlex>
+          </Bottom>
         </LineItem>
       ))}
     </Wrapper>

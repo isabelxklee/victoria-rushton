@@ -56,12 +56,12 @@ const Slider = styled.input`
     top: 50%;
     transform: translateY(-50%);
     background-color: ${COLORS.WHITE};
+    height: 34px;
+    width: 34px;
 
     /* border-radius: 100px;
     border: 2px solid #f4f4f4;
     background: #1e1e1e;
-    height: 34px;
-    width: 34px;
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer; */
