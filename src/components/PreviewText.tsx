@@ -8,7 +8,11 @@ interface PreviewTextProps {
   previewText: PreviewTextItem;
 }
 
-const StyledText = styled.p<{
+const Wrapper = styled.div`
+  margin-bottom: 80px;
+`;
+
+const StyledText = styled(Text)<{
   $fontFamily: string;
   $lineHeight: number;
   $size: number;
@@ -20,11 +24,12 @@ const StyledText = styled.p<{
   font-style: ${({ $slant }) => $slant};
   font-size: ${({ $size }) => `${$size}px`};
   line-height: ${({ $lineHeight }) => $lineHeight};
+  margin: 20px 0;
 `;
 
 const PreviewText = ({ previewText }: PreviewTextProps) => {
   return (
-    <div>
+    <Wrapper>
       <Text>
         {previewText.font.name} {previewText.weight.title}{' '}
         {previewText.slant.title !== 'Roman' && previewText.slant.title}
@@ -37,7 +42,7 @@ const PreviewText = ({ previewText }: PreviewTextProps) => {
         $weight={previewText.weight.value}>
         {previewText.text.text}
       </StyledText>
-    </div>
+    </Wrapper>
   );
 };
 

@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS, Flex, RowFlex } from '../../../styles';
+import { BREAKPOINTS, COLORS, Flex } from '../../styles';
 
 const TextInput = styled.input`
   color: ${COLORS.BLACK};
@@ -24,10 +24,15 @@ const TextInput = styled.input`
   }
 `;
 
-const ActionWrapper = styled(RowFlex)`
+const ActionWrapper = styled(Flex)`
   justify-content: space-between;
   gap: 40px;
   padding: 30px 0;
+  flex-direction: row;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    flex-direction: column;
+  }
 `;
 
 const SizeWrapper = styled(Flex)`
@@ -51,6 +56,19 @@ const Slider = styled.input`
     top: 50%;
     transform: translateY(-50%);
     background-color: ${COLORS.WHITE};
+    height: 34px;
+    width: 34px;
+
+    /* border-radius: 100px;
+    border: 2px solid #f4f4f4;
+    background: #1e1e1e;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer; */
+  }
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    width: 100%;
   }
 `;
 
@@ -65,25 +83,21 @@ const TypeInput = ({ setPreviewText, setSize }: TypeInputProps) => {
   };
 
   return (
-    <>
-      <div>
-        <ActionWrapper>
-          <TextInput
-            placeholder="Type something here..."
-            onChange={event => handleChange(event)}
-          />
-          <SizeWrapper>
-            <label>Size</label>
-            <Slider
-              max="100"
-              min="14"
-              type="range"
-              onChange={event => setSize(event.target.value)}
-            />
-          </SizeWrapper>
-        </ActionWrapper>
-      </div>
-    </>
+    <ActionWrapper>
+      <TextInput
+        placeholder="Type something here..."
+        onChange={event => handleChange(event)}
+      />
+      <SizeWrapper>
+        <label>Size</label>
+        <Slider
+          max="100"
+          min="14"
+          type="range"
+          onChange={event => setSize(event.target.value)}
+        />
+      </SizeWrapper>
+    </ActionWrapper>
   );
 };
 

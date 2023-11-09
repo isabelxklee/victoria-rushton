@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Button, COLORS, RowFlex } from '../styles';
+import { BREAKPOINTS, Button, COLORS, RowFlex } from '../styles';
 
 export const HeroCopy = styled.h2<{
   $fontFamily: string;
@@ -14,15 +14,9 @@ export const HeroCopy = styled.h2<{
   font-weight: ${({ $weight }) => $weight};
   line-height: ${({ $lineHeight }) => $lineHeight};
   font-style: ${({ $slant }) => $slant};
-`;
 
-export const SectionWrapper = styled.div`
-  border-bottom: 2px solid ${COLORS.BLACK};
-  padding: 20px 0;
-
-  &:last-child {
-    border-bottom: none;
-    margin-bottom: 180px;
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    font-size: ${({ $size }) => `${$size * 0.6}px`};
   }
 `;
 
@@ -44,7 +38,7 @@ export const Select = styled.select<{ $width?: string }>`
   background-repeat: no-repeat;
   cursor: pointer;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     width: 100%;
   }
 `;

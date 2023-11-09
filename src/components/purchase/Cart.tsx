@@ -8,6 +8,8 @@ import Checkout from './Checkout';
 import { LicenseProps, LicenseType } from './License';
 import { SimpleFontType } from './PurchaseFlow';
 
+const Wrapper = styled.div``;
+
 const LineItem = styled(StyledRowFlex)`
   cursor: pointer;
   transition: 0.2s;
@@ -36,10 +38,9 @@ const Cart = ({
   }, [selectedFonts.length, selectedLicense]);
 
   return (
-    <>
-      <H3>Cart</H3>
+    <Wrapper>
       <CartWrapper>
-        {selectedLicense && <Text>License size - {selectedLicense.title}</Text>}
+        <Text>License size: {selectedLicense && selectedLicense.title}</Text>
         {selectedFonts.map((fontOption: SimpleFontType, index) => (
           <LineItem key={index} onClick={() => removeFont(fontOption)}>
             <Text>
@@ -61,7 +62,7 @@ const Cart = ({
         fonts={selectedFonts}
         license={selectedLicense}
       />
-    </>
+    </Wrapper>
   );
 };
 

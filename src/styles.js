@@ -16,7 +16,8 @@ export const FONT_WEIGHTS = {
 };
 
 export const BREAKPOINTS = {
-  MEDIUM: '900px'
+  SMALL: '400px',
+  MEDIUM: '1000px'
 };
 
 export const Flex = styled.div`
@@ -33,6 +34,10 @@ export const ColumnFlex = styled(Flex)`
 
 export const Wrapper = styled.div`
   padding: 80px;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 20px;
+  }
 `;
 
 export const H1 = styled.h1`
@@ -42,7 +47,7 @@ export const H1 = styled.h1`
   margin: ${({ $margin }) => $margin};
   font-family: ${({ $font }) => $font};
 
-  @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     font-size: 60px;
   }
 `;
@@ -59,13 +64,19 @@ export const H3 = styled.h3`
   margin: 0;
 `;
 
+export const H4 = styled.h4`
+  font-size: 16px;
+  font-weight: ${FONT_WEIGHTS.BOLD};
+  margin: 0;
+`;
+
 export const Text = styled.p`
   margin: 0;
   font-size: 18px;
   font-weight: ${FONT_WEIGHTS.BOOK};
   line-height: 1.6;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     font-size: 16px;
   }
 `;
@@ -93,6 +104,11 @@ export const Button = styled.button`
   padding: 4px 16px;
   pointer-events: auto;
   cursor: pointer;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    font-size: 14px;
+    width: fit-content;
+  }
 `;
 
 export const SecondaryButton = styled(Button)`

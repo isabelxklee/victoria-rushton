@@ -6,9 +6,17 @@ import { InternalLink } from '../components/Links';
 import PageTemplate from '../components/PageTemplate';
 import PreviewText from '../components/PreviewText';
 import PurchaseFlow from '../components/purchase/PurchaseFlow';
-import { HeroCopy, SectionWrapper } from '../components/sharedStyles';
+import { HeroCopy } from '../components/sharedStyles';
 import { FontType } from '../pages';
-import { Button, H3, SecondaryButton, SmallText, Text } from '../styles';
+import {
+  BREAKPOINTS,
+  Button,
+  COLORS,
+  H3,
+  SecondaryButton,
+  SmallText,
+  Text
+} from '../styles';
 
 export interface PreviewTextItem {
   font: {
@@ -51,8 +59,13 @@ interface FontPageTemplateProps {
   };
 }
 
-const StyledSectionWrapper = styled(SectionWrapper)`
-  border-bottom: none;
+const Wrapper = styled.div`
+  border-bottom: 2px solid ${COLORS.BLACK};
+  padding: 0 0 30px 0;
+`;
+
+const StyledSectionWrapper = styled.div`
+  padding: 30px 0;
 `;
 
 const SupportedLanguagesWrapper = styled.div`
@@ -64,6 +77,11 @@ const ButtonGroup = styled.div`
   gap: 16px;
   display: flex;
   margin-top: 26px;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
 
 const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
@@ -91,7 +109,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
 
   return (
     <PageTemplate>
-      <SectionWrapper>
+      <Wrapper>
         <HeroCopy
           $fontFamily={font.name}
           $lineHeight={font.heroCopyLineHeight}
@@ -109,7 +127,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
             </InternalLink>
           </SecondaryButton>
         </ButtonGroup>
-      </SectionWrapper>
+      </Wrapper>
       <StyledSectionWrapper>
         {previewTexts.map((text: PreviewTextItem, index: number) => (
           <PreviewText key={index} previewText={text} />
@@ -158,8 +176,12 @@ export const pageQuery = graphql`
         supportedLanguages
       }
     }
-    allContentfulPreviewText(filter: { font: { slug: { eq: $slug } } }) {
+    allContentfulPreviewText(
+      sort: { order: ASC }
+      filter: { font: { slug: { eq: $slug } } }
+    ) {
       nodes {
+        order
         text {
           text
         }

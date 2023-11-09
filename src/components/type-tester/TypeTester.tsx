@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { FontType } from '../../../pages';
-import { Flex } from '../../../styles';
-import { StyledButton } from '../../sharedStyles';
-import { SimpleFontType } from '../PurchaseFlow';
+import { FontType } from '../../pages';
+import { Flex } from '../../styles';
+import { SimpleFontType } from '../purchase/PurchaseFlow';
+import { StyledButton } from '../sharedStyles';
 
 import TypeInput from './TypeInput';
 import TypePreview from './TypePreview';
