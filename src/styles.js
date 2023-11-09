@@ -33,7 +33,7 @@ export const ColumnFlex = styled(Flex)`
 `;
 
 export const Wrapper = styled.div`
-  padding: 80px;
+  padding: 40px 120px 80px 120px;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     padding: 20px;
