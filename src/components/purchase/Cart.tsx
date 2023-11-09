@@ -43,6 +43,10 @@ const SubtotalWrapper = styled(RowFlex)`
   padding: 10px 0;
 `;
 
+const FontsWrapper = styled.div`
+  margin-top: 20px;
+`;
+
 interface CartProps extends LicenseProps {
   selectedLicense: LicenseType;
 }
@@ -62,22 +66,24 @@ const Cart = ({
       <CartWrapper>
         <H4>License size</H4>
         <Text>{selectedLicense && selectedLicense.title}</Text>
-        <H4>Fonts</H4>
-        {selectedFonts.length < 1 && <Text>No fonts selected yet.</Text>}
-        {selectedFonts.map((fontOption: SimpleFontType, index) => (
-          <LineItem key={index} onClick={() => removeFont(fontOption)}>
-            <TextWrapper>
-              <Text>
-                {font.name} {fontOption.weightTitle}{' '}
-                {fontOption.slant !== 'Roman' && fontOption.slant}
-              </Text>
-              <RowFlex style={{ gap: '32px' }}>
-                <Text>${selectedLicense?.price}</Text>
-              </RowFlex>
-            </TextWrapper>
-            <Icon />
-          </LineItem>
-        ))}
+        <FontsWrapper>
+          <H4>Fonts</H4>
+          {selectedFonts.length < 1 && <Text>No fonts selected yet.</Text>}
+          {selectedFonts.map((fontOption: SimpleFontType, index) => (
+            <LineItem key={index} onClick={() => removeFont(fontOption)}>
+              <TextWrapper>
+                <Text>
+                  {font.name} {fontOption.weightTitle}{' '}
+                  {fontOption.slant !== 'Roman' && fontOption.slant}
+                </Text>
+                <RowFlex style={{ gap: '32px' }}>
+                  <Text>${selectedLicense?.price}</Text>
+                </RowFlex>
+              </TextWrapper>
+              <Icon />
+            </LineItem>
+          ))}
+        </FontsWrapper>
       </CartWrapper>
       <SubtotalWrapper>
         <H3>Subtotal</H3>
