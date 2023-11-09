@@ -66,6 +66,10 @@ const Wrapper = styled.div`
 const PreviewWrapper = styled.div`
   padding: 100px 0;
   border-bottom: 2px solid ${COLORS.BLACK};
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 40px 0;
+  }
 `;
 
 const SupportedLanguagesWrapper = styled.div`

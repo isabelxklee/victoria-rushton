@@ -22,6 +22,10 @@ const TextInput = styled.input`
   ::placeholder {
     color: rgba(${COLORS.BLACK}, 0.3);
   }
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 12px 20px;
+  }
 `;
 
 const Wrapper = styled(Flex)`

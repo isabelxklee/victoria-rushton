@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Text } from '../styles';
+import { BREAKPOINTS, Text } from '../styles';
 import { PreviewTextItem } from '../templates/fontPageTemplate';
 
 interface PreviewTextProps {
@@ -10,6 +10,10 @@ interface PreviewTextProps {
 
 const Wrapper = styled.div`
   margin-bottom: 80px;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    margin-bottom: 40px;
+  }
 `;
 
 const StyledText = styled(Text)<{

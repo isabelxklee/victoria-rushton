@@ -53,7 +53,7 @@ export const H1 = styled.h1`
 `;
 
 export const H2 = styled.h2`
-  font-size: 32px;
+  font-size: 28px;
   font-weight: ${FONT_WEIGHTS.BOLD};
   line-height: 1.1;
 `;
