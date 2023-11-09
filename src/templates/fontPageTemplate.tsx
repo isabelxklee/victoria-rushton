@@ -73,8 +73,11 @@ const PreviewWrapper = styled.div`
 `;
 
 const SupportedLanguagesWrapper = styled.div`
-  margin-top: 100px;
-  padding: 40px 0;
+  margin: 60px 0 0 0;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    margin: 40px 0 80px 0;
+  }
 `;
 
 const TextWrapper = styled.div`
