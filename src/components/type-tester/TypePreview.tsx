@@ -40,10 +40,10 @@ const Bottom = styled(Flex)`
   justify-content: space-between;
   flex-direction: row;
   align-items: flex-end;
-  /* 
+
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     flex-direction: column;
-  } */
+  }
 `;
 
 const PreviewText = styled.p<{

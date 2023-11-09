@@ -50,7 +50,7 @@ const Cart = ({
         <H4>License size</H4>
         <Text>{selectedLicense && selectedLicense.title}</Text>
         <H4>Fonts</H4>
-        {selectedFonts.length < 1 && <Text>None selected yet.</Text>}
+        {selectedFonts.length < 1 && <Text>No fonts selected yet.</Text>}
         {selectedFonts.map((fontOption: SimpleFontType, index) => (
           <LineItem key={index} onClick={() => removeFont(fontOption)}>
             <Text>
