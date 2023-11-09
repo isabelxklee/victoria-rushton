@@ -9,7 +9,7 @@ interface PreviewTextProps {
 }
 
 const Wrapper = styled.div`
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 `;
 
 const StyledText = styled(Text)<{
@@ -24,7 +24,7 @@ const StyledText = styled(Text)<{
   font-style: ${({ $slant }) => $slant};
   font-size: ${({ $size }) => `${$size}px`};
   line-height: ${({ $lineHeight }) => $lineHeight};
-  margin: 10px 0;
+  margin: 20px 0;
 `;
 
 const PreviewText = ({ previewText }: PreviewTextProps) => {

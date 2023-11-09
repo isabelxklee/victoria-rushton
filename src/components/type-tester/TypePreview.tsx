@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
-import { COLORS, RowFlex } from '../../../styles';
-import { StyledButton } from '../../sharedStyles';
-import { SimpleFontType } from '../PurchaseFlow';
+import { COLORS, RowFlex } from '../../styles';
+import { SimpleFontType } from '../purchase/PurchaseFlow';
+import { StyledButton } from '../sharedStyles';
 
 import { TypeTesterProps } from './TypeTester';
 

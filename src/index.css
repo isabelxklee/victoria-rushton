@@ -1,4 +1,4 @@
-.slider::-webkit-slider-thumb {
+::-webkit-slider-thumb {
   border-radius: 100px;
   border: 2px solid #f4f4f4;
   background: #1e1e1e;

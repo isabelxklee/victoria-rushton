@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS, Flex, RowFlex } from '../../../styles';
+import { COLORS, Flex, RowFlex } from '../../styles';
 
 const TextInput = styled.input`
   color: ${COLORS.BLACK};
