@@ -130,10 +130,6 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
   const previewTexts = data.allContentfulPreviewText.nodes;
   const divRef = useRef<HTMLDivElement>(null);
 
-  const sortedWeights = useMemo(() => {
-    return font.weights.sort((a, b) => a.value - b.value);
-  }, [font.weights]);
-
   const scrollToSection = useCallback(() => {
     const current = divRef.current;
 
@@ -195,7 +191,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
         )}
       </PreviewWrapper>
       <div ref={divRef} />
-      <PurchaseFlow font={font} sortedWeights={sortedWeights} />
+      <PurchaseFlow font={font} />
       <SupportedLanguagesWrapper>
         <H3>Supported Languages</H3>
         <SmallText>{font.supportedLanguages.supportedLanguages}</SmallText>
