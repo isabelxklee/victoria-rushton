@@ -15,7 +15,12 @@ interface PurchaseFlowProps {
 }
 
 export interface SimpleFontType {
-  asset: any;
+  asset: {
+    filename: string;
+    mimeType: string;
+    url: string;
+  };
+  fontTitle: string;
   slant: string;
   weightTitle: string;
   weightValue: number;
@@ -49,11 +54,11 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
   );
 
   const availableFonts = useMemo(() => {
-    const arr: any[] = [];
+    const arr: SimpleFontType[] = [];
 
     font.slants.forEach(slant => {
       font.weights.forEach(weight => {
-        const obj: any = {
+        const obj: SimpleFontType = {
           fontTitle: font.name,
           slant: slant.title,
           weightTitle: weight.title,
@@ -87,7 +92,7 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
   return (
     <Wrapper>
       <H2>Font styles</H2>
-      {/* <TypeTester
+      <TypeTester
         addFont={addFont}
         availableFonts={availableFonts}
         font={font}
@@ -99,7 +104,7 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
         font={font}
         removeFont={removeFont}
         selectedFonts={selectedFonts}
-      /> */}
+      />
     </Wrapper>
   );
 };
