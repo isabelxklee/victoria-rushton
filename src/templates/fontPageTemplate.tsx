@@ -64,7 +64,7 @@ const Wrapper = styled.div`
 `;
 
 const PreviewWrapper = styled.div`
-  padding: 100px 0;
+  padding: 100px 0 0 0;
   border-bottom: 2px solid ${COLORS.BLACK};
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {

@@ -56,8 +56,8 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
   const availableFonts = useMemo(() => {
     const arr: SimpleFontType[] = [];
 
-    font.slants.forEach(slant => {
-      font.weights.forEach(weight => {
+    font.weights.forEach(weight => {
+      font.slants.forEach(slant => {
         const obj: SimpleFontType = {
           fontTitle: font.name,
           slant: slant.title,
