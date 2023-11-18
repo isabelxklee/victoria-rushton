@@ -73,8 +73,6 @@ const PurchaseFlow = ({ font }: PurchaseFlowProps) => {
     return arr;
   }, [findAsset, font.name, font.slants, font.weights]);
 
-  console.log(availableFonts);
-
   const addFont = useCallback((item: SimpleFontType) => {
     setSelectedFonts((selectedFonts: SimpleFontType[]) =>
       selectedFonts.includes(item)
