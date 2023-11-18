@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React, { useMemo } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import styled from 'styled-components';
 
@@ -29,6 +29,15 @@ interface CheckoutProps {
 }
 
 const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
+  const zipFiles = useMemo(() => {
+    return fonts?.map(font => {
+      return {
+        filename: font.asset.filename,
+        path: font.asset.url
+      };
+    });
+  }, [fonts]);
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
@@ -41,7 +50,8 @@ const Checkout = ({ fontTitle, fonts, license }: CheckoutProps) => {
         body: JSON.stringify({
           font: fontTitle,
           selectedFonts: fonts,
-          license: license
+          license: license,
+          zipFiles: zipFiles
         })
       }
     )
