@@ -6,7 +6,7 @@ import PageTemplate from '../../components/PageTemplate';
 import { Button, ColumnFlex, H2, Text, TextLink } from '../../styles';
 
 const Wrapper = styled.div`
-  padding: 120px 160px;
+  padding: 120px 160px 160px 160px;
 `;
 
 const TextWrapper = styled(ColumnFlex)`
