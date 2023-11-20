@@ -23,6 +23,7 @@ const StyledText = styled(Text)<{
   $slant: string;
   $weight: number;
   mobileFontSize: number;
+  mobileLineHeight: number;
 }>`
   font-family: ${({ $fontFamily }) => $fontFamily};
   font-weight: ${({ $weight }) => $weight};
@@ -33,12 +34,17 @@ const StyledText = styled(Text)<{
 
   @media (max-width: ${BREAKPOINTS.SMALL}) {
     font-size: ${({ mobileFontSize }) => `${mobileFontSize}px`};
+    line-height: ${({ mobileLineHeight }) => mobileLineHeight};
   }
 `;
 
 const PreviewText = ({ previewText }: PreviewTextProps) => {
   const mobileFontSize = useCallback((size: number) => {
-    return size > 16 ? size : size / 2;
+    return size <= 16 ? size : size * 0.6;
+  }, []);
+
+  const mobileLineHeight = useCallback((lineHeight: number) => {
+    return lineHeight ? lineHeight * 1.2 : 1.2;
   }, []);
 
   return (
@@ -53,7 +59,8 @@ const PreviewText = ({ previewText }: PreviewTextProps) => {
         $size={previewText.size}
         $slant={previewText.slant.title}
         $weight={previewText.weight.value}
-        mobileFontSize={mobileFontSize(previewText.size)}>
+        mobileFontSize={mobileFontSize(previewText.size)}
+        mobileLineHeight={mobileLineHeight(previewText.lineHeight)}>
         {previewText.text.text}
       </StyledText>
     </Wrapper>
