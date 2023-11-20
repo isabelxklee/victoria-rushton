@@ -17,7 +17,7 @@ import {
 } from '../styles';
 
 const IntroWrapper = styled(Flex)`
-  padding: 120px 0;
+  padding-top: 120px;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     flex-direction: column;
@@ -48,6 +48,8 @@ const PressWrapper = styled.div`
   width: calc(100vw - 160px);
   margin-left: calc(50% - 50vw);
   padding: 80px;
+  bottom: -80px;
+  position: relative;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     padding: 40px;
