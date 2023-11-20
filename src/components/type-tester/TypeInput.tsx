@@ -41,6 +41,10 @@ const Wrapper = styled(Flex)`
 const SizeWrapper = styled(Flex)`
   align-items: center;
   gap: 20px;
+
+  @media (max-width: ${BREAKPOINTS.SMALL}) {
+    justify-content: space-between;
+  }
 `;
 
 const Slider = styled.input`
@@ -52,25 +56,11 @@ const Slider = styled.input`
     border-radius: 100px;
   }
 
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: ${COLORS.WHITE};
-    height: 34px;
-    width: 34px;
-
-    /* border-radius: 100px;
-    border: 2px solid #f4f4f4;
-    background: #1e1e1e;
-    -webkit-appearance: none;
-    appearance: none;
-    cursor: pointer; */
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    width: 250px;
   }
 
-  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+  @media (max-width: ${BREAKPOINTS.SMALL}) {
     width: 100%;
   }
 `;
@@ -94,6 +84,7 @@ const TypeInput = ({ setPreviewText, setSize }: TypeInputProps) => {
       <SizeWrapper>
         <label>Size</label>
         <Slider
+          id="slider"
           max="100"
           min="14"
           type="range"

@@ -5,6 +5,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import FontHero from '../components/FontHero';
 import PageTemplate from '../components/PageTemplate';
 
+import '../app.css';
+
 export interface FontType {
   heroCopy: {
     heroCopy: string;
