@@ -40,7 +40,7 @@ const StyledText = styled(Text)<{
 
 const PreviewText = ({ previewText }: PreviewTextProps) => {
   const mobileFontSize = useCallback((size: number) => {
-    return size <= 16 ? size : size * 0.6;
+    return size <= 24 ? size : size * 0.6;
   }, []);
 
   const mobileLineHeight = useCallback((lineHeight: number) => {
