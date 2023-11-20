@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
 import { BREAKPOINTS, Text } from '../styles';
@@ -22,6 +22,7 @@ const StyledText = styled(Text)<{
   $size: number;
   $slant: string;
   $weight: number;
+  mobileFontSize: number;
 }>`
   font-family: ${({ $fontFamily }) => $fontFamily};
   font-weight: ${({ $weight }) => $weight};
@@ -29,9 +30,17 @@ const StyledText = styled(Text)<{
   font-size: ${({ $size }) => `${$size}px`};
   line-height: ${({ $lineHeight }) => $lineHeight};
   margin: 20px 0;
+
+  @media (max-width: ${BREAKPOINTS.SMALL}) {
+    font-size: ${({ mobileFontSize }) => `${mobileFontSize}px`};
+  }
 `;
 
 const PreviewText = ({ previewText }: PreviewTextProps) => {
+  const mobileFontSize = useCallback((size: number) => {
+    return size > 16 ? size : size / 2;
+  }, []);
+
   return (
     <Wrapper>
       <Text>
@@ -43,7 +52,8 @@ const PreviewText = ({ previewText }: PreviewTextProps) => {
         $lineHeight={previewText.lineHeight}
         $size={previewText.size}
         $slant={previewText.slant.title}
-        $weight={previewText.weight.value}>
+        $weight={previewText.weight.value}
+        mobileFontSize={mobileFontSize(previewText.size)}>
         {previewText.text.text}
       </StyledText>
     </Wrapper>
