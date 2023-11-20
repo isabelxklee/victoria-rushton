@@ -16,11 +16,13 @@ const Footer = () => {
     <Wrapper>
       <SmallText>
         Victoria Rushton 2023. See me on{' '}
-        <ExternalLink light={true} url="/">
+        <ExternalLink light={true} url="https://twitter.com/victoriaalissia">
           Twitter
         </ExternalLink>{' '}
         and{' '}
-        <ExternalLink light={true} url="/about">
+        <ExternalLink
+          light={true}
+          url="https://www.instagram.com/victoriaalissia/">
           Instagram
         </ExternalLink>
         .
