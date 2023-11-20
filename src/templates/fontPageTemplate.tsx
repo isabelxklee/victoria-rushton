@@ -63,9 +63,10 @@ const Wrapper = styled.div`
   padding: 20px 0;
 `;
 
-const PreviewWrapper = styled.div`
+const PreviewWrapper = styled.div<{ $hideBorderBottom?: boolean }>`
   padding: 100px 0 0 0;
-  border-bottom: 2px solid ${COLORS.BLACK};
+  border-bottom: ${({ $hideBorderBottom }) =>
+    $hideBorderBottom ? 'unset' : `2px solid ${COLORS.BLACK}`};
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     padding: 40px 0;
@@ -167,7 +168,7 @@ const FontPageTemplate = ({ data }: FontPageTemplateProps) => {
           </SecondaryButton>
         </ButtonGroup>
       </Wrapper>
-      <PreviewWrapper>
+      <PreviewWrapper $hideBorderBottom={font.slug === 'cecilie-sans'}>
         {previewTexts.map((text: PreviewTextItem, index: number) => (
           <PreviewText key={index} previewText={text} />
         ))}
