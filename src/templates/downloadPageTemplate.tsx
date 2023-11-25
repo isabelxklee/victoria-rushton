@@ -7,7 +7,7 @@ import DownloadForm from '../components/DownloadForm';
 import PageTemplate from '../components/PageTemplate';
 
 const Wrapper = styled.div`
-  padding: 60px 0;
+  padding: 120px 160px 160px 160px;
 `;
 
 interface DownloadTrialFontsProps {
