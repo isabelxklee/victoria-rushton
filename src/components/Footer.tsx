@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS, Flex, SmallText } from '../styles';
+import { BREAKPOINTS, COLORS, Flex, SmallText } from '../styles';
 
 import { ExternalLink } from './Links';
 
@@ -9,6 +9,10 @@ const Wrapper = styled(Flex)`
   background-color: ${COLORS.BLACK};
   color: ${COLORS.WHITE};
   padding: 20px 40px;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 20px;
+  }
 `;
 
 const Footer = () => {
