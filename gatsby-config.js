@@ -14,7 +14,7 @@ module.exports = {
         short_name: 'Victoria Rushton',
         start_url: '/',
         display: 'standalone',
-        icon: 'src/assets/favicon.ico'
+        icon: 'src/assets/favicon.png'
       }
     },
     {
