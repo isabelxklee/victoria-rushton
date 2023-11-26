@@ -60,6 +60,7 @@ const PressWrapper = styled.div`
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     padding: 40px;
     width: calc(100vw - 80px);
+    bottom: -40px;
   }
 `;
 
