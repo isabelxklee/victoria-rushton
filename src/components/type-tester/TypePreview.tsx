@@ -110,7 +110,6 @@ const TypeTesterPreview = ({
               {fontOption.weightTitle}{' '}
               {fontOption.slant !== 'Roman' && fontOption.slant}
             </p>
-            <p>{fontOption.weightValue}</p>
           </Top>
           <Bottom>
             <PreviewText
