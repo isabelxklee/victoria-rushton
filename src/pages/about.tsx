@@ -22,8 +22,12 @@ const IntroWrapper = styled(Flex)`
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     flex-direction: column;
     align-items: center;
-    padding: 60px 0;
-    text-align: center;
+    gap: 30px;
+    padding: 60px 40px 0 40px;
+  }
+
+  @media (max-width: ${BREAKPOINTS.SMALL}) {
+    padding: 60px 0 0 0;
   }
 `;
 
