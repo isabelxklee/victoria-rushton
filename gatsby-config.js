@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'victoria-rushton',
-    siteUrl: 'https://victoria-rushton.netlify.app'
+    description: 'Victoria designs typefaces and lettering.',
+    image: '',
+    siteUrl: 'https://victoriarushton.com/'
   },
   plugins: [
     {
