@@ -1,12 +1,22 @@
 module.exports = {
   siteMetadata: {
-    title: 'victoria-rushton',
+    title: 'Victoria Rushton',
     description: 'Victoria designs typefaces and lettering.',
     image:
       'https://images.ctfassets.net/6l1e28rigfdw/7vjxcGYV1MEG0Oztauw0lV/0d41829ba60fb76627c5a2871409c3e2/Screenshot_2023-11-25_at_11.48.02_PM.png',
     siteUrl: 'https://victoriarushton.com/'
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Victoria Rushton',
+        short_name: 'Victoria Rushton',
+        start_url: '/',
+        display: 'standalone',
+        icon: 'src/assets/favicon.ico'
+      }
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: {
