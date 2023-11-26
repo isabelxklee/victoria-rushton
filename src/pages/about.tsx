@@ -36,7 +36,6 @@ const ProfilePic = styled.img`
   width: 280px;
   height: 280px;
   object-fit: cover;
-  border: 2px solid ${COLORS.BLACK};
   margin: 40px 80px 20px 0;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
