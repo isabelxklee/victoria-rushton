@@ -41,6 +41,9 @@ const ProfilePic = styled.img`
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     margin: 0;
+  }
+
+  @media (max-width: ${BREAKPOINTS.SMALL}) {
     width: 200px;
     height: 200px;
   }
