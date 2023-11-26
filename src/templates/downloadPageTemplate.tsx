@@ -5,9 +5,14 @@ import styled from 'styled-components';
 import Confirmation from '../components/Confirmation';
 import DownloadForm from '../components/DownloadForm';
 import PageTemplate from '../components/PageTemplate';
+import { BREAKPOINTS } from '../styles';
 
 const Wrapper = styled.div`
   padding: 120px 160px 160px 160px;
+
+  @media (max-width: ${BREAKPOINTS.MEDIUM}) {
+    padding: 60px 0;
+  }
 `;
 
 interface DownloadTrialFontsProps {
@@ -20,7 +25,7 @@ interface DownloadTrialFontsProps {
 }
 
 const DownloadTrialFonts = ({ data }: DownloadTrialFontsProps) => {
-  const [emailSent, setEmailSent] = useState(false);
+  const [emailSent, setEmailSent] = useState(true);
   const font = data.contentfulFont;
 
   useEffect(() => {
