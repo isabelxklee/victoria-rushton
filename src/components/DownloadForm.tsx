@@ -63,7 +63,7 @@ const DownloadForm = ({ font, setEmailSent }: DownloadFormProps) => {
   const assets = data.allContentfulAsset.nodes;
 
   const zipFolder = useMemo(() => {
-    const filename = font.split(' ').join('-');
+    const filename = `${font.split(' ').join('-')}-TRIAL`;
     return assets.find(
       (asset: any) =>
         asset.filename.includes(filename) &&
