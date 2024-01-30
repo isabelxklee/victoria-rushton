@@ -10,13 +10,11 @@ const Wrapper = styled(Flex)`
   color: ${COLORS.WHITE};
   padding: 20px 40px;
   height: 28px;
+  bottom: 0;
+  position: relative;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     padding: 20px;
-  }
-
-  @media (max-width: ${BREAKPOINTS.SMALL}) {
-    height: 48px;
   }
 `;
 
