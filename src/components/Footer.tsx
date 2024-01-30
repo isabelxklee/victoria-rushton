@@ -9,9 +9,14 @@ const Wrapper = styled(Flex)`
   background-color: ${COLORS.BLACK};
   color: ${COLORS.WHITE};
   padding: 20px 40px;
+  height: 28px;
 
   @media (max-width: ${BREAKPOINTS.MEDIUM}) {
     padding: 20px;
+  }
+
+  @media (max-width: ${BREAKPOINTS.SMALL}) {
+    height: 48px;
   }
 `;
 
