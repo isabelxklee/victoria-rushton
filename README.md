@@ -19,3 +19,10 @@ $ npm start
 ```
 
 4. Navigate to `http://localhost:8000`.
+
+## Stack
+- React.js
+- Gatsby.js
+- Typescript
+- Styled components
+- Formik and Yup
