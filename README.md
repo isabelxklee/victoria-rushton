@@ -15,7 +15,7 @@ $ npm install
 3. Start Gatsby server.
 
 ```
-$ npm run start
+$ npm start
 ```
 
 4. Navigate to `http://localhost:8000`.
