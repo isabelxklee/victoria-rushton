@@ -1,10 +1,7 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c1f4fd9a-1f85-4879-b3fa-1bc79bfeb309/deploy-status)](https://app.netlify.com/sites/guileless-figolla-0f7cfd/deploys)
+
 <h1 align="center">
-  Gatsby Minimal Starter
+  Victoria Rushton Typography Portfolio 🎨
 </h1>
 
 ## 🚀 Quick start
